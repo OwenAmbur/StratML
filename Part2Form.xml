@@ -1880,10 +1880,10 @@ Unit Of Measurement:
 </xf:submit> -->
 
 <xf:submit submission="s02">
-	<xf:label>XML</xf:label>
+  <xf:label>Plain XML</xf:label>
 </xf:submit>
 <xf:submit submission="s03">
-	<xf:label>XML+XSL</xf:label>
+	<xf:label>With Style</xf:label>
 </xf:submit>
 
 <!--
@@ -1913,11 +1913,12 @@ Unit Of Measurement:
 <xf:submit submission="catalog-xform">
 	<xf:label>Catalog</xf:label>
 </xf:submit> -->
-
+<!-- Hidden 2019-04-03 
 <xf:trigger>
 	<xf:label>Reset</xf:label>
 	<xf:reset ev:event="DOMActivate"/>
 </xf:trigger>
+-->
 </center>
 <p></p>
 </td></tr>

@@ -1,10 +1,9 @@
 
+<h2>Strat ML</h2>
 
+<p> This is a fork of Owens https://github.com/OwenAmbur/StratML/projects </p>
 
-```html
-<h1>StratML</h1>
+<p>You can check the temporal work here or directly in the oficial Owens repo</p>
 
-<p>
-Main Stable Form at <a href="Part2Form.xml"  >Part 2</a>
-</p>
-```
+<p>Actual Part2 Form is at <a href="Part2Form.xml" >Part2Form.xml</a></p>
+

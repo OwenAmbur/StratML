@@ -92,10 +92,10 @@ td {vertical-align: top;}
 		<Identifier></Identifier>
 		<Description></Description>
 		<Stakeholder StakeholderTypeType="">
-			<Name>[To be named]</Name>
+			<Name></Name>
 			<Description></Description>
                 <Role>
-                    <Name>[To be named]</Name>
+                    <Name></Name>
                     <Description></Description>
                     <RoleType></RoleType>
                 </Role>
@@ -115,15 +115,15 @@ td {vertical-align: top;}
 	</Value>
 				
 	 <Goal>
-		<Name>[To be named]</Name>
-		<Description>[To be described]</Description>
+		<Name></Name>
+		<Description></Description>
 		<Identifier></Identifier>
 		<SequenceIndicator>1</SequenceIndicator> 
 		 <Stakeholder StakeholderTypeType="">
-			<Name>[To be named]</Name> 
+			<Name></Name> 
 			<Description></Description> 
                 <Role>
-                    <Name>[To be named]</Name>
+                    <Name></Name>
                     <Description></Description>
                     <RoleType></RoleType>
                 </Role>
@@ -135,10 +135,10 @@ td {vertical-align: top;}
 			<Identifier></Identifier>				
 			<SequenceIndicator></SequenceIndicator> 
 			<Stakeholder StakeholderTypeType="">
-				<Name>[To be named]</Name> 
+				<Name></Name> 
 				<Description></Description> 
                 <Role>
-                    <Name>[To be named]</Name>
+                    <Name></Name>
                     <Description></Description>
                     <RoleType></RoleType>
                 </Role>
@@ -217,12 +217,12 @@ td {vertical-align: top;}
 <!-- xf:bind nodeset="TargetResult/NumberOfUnits" calculate="sum(TargetResult/NumberOfUnits)" type="xsd:decimal"/>
 <xf:bind nodeset="ActualResult/NumberOfUnits" calculate="sum(ActualResult/NumberOfUnits)" type="xsd:decimal"/ -->
 
-<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Name" required="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name" required="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Name" required="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name" required="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="false()"  type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name"  type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="false()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier" readonly="true()" type="xsd:string"/>
 
@@ -234,7 +234,7 @@ td {vertical-align: top;}
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier" readonly="true()" type="xsd:string"/>
 
 
-<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="false()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Name" required="true()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Description" required="true()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Description" required="true()" type="xf:string"/>
@@ -626,7 +626,7 @@ Plan or Report Type:
 	<xf:label>Add Role</xf:label>
        	<xf:action ev:event="DOMActivate">
 		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
+		<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
 		        			        	
@@ -656,7 +656,7 @@ Plan or Report Type:
 	<xf:label>Add Stakeholder</xf:label>
        	<xf:action ev:event="DOMActivate">
 		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
+		<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
 		        			        	
 		<!--	<xf:insert nodeset="Stakeholder" at="index('orgstakerepeat')" position="after"/>
@@ -689,7 +689,7 @@ Plan or Report Type:
 		<xf:setvalue ref=".[current()]/Acronym"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Identifier"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
-		<xf:setvalue ref=".[current()]/Stakeholder/Name">[To be named]</xf:setvalue>
+		<xf:setvalue ref=".[current()]/Stakeholder/Name"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Stakeholder/Description"></xf:setvalue>
 	</xf:action>
 </xf:trigger>
@@ -948,7 +948,7 @@ Plan or Report Type:
 	<xf:label>Add Role</xf:label>
        	<xf:action ev:event="DOMActivate">
 		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
+		<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
 		        			        	
@@ -1235,7 +1235,7 @@ Plan or Report Type:
  <xf:group><xf:repeat id="perfindrepeat" nodeset="PerformanceIndicator" appearance="compact">
  <table>
  <tr>
- <td colspan="2"><h3>Performance Indicator <xf:output value="position()"/>:</h3></td></tr>
+ <td colspan="2"><h3>Performance Indicator <xf:output value="position()"/> :</h3></td></tr>
  <tr valign="top"><td style="font-weight:bold;">Sequence Indicator: </td>
  <td><xf:input class="Source" ref="SequenceIndicator" /></td>
  </tr>

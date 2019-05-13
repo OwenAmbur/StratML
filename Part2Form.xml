@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- ................................................
-
 	Remember to point to the right Xslt Forms distribution folder 
 	in the line below. Usually xsltforms/xsltforms.xsl	
 	Xslt Forms is mantained by Alain Couthures (Agence Xml).
-
 ..................................................-->
 <?xml-stylesheet href="lib/xsltforms/1.3-652/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
@@ -176,7 +174,8 @@ td {vertical-align: top;}
                                  <NumberOfUnits></NumberOfUnits>
                                  <StartDate/>
                                  <EndDate/>
-                              </ActualResult>
+</ActualResult>
+
                       </MeasurementInstance>
                     <OtherInformation></OtherInformation>
                 </PerformanceIndicator>
@@ -527,7 +526,7 @@ Plan or Report Type:
 <xf:group>
 	<xf:repeat id="orgstakerepeat" nodeset="Stakeholder" appearance="compact">
 	<table>
-	<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of Organization:</h3></td></tr>
+	<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of Organization:</h3></td></tr>
 
       <tr valign="top"><td><b>Stakeholder Type: </b></td><td>
            <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
@@ -564,7 +563,7 @@ Plan or Report Type:
 	      <xf:repeat id="orgrolerepeat" nodeset="Role" appearance="compact">
 
         <table>
-	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
+	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
 
 	<tr valign="top">
           <td><b>Role Name: </b></td>
@@ -846,7 +845,7 @@ Plan or Report Type:
 <xf:repeat id="goalstakerepeat" nodeset="Stakeholder" appearance="compact">
 <table>
 
-<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of Goal <xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>: </h3></td></tr>
+<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of Goal <xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>: </h3></td></tr>
       <tr valign="top"><td><b>Stakeholder Type: </b></td><td>
            <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
                 <xf:item>
@@ -886,7 +885,7 @@ Plan or Report Type:
 	      <xf:repeat id="goalrolerepeat" nodeset="Role" appearance="compact">
 
         <table>
-	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
+	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
 
 	<tr valign="top">
           <td><b>Role Name: </b></td>
@@ -1021,7 +1020,7 @@ Plan or Report Type:
 <xf:group>
 <xf:repeat id="objectiverepeat" nodeset="Objective" appearance="compact">
 <table>
-<tr><td colspan="2"><h3>Objective <xf:output value="position()"/>  of  Goal  <xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>:</h3></td></tr>
+<tr><td colspan="2"><h3>Objective <xf:output value="position()"/>  of  Goal  <xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>:</h3></td></tr>
 
 <tr><td><b>Objective Name: </b></td><td>
 <xf:input class="Source" ref="Name">
@@ -1053,7 +1052,7 @@ Plan or Report Type:
 <xf:group>
 <xf:repeat id="objstakerepeat" nodeset="Stakeholder" appearance="compact">
 <table>
-<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of this Objective:</h3></td></tr>
+<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of this Objective:</h3></td></tr>
 
       <tr valign="top"><td><b>Stakeholder Type: </b></td><td>
            <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
@@ -1096,7 +1095,7 @@ Plan or Report Type:
 	      <xf:repeat id="objrolerepeat" nodeset="Role" appearance="compact">
 
         <table>
-	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
+	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
 
 	<tr valign="top">
           <td><b>Role Name: </b></td>
@@ -1235,7 +1234,9 @@ Plan or Report Type:
  <xf:group><xf:repeat id="perfindrepeat" nodeset="PerformanceIndicator" appearance="compact">
  <table>
  <tr>
- <td colspan="2"><h3>Performance Indicator <xf:output value="position()"/> :</h3></td></tr>
+<td colspan="2"><h3>Performance Indicator <xf:output value="count(./../parent::*/preceding-sibling::Goal) + 1"/>
+. <xf:output value="count(parent::*/preceding-sibling::Objective) + 1"/>
+. <xf:output value="position()"/>  :</h3></td></tr>
  <tr valign="top"><td style="font-weight:bold;">Sequence Indicator: </td>
  <td><xf:input class="Source" ref="SequenceIndicator" /></td>
  </tr>
@@ -1890,7 +1891,6 @@ Unit Of Measurement:
 <!-- <xf:submit submission="s04">
 	<xf:label>Save As</xf:label>
 </xf:submit>
-
 <xf:submit submission="s01">
 	<xf:label>View</xf:label>
 </xf:submit> -->
@@ -1910,7 +1910,6 @@ Unit Of Measurement:
 <xf:submit submission="gannon">
 	<xf:label>Summary</xf:label>
 </xf:submit>
-
 <xf:submit submission="colin">
 	<xf:label>XML+XSL-new</xf:label>
 </xf:submit>

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<!-- ................................................
+	Remember to point to the right Xslt Forms distribution folder 
+	in the line below. Usually xsltforms/xsltforms.xsl	
+	Xslt Forms is mantained by Alain Couthures (Agence Xml).
+..................................................-->
+<?xml-stylesheet href="lib/xsltforms/1.3-652/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:xf="http://www.w3.org/2002/xforms"
@@ -85,10 +90,10 @@ td {vertical-align: top;}
 		<Identifier></Identifier>
 		<Description></Description>
 		<Stakeholder StakeholderTypeType="">
-			<Name>[To be named]</Name>
+			<Name></Name>
 			<Description></Description>
                 <Role>
-                    <Name>[To be named]</Name>
+                    <Name></Name>
                     <Description></Description>
                     <RoleType></RoleType>
                 </Role>
@@ -108,15 +113,15 @@ td {vertical-align: top;}
 	</Value>
 				
 	 <Goal>
-		<Name>[To be named]</Name>
-		<Description>[To be described]</Description>
+		<Name></Name>
+		<Description></Description>
 		<Identifier></Identifier>
 		<SequenceIndicator>1</SequenceIndicator> 
 		 <Stakeholder StakeholderTypeType="">
-			<Name>[To be named]</Name> 
+			<Name></Name> 
 			<Description></Description> 
                 <Role>
-                    <Name>[To be named]</Name>
+                    <Name></Name>
                     <Description></Description>
                     <RoleType></RoleType>
                 </Role>
@@ -128,10 +133,10 @@ td {vertical-align: top;}
 			<Identifier></Identifier>				
 			<SequenceIndicator></SequenceIndicator> 
 			<Stakeholder StakeholderTypeType="">
-				<Name>[To be named]</Name> 
+				<Name></Name> 
 				<Description></Description> 
                 <Role>
-                    <Name>[To be named]</Name>
+                    <Name></Name>
                     <Description></Description>
                     <RoleType></RoleType>
                 </Role>
@@ -169,7 +174,8 @@ td {vertical-align: top;}
                                  <NumberOfUnits></NumberOfUnits>
                                  <StartDate/>
                                  <EndDate/>
-                              </ActualResult>
+</ActualResult>
+
                       </MeasurementInstance>
                     <OtherInformation></OtherInformation>
                 </PerformanceIndicator>
@@ -210,12 +216,12 @@ td {vertical-align: top;}
 <!-- xf:bind nodeset="TargetResult/NumberOfUnits" calculate="sum(TargetResult/NumberOfUnits)" type="xsd:decimal"/>
 <xf:bind nodeset="ActualResult/NumberOfUnits" calculate="sum(ActualResult/NumberOfUnits)" type="xsd:decimal"/ -->
 
-<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Name" required="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name" required="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name" required="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Name" required="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name" required="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="false()"  type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name"  type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="false()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier" readonly="true()" type="xsd:string"/>
 
@@ -227,7 +233,7 @@ td {vertical-align: top;}
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier" readonly="true()" type="xsd:string"/>
 
 
-<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="false()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Name" required="true()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Description" required="true()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Description" required="true()" type="xf:string"/>
@@ -275,6 +281,14 @@ Count = <xf:output value="count(//node()[not(is-valid(.))])"/> <br/>
 <xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
 
 </xf:submission>
+
+
+<xf:submission id="scomment" show="new" method="post" action="http://stratml.us/forms/showpart2postcomment.pl">
+<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
+</xf:submission>
+
+
+
 
 
 <xf:submission id="gannon" show="new" method="post" action="../cgi-bin/gannon.pl">
@@ -512,7 +526,7 @@ Plan or Report Type:
 <xf:group>
 	<xf:repeat id="orgstakerepeat" nodeset="Stakeholder" appearance="compact">
 	<table>
-	<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of Organization:</h3></td></tr>
+	<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of Organization:</h3></td></tr>
 
       <tr valign="top"><td><b>Stakeholder Type: </b></td><td>
            <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
@@ -549,7 +563,7 @@ Plan or Report Type:
 	      <xf:repeat id="orgrolerepeat" nodeset="Role" appearance="compact">
 
         <table>
-	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
+	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
 
 	<tr valign="top">
           <td><b>Role Name: </b></td>
@@ -611,7 +625,7 @@ Plan or Report Type:
 	<xf:label>Add Role</xf:label>
        	<xf:action ev:event="DOMActivate">
 		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
+		<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
 		        			        	
@@ -641,7 +655,7 @@ Plan or Report Type:
 	<xf:label>Add Stakeholder</xf:label>
        	<xf:action ev:event="DOMActivate">
 		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
+		<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
 		        			        	
 		<!--	<xf:insert nodeset="Stakeholder" at="index('orgstakerepeat')" position="after"/>
@@ -674,7 +688,7 @@ Plan or Report Type:
 		<xf:setvalue ref=".[current()]/Acronym"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Identifier"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
-		<xf:setvalue ref=".[current()]/Stakeholder/Name">[To be named]</xf:setvalue>
+		<xf:setvalue ref=".[current()]/Stakeholder/Name"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Stakeholder/Description"></xf:setvalue>
 	</xf:action>
 </xf:trigger>
@@ -831,7 +845,7 @@ Plan or Report Type:
 <xf:repeat id="goalstakerepeat" nodeset="Stakeholder" appearance="compact">
 <table>
 
-<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of Goal <xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>: </h3></td></tr>
+<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of Goal <xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>: </h3></td></tr>
       <tr valign="top"><td><b>Stakeholder Type: </b></td><td>
            <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
                 <xf:item>
@@ -871,7 +885,7 @@ Plan or Report Type:
 	      <xf:repeat id="goalrolerepeat" nodeset="Role" appearance="compact">
 
         <table>
-	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
+	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
 
 	<tr valign="top">
           <td><b>Role Name: </b></td>
@@ -933,7 +947,7 @@ Plan or Report Type:
 	<xf:label>Add Role</xf:label>
        	<xf:action ev:event="DOMActivate">
 		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
+		<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
 		        			        	
@@ -1006,7 +1020,7 @@ Plan or Report Type:
 <xf:group>
 <xf:repeat id="objectiverepeat" nodeset="Objective" appearance="compact">
 <table>
-<tr><td colspan="2"><h3>Objective <xf:output value="position()"/>  of  Goal  <xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>:</h3></td></tr>
+<tr><td colspan="2"><h3>Objective <xf:output value="position()"/>  of  Goal  <xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>:</h3></td></tr>
 
 <tr><td><b>Objective Name: </b></td><td>
 <xf:input class="Source" ref="Name">
@@ -1038,7 +1052,7 @@ Plan or Report Type:
 <xf:group>
 <xf:repeat id="objstakerepeat" nodeset="Stakeholder" appearance="compact">
 <table>
-<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of this Objective:</h3></td></tr>
+<tr><td colspan="2"><h3>Stakeholder <xf:output value="position()"/>  of this Objective:</h3></td></tr>
 
       <tr valign="top"><td><b>Stakeholder Type: </b></td><td>
            <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
@@ -1081,7 +1095,7 @@ Plan or Report Type:
 	      <xf:repeat id="objrolerepeat" nodeset="Role" appearance="compact">
 
         <table>
-	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
+	<tr><td colspan="2"><h3>Role <xf:output value="position()"/>  of Stakeholder:</h3></td></tr>
 
 	<tr valign="top">
           <td><b>Role Name: </b></td>
@@ -1218,11 +1232,14 @@ Plan or Report Type:
 <td/>
 <td>
  <xf:group><xf:repeat id="perfindrepeat" nodeset="PerformanceIndicator" appearance="compact">
-
  <table>
  <tr>
- <td colspan="2"><h3>Performance Indicator <xf:output value="position()"/>:</h3></td></tr>
-
+<td colspan="2"><h3>Performance Indicator <xf:output value="count(./../parent::*/preceding-sibling::Goal) + 1"/>
+. <xf:output value="count(parent::*/preceding-sibling::Objective) + 1"/>
+. <xf:output value="position()"/>  :</h3></td></tr>
+ <tr valign="top"><td style="font-weight:bold;">Sequence Indicator: </td>
+ <td><xf:input class="Source" ref="SequenceIndicator" /></td>
+ </tr>
  <tr valign="top"><td style="font-weight:bold;">Indicator Type: </td>
  <td><xf:select1 class="Source" ref="@PerformanceIndicatorType" appearance="minimal">
  <xf:label/>
@@ -1874,23 +1891,25 @@ Unit Of Measurement:
 <!-- <xf:submit submission="s04">
 	<xf:label>Save As</xf:label>
 </xf:submit>
-
 <xf:submit submission="s01">
 	<xf:label>View</xf:label>
 </xf:submit> -->
 
 <xf:submit submission="s02">
-	<xf:label>XML</xf:label>
+  <xf:label>Plain XML</xf:label>
 </xf:submit>
 <xf:submit submission="s03">
-	<xf:label>XML+XSL</xf:label>
+	<xf:label>With Style</xf:label>
 </xf:submit>
+<xf:submit submission="scomment">
+	<xf:label>For Comment</xf:label>
+</xf:submit>
+
 
 <!--
 <xf:submit submission="gannon">
 	<xf:label>Summary</xf:label>
 </xf:submit>
-
 <xf:submit submission="colin">
 	<xf:label>XML+XSL-new</xf:label>
 </xf:submit>
@@ -1913,11 +1932,12 @@ Unit Of Measurement:
 <xf:submit submission="catalog-xform">
 	<xf:label>Catalog</xf:label>
 </xf:submit> -->
-
+<!-- Hidden 2019-04-03 
 <xf:trigger>
 	<xf:label>Reset</xf:label>
 	<xf:reset ev:event="DOMActivate"/>
 </xf:trigger>
+-->
 </center>
 <p></p>
 </td></tr>

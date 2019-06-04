@@ -30,14 +30,16 @@
   </head>
   <body>
     <header>
-      <H1>
-	<img  class="title-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
+      <h1>
+	<img  class="title-logo" width="80px" src="img/organization_logo_white.svg" alt="StratML logo"/>
+	<xf:output ref="instance('messages')/message[key/text()='organization-information']/value"/>
+	<img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
+      </h1>	
 	
-      <xf:output ref="instance('messages')/message[key/text()='organization-information']/value"/></H1>
-      <!--
-	  <H2>Sharing organizational goals, objectives, and performance indicators</H2>
-      -->
-      <div id="subheader"> 
+	<!--
+	    <H2>Sharing organizational goals, objectives, and performance indicators</H2>
+	-->
+	<div id="subheader"> 
 	<div id="breadcrumb"> &gt; 
 	<a href="0_mainform.xml">Create Plan</a> &gt; 
 	<a href="3_organization.xml">3. Organization</a> 	
@@ -291,41 +293,51 @@
 <!-- Values -->
 <!-- /TODO : Revisar posicion de los valores -->
 <div class="line" >
-<xf:label>
-	
-  <xf:output value="count(//Value)"/>. <xf:output ref="instance('messages')/message[key/text()='values']/value"/>
+<xf:label>	
+  <xf:output value="count(//Value)"/>.<xf:output ref="instance('messages')/message[key/text()='values']/value"/>
 </xf:label>	 
  
 <ul>
   <xf:group>	
-    <xf:repeat id="valuerepeat" ref="//Value" appearance="compact">
-      <xf:output ref="instance('messages')/message[key/text()='values']/value"/> <xf:output value="' '"/><xf:output value="position()"/>
-      <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
-      <xf:input class="Source" ref="Name" />
-        <xf:trigger>
-    <xf:label>X</xf:label>
-    <xf:delete nodeset="." at="1" if="count(//Value) > 1"   ev:event="DOMActivate" />
-  </xf:trigger>
+    <xf:repeat id="valuerepeat" ref="instance('default')//Value" appearance="compact">
+      <div class="line" >
+	<xf:label class="linefirstitem" >
+	  <!--
+	  <xf:output ref="instance('messages')/message[key/text()='values']/value"/> 
+	  <xf:output value="' '"/> -->
+	  <xf:output value="position()"/>
+	  <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
+	  <xf:input class="Source" ref="Name" />
+	</xf:label>
+	  <xf:trigger  class="default-button lineitem">
+	<xf:label>X</xf:label>
+	<xf:delete nodeset="." at="1" if="count(//Value) > 1"   ev:event="DOMActivate" />
+      </xf:trigger>
+      </div>
+	<div class="line" >
+	<xf:label class="singleitem" >
+
       <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
       <xf:textarea rows="6" class="textarea" ref="Description">
       </xf:textarea>
-      
+	</xf:label>
+	</div>
     </xf:repeat>
     
-    <fieldset>
-      <xf:trigger>
+    <fieldset class="default-button">
+      <xf:trigger class="default-button">
 	<xf:label>
 	  <xf:output ref="instance('messages')/message[key/text()='add']/value"/>
 	  <xf:output ref="instance('messages')/message[key/text()='value']/value"/>
 	</xf:label>
-	  <xf:action ev:event="DOMActivate">		        	
-	    <xf:insert origin="instance('template')//Value" context="." at="last()" position="after" />		   
-	    <xf:setvalue ref=".[current()]/Name"></xf:setvalue>
-	    <xf:setvalue ref=".[current()]/Description"></xf:setvalue>
-	  </xf:action>
-	</xf:trigger>
-      </fieldset>
-      
+	<xf:action ev:event="DOMActivate">		        	
+	  <xf:insert origin="instance('template')//Value" context="." at="last()" position="before" />
+	  <xf:setvalue ref=".[current()]/Name"></xf:setvalue>
+	  <xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+	</xf:action>
+      </xf:trigger>
+    </fieldset>
+    
   </xf:group>
   
 </ul>

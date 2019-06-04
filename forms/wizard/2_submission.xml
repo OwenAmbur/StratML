@@ -37,8 +37,13 @@
     <header>
     <!-- ..................... Titles ........................... -->
     <h1>
-	<img  class="title-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
-    <xf:output ref="instance('messages')/message[key/text()='submission-information']/value"/></h1>
+      <!--
+	  <img  class="title-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
+	-->
+      <img  class="title-logo" width="80px" src="img/submission_logo_white.svg" alt="StratML logo"/>
+      <xf:output ref="instance('messages')/message[key/text()='submission-information']/value"/>
+      <img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
+    </h1>
     <div id="subheader"> 
       <div id="breadcrumb"> &gt; 
       <a href="0_mainform.xml">Create Plan</a> &gt; 

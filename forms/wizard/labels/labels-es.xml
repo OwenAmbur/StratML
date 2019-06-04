@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="" lang="es">
+
+<message><key>acronym</key><value>Acr&#243;nimo</value></message>
+
+<message><key>actual-result</key><value>Resultado obtenido</value></message>
+
+<message><key>descriptor-name</key><value>Nombre del descriptor</value></message>
+
+<message><key>target-result</key><value>Resultado esperado</value></message>
+
+<message><key>expected-result</key><value>Resultado esperado</value></message>
+<message><key>end-date</key><value>Fecha de Fin</value></message>
+
+<message><key>start-date</key><value>Fecha de Inicio</value></message>
+
+
+<message><key>error-entry-submission</key><value>Entry Submission Error</value></message>
+
+<message><key>performance-information</key><value>Informes de seguimiento</value></message>
+
+
+
+
+<message><key>plan-report-type</key><value>Tipo de plan o informe</value></message>
+
+<message><key>plan-description</key><value>Descripci&#243;n del plan</value></message>
+<message><key>plan-information</key><value>Informaci&#243;n del plan</value></message>
+<message><key>plan-name</key><value>Nombre del plan</value></message>
+<message><key>plan-source</key><value>Fuente del plan</value></message>
+<message><key>plan-start-date</key><value>Fecha de inicio del plan</value></message>
+<message><key>plan-end-date</key><value>Fecha de fin del plan</value></message>
+<message><key>plan-publication-date</key><value>Fecha de publicaci&#243;n del plan</value></message>
+
+
+<message><key>identifier</key><value>Identificador</value></message>
+<message><key>indicator-type</key><value>Tipo de indicador</value></message>
+
+
+<message><key>link</key><value>Enlace</value></message>
+
+<message><key>name</key><value>Nombre</value></message>
+<message><key>description</key><value>Descripci&#243;n</value></message>
+
+
+<message><key>measurement-instance</key><value>Medici&#243;n</value></message>
+
+
+<message><key>measurement-unit</key><value>Unidad de Medida</value></message>
+<message><key>measurement-dimension</key><value>Escala de medici&#243;</value></message>
+
+
+<message><key>other-information</key><value>Otra informaci&#243;n</value></message>
+
+<message><key>organization</key><value>Organizaci&#243;n</value></message>
+<message><key>organization-information</key><value>Informaci&#243;n de la Organizaci&#243;n</value></message>
+<message><key>organization-name</key><value>Nombre de la Organizaci&#243;n</value></message>
+<message><key>organization-description</key><value>Descripci&#243;n de la Organizaci&#243;n</value></message>
+<message><key>organization-of</key><value> de la Organizaci&#243;n</value></message>
+
+
+
+<message><key>objective</key><value>Objetivo</value></message>
+<message><key>objective-information</key><value>Informaci&#243;n del Objetivo</value></message>
+<message><key>objective-name</key><value>Nombre del Objetivo</value></message>
+<message><key>objective-description</key><value>Descripci&#243;n del Objetivo</value></message>
+<message><key>objective-of</key><value> del Objetivo</value></message>
+
+
+<message><key>other-information</key><value>Otra informaci&#243;n</value></message>
+
+<message><key>performance-indicator</key><value>Indicador de rendimiento</value></message>
+
+
+<message><key>referent</key><value>Referente</value></message>
+<message><key>referent-identifier</key><value>Ientificador del referente</value></message>
+
+
+<message><key>relationship</key><value>Relaci&#243;n</value></message>
+<message><key>relationship-identifier</key><value>Identificador de la relaci&#243;n</value></message>
+
+
+<message><key>role</key><value>Perfil</value></message>
+<message><key>role-information</key><value>Informaci&#243;n del Perfil</value></message>
+<message><key>role-name</key><value>Nombre del Perfil</value></message>
+<message><key>role-description</key><value>Descripci&#243;n del Perfil</value></message>
+<message><key>role-of</key><value> del Perfil</value></message>
+<message><key>role-type</key><value>Tipo de Perfil</value></message>
+
+
+<message><key>performer</key><value>Actor</value></message>
+<message><key>beneficiary</key><value>Beneficiario</value></message>
+
+<message><key>remove</key><value>Eliminar </value></message>
+<message><key>add</key><value>A&#241;adir </value></message>
+
+
+
+<message><key>stakeholder</key><value>Interesado/Stakeholder</value></message>
+<message><key>stakeholder-name</key><value>Nombre del Interesado/Stakeholder</value></message>
+<message><key>stakeholder-information</key><value>Informaci&#243;n Interesado/Stakeholder</value></message>
+<message><key>stakeholder-description</key><value>Descripci&#243;n del Interesado/Stakeholder</value></message>
+<message><key>stakeholder-of</key><value> del Interesado/Stakeholder</value></message>
+<message><key>stakeholder-type</key><value>Tipo de Interesado/Stakeholder</value></message>
+
+<message><key>sequence-indicator</key><value>Indicador de secuencia</value></message>
+
+<message><key>vision</key><value>Visi&#243;n</value></message>
+<message><key>vision-identifier</key><value>Identificador de la Visi&#243;n</value></message>
+<message><key>vision-description</key><value>Descripci&#243;n de la visi&#243;n</value></message>
+
+<message><key>mission</key><value>Misi&#243;n/Prop&#243;sito</value></message>
+<message><key>mission-identifier</key><value>Identificador de la Misi&#243;n/Prop&#243;sito</value></message>
+<message><key>mission-description</key><value>Descripci&#243; de la Misi&#243;n/Prop&#243;sito</value></message>
+
+<message><key>number-of-units</key><value>N&#250;mero de unidades</value></message>
+<message><key>descriptor-value</key><value>Descriptor del valor</value></message>
+
+
+<message><key>value</key><value>Valor</value></message>
+<message><key>values</key><value>Valores</value></message>
+<message><key>value-chain-stage</key><value>Relaci&#243;n con la cadena de valor</value></message>
+
+
+<message><key>goal</key><value>Meta</value></message>
+<message><key>goal-name</key><value>Nombre de la Meta</value></message>
+<message><key>goals</key><value>Metas</value></message>
+<message><key>goals-information</key><value>Metas y objetivos</value></message>
+
+<message><key>goal-identifier</key><value>Identificador de la Meta</value></message>
+<message><key>goal-of</key><value> de la Meta</value></message>
+
+
+
+<message><key>submitter-information</key><value>Informaci&#243;n del remitente</value></message>
+
+<message><key>submission-information</key><value>Informaci&#243;n del env&#237;o</value></message>
+
+
+<message><key>type</key><value>Tipo</value></message>
+
+
+<message><key>given-name</key><value>Nombre</value></message>
+<message><key>surname</key><value>Apellidos</value></message>
+<message><key>email-address</key><value>Correo Electr&#243;nico</value></message>
+<message><key>telephone-number</key><value>N&#250;mero de telefono</value></message>
+
+
+
+
+
+
+
+</messages>
+

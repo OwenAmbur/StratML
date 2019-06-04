@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?stylesheet href="style.css" type="text/css"?>
+<?xsltforms-options debug="no"?>
+<?xsltforms-options css-converson="no"?>
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Style-Type" content="text/plain; charset=us-ascii"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <title>StratML Part 1 to Part 2 XForm</title>
+    <meta name="DC.title" content="StratML Part 1 to Part 2 Conversion XForm"/>
+    <meta name="title" content="Strategic Plan (StratML Part 2) XForm"/>
+    <meta name="DC.subject" scheme="DCTERMS.LCSH" content="Strategic Plans, StratML Part 2, StratML, XForms, XSLTForms, Performance Plans, Performance Reports"/>
+    <meta name="DC.contributor" content="Joe Carmel"/>
+    <meta name="DC.contributor" content="Owen Ambur"/>
+    <meta name="DC.contributor" content="Andre Cusson (hyperbase.com)"/>
+    <meta name="DC.contributor" content="Alain Couthures (agencexml.com)"/>
+    <meta name="DC.contributor" content="Gannon J. Dick (rustprivacy.org)"/>
+    <meta name="DC.contributor" content="Colin Mackenzie (mackenziesolutions.co.uk)"/>
+    <meta name="DC.contributor" content="Ibrahim Shah"/>
+    <meta name="DC.contributor" content="Jorge Sanchez (vionta.net)"/>
+    <meta name="DC.rights" content="Public domain"/>
+    <meta name="DC.rights.accessRights" content="public"/>
+    <meta name="DC.format.medium" scheme="DCTERMS.IMT" content="text/xml"/> 
+    <meta name="medium" content="XForm"/>
+    <meta name="DC.identifier" scheme="DCTERMS.URI" content="http://www.legisworks.org/StratML/"/>
+    <meta name="DC.language" scheme="DCTERMS.RFC3066" content="en-US"/> 
+    <meta http-equiv="Content-Language" content="en-US"/>
+    <meta name="keywords" content="Strategic Plans, StratML, XForms, XSTForms, Performance Plans, Performance Reports"/>
+    <meta name="DC.date" content="2018-08-19"/>
+    <link rel="stylesheet" type="text/css" src="style.css"/>
+    <xf:model>
+      <xf:instance xmlns="" id="template" resource="data/stratml-template.xml" />       
+      <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
+      <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
+      <xf:bind nodeset="AdministrativeInformation/StartDate" type="xf:date"/>
+      <xf:bind nodeset="AdministrativeInformation/EndDate" type="xf:date"/>
+      <xf:bind nodeset="AdministrativeInformation/PublicationDate" type="xf:date"/>
+      <xf:bind nodeset="/PerformancePlanOrReport/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier" readonly="true()" type="xsd:string"/>      
+      <xf:bind nodeset="StrategicPlanCore/Organization/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Vision/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Mission/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Description" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Description" required="true()" type="xf:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorName" type="xf:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorValue" type="xf:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorName" type="xf:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorValue" type="xf:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/NumberOfUnits" type="xf:decimal"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/NumberOfUnits" type="xf:decimal"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/StartDate" type="xf:date"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/EndDate" type="xf:date"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/StartDate" type="xf:date"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/EndDate" type="xf:date"/>
+      <xf:bind ref="instance('config')/identifier" readonly="true()"  />
+      <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
+	<xf:resource value="instance('config')/file/text()"/>
+      </xf:submission>      
+      <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
+	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
+	</xf:message>
+      </xf:submission>
+    </xf:model>
+  </head>
+  <body>
+    <div id="marco">       
+      <xf:group id="subform">
+       <header>
+	<h1>
+	  <!--
+	  <img  class="title-logo" width="80px" src="img/stratml_logo_white.svg" alt="StratML logo"/>
+	  -->
+	    <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>
+	
+	  Performance Plan/Report Form
+	</h1>    
+	<div id="subheader"> 
+	  <div id="breadcrumb"> &gt; <a href="0_mainform.xml">Create Plan</a>
+	  </div>
+	  <xf:select1 ref="instance('config')/file"  id="lang-selector">
+	    <xf:label class="subheader">
+		Language
+	    </xf:label>
+	    <xf:item>
+	      <xf:label>English
+	      </xf:label>
+	      <xf:value>labels/labels-en.xml/
+	      </xf:value> 
+	    </xf:item>
+	    <xf:item>
+	      <xf:label>Spanish
+	      </xf:label>
+	      <xf:value>labels/labels-es.xml
+	      </xf:value>
+	    </xf:item>
+	    <xf:action ev:event="xforms-value-changed">
+	      <xf:send submission="change-language"/>
+	    </xf:action>
+	  </xf:select1>      
+	  <img  id="page-counter"  src="img/counter_5.svg" alt="Step 5"/>
+	</div>
+      </header>
+      <main>
+	<div class="line">
+	<p>The following steps will guide you trough the strategic plan creation process:
+	</p>
+	<ol class="mainform-list">
+	  <li>
+	    <img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
+	    Plan Information
+	  </li>
+	  <li>
+	    <img class="0-mainform-list-icon" src="img/submission-blue-icon.svg" />
+
+	    Submission Information
+	  </li>
+
+	  <li>
+	    <img class="0-mainform-list-icon" src="img/organization-blue-icon.svg" />
+	    Organization
+	  </li>
+	  <li>
+	    <img class="0-mainform-list-icon" src="img/goal-blue-icon.svg" />
+	    Goals and Objetives
+	  </li>
+	  <li>
+	    <img class="0-mainform-list-icon" src="img/performance-blue-icon.svg" />
+	    Performance
+	  </li>
+	</ol>
+	</div>
+      </main>
+    </xf:group>    
+
+    <xf:switch >
+      <xf:case id="cero" >
+	<fieldset class="navigation-buttons">
+	  <xf:trigger >
+	    <xf:label>Create Plan</xf:label>
+	    <xf:toggle case="uno" ev:event="DOMActivate" />	  
+	    <xf:action ev:event="DOMActivate" >
+	      <xf:load resource="1_information.xml" show="embed" target="subform"/>
+	    </xf:action>
+	  </xf:trigger>
+	</fieldset>
+      </xf:case>
+      <xf:case id="uno">
+	<fieldset class="navigation-buttons">
+	  <xf:trigger class="alert">
+	    <xf:label>cancel</xf:label>
+	    <xf:toggle case="cero" ev:event="DOMActivate" />
+	    <xf:action ev:event="DOMActivate">
+	      <xf:load resource="0_mainform.xml"  />
+	    </xf:action>
+	  </xf:trigger>
+	  <xf:trigger >
+	    <xf:label>Next</xf:label>
+	    <xf:toggle case="dos" ev:event="DOMActivate" />
+	    <xf:action ev:event="DOMActivate">
+	      <xf:load resource="2_submission.xml" show="embed" target="subform" />
+	    </xf:action>
+	  </xf:trigger>
+	</fieldset>
+    </xf:case>
+    <xf:case id="dos" >
+      <fieldset class="navigation-buttons">
+      <xf:submit>
+	<xf:label>Back</xf:label>
+	<xf:toggle case="uno" ev:event="DOMActivate" />
+	<xf:action ev:event="DOMActivate">
+	  <xf:load resource="1_information.xml" show="embed" target="subform" />
+	  </xf:action>
+      </xf:submit>
+      <xf:trigger class="alert">
+	<xf:label>Menu</xf:label>
+	<xf:action ev:event="DOMActivate">
+	  <xf:load resource="0_mainform.xml" />
+	</xf:action>
+      </xf:trigger>
+      <xf:trigger >
+	<xf:label>Next</xf:label>
+	<xf:toggle case="tres" ev:event="DOMActivate" />
+	<xf:action ev:event="DOMActivate">
+	  <xf:load resource="3_organization.xml" show="embed" target="subform"/>
+	</xf:action>
+      </xf:trigger>
+      </fieldset>
+    </xf:case>
+    
+
+    <xf:case id="tres" >
+      <fieldset class="navigation-buttons">
+	<xf:trigger>
+	  <xf:label>Back</xf:label>
+	  <xf:toggle case="dos" ev:event="DOMActivate" />
+	  <xf:action ev:event="DOMActivate">
+	    <xf:load resource="2_submission.xml" show="embed" target="subform" />
+	  </xf:action>
+	</xf:trigger>
+	<xf:trigger class="alert">
+	  <xf:label>Menu</xf:label>
+	  <xf:action ev:event="DOMActivate">
+	    <xf:load resource="0_mainform.xml" />
+	  </xf:action>
+	</xf:trigger>
+	<xf:trigger >
+	  <xf:label>Next</xf:label>
+	  <xf:toggle case="cuatro" ev:event="DOMActivate" />	  
+	  <xf:action ev:event="DOMActivate">
+	    <xf:load resource="4_goals.xml" show="embed" target="subform"/>
+	  </xf:action>
+	</xf:trigger>
+      </fieldset>
+    </xf:case>
+
+
+    <xf:case id="cuatro" >
+      <fieldset class="navigation-buttons">
+	<xf:trigger>
+	  <xf:label>Back</xf:label>
+	  <xf:toggle case="tres" ev:event="DOMActivate" />
+	  <xf:action ev:event="DOMActivate">
+	    <xf:load resource="3_organization.xml" show="embed" target="subform" />
+	  </xf:action>
+	</xf:trigger>
+	<xf:trigger class="alert">
+	  <xf:label>Menu</xf:label>
+	  <xf:action ev:event="DOMActivate">
+	    <xf:load resource="0_mainform.xml" />
+	  </xf:action>
+	</xf:trigger>
+	<xf:trigger >
+	  <xf:label>Next</xf:label>
+	  <xf:toggle case="cinco" ev:event="DOMActivate" />	  
+	  <xf:action ev:event="DOMActivate">
+	    <xf:load resource="5_performance.xml" show="embed" target="subform"/>
+	  </xf:action>
+	</xf:trigger>
+      </fieldset>
+    </xf:case>
+
+
+
+
+
+    <xf:case id="cinco" >
+      <fieldset class="navigation-buttons">
+	<xf:submit>
+	  <xf:label>Back</xf:label>
+	  <xf:toggle case="cuatro" ev:event="DOMActivate" />
+	  <xf:action ev:event="DOMActivate">
+	    <xf:load resource="4_goals.xml" show="embed" target="subform" />
+	  </xf:action>
+	</xf:submit>
+	<xf:trigger class="alert">
+	  <xf:label>Menu</xf:label>
+	  <xf:action ev:event="DOMActivate">
+	    <xf:load resource="0_mainform.xml" />
+	  </xf:action>
+	</xf:trigger>
+	<xf:trigger >
+	  <xf:label>Revisar</xf:label>
+	  <xf:toggle case="cinco" ev:event="DOMActivate" />	  
+	  <xf:action ev:event="DOMActivate">
+	    <xf:load resource="5_performance.xml" show="embed" target="subform"/>
+	  </xf:action>
+	</xf:trigger>
+      </fieldset>
+    </xf:case>
+
+
+
+
+
+    </xf:switch>
+    
+  </div>
+
+
+
+
+  </body>
+</html>

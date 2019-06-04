@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="no"?>
+<?xsltforms-options css-converson="no"?>
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
+  <head>
+       
+    <xf:model>
+      <xf:instance xmlns="" id="default" resource="data/stratml-template.xml" />      
+      <xf:instance xmlns="" id="template" resource="data/stratml-template.xml" />       
+      <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
+      <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
+      
+      <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
+	<xf:resource value="instance('config')/file/text()"/>
+      </xf:submission>
+      
+      <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
+	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
+      </xf:submission>
+      
+      <xf:submission id="step-2" method="put" replace="instance" action="temp-data.xml">
+	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
+      </xf:submission>
+      
+      
+    </xf:model>
+  </head>
+  
+  <body>
+<!--    <xf:group id="subform"> -->
+      <header>
+	<h1>
+	  <img  class="title-logo" width="80px" src="img/stratml_logo_white.svg" alt="StratML logo"/>
+	<xf:output ref="instance('messages')/message[key/text()='plan-information']/value/text()"/></h1>
+	<div id="subheader"> 
+	  <div id="breadcrumb"> &gt; 
+	  <a href="0_mainform.xml">Create Plan</a> &gt; 
+	  <a name="Plan Information">1. Plan Information</a> 	
+	  </div>
+	  <xf:select1 ref="instance('config')/file" id="lang-selector" >
+	    <xf:label class="subheader">Language</xf:label>
+	    <xf:item>
+	      <xf:label>English</xf:label>
+	      <xf:value>labels/labels-en.xml/</xf:value> 
+	    </xf:item>
+	    <xf:item>
+	      <xf:label>Spanish</xf:label>
+	      <xf:value>labels/labels-es.xml</xf:value>
+	    </xf:item>
+	    <xf:action ev:event="xforms-value-changed">
+	      <xf:send submission="change-language"/>
+	    </xf:action>
+	  </xf:select1>      
+	  <img  id="page-counter"  src="img/counter_1.svg" alt="Step 1"/>
+	</div>
+      </header>
+      <main>	
+	<div class="line" >
+	  <xf:label class="linefirstitem" >
+	    <b><xf:output ref="instance('messages')/message[key/text()='plan-name']/value"/>: </b>
+	    <xf:input class="Source" ref="Name">
+	      </xf:input>			
+	  </xf:label>
+	  <xf:label class="lineitem">
+	    <xf:output ref="instance('messages')/message[key/text()='plan-report-type']/value"/>:
+	    <xf:select1 class="Source" ref="@Type" appearance="minimal">
+		<xf:item>
+		  <xf:label>Strategic_Plan</xf:label>
+		  <xf:value>Strategic_Plan</xf:value>
+		</xf:item>
+		<xf:item>
+		  <xf:label>Performance_Plan</xf:label>
+		  <xf:value>Performance_Plan</xf:value>
+		</xf:item>
+		<xf:item>
+		  <xf:label>Performance_Report</xf:label>
+		  <xf:value>Perfo rmance_Report</xf:value>
+		</xf:item>
+	    </xf:select1>
+	  </xf:label>
+	</div>
+	<!--
+	    <xf:label class="linefirstitem">
+	    <xf:output ref="instance('messages')/message[key/text()='plan-source']/value"/>
+	      <xf:input class="Source" ref="AdministrativeInformation/Source">
+	      </xf:input>
+	      </xf:label>	
+	      
+	      <xf:trigger class="lineitem">
+	      <xf:label>+ <xf:output ref="instance('messages')/message[key/text()='plan-source']/value"/></xf:label>
+	      <xf:action ev:event="DOMActivate">
+              <xf:insert context="instance('default')/AdministrativeInformation"
+	      origin="instance('template')/Source"
+	      at="last()" />
+	      </xf:action>
+	      </xf:trigger>
+	      
+	      <a href="{AdministrativeInformation/Source/text()}"  >-></a>
+	      <xf:trigger>
+	      <xf:label><xf:output ref="instance('messages')/message[key/text()='link']/value"/></xf:label>
+	      <xf:action ev:event="DOMActivate">
+	      <xf:load ref="AdministrativeInformation/Source" show="new"/>
+	      </xf:action>
+	      </xf:trigger>  			
+	-->      
+	  <div class="line">
+	    <xf:label class="linefirstitem">
+	      <xf:output ref="instance('messages')/message[key/text()='plan-start-date']/value"/>
+	      <xf:input ref="AdministrativeInformation/StartDate" />
+	    </xf:label>
+	    <xf:label class="lineitem">
+	      <xf:output ref="instance('messages')/message[key/text()='plan-end-date']/value"/>
+	      <xf:input ref="AdministrativeInformation/EndDate" />	
+	    </xf:label>
+	  </div>
+	  <div class="line" >
+	    <xf:label class="linefirstitem">
+	      <xf:output ref="instance('messages')/message[key/text()='plan-description']/value/text()"/>
+	      <xf:textarea rows="6" class="textareabig" ref="Description" />
+	    </xf:label>
+	  </div>
+      </main>
+
+  </body>
+</html>

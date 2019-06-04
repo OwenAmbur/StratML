@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PerformancePlanOrReport Type="Performance_Plan">
+  <id/>
+  <Name>Plan Name Goes Here</Name>
+  <Description/>
+  <OtherInformation/>
+  
+  <StrategicPlanCore>
+	    
+    <Organization>
+      <Name/> 
+      <Acronym/> 
+      <Identifier/>
+      <Description/>
+      <Stakeholder StakeholderTypeType="">
+	<Name>[To be named]</Name>
+	<Description/>
+	<Role>
+	  <Name>[To be named]</Name>
+	  <Description/>
+	  <RoleType/>
+	</Role>
+      </Stakeholder>
+    </Organization>
+    <Vision>
+      <Description/>
+	  <Identifier/>					
+    </Vision>
+    <Mission>
+      <Description/>
+      <Identifier/>
+    </Mission>
+    <Value>
+      <Name/>
+      <Description/> 
+    </Value>
+    
+    <Goal>
+      <Name>[To be named]</Name>
+      <Description>[To be described]</Description>
+      <Identifier/>
+      <SequenceIndicator>1</SequenceIndicator> 
+      <Stakeholder StakeholderTypeType="">
+	<Name>[To be named]</Name> 
+	<Description/> 
+	<Role>
+	  <Name>[To be named]</Name>
+	  <Description/>
+	  <RoleType/>
+        </Role>
+      </Stakeholder>
+      <OtherInformation/>
+      <Objective>
+	<Name/> 
+	<Description/> 
+	<Identifier/>				
+	<SequenceIndicator/> 
+	<Stakeholder StakeholderTypeType="">
+	  <Name>[To be named]</Name> 
+	  <Description/> 
+	  <Role>
+            <Name>[To be named]</Name>
+            <Description/>
+            <RoleType/>
+          </Role>		
+	</Stakeholder>
+	<OtherInformation/>
+	<PerformanceIndicator ValueChainStage="" PerformanceIndicatorType="">
+	  <SequenceIndicator/>
+	  <MeasurementDimension/>
+	  <UnitOfMeasurement/>
+	  <Identifier/>
+	  <Relationship RelationshipType="">
+            <Identifier/>
+            <ReferentIdentifier>[To_be_inserted_by_user]</ReferentIdentifier>
+	    <Name/>
+	    <Description/> 
+	  </Relationship>
+	  <MeasurementInstance>
+            <TargetResult>
+              <Description>[To be described]</Description>
+              <Descriptor>
+		<DescriptorName> </DescriptorName>
+		<DescriptorValue> </DescriptorValue>
+              </Descriptor>
+              <NumberOfUnits/>
+              <StartDate/>
+              <EndDate/>
+            </TargetResult>
+            <ActualResult>
+              <Description>[To be determined]</Description>
+              <Descriptor>
+		<DescriptorName> </DescriptorName>
+		<DescriptorValue> </DescriptorValue>
+              </Descriptor>
+              <NumberOfUnits/>
+              <StartDate/>
+              <EndDate/>
+            </ActualResult>
+	  </MeasurementInstance>
+	  <OtherInformation/>
+	</PerformanceIndicator>		
+      </Objective>
+    </Goal>
+  </StrategicPlanCore>
+  
+  <AdministrativeInformation>
+    <Identifier/>
+    <StartDate/>
+    <EndDate/>
+    <PublicationDate/>
+  </AdministrativeInformation>
+  <Submitter>
+    <Identifier/>
+    <GivenName/>
+    <Surname/>
+    <PhoneNumber/>
+    <EmailAddress/>
+  </Submitter>		
+</PerformancePlanOrReport>

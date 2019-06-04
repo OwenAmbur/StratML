@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="no"?>
+<?xsltforms-options css-converson="no"?>
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+  <head>
+    <link rel="stylesheet" type="text/css"  href="./style.css"/>
+    <xf:model>
+      <xf:instance xmlns="" id="default">
+	<PerformancePlanOrReport Type="Performance_Plan">
+	  <id/>
+	  <Name>Plan Name Goes Here</Name>
+	  <Description/>
+	  <OtherInformation/>
+	  
+	  <StrategicPlanCore>
+	    
+	    <Organization>
+	      <Name/> 
+	      <Acronym/> 
+	      <Identifier/>
+	      <Description/>
+	      <Stakeholder StakeholderTypeType="">
+		<Name>[To be named]</Name>
+		<Description/>
+		<Role>
+		  <Name>[To be named]</Name>
+		  <Description/>
+		  <RoleType/>
+		</Role>
+	      </Stakeholder>
+	    </Organization>
+	    <Vision>
+	  <Description/>
+	  <Identifier/>					
+	    </Vision>
+	    <Mission>
+	      <Description/>
+	      <Identifier/>
+	    </Mission>
+ 	    <Value>
+	  <Name/>
+	  <Description/> 
+	    </Value>
+				
+	    <Goal>
+	      <Name>[To be named]</Name>
+	      <Description>[To be described]</Description>
+	      <Identifier/>
+	      <SequenceIndicator>1</SequenceIndicator> 
+	      <Stakeholder StakeholderTypeType="">
+		<Name>[To be named]</Name> 
+		<Description/> 
+		<Role>
+		  <Name>[To be named]</Name>
+		  <Description/>
+		  <RoleType/>
+                </Role>
+	      </Stakeholder>
+	      <OtherInformation/>
+	      <Objective>
+		<Name/> 
+		<Description/> 
+		<Identifier/>				
+		<SequenceIndicator/> 
+		<Stakeholder StakeholderTypeType="">
+		  <Name>[To be named]</Name> 
+		  <Description/> 
+		  <Role>
+                    <Name>[To be named]</Name>
+                    <Description/>
+                    <RoleType/>
+                  </Role>		
+		</Stakeholder>
+		<OtherInformation/>
+		<PerformanceIndicator ValueChainStage="" PerformanceIndicatorType="">
+		  <SequenceIndicator/>
+		  <MeasurementDimension/>
+		  <UnitOfMeasurement/>
+		  <Identifier/>
+		  <Relationship RelationshipType="">
+                    <Identifier/>
+                    <ReferentIdentifier>[To_be_inserted_by_user]</ReferentIdentifier>
+		    <Name/>
+		    <Description/> 
+		  </Relationship>
+		  <MeasurementInstance>
+                    <TargetResult>
+                      <Description>[To be described]</Description>
+                      <Descriptor>
+			<DescriptorName> </DescriptorName>
+			<DescriptorValue> </DescriptorValue>
+                      </Descriptor>
+                      <NumberOfUnits/>
+                  <StartDate/>
+                  <EndDate/>
+                    </TargetResult>
+                    <ActualResult>
+                      <Description>[To be determined]</Description>
+                      <Descriptor>
+			<DescriptorName> </DescriptorName>
+			<DescriptorValue> </DescriptorValue>
+                      </Descriptor>
+                      <NumberOfUnits/>
+                      <StartDate/>
+                      <EndDate/>
+                    </ActualResult>
+		  </MeasurementInstance>
+		  <OtherInformation/>
+		</PerformanceIndicator>		
+	      </Objective>
+	    </Goal>
+	  </StrategicPlanCore>
+	  
+	  <AdministrativeInformation>
+            <Identifier/>
+	    <StartDate/>
+	    <EndDate/>
+	    <PublicationDate/>
+	  </AdministrativeInformation>
+	  <Submitter>
+	    <Identifier/>
+  	    <GivenName/>
+	    <Surname/>
+	    <PhoneNumber/>
+	  <EmailAddress/>
+	  </Submitter>		
+	</PerformancePlanOrReport>
+      </xf:instance>
+      
+      <xf:instance xmlns="" id="template">
+	<AdministrativeInformation>
+	  <Identifier/>
+	  <StartDate/>
+	  <EndDate/>
+	  <PublicationDate/>
+	  <Source></Source>
+	</AdministrativeInformation>
+      </xf:instance>
+      
+            <!-- ................. multilingual support .............. --> 
+      <xf:instance xmlns="" id="messages" src="labels/labels-en.xml">
+      </xf:instance>
+      
+      <xf:instance xmlns="" id="config">
+	<data>
+	  <file>labels/labels-en.xml</file>
+	  <subform>dos</subform>
+	  <identifier></identifier>
+	</data>
+      </xf:instance>
+      
+      <xf:bind nodeset="AdministrativeInformation/StartDate" type="xf:date"/>
+      <xf:bind nodeset="AdministrativeInformation/EndDate" type="xf:date"/>
+      <xf:bind nodeset="AdministrativeInformation/PublicationDate" type="xf:date"/>
+      <xf:bind nodeset="/PerformancePlanOrReport/Name" required="true()" type="xsd:string"/>
+      
+      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier" readonly="true()" type="xsd:string"/>
+      
+      <xf:bind nodeset="StrategicPlanCore/Organization/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Vision/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Mission/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Identifier" readonly="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier" readonly="true()" type="xsd:string"/>
+      
+      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Description" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Description" required="true()" type="xf:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorName" type="xf:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorValue" type="xf:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorName" type="xf:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorValue" type="xf:string"/>
+      
+      
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/NumberOfUnits" type="xf:decimal"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/NumberOfUnits" type="xf:decimal"/>
+      
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/StartDate" type="xf:date"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/EndDate" type="xf:date"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/StartDate" type="xf:date"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/EndDate" type="xf:date"/>
+
+      <xf:bind ref="instance('config')/identifier" readonly="true()"  />
+      
+      <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
+	<xf:resource value="instance('config')/file/text()"/>
+      </xf:submission>
+      
+
+      <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
+	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
+      </xf:submission>
+      
+
+
+    </xf:model>
+  </head>
+
+  <body>
+    
+    <!-- Background table -->
+    <a name="top"/>
+    <p/>
+
+    <!-- ..................... Titles ........................... -->
+    <img width="120px" src="http://stratml.us/forms/Plan_H.jpg" alt="StratML logo"/>
+    <H1>Performance Plan/Report Form</H1>
+    <H2>Sharing organizational goals, objectives, and performance indicators</H2>
+    
+    <!-- ..................... lANGUAGE ........................... -->
+    <fieldset>	
+      <xf:select1 ref="instance('config')/file">
+	<xf:label>Language</xf:label>
+	<xf:item>
+	  <xf:label>English</xf:label>
+	  <xf:value>labels/labels-en.xml/</xf:value> 
+	</xf:item>
+	<xf:item>
+	  <xf:label>Spanish</xf:label>
+	  <xf:value>labels/labels-es.xml</xf:value>
+	</xf:item>
+	<xf:action ev:event="xforms-value-changed">
+	  <xf:send submission="change-language"/>
+	</xf:action>
+      </xf:select1>      
+    </fieldset> 		
+    
+    <!-- ..................... Main Form Data ........................... -->	
+    <hr align="left"/>
+
+
+
+    <h2><xf:output ref="instance('messages')/message[key/text()='goals-information']/value"/></h2>
+	
+
+
+
+
+
+
+
+    <!-- .................... Navigation ..................... -->
+    <xf:submit>
+	 <xf:label>Back</xf:label>
+	 <xf:action ev:event="DOMActivate">
+	   <xf:load resource="3_organization.xml" />
+	 </xf:action>
+       </xf:submit>
+
+
+     <xf:submit>
+	 <xf:label>Menu</xf:label>
+	 <xf:action ev:event="DOMActivate">
+	   <xf:load resource="0_mainform.xml" />
+	 </xf:action>
+       </xf:submit>
+
+       <xf:submit submission="wizard-intro">
+	 <xf:label>Next</xf:label>
+	 <xf:action ev:event="DOMActivate">
+	   <xf:load resource="5_performance.xml" />
+	 </xf:action>
+       </xf:submit>
+
+
+
+   </body>
+</html>

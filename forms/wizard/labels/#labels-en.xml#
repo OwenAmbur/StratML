@@ -1,0 +1,157 @@
+<messages xmlns="" lang="en">
+
+
+<message><key>acronym</key><value>Acronym</value></message>
+
+<message><key>actual-result</key><value>Actual Result</value></message>
+
+<message><key>descriptor-name</key><value>Descriptor Name</value></message>
+
+<message><key>target-result</key><value>Target Result</value></message>
+
+<message><key>expected-result</key><value>Expected Result</value></message>
+<message><key>end-date</key><value>End Date</value></message>
+
+<message><key>start-date</key><value>End Date</value></message>
+
+
+<message><key>error-entry-submission</key><value>Entry Submission Error</value></message>
+
+<message><key>performance-information</key><value>Performance Information</value></message>
+
+
+<message><key>plan-report-type</key><value>Plan or Report Type</value></message>
+
+<message><key>plan-description</key><value>Description of Plan</value></message>
+<message><key>plan-information</key><value>Plan Information</value></message>
+<message><key>plan-name</key><value>Name of Plan</value></message>
+<message><key>plan-source</key><value>Source of Plan</value></message>
+<message><key>plan-start-date</key><value>Start Date of Plan</value></message>
+<message><key>plan-end-date</key><value>End Date of Plan</value></message>
+<message><key>plan-publication-date</key><value>Publication Date of Plan</value></message>
+
+
+<message><key>identifier</key><value>Identifier</value></message>
+<message><key>indicator-type</key><value>Indicator Type</value></message>
+
+
+<message><key>link</key><value>Link</value></message>
+
+<message><key>name</key><value>Name</value></message>
+<message><key>description</key><value>Description</value></message>
+
+
+<message><key>measurement-instance</key><value>Measurement Instance</value></message>
+
+
+<message><key>measurement-unit</key><value>Measurement Unit</value></message>
+<message><key>measurement-dimension</key><value>Measurement Dimension</value></message>
+
+
+<message><key>other-information</key><value>Other Information</value></message>
+
+<message><key>organization</key><value>Organization</value></message>
+<message><key>organization-information</key><value>Organization Information</value></message>
+<message><key>organization-name</key><value>Organization Name</value></message>
+<message><key>organization-description</key><value>Organization Description</value></message>
+<message><key>organization-of</key><value> of Organization</value></message>
+
+
+
+<message><key>objective</key><value>Objective</value></message>
+<message><key>objective-information</key><value>Objective Information</value></message>
+<message><key>objective-name</key><value>Objective Name</value></message>
+<message><key>objective-description</key><value>Objective Description</value></message>
+<message><key>objective-of</key><value> of this Objective</value></message>
+
+
+<message><key>other-information</key><value>Other Information</value></message>
+
+<message><key>performance-indicator</key><value>Performance Indicator</value></message>
+
+
+<message><key>referent</key><value>Referent</value></message>
+<message><key>referent-identifier</key><value>Referent Identifier</value></message>
+
+
+<message><key>relationship</key><value>Relationship</value></message>
+<message><key>relationship-identifier</key><value>Relationship Identifier</value></message>
+
+
+<message><key>role</key><value>Role</value></message>
+<message><key>role-information</key><value>Role Information</value></message>
+<message><key>role-name</key><value>Role Name</value></message>
+<message><key>role-description</key><value>Role Description</value></message>
+<message><key>role-of</key><value> of Role</value></message>
+<message><key>role-type</key><value>Role Type</value></message>
+
+
+<message><key>performer</key><value>Performer</value></message>
+<message><key>beneficiary</key><value>Performer</value></message>
+
+
+<message><key>performer</key><value>Performer</value></message>
+<message><key>performer</key><value>Performer</value></message>
+
+<message><key>remove</key><value>Remove </value></message>
+<message><key>add</key><value>Add </value></message>
+
+
+
+
+
+<message><key>stakeholder</key><value>Stakeholder</value></message>
+<message><key>stakeholder-name</key><value>Stakeholder Name</value></message>
+<message><key>stakeholder-information</key><value>Stakeholder Information</value></message>
+<message><key>stakeholder-description</key><value>Stakeholder Description</value></message>
+<message><key>stakeholder-of</key><value> of Stakeholder</value></message>
+<message><key>stakeholder-type</key><value>Stakeholder Type</value></message>
+
+<message><key>sequence-indicator</key><value>Sequence Indicator</value></message>
+
+<message><key>vision</key><value>Vision</value></message>
+<message><key>vision-identifier</key><value>Vision Identifier</value></message>
+<message><key>vision-description</key><value>Vision Description</value></message>
+
+<message><key>mission</key><value>Mission</value></message>
+<message><key>mission-identifier</key><value>Mission Identifier</value></message>
+<message><key>mission-description</key><value>Mission Description</value></message>
+
+<message><key>number-of-units</key><value>Number Of Units</value></message>
+<message><key>descriptor-value</key><value>Descriptor Value</value></message>
+
+
+<message><key>value</key><value>Value</value></message>
+<message><key>values</key><value>Values</value></message>
+<message><key>value-chain-stage</key><value>Value Chain Stage</value></message>
+
+
+<message><key>goal</key><value>Goal</value></message>
+<message><key>goal-name</key><value>Goal Name</value></message>
+<message><key>goals</key><value>Goals</value></message>
+<message><key>goals-information</key><value>Goals &amp; Objectives</value></message>
+
+<message><key>goal-identifier</key><value>Goal Identifier</value></message>
+<message><key>goal-of</key><value> of Goal</value></message>
+
+
+
+<message><key>submitter-information</key><value>Submitter Information</value></message>
+<message><key>submission-information</key><value>Submission Information</value></message>
+
+<message><key>type</key><value>Type</value></message>
+
+
+<message><key>given-name</key><value>Given Name</value></message>
+<message><key>surname</key><value>Surname</value></message>
+<message><key>email-address</key><value>Email Address</value></message>
+<message><key>telephone-number</key><value>Telephone Number</value></message>
+
+
+
+
+
+
+
+</messages>
+

@@ -1,0 +1,386 @@
+
+@namespace xf url("http://www.w3.org/2002/xforms");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+
+
+body {
+    color:#172e49;
+    font-family : verdana , sans-serif , arial;
+    margin-left :40px;
+    margin-right:40px;
+}
+
+main {
+    display:block;
+    padding-left:8% ;
+    margin-top:4em;
+    font-size:125%;
+}
+
+h1 {
+    width:92% ;
+    padding-right: 4%;
+    padding-left: 4%;
+    padding-top :0.5em;
+    padding-bottom:0.5em;
+    background : #172e49;
+    color : white;
+    text-align : left;
+}
+
+/*
+h1 * {
+    margin-bottom:0.5em ;
+}
+*/
+a.item-title {
+    text-decoration: none ;
+}
+
+/*.............   Elementos genericos */
+/*table {
+    padding:1em; 
+    
+}
+
+th {
+    background : #f0f0f0 ;
+    font-weight:400 ; 
+    font-size:80%; 
+    font-family:arial; 
+}
+*/
+/* Elementon diferentes */
+
+p.entitydescription {
+    font-size: 60%; 
+    font-family:verdana ;
+    margin:3em;
+    padding:1em;
+    border:1px solid #121233 ;  
+    background: #fafaff; 
+}
+
+/* ........... Form Controls alignement ...............*/
+
+.singleitem {
+    display:block;
+    margin-top : 1.1em ;
+
+}
+
+.line  {
+    display:inline ;
+    float : left ;
+    clear : both ;
+    margin-top : 1.1em ;    
+}
+
+.linefirstitem {
+    float : left ;
+    clear : both; 
+}
+
+.lineitem {
+    float : left ;
+    clear : none;
+/* padding-top : 1.1em ; */
+}
+
+div.headerline {
+    border-top    : 0.5em solid #fcfcff;
+    border-bottom : 0.1em solid #bbbbee;
+    display : block;
+    min-height:3em ;
+    padding-top:   1.2em;    
+    clear:both;
+}
+
+div.headerline > label  {
+    display : inline;
+}
+
+div.buttonline {
+    display : block;
+    clear:both;
+}
+
+div.subcategoryheader {
+    border-top : 0.4em solid #bbbbee;
+    border-bottom : 0.4em solid #bbbbee;
+    display : block;
+    min-height:2em ;
+    padding-top: 0.5em;
+    clear:both;
+}
+
+
+.subcategory {
+    display:block;
+    margin:2em;
+    margin-left:3em;
+}
+
+.linebutton {
+    float:right;
+}
+/*
+
+.imagebutton, label.imagebutton {
+background:transparent;
+border:0px;
+}
+*/
+/* ---------------------------------------------------------- */
+
+#marco {
+    display:block;
+    max-width:70em;
+    box-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    /* border:1px solid silver;*/
+    
+}
+
+header {
+    display:block;
+}
+
+header h1 {
+    position : relative;
+}
+
+main {
+    margin-left:1em ;
+    margin-right:1em ;
+    float : none;
+    clear : both; 
+}
+
+
+.navigation-buttons {
+    float:right;
+    clear:both;
+    margin-right:100px;
+    margin-top:2.5em ; 
+}
+
+/* ............... Subheader row ................... */
+
+#subheader {
+    display:block;
+}
+
+#breadcrumb a, label.subheader,  #lang-selector select {
+    font-family:arial, verdana ; 
+    font-weight:400;    
+    font-size:9pt;
+    background-color:white;
+}
+
+#breadcrumb {
+    float:left;
+    display:block; 
+    padding-left:50px;
+    padding-top:0px;
+    min-width:33%;
+} 
+
+#breadcrumb a {
+    display:inline;
+    text-decoration:none;
+
+    color:#172e49;
+} 
+
+#breadcrumb p {
+    padding-top:0px;
+    margin-top:0px;
+
+} 
+
+label.subheader {
+    font-weight:400;
+}
+
+#lang-selector  {
+    float:left;
+    display:inline;     
+    font-weight:400;  
+    
+}
+
+
+/*
+  #lang-selector  {
+  display:inline;
+  }
+  */
+
+
+
+
+#page-counter {
+    display:inline;
+    float:right;
+    padding-right:50px;
+    width:160px;     
+/*
+  top:-20px;
+  width:200px;
+  display:block;
+  */
+/* border:2px solid black;*/
+}
+
+
+
+/* .................... Elements .................. */
+
+fieldset {
+    /* Placement */ 
+    display : block; 
+    block-min:height;
+    border:0px ;
+    
+}
+
+textarea {
+    display : block ; 
+    min-width : 55em;
+    min-heght : 8em ;
+    margin-top : 1em ; 
+    
+    
+}
+
+input.xforms-value,   .xforms-input , textarea , select  { 
+    border : 1px solid #b1c1d7 ; 
+    border-radius: 3px;
+
+}
+
+.xforms-required-icon {
+
+    border:0px;
+}
+
+
+.calendar .title, .calendar .title input, .calendar .title select, .calendar tfoot {
+    font-weight			: bold;
+    padding				: 1px;
+    border				: 1px solid #b1c1d7 ;
+    color				: #172e49;
+    text-align			: center;
+    background-color	: #f8f8f8;
+    background-image	: url(titleBackground.png);
+}
+
+.xforms-label {
+    /* Position */
+    min-width: 300px;
+    padding-left:1em ; 
+    padding-right:1em ; 
+    margin-right:1em ; 
+    
+
+    /* style*/
+    
+    font-size:13pt ; 
+    font-family:arial, verdana ; 
+    font-weight:900;
+    margin : 0.4em ;
+    color : #172e49 ;
+    
+}
+
+.xforms-output {
+    display:inline-block; min-width :8em;
+} 
+
+
+
+.xform-focus {
+    background:#121233; 
+    color:white; 
+}
+
+.default-button   button {
+    border-left:1px solid #091c31 ;
+    border-radius: 2px;
+    color: white;
+    height:1.8em;
+    
+    background: linear-gradient(to bottom, #091c31 5%,  #172e49 20%, #3b5a7f 71%, #1e99cc 100%);
+    
+}
+
+
+.default-button   button .xforms-label {
+    color: white;
+    
+}
+
+
+.navigation-buttons button {
+    border:0px;
+    border-left:1px solid #091c31 ;
+    border-radius: 2px;
+    color: white;
+    height:1.8em;
+    background: linear-gradient(to bottom, #091c31 5%,  #172e49 20%, #3b5a7f 71%, #1e99cc 100%);
+}
+
+.navigation-buttons button.back {
+    background: linear-gradient(to bottom, #33121e 0%,#66331e 10%,#207cca 51%,#7db9e8 100%);
+}
+
+.navigation-buttons button.alert {
+    background: linear-gradient(to bottom, #33121e 0%,#66331e 10%,#207cca 51%,#7db9e8 100%);
+}
+
+
+.navigation-buttons * {
+    color: white;
+}
+
+.title-logo {
+    width:40px;
+    display:inline-block;     
+    margin-right:0.5em ;
+}
+
+.stratml-logo {
+    position:absolute;
+    top:0px;
+    right:2em;
+    margin-top:0;
+    border-top:0;
+    height:100%;
+    display:block; 
+
+}
+
+/* 0_mainform */
+
+ol  {
+line-height:2.5em;
+list-style-type:none; 
+margin-left:20%;
+} 
+/*
+ol li  {
+line-height:2em;
+list-style-type:none; 
+} 
+*/
+
+
+
+
+/*
+	    <img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
+	  
+*/

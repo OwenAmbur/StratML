@@ -34,6 +34,7 @@
     <meta name="DC.date" content="2018-08-19"/>
     <link rel="stylesheet" type="text/css" src="style.css"/>
     <xf:model>
+      <xf:instance xmlns="" id="default" resource="data/stratml-template.xml" />
       <xf:instance xmlns="" id="template" resource="data/stratml-template.xml" />       
       <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
       <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
@@ -88,8 +89,10 @@
 	  <img  class="title-logo" width="80px" src="img/stratml_logo_white.svg" alt="StratML logo"/>
 	  -->
 	    <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>
-	
+	    
 	  Performance Plan/Report Form
+<img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
+	
 	</h1>    
 	<div id="subheader"> 
 	  <div id="breadcrumb"> &gt; <a href="0_mainform.xml">Create Plan</a>

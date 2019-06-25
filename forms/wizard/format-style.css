@@ -1,0 +1,183 @@
+
+@namespace xf url("http://www.w3.org/2002/xforms");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+
+
+body {
+    color:#172e49;
+    font-family : verdana , sans-serif , arial;
+}
+
+main {
+    font-size:125%;
+}
+
+h1 {
+    background : #172e49;
+    color : white;
+}
+
+
+
+h2 {
+    background : #f9f9f9;
+    color : #172e49;
+}
+
+
+h3 {
+    background : #fcfcfc;
+    color : #172e49;
+}
+
+h4 {
+    background : #fcfcfc;
+    color : #172e49;
+}
+
+.goalheader {
+    background : #fafafa;
+}
+
+.objectiveheader {
+    background : #fcfcfc;
+}
+
+
+a.item-title {
+    text-decoration: none ;
+}
+
+/*.............   Elementos genericos */
+
+/* Elementon diferentes */
+
+p.entitydescription {
+    font-size: 60%; 
+    font-family:verdana ;
+    background: #fafaff; 
+}
+
+/* ........... Form Controls alignement ...............*/
+
+
+.line  {
+    clear : both ;
+
+}
+ 
+
+div.subcategoryheader {
+    clear:both;
+}
+ 
+
+/* ---------------------------------------------------------- */
+ 
+
+ 
+/* ............... Subheader row ................... */
+ 
+
+#breadcrumb a, label.subheader,  #lang-selector select {
+    font-family:arial, verdana ; 
+    font-weight:400;    
+    font-size:9pt;
+    background-color:white;
+}
+ 
+
+#breadcrumb a {
+    text-decoration:none;
+    color:#172e49;
+} 
+
+ 
+
+label.subheader {
+    font-weight:400;
+}
+
+#lang-selector  {
+    font-weight:400;  
+    
+}
+
+ 
+
+/* .................... Elements .................. */
+ 
+
+textarea {
+    min-heght : 8em ;
+    
+}
+ 
+
+.calendar .title, .calendar .title input, .calendar .title select, .calendar tfoot {
+    font-weight			: bold;
+    color				: #172e49;
+    text-align			: center;
+    background-color	: #f8f8f8;
+    background-image	: url(titleBackground.png);
+}
+
+.xforms-label {
+    /* Position */
+    
+
+    /* style*/
+    
+    font-size:13pt ; 
+    font-family:arial, verdana ; 
+    font-weight:900;
+    color : #172e49 ;
+    
+}
+
+.xforms-output {
+}
+
+
+
+.xform-focus {
+    background:#121233; 
+    color:white; 
+}
+
+button {
+    background: linear-gradient(to bottom, #091c31 5%,  #172e49 20%, #3b5a7f 71%, #1e99cc 100%);
+}
+
+button *.xforms-label {
+    color: white;   
+    
+}
+
+ 
+
+.navigation-buttons button {
+    background: linear-gradient(to bottom, #091c31 5%,  #172e49 20%, #3b5a7f 71%, #1e99cc 100%);
+}
+
+.navigation-buttons button.back {
+    background: linear-gradient(to bottom, #33121e 0%,#66331e 10%,#207cca 51%,#7db9e8 100%);
+}
+
+.navigation-buttons button.alert {
+    background: linear-gradient(to bottom, #33121e 0%,#66331e 10%,#207cca 51%,#7db9e8 100%);
+}
+
+
+.org-add-button {
+    clear : both ;
+}
+
+
+/* 0_mainform */
+
+ol.mainform-list {
+    list-style-type:none;
+}
+

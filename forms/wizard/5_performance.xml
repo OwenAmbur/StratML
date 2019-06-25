@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?css-conversion no ?>
+<?xsltforms-options debug="no"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <xf:model>
+      <xf:instance xmlns="" id="default" resource="data/stratml-template.xml"/>
+      <xf:instance xmlns="" id="template" resource="data/stratml-template.xml"/>
+      <xf:instance xmlns="" id="messages" src="labels/labels-en.xml"/>
+      <xf:instance xmlns="" id="config" resource="data/form-config.xml"/>
+      <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
+        <xf:resource value="instance('config')/file/text()"/>
+      </xf:submission>
+      <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
+        <xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
+      </xf:submission>
+    </xf:model>
+    <link rel="stylesheet" type="text/css" href="./position-style.css"/>
+    <link rel="stylesheet" type="text/css" href="./format-style.css"/>
+  </head>
+  <body>
+    <!--
+        <?xsltforms-options css-converson="no"?>
+        <xsl:when test="translate(normalize-space(/processing-instruction('css-c
+onversion')[1]), 'YESNO ', 'yesno')='no'">
+    -->
+    <header>
+      <h1>
+        <img class="title-logo" width="80px" src="img/performance_logo_white.svg" alt="StratML logo"/>
+        <xf:output ref="instance('messages')/message[key/text()='performance-information']/value"/>
+        <img class="stratml-logo" src="img/stratml_logo_white.svg" alt="StratMLlogo"/>
+      </h1>
+      <div id="subheader">
+        <div id="breadcrumb"> &gt;
+        <a href="0_mainform.xml">Create Plan</a> &gt;
+        <a name="Performance">5. Performance</a>
+        </div>
+        <!-- ..................... lANGUAGE ........................... -->
+        <xf:select1 id="lang-selector" ref="instance('config')/file">
+          <xf:label class="subheader">Language</xf:label>
+          <xf:item>
+            <xf:label>English</xf:label>
+            <xf:value>labels/labels-en.xml/</xf:value>
+          </xf:item>
+          <xf:item>
+            <xf:label>Spanish</xf:label>
+            <xf:value>labels/labels-es.xml</xf:value>
+          </xf:item>
+          <xf:action ev:event="xforms-value-changed">
+            <xf:send submission="change-language"/>
+          </xf:action>
+        </xf:select1>
+        <img id="page-counter" src="img/counter_5.svg" alt="Step 5"/>
+      </div>
+    </header>
+    <main class="performancepage">
+      <!--<ol class="mainol" > -->
+      <xf:repeat ref="//Goal">
+        <!--<li>-->
+        <!-- ................. Goal Resume ...................... -->
+        <h3>
+          <xf:output class="SequenceIndicator" ref="SequenceIndicator"/>
+          <xf:output ref="instance('messages')/message[key/text()='goal']/value"/>
+          <xf:output ref="Name"/>
+        </h3>
+        <xf:group>
+          <ol>
+            <xf:repeat id="objectiverepeat" ref="Objective" appearance="compact">
+              <li>
+                <h3>
+                  <!-- ......... Objective Resume ................ -->
+                  <xf:output ref="sequenceindicator"/>
+                  <xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
+                  <xf:output ref="Name"/>
+                </h3>
+                <!-- ........... Performance Indicator ............ -->
+                <xf:repeat ref="PerformanceIndicator" appearance="compact">
+                  <!--.......... TODO : Seguir ................ -->
+                  <h3>Performance Indicator</h3>
+                  <!--Line 1 Seq Indicator Identifier Dimension Units -->
+                  <div class="line subsection">
+                    <xf:label>
+                      <xf:output ref="instance('messages')/message[key/text()='sequence-indicator']/value"/>
+                      <xf:input ref="SequenceIndicator"/>
+                    </xf:label>
+                    <xf:label>
+                      <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
+                      <xf:input ref="Identifier"/>
+                    </xf:label>
+                  </div>
+                  <div class="line subsection">
+                    <xf:label>
+                      <xf:output ref="instance('messages')/message[key/text()='measurement-dimension']/value"/>
+                      <xf:input ref="MeasurementDimension"/>
+                    </xf:label>
+                    <xf:label>
+                      <xf:output ref="instance('messages')/message[key/text()='measurement-unit']/value"/>
+                      <xf:input ref="UnitOfMeasurement"/>
+                    </xf:label>
+                  </div>
+                  <div class="line">
+                    <xf:repeat ref="MeasurementInstance">
+                      <fieldset>
+                        <h4 class="subsection">Target Result</h4>
+                        <div class="line subsection">
+                          <!-- Pendiente, no se ve -->
+                          <xf:label class="lineitem">
+                            <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+                            <xf:textarea ref="TargetResult/Description">
+</xf:textarea>
+                          </xf:label>
+                        </div>
+                        <div class="line subsection">
+                          <xf:label>
+                            <xf:output ref="instance('messages')/message[key/text()='number-of-units']/value"/>
+                            <xf:input ref="TargetResult/NumberOfUnits"/>
+                          </xf:label>
+                          <xf:label>
+                            <xf:output ref="instance('messages')/message[key/text()='start-date']/value"/>
+                            <xf:input ref="TargetResult/StartDate"/>
+                          </xf:label>
+                          <xf:label>
+                            <xf:output ref="instance('messages')/message[key/text()='end-date']/value"/>
+                            <xf:input ref="TargetResult/EndDate"/>
+                          </xf:label>
+                        </div>
+                      </fieldset>
+                      <fieldset>
+                        <xf:repeat ref="ActualResult">
+                          <h4 class="subsection">Actual Result</h4>
+                          <div class="line subsection">
+                            <xf:label class="lineitem">
+                              <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+                              <xf:textarea ref="Description"/>
+                            </xf:label>
+                          </div>
+                          <div class="line subsection">
+                            <xf:label>
+                              <xf:output ref="instance('messages')/message[key/text()='number-of-units']/value"/>
+                              <xf:input ref="NumberOfUnits"/>
+                            </xf:label>
+                            <xf:label>
+                              <xf:output ref="instance('messages')/message[key/text()='start-date']/value"/>
+                              <xf:input ref="StartDate"/>
+                            </xf:label>
+                            <xf:label>
+                              <xf:output ref="instance('messages')/message[key/text()='end-date']/value"/>
+                              <xf:input ref="EndDate"/>
+                            </xf:label>
+                          </div>
+                        </xf:repeat>
+                      </fieldset>
+                    </xf:repeat>
+                    <!-- se
+guir ...
+                             dentro de MeasurementInstance
+                             <TargetResult>
+                             <Description>[To be described]</Description>
+                             <Descriptor>
+                             <DescriptorName> </DescriptorName>
+                             <DescriptorValue> </DescriptorValue>
+                             </Descriptor>
+                             <NumberOfUnits/>
+                             <StartDate/>
+                             <EndDate/>
+                             </TargetResult>
+                             <ActualResult>
+                             <Description>[To be determined]</Description>
+                             <Descriptor>
+                             <DescriptorName> </DescriptorName>
+                             <DescriptorValue> </DescriptorValue>
+                             </Descriptor>
+                             <NumberOfUnits/>
+                             <StartDate/>
+                             <EndDate/>
+                             </ActualResult>
+                             <xf:label>
+                             <xf:output ref="instance('messages')/mefssage[key/t
+ext()='measurement-unit']/value"/>
+                             <xf:input  ref="UnitOfMeasurement" />
+                             </xf:label>
+                        -->
+                  </div>
+                  <!--
+
+                          <Identifier/>
+                          <Relationship relationshiptype="">
+                          <identifier/>
+                          <referentidentifier>[to_be_inserted_by_user]</referent
+identifier>
+                          <name/>
+                          <description/>
+                          </relationship>
+                      -->
+                  <div class="section" >
+                  <xf:repeat ref="relationship">
+                    <h4>
+                      <xf:output ref="instance('messages')/message[key/text()='relationship']/value"/>
+                    </h4>
+                    <div class="line">
+                      <xf:label>
+                        <xf:output ref="instance('messages')/message[key/text()='type']/value"/>
+                        <xf:select1 ref="@RelationshipType">
+                          <!-- TODO : Recuperar options -->
+                        </xf:select1>
+                      </xf:label>
+                      <xf:label>
+                        <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
+                        <xf:input ref="Identifier"/>
+                      </xf:label>
+                      <xf:label>
+                        <xf:output ref="instance('messages')/message[key/text()='reference-identifier']/value"/>
+                        <!-- TODO : There should probably be a select1 here -->
+                        <xf:input ref="ReferentIdentifier"/>
+                      </xf:label>
+                      <xf:label>
+                        <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
+                        <xf:input ref="Name"/>
+                      </xf:label>
+                    </div>
+                    <div class="line">
+                      <xf:label class="lineitem">
+                        <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+                        <xf:textarea ref="Description"/>
+                      </xf:label>
+                    </div>
+                  </xf:repeat>
+                  </div>
+                  <xf:trigger class="navigation-buttons">
+                    <xf:label>
+                      <xf:output ref="instance('messages')/message[key/text()='add']/value"/>
+                      <xf:output ref="instance('messages')/message[key/text()='relationship']/value"/>
+                    </xf:label>
+                    <xf:action ev:event="DOMActivate">
+                      <xf:insert origin="instance('template')//Relationship" context="." at="last" position="after"/>
+                    </xf:action>
+                  </xf:trigger>
+                  <!-- side section
+                           ..... Value Chain Stage .. Performance Indicator Type
+ .......... -->
+                  <!-- this should be in one of the sides -->
+                  <!--Esto deberA-a ir-->
+                  <div class="line subsection">
+                    <xf:label>
+                      <xf:output ref="instance('messages')/message[key/text()='value-chain-stage']/value"/>
+                      <xf:select1 ref="@ValueChainStage">
+                        <!-- TODO : Recuperar options -->
+                      </xf:select1>
+                    </xf:label>
+                    <xf:label>
+                      <xf:output ref="instance('messages')/message[key/text()='performance-indicator-type']/value"/>
+                      <xf:select1 ref="@PerformanceIndicatorType">
+                        <!-- TODO : Re
+cuperar options -->
+                      </xf:select1>
+                    </xf:label>
+                  </div>
+                </xf:repeat>
+                <xf:trigger class="add-button">
+                  <xf:label>
+                    <xf:output ref="instance('messages')/message[key/text()='add']/value"/>
+                    <xf:output ref="instance('messages')/message[key/text()='performance-indicator']/value"/>
+                  </xf:label>
+                  <xf:action ev:event="DOMActivate">
+                    <xf:insert origin="instance('template')//PerformanceIndicator" context="." at="last" position="after"/>
+                  </xf:action>
+                </xf:trigger>
+              </li>
+            </xf:repeat>
+          </ol>
+        </xf:group>
+        <!-- ........................ // Objetives ........................... -->
+      </xf:repeat>
+      <!-- ........................ // Goals  ........................... -->
+    </main>
+  </body>
+</html>

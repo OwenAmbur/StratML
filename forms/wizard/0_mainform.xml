@@ -2,11 +2,13 @@
 <?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
 <?stylesheet href="style.css" type="text/css"?>
 <?xsltforms-options debug="no"?>
-<?xsltforms-options css-converson="no"?>
+<?css-conversion no ?>
 <html 
     xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
     xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <head>
+    
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Style-Type" content="text/plain; charset=us-ascii"/>
     <meta http-equiv="Pragma" content="no-cache"/>
@@ -32,7 +34,9 @@
     <meta http-equiv="Content-Language" content="en-US"/>
     <meta name="keywords" content="Strategic Plans, StratML, XForms, XSTForms, Performance Plans, Performance Reports"/>
     <meta name="DC.date" content="2018-08-19"/>
-    <link rel="stylesheet" type="text/css" src="style.css"/>
+    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="./format-style.css" />
+    
     <xf:model>
       <xf:instance xmlns="" id="default" resource="data/stratml-template.xml" />
       <xf:instance xmlns="" id="template" resource="data/stratml-template.xml" />       
@@ -79,225 +83,231 @@
 	</xf:message>
       </xf:submission>
     </xf:model>
+  <script type="text/javascript">
+    var ConfirmExit=function(){
+      if(confirm('Do you want to discard the data and start a new document?')) {
+	window.location = '0_mainform.xml' ;
+	} ;
+	}
+  </script>
   </head>
   <body>
     <div id="marco">       
       <xf:group id="subform">
-       <header>
-	<h1>
-	  <!--
-	  <img  class="title-logo" width="80px" src="img/stratml_logo_white.svg" alt="StratML logo"/>
-	  -->
+	<header>
+	  <h1>
+	    <!--
+		<img  class="title-logo" width="80px" src="img/stratml_logo_white.svg" alt="StratML logo"/>
+	    -->
 	    <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>
 	    
-	  Performance Plan/Report Form
-<img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
-	
-	</h1>    
-	<div id="subheader"> 
-	  <div id="breadcrumb"> &gt; <a href="0_mainform.xml">Create Plan</a>
-	  </div>
-	  <xf:select1 ref="instance('config')/file"  id="lang-selector">
-	    <xf:label class="subheader">
+	    Performance Plan/Report Form
+	    <img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
+	    
+	  </h1>    
+	  <div id="subheader"> 
+	    <div id="breadcrumb"> &gt; <a href="0_mainform.xml">Create Plan</a>
+	    </div>
+	    <xf:select1 ref="instance('config')/file"  id="lang-selector">
+	      <xf:label class="subheader">
 		Language
-	    </xf:label>
-	    <xf:item>
-	      <xf:label>English
 	      </xf:label>
-	      <xf:value>labels/labels-en.xml/
-	      </xf:value> 
-	    </xf:item>
-	    <xf:item>
-	      <xf:label>Spanish
-	      </xf:label>
-	      <xf:value>labels/labels-es.xml
-	      </xf:value>
-	    </xf:item>
-	    <xf:action ev:event="xforms-value-changed">
-	      <xf:send submission="change-language"/>
-	    </xf:action>
-	  </xf:select1>      
-	  <img  id="page-counter"  src="img/counter_5.svg" alt="Step 5"/>
-	</div>
-      </header>
-      <main>
-	<div class="line">
-	<p>The following steps will guide you trough the strategic plan creation process:
-	</p>
-	<ol class="mainform-list">
-	  <li>
-	    <img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
-	    Plan Information
-	  </li>
-	  <li>
-	    <img class="0-mainform-list-icon" src="img/submission-blue-icon.svg" />
+	      <xf:item>
+		<xf:label>English
+		</xf:label>
+		<xf:value>labels/labels-en.xml/
+		</xf:value> 
+	      </xf:item>
+	      <xf:item>
+		<xf:label>Spanish
+		</xf:label>
+		<xf:value>labels/labels-es.xml
+		</xf:value>
+	      </xf:item>
+	      <xf:action ev:event="xforms-value-changed">
+		<xf:send submission="change-language"/>
+	      </xf:action>
+	    </xf:select1>      
+	    <img  id="page-counter"  src="img/counter_5.svg" alt="Step 5"/>
+	  </div>
+	</header>
+	<main>
+	  <div class="line">
+	    <p>The following steps will guide you trough the strategic plan creation process:
+	    </p>
+	    <ol class="mainform-list">
+	      <li>
+		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
+		Plan Information
+	      </li>
+	      <li>
+		<img class="0-mainform-list-icon" src="img/submission-blue-icon.svg" />
 
-	    Submission Information
-	  </li>
+		Submission Information
+	      </li>
 
-	  <li>
-	    <img class="0-mainform-list-icon" src="img/organization-blue-icon.svg" />
-	    Organization
-	  </li>
-	  <li>
-	    <img class="0-mainform-list-icon" src="img/goal-blue-icon.svg" />
-	    Goals and Objetives
-	  </li>
-	  <li>
-	    <img class="0-mainform-list-icon" src="img/performance-blue-icon.svg" />
-	    Performance
-	  </li>
-	</ol>
-	</div>
-      </main>
-    </xf:group>    
+	      <li>
+		<img class="0-mainform-list-icon" src="img/organization-blue-icon.svg" />
+		Organization
+	      </li>
+	      <li>
+		<img class="0-mainform-list-icon" src="img/goal-blue-icon.svg" />
+		Goals and Objetives
+	      </li>
+	      <li>
+		<img class="0-mainform-list-icon" src="img/performance-blue-icon.svg" />
+		Performance
+	      </li>
+	    </ol>
+	  </div>
+	</main>
+      </xf:group>    
 
-    <xf:switch >
-      <xf:case id="cero" >
-	<fieldset class="navigation-buttons">
-	  <xf:trigger >
-	    <xf:label>Create Plan</xf:label>
-	    <xf:toggle case="uno" ev:event="DOMActivate" />	  
-	    <xf:action ev:event="DOMActivate" >
-	      <xf:load resource="1_information.xml" show="embed" target="subform"/>
-	    </xf:action>
-	  </xf:trigger>
-	</fieldset>
-      </xf:case>
-      <xf:case id="uno">
-	<fieldset class="navigation-buttons">
-	  <xf:trigger class="alert">
-	    <xf:label>cancel</xf:label>
-	    <xf:toggle case="cero" ev:event="DOMActivate" />
-	    <xf:action ev:event="DOMActivate">
-	      <xf:load resource="0_mainform.xml"  />
-	    </xf:action>
-	  </xf:trigger>
-	  <xf:trigger >
-	    <xf:label>Next</xf:label>
-	    <xf:toggle case="dos" ev:event="DOMActivate" />
-	    <xf:action ev:event="DOMActivate">
-	      <xf:load resource="2_submission.xml" show="embed" target="subform" />
-	    </xf:action>
-	  </xf:trigger>
-	</fieldset>
-    </xf:case>
-    <xf:case id="dos" >
-      <fieldset class="navigation-buttons">
-      <xf:submit>
-	<xf:label>Back</xf:label>
-	<xf:toggle case="uno" ev:event="DOMActivate" />
-	<xf:action ev:event="DOMActivate">
-	  <xf:load resource="1_information.xml" show="embed" target="subform" />
-	  </xf:action>
-      </xf:submit>
-      <xf:trigger class="alert">
-	<xf:label>Menu</xf:label>
-	<xf:action ev:event="DOMActivate">
-	  <xf:load resource="0_mainform.xml" />
-	</xf:action>
-      </xf:trigger>
-      <xf:trigger >
-	<xf:label>Next</xf:label>
-	<xf:toggle case="tres" ev:event="DOMActivate" />
-	<xf:action ev:event="DOMActivate">
-	  <xf:load resource="3_organization.xml" show="embed" target="subform"/>
-	</xf:action>
-      </xf:trigger>
-      </fieldset>
-    </xf:case>
-    
+      <xf:switch >
+	<xf:case id="cero" >
+	  <fieldset class="navigation-buttons">
+	    <xf:trigger >
+	      <xf:label>Create Plan</xf:label>
+	      <xf:toggle case="uno" ev:event="DOMActivate" />	  
+	      <xf:action ev:event="DOMActivate" >
+		<xf:load resource="1_information.xml" show="embed" target="subform"/>
+	      </xf:action>
+	    </xf:trigger>
+	  </fieldset>
+	</xf:case>
+	<xf:case id="uno">
+	  <fieldset class="navigation-buttons">
+	    <xf:trigger class="alert">
+	      <xf:label>cancel</xf:label>
+	      <xf:toggle case="cero" ev:event="DOMActivate" />
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="0_mainform.xml"  />
+	      </xf:action>
+	    </xf:trigger>
+	    <xf:trigger >
+	      <xf:label>Next</xf:label>
+	      <xf:toggle case="dos" ev:event="DOMActivate" />
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="2_submission.xml" show="embed" target="subform" />
+	      </xf:action>
+	    </xf:trigger>
+	  </fieldset>
+	</xf:case>
+	<xf:case id="dos" >
+	  <fieldset class="navigation-buttons">
+	    <xf:submit>
+	      <xf:label>Back</xf:label>
+	      <xf:toggle case="uno" ev:event="DOMActivate" />
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="1_information.xml" show="embed" target="subform" />
+	      </xf:action>
+	    </xf:submit>
+	    <xf:trigger class="alert">
+	      <xf:label>Menu</xf:label>
+	      <xf:action ev:event="DOMActivate">
+ 		<xf:load resource="javascript:ConfirmExit()" />
+		<!--
+		<xf:load resource="0_mainform.xml" />
+		-->
+	      </xf:action>
+	    </xf:trigger>
+	    <xf:trigger >
+	      <xf:label>Next</xf:label>
+	      <xf:toggle case="tres" ev:event="DOMActivate" />
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="3_organization.xml" show="embed" target="subform"/>
+	      </xf:action>
+	    </xf:trigger>
+	  </fieldset>
+	</xf:case>
+	
 
-    <xf:case id="tres" >
-      <fieldset class="navigation-buttons">
-	<xf:trigger>
-	  <xf:label>Back</xf:label>
-	  <xf:toggle case="dos" ev:event="DOMActivate" />
-	  <xf:action ev:event="DOMActivate">
-	    <xf:load resource="2_submission.xml" show="embed" target="subform" />
-	  </xf:action>
-	</xf:trigger>
-	<xf:trigger class="alert">
-	  <xf:label>Menu</xf:label>
-	  <xf:action ev:event="DOMActivate">
-	    <xf:load resource="0_mainform.xml" />
-	  </xf:action>
-	</xf:trigger>
-	<xf:trigger >
-	  <xf:label>Next</xf:label>
-	  <xf:toggle case="cuatro" ev:event="DOMActivate" />	  
-	  <xf:action ev:event="DOMActivate">
-	    <xf:load resource="4_goals.xml" show="embed" target="subform"/>
-	  </xf:action>
-	</xf:trigger>
-      </fieldset>
-    </xf:case>
-
-
-    <xf:case id="cuatro" >
-      <fieldset class="navigation-buttons">
-	<xf:trigger>
-	  <xf:label>Back</xf:label>
-	  <xf:toggle case="tres" ev:event="DOMActivate" />
-	  <xf:action ev:event="DOMActivate">
-	    <xf:load resource="3_organization.xml" show="embed" target="subform" />
-	  </xf:action>
-	</xf:trigger>
-	<xf:trigger class="alert">
-	  <xf:label>Menu</xf:label>
-	  <xf:action ev:event="DOMActivate">
-	    <xf:load resource="0_mainform.xml" />
-	  </xf:action>
-	</xf:trigger>
-	<xf:trigger >
-	  <xf:label>Next</xf:label>
-	  <xf:toggle case="cinco" ev:event="DOMActivate" />	  
-	  <xf:action ev:event="DOMActivate">
-	    <xf:load resource="5_performance.xml" show="embed" target="subform"/>
-	  </xf:action>
-	</xf:trigger>
-      </fieldset>
-    </xf:case>
+	<xf:case id="tres" >
+	  <fieldset class="navigation-buttons">
+	    <xf:trigger>
+	      <xf:label>Back</xf:label>
+	      <xf:toggle case="dos" ev:event="DOMActivate" />
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="2_submission.xml" show="embed" target="subform" />
+	      </xf:action>
+	    </xf:trigger>
+	    <xf:trigger class="alert">
+	      <xf:label>Menu</xf:label>
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="javascript:ConfirmExit()" />
+		<!--
+		<xf:load resource="0_mainform.xml" />
+		-->
+	      </xf:action>
+	    </xf:trigger>
+	    <xf:trigger >
+	      <xf:label>Next</xf:label>
+	      <xf:toggle case="cuatro" ev:event="DOMActivate" />	  
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="4_goals.xml" show="embed" target="subform"/>
+	      </xf:action>
+	    </xf:trigger>
+	  </fieldset>
+	</xf:case>
 
 
+	<xf:case id="cuatro" >
+	  <fieldset class="navigation-buttons">
+	    <xf:trigger>
+	      <xf:label>Back</xf:label>
+	      <xf:toggle case="tres" ev:event="DOMActivate" />
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="3_organization.xml" show="embed" target="subform" />
+	      </xf:action>
+	    </xf:trigger>
+	    <xf:trigger class="alert">
+	      <xf:label>Menu</xf:label>
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="javascript:ConfirmExit()" />
+		<!--
+		<xf:load resource="0_mainform.xml" />
+		-->
+	      </xf:action>
+	    </xf:trigger>
+	    <xf:trigger >
+	      <xf:label>Next</xf:label>
+	      <xf:toggle case="cinco" ev:event="DOMActivate" />	  
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="5_performance.xml" show="embed" target="subform"/>
+	      </xf:action>
+	    </xf:trigger>
+	  </fieldset>
+	</xf:case>
 
+	<xf:case id="cinco" >
+	  <fieldset class="navigation-buttons">
+	    <xf:submit>
+	      <xf:label>Back</xf:label>
+	      <xf:toggle case="cuatro" ev:event="DOMActivate" />
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="4_goals.xml" show="embed" target="subform" />
+	      </xf:action>
+	    </xf:submit>
+	    <xf:trigger class="alert">
+	      <xf:label>Menu</xf:label>
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="javascript:ConfirmExit()" />
+		<!--
+		<xf:load resource="0_mainform.xml" />
+		-->
+	      </xf:action>
+	    </xf:trigger>
+	    <xf:trigger >
+	      <xf:label>Revisar</xf:label>
+	      <xf:toggle case="cinco" ev:event="DOMActivate" />	  
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="6_performance.xml" show="embed" target="subform"/>
+	      </xf:action>
+	    </xf:trigger>
+	  </fieldset>
+	</xf:case>
 
-
-    <xf:case id="cinco" >
-      <fieldset class="navigation-buttons">
-	<xf:submit>
-	  <xf:label>Back</xf:label>
-	  <xf:toggle case="cuatro" ev:event="DOMActivate" />
-	  <xf:action ev:event="DOMActivate">
-	    <xf:load resource="4_goals.xml" show="embed" target="subform" />
-	  </xf:action>
-	</xf:submit>
-	<xf:trigger class="alert">
-	  <xf:label>Menu</xf:label>
-	  <xf:action ev:event="DOMActivate">
-	    <xf:load resource="0_mainform.xml" />
-	  </xf:action>
-	</xf:trigger>
-	<xf:trigger >
-	  <xf:label>Revisar</xf:label>
-	  <xf:toggle case="cinco" ev:event="DOMActivate" />	  
-	  <xf:action ev:event="DOMActivate">
-	    <xf:load resource="5_performance.xml" show="embed" target="subform"/>
-	  </xf:action>
-	</xf:trigger>
-      </fieldset>
-    </xf:case>
-
-
-
-
-
-    </xf:switch>
-    
-  </div>
-
-
-
-
+      </xf:switch>
+    </div>
   </body>
 </html>

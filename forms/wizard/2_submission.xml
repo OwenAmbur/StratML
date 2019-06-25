@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
-<?xsltforms-options css-converson="no"?>
+<?css-conversion no ?>
 <html 
     xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
     xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -29,6 +29,8 @@
 
 
     </xf:model>
+		    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="./format-style.css" />
   </head>
 
   <body>
@@ -119,7 +121,7 @@
       <div class="line" >
 	
 	
-	<xf:label class="linefirstitem" >
+	<xf:label class="lineitem firstitem" >
 	  <xf:output ref="instance('messages')/message[key/text()='given-name']/value"/>
 	  <xf:input class="name" ref="Submitter/GivenName" />
 	</xf:label>
@@ -133,7 +135,7 @@
       <div class="line" >
 	
 	
-	<xf:label  class="linefirstitem">
+	<xf:label  class="lineitem firstitem">
 	  <xf:output ref="instance('messages')/message[key/text()='email-address']/value" />	  
 	  <xf:input class="email" ref="Submitter/EmailAddress" />
 	</xf:label>

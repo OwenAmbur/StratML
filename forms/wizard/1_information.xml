@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
-<?xsltforms-options css-converson="no"?>
+<?css-conversion no ?>
 <html 
     xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
     xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
@@ -27,6 +27,8 @@
       
       
     </xf:model>
+		    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="./format-style.css" />
   </head>
   
   <body>
@@ -61,7 +63,7 @@
       </header>
       <main>	
 	<div class="line" >
-	  <xf:label class="linefirstitem" >
+	  <xf:label class="lineitem firstitem" >
 	    <b><xf:output ref="instance('messages')/message[key/text()='plan-name']/value"/>: </b>
 	    <xf:input class="Source" ref="Name">
 	      </xf:input>			
@@ -109,7 +111,7 @@
 	      </xf:trigger>  			
 	-->      
 	  <div class="line">
-	    <xf:label class="linefirstitem">
+	    <xf:label class="lineitem firstitem">
 	      <xf:output ref="instance('messages')/message[key/text()='plan-start-date']/value"/>
 	      <xf:input ref="AdministrativeInformation/StartDate" />
 	    </xf:label>
@@ -119,7 +121,7 @@
 	    </xf:label>
 	  </div>
 	  <div class="line" >
-	    <xf:label class="linefirstitem">
+	    <xf:label class="lineitem firstitem">
 	      <xf:output ref="instance('messages')/message[key/text()='plan-description']/value/text()"/>
 	      <xf:textarea rows="6" class="textareabig" ref="Description" />
 	    </xf:label>

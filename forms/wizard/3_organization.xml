@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
-<?xsltforms-options css-converson="no"?>
+<?css-conversion no ?>
 <html 
     xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
     xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -27,6 +27,8 @@
 		     replace="data-instance" 
 		     />
     </xf:model>
+		    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="./format-style.css" />
   </head>
   <body>
     <header>
@@ -62,8 +64,9 @@
       </div>
     </header>
     <main>
-      <xf:repeat id="orgrepeat" nodeset="StrategicPlanCore/Organization" appearance="compact">
-	<div class="line" >
+      <xf:repeat id="orgrepeat" ref="StrategicPlanCore/Organization" appearance="compact">
+	<div class="section" >
+		<div class="line" >
 	  <xf:label class="linefirstitem">
 	    <!--
 		<xf:output ref="instance('messages')/message[key/text()='organization']/value"/>
@@ -90,7 +93,6 @@
 	  </xf:label>
 	</div>
 	
-
 <!--
     <ul>
     <xf:group>
@@ -288,16 +290,22 @@
 	: 
     -->
 </xf:label>
+	
 </div>
+	</div>
 
 <!-- Values -->
 <!-- /TODO : Revisar posicion de los valores -->
-<div class="line" >
-<xf:label>	
-  <xf:output value="count(//Value)"/>.<xf:output ref="instance('messages')/message[key/text()='values']/value"/>
-</xf:label>	 
- 
-<ul>
+	<br/>
+	<h3>
+		
+	<span class="nopaddingtext" >  <xf:output ref="instance('messages')/message[key/text()='values']/value"/> (<xf:output value="count(//Value)" class="nopaddingtext"/>)</span>
+	</h3>
+	<!--
+	<div class="line">
+<ul>-->
+	<div class="subsection" >
+		
   <xf:group>	
     <xf:repeat id="valuerepeat" ref="instance('default')//Value" appearance="compact">
       <div class="line" >
@@ -305,11 +313,18 @@
 	  <!--
 	  <xf:output ref="instance('messages')/message[key/text()='values']/value"/> 
 	  <xf:output value="' '"/> -->
+	  <span class="nopaddingtext" >
 	  <xf:output value="position()"/>
+</span>
+	
+<span class="nopaddingtext" >
+	  
 	  <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
+  </span>
 	  <xf:input class="Source" ref="Name" />
+	
 	</xf:label>
-	  <xf:trigger  class="default-button lineitem">
+	  <xf:trigger  class="remove-button">
 	<xf:label>X</xf:label>
 	<xf:delete nodeset="." at="1" if="count(//Value) > 1"   ev:event="DOMActivate" />
       </xf:trigger>
@@ -322,12 +337,23 @@
       </xf:textarea>
 	</xf:label>
 	</div>
+
+
     </xf:repeat>
-    
-    <fieldset class="default-button">
+				
+    <br/>
+  </xf:group>
+	</div>
+  
+<!--
+</ul>
+
+-->
+
+    <fieldset class="org-add-button">
       <xf:trigger class="default-button">
 	<xf:label>
-	  <xf:output ref="instance('messages')/message[key/text()='add']/value"/>
+	  <span class="nopaddingtext" ><xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
 	  <xf:output ref="instance('messages')/message[key/text()='value']/value"/>
 	</xf:label>
 	<xf:action ev:event="DOMActivate">		        	
@@ -337,16 +363,13 @@
 	</xf:action>
       </xf:trigger>
     </fieldset>
-    
-  </xf:group>
-  
-</ul>
-
+    <br/>
+<!--
 </div>
-
-
+-->
 
 </xf:repeat>
+
 </main>
 
 <!--

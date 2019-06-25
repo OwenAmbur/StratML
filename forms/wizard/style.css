@@ -22,35 +22,81 @@ h1 {
     width:92% ;
     padding-right: 4%;
     padding-left: 4%;
-    padding-top :0.5em;
-    padding-bottom:0.5em;
+    padding-top :0.4em;
+    padding-bottom:0.4em;
     background : #172e49;
     color : white;
     text-align : left;
 }
 
-/*
-h1 * {
-    margin-bottom:0.5em ;
+
+
+h2 {
+    width:92% ;
+    padding-right: 4%;
+    padding-left: 4%;
+    padding-top :0.1em;
+    padding-bottom:0.1em;
+    background : #f9f9f9;
+    color : #172e49;
+    text-align : left;
 }
-*/
+
+
+h3 {
+    width:96% ;
+    padding-right: 0%;
+    padding-left: 4%;
+    padding-top :0.1em;
+    padding-bottom:0.1em;
+    background : #fcfcfc;
+    color : #172e49;
+    text-align : left;
+    display:block;
+    clear:both;
+}
+
+
+
+h3 *.xforms-output {
+    display:inline; 
+    margin-right:1em;
+}
+
+h4 {
+    width:100% ;
+
+    padding-top :0.1em;
+    padding-bottom:0.1em;
+    background : #fcfcfc;
+    color : #172e49;
+    text-align : left;
+    display:block;
+    clear:both;
+}
+
+
+
+.goalheader {
+    display:block; 
+    background : #fafafa;
+    border-bottom : 2px solid #122e49  ; 
+    padding-left:4%;
+}
+
+.objectiveheader {
+    background : #fcfcfc;
+   border-bottom : 1px solid #122e49  ; 
+    padding-left:4%;
+}
+
+
 a.item-title {
     text-decoration: none ;
 }
 
 /*.............   Elementos genericos */
-/*table {
-    padding:1em; 
-    
-}
 
-th {
-    background : #f0f0f0 ;
-    font-weight:400 ; 
-    font-size:80%; 
-    font-family:arial; 
-}
-*/
 /* Elementon diferentes */
 
 p.entitydescription {
@@ -64,17 +110,21 @@ p.entitydescription {
 
 /* ........... Form Controls alignement ...............*/
 
-.singleitem {
-    display:block;
-    margin-top : 1.1em ;
-
-}
 
 .line  {
     display:inline ;
     float : left ;
     clear : both ;
-    margin-top : 1.1em ;    
+    margin-top:0.6em;
+  /*  margin-top : 1.1em ; */
+    width:100%;
+
+}
+
+.singleitem {
+    display:block;
+/*    margin-top : 1.1em ; */
+
 }
 
 .linefirstitem {
@@ -85,15 +135,11 @@ p.entitydescription {
 .lineitem {
     float : left ;
     clear : none;
-/* padding-top : 1.1em ; */
+    padding-top : 0.6em ;
 }
 
 div.headerline {
-    border-top    : 0.5em solid #fcfcff;
-    border-bottom : 0.1em solid #bbbbee;
     display : block;
-    min-height:3em ;
-    padding-top:   1.2em;    
     clear:both;
 }
 
@@ -115,7 +161,6 @@ div.subcategoryheader {
     clear:both;
 }
 
-
 .subcategory {
     display:block;
     margin:2em;
@@ -125,13 +170,7 @@ div.subcategoryheader {
 .linebutton {
     float:right;
 }
-/*
 
-.imagebutton, label.imagebutton {
-background:transparent;
-border:0px;
-}
-*/
 /* ---------------------------------------------------------- */
 
 #marco {
@@ -158,7 +197,6 @@ main {
     float : none;
     clear : both; 
 }
-
 
 .navigation-buttons {
     float:right;
@@ -212,30 +250,18 @@ label.subheader {
     
 }
 
-
-/*
-  #lang-selector  {
-  display:inline;
-  }
-  */
-
-
-
-
 #page-counter {
     display:inline;
     float:right;
     padding-right:50px;
     width:160px;     
-/*
-  top:-20px;
-  width:200px;
-  display:block;
-  */
-/* border:2px solid black;*/
 }
 
-
+.nopaddingtext {
+    min-width:0.5em ;
+    margin-right: 0.2em ;
+    margin-left:0.2em;
+}
 
 /* .................... Elements .................. */
 
@@ -247,12 +273,16 @@ fieldset {
     
 }
 
+.subsection {
+padding-left:2em; 
+}
+
 textarea {
     display : block ; 
     min-width : 55em;
     min-heght : 8em ;
-    margin-top : 1em ; 
-    
+    margin-top : 0.5em ; 
+/*    margin-left:1em; */ 
     
 }
 
@@ -263,7 +293,6 @@ input.xforms-value,   .xforms-input , textarea , select  {
 }
 
 .xforms-required-icon {
-
     border:0px;
 }
 
@@ -297,10 +326,13 @@ input.xforms-value,   .xforms-input , textarea , select  {
 }
 
 .xforms-output {
-    display:inline-block; min-width :8em;
-} 
+    display:inline-block;   min-width :8em; 
+}
 
 
+.xforms-output .nopaddingtext ,  .nopaddingtext .xforms-output   {
+    display:inline-block; min-width :0.5em;
+}
 
 .xform-focus {
     background:#121233; 
@@ -346,6 +378,11 @@ input.xforms-value,   .xforms-input , textarea , select  {
     color: white;
 }
 
+.org-add-button {
+    float : right ;
+    clear : both ;
+}
+
 .title-logo {
     width:40px;
     display:inline-block;     
@@ -366,21 +403,16 @@ input.xforms-value,   .xforms-input , textarea , select  {
 /* 0_mainform */
 
 ol  {
+margin-left:5em ;
+}
+
+ol.mainform-list {
 line-height:2.5em;
-list-style-type:none; 
-margin-left:20%;
-} 
-/*
-ol li  {
-line-height:2em;
-list-style-type:none; 
-} 
-*/
+list-style-type:none;
+}
 
+ol.mainol, ol.mainperformace {
+    margin-left : 0em ;
 
+}
 
-
-/*
-	    <img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
-	  
-*/

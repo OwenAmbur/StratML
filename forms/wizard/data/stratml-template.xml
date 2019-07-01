@@ -51,7 +51,7 @@
       </Stakeholder>
       <OtherInformation/>
       <Objective>
-	<Name/> 
+	<Name >Objetive Name</Name> 
 	<Description/> 
 	<Identifier/>				
 	<SequenceIndicator/> 
@@ -69,26 +69,26 @@
 	  <SequenceIndicator/>
 	  <MeasurementDimension/>
 	  <UnitOfMeasurement/>
-	  <Identifier/>
+	  <Identifier></Identifier>
 	  <Relationship RelationshipType="">
-            <Identifier/>
+            <Identifier></Identifier>
             <ReferentIdentifier>[To_be_inserted_by_user]</ReferentIdentifier>
-	    <Name/>
+	    <Name>Relationship</Name>
 	    <Description/> 
 	  </Relationship>
 	  <MeasurementInstance>
             <TargetResult>
-              <Description>[To be described]</Description>
+              <Description>Measurement Instance Target Result Description[To be described]</Description>
               <Descriptor>
-		<DescriptorName> </DescriptorName>
-		<DescriptorValue> </DescriptorValue>
+		<DescriptorName>Descriptor Name</DescriptorName>
+		<DescriptorValue>Descriptor Value</DescriptorValue>
               </Descriptor>
-              <NumberOfUnits/>
+              <NumberOfUnits>12</NumberOfUnits>
               <StartDate/>
               <EndDate/>
             </TargetResult>
             <ActualResult>
-              <Description>[To be determined]</Description>
+              <Description>[To be determined] Actual Result Description</Description>
               <Descriptor>
 		<DescriptorName> </DescriptorName>
 		<DescriptorValue> </DescriptorValue>
@@ -98,7 +98,7 @@
               <EndDate/>
             </ActualResult>
 	  </MeasurementInstance>
-	  <OtherInformation/>
+	  <OtherInformation>Other Information</OtherInformation>
 	</PerformanceIndicator>		
       </Objective>
     </Goal>

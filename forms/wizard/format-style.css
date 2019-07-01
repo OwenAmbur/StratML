@@ -13,45 +13,78 @@ main {
     font-size:125%;
 }
 
+h2, h3, h4. h5 {
+    color : #172e49;
+}
+
 h1 {
     background : #172e49;
     color : white;
 }
 
-
-
 h2 {
-    background : #f9f9f9;
-    color : #172e49;
+    background : #d0d0d0;
+    font-size:150%;
 }
 
-
 h3 {
-    background : #fcfcfc;
-    color : #172e49;
+    background : #dcdcdc;
+    font-size:135%;
+
 }
 
 h4 {
-    background : #fcfcfc;
-    color : #172e49;
+    background : #f3f3f3;
+    font-size:120%;
+
 }
 
+h5 {
+    background : #f6f6f6;
+    font-size:110%;
+
+}
+
+
+
+/* ............... Elementos cabecera */
 .goalheader {
-    background : #fafafa;
+    background : #f6f6f6;
+    /* border-bottom : 2px solid #122e49  ; */
 }
 
 .objectiveheader {
-    background : #fcfcfc;
+    background : #fafafa;
+    /*       border-bottom : 1px solid #122e49  ;  */
 }
-
 
 a.item-title {
     text-decoration: none ;
 }
 
-/*.............   Elementos genericos */
+/* ............... Subheader row ................... */
 
-/* Elementon diferentes */
+#breadcrumb a, label.subheader,  #lang-selector select {
+    font-family:arial, verdana ; 
+    font-weight:400;    
+    font-size:9pt;
+    background-color:white;
+}
+
+#breadcrumb a {
+    text-decoration:none;
+    color:#172e49;
+} 
+
+label.subheader {
+    font-weight:400;
+}
+
+#lang-selector  {
+    font-weight:400;  
+}
+
+/*.............   Elementos genericos */
 
 p.entitydescription {
     font-size: 60%; 
@@ -61,59 +94,20 @@ p.entitydescription {
 
 /* ........... Form Controls alignement ...............*/
 
-
 .line  {
     clear : both ;
-
 }
- 
 
 div.subcategoryheader {
     clear:both;
 }
- 
 
-/* ---------------------------------------------------------- */
- 
-
- 
-/* ............... Subheader row ................... */
- 
-
-#breadcrumb a, label.subheader,  #lang-selector select {
-    font-family:arial, verdana ; 
-    font-weight:400;    
-    font-size:9pt;
-    background-color:white;
-}
- 
-
-#breadcrumb a {
-    text-decoration:none;
-    color:#172e49;
-} 
-
- 
-
-label.subheader {
-    font-weight:400;
-}
-
-#lang-selector  {
-    font-weight:400;  
-    
-}
-
- 
 
 /* .................... Elements .................. */
- 
 
 textarea {
     min-heght : 8em ;
-    
 }
- 
 
 .calendar .title, .calendar .title input, .calendar .title select, .calendar tfoot {
     font-weight			: bold;
@@ -124,22 +118,11 @@ textarea {
 }
 
 .xforms-label {
-    /* Position */
-    
-
-    /* style*/
-    
     font-size:13pt ; 
     font-family:arial, verdana ; 
     font-weight:900;
     color : #172e49 ;
-    
 }
-
-.xforms-output {
-}
-
-
 
 .xform-focus {
     background:#121233; 
@@ -152,28 +135,27 @@ button {
 
 button *.xforms-label {
     color: white;   
-    
 }
-
- 
 
 .navigation-buttons button {
     background: linear-gradient(to bottom, #091c31 5%,  #172e49 20%, #3b5a7f 71%, #1e99cc 100%);
 }
 
-.navigation-buttons button.back {
+.back button {
     background: linear-gradient(to bottom, #33121e 0%,#66331e 10%,#207cca 51%,#7db9e8 100%);
 }
 
-.navigation-buttons button.alert {
-    background: linear-gradient(to bottom, #33121e 0%,#66331e 10%,#207cca 51%,#7db9e8 100%);
+.green button {
+    background: linear-gradient(to bottom, #33121e   0%, #172e49 10%, #206655 80%,  #1e99cc 100%);
 }
 
+.alert button  {
+    background: linear-gradient(to bottom,  #33121e   0%, #172e49 10%  ,#660000 80%,  #1e99cc 100%);
+}
 
 .org-add-button {
     clear : both ;
 }
-
 
 /* 0_mainform */
 

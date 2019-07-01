@@ -53,7 +53,9 @@
       </div>
     </header>
     <main class="mainol goalspage"  >
-      <h2>Goals</h2>
+      
+<!--<h2><img src="img/goal-blue-icon.svg" class="type-icon" /> Goals</h2>
+-->
         <!--
       <xf:group>
         -->
@@ -61,13 +63,14 @@
 	  <xf:repeat ref="//Goal" >
 	    <li>
 	      <fieldset>
-		<div class="headerline goalheader" >
-		  <xf:output ref="Name" />
+		<div class="headerline goalheader line" >
+		  <img src="img/goal-blue-icon.svg" class="type-icon" />  <xf:output ref="instance('messages')/message[key/text()='goal']/value"/>
+		     <xf:output ref="Name" />
 		</div>
-		<div class="headerline" >
+		<div class="headerline line" >
 	  
 		  <xf:label class="lineitem">
-		    <xf:output ref="instance('messages')/message[key/text()='goal-identifier']/value"/>
+		    <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
 		    <xf:input ref="Identifier" />
 		  </xf:label>
 		  <xf:label class="lineitem" >
@@ -86,19 +89,9 @@
 		  </xf:label>
 		</div>
 		
-		<div class="subcategory">
-		  <h3><xf:output ref="instance('messages')/message[key/text()='objectives']/value"/></h3>
-		  <!--
-		  <div class="subcategoryheader" ><xf:label>Objetives</xf:label></div> 
--->
+		<div class="subsection">
 		  
-		  
-		  
-
-
-	      
-
-
+<!-- <h3><img src="img/performance-blue-icon.svg" class="type-icon" /> <xf:output ref="instance('messages')/message[key/text()='objectives']/value"/></h3> -->
 		<!--
 		<div class="line" >
 		  <xf:label class="lineitem">
@@ -108,54 +101,51 @@
 		</div>
 		  -->		
       
-<!-- Stake holder .........................................................
-<xf:group>
-<xf:repeat id="goalstakerepeat" nodeset="Stakeholder" appearance="compact">
-<table>
-
-<tr><td colspan="2"><h3>
-	<xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/> 
-	<xf:output value="' '"/>
-	<xf:output value="position()"/><xf:output value="' '"/>  
-	<xf:output ref="instance('messages')/message[key/text()='goal-of']/value"/>  
-	<xf:output value="' '"/>
-<xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>: </h3></td></tr>
-      <tr valign="top"><td><b><xf:output ref="instance('messages')/message[key/text()='stakeholder-type']/value"/> : </b></td><td>
-           <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
-                <xf:item>
+		<!-- Stake holder .........................................................
+		     <xf:group>
+		     <xf:repeat id="goalstakerepeat" nodeset="Stakeholder" appearance="compact">
+		     <table>
+		     
+		     <tr><td colspan="2"><h3>
+		     <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/> 
+		     <xf:output value="' '"/>
+		     <xf:output value="position()"/><xf:output value="' '"/>  
+		     <xf:output ref="instance('messages')/message[key/text()='goal-of']/value"/>  
+		     <xf:output value="' '"/>
+		     <xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>: </h3></td></tr>
+		     <tr valign="top"><td><b><xf:output ref="instance('messages')/message[key/text()='stakeholder-type']/value"/> : </b></td><td>
+		     <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
+                     <xf:item>
                     <xf:label>Organization</xf:label>
                     <xf:value>Organization</xf:value> 
-                </xf:item>
-                <xf:item>
+                    </xf:item>
+                    <xf:item>
                     <xf:label>Person</xf:label>
                     <xf:value>Person</xf:value> 
-                </xf:item>
-                <xf:item>
+                    </xf:item>
+                    <xf:item>
                     <xf:label>Group</xf:label>
                     <xf:value>Generic_Group</xf:value> 
-                </xf:item>
-          </xf:select1></td></tr>
-
-
-<tr><td><b><xf:output ref="instance('messages')/message[key/text()='stakeholder-name']/value"/>: </b></td><td>
-<xf:input class="Source" ref="Name">
-	<xf:label></xf:label>
-</xf:input></td></tr>
-
-<tr><td><b><xf:output ref="instance('messages')/message[key/text()='description']/value"/>: </b></td><td>
-<xf:textarea rows="6" class="textarea" ref="Description">
-	<xf:label></xf:label>
-</xf:textarea>
-</td></tr>
-
-
-
-
-<tr><td colspan="3">
-       <ul>
-
+                    </xf:item>
+		    </xf:select1></td></tr>
+		    
+		    
+		    <tr><td><b><xf:output ref="instance('messages')/message[key/text()='stakeholder-name']/value"/>: </b></td><td>
+		    <xf:input class="Source" ref="Name">
+		    <xf:label></xf:label>
+		    </xf:input></td></tr>
+		    
+		    <tr><td><b><xf:output ref="instance('messages')/message[key/text()='description']/value"/>: </b></td><td>
+		    <xf:textarea rows="6" class="textarea" ref="Description">
+		    <xf:label></xf:label>
+		    </xf:textarea>
+		    </td></tr>
+	
+	<tr><td colspan="3">
+	<ul>
+	
         <xf:group>
-	      <xf:repeat id="goalrolerepeat" nodeset="Role" appearance="compact">
+	<xf:repeat id="goalrolerepeat" nodeset="Role" appearance="compact">
 
         <table>
 	<tr><td colspan="2"><h3>
@@ -486,7 +476,9 @@
 <!-- ......................... Objetives ............................. --> 
 <xf:group>
   <xf:repeat id="objectiverepeat" nodeset="Objective" appearance="compact">
-    <div class="headerline goalheader" >
+    <div class="headerline goalheader line" >
+<img src="img/performance-blue-icon.svg" class="type-icon" /> 
+	<xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
       <xf:output ref="Name" />
     </div>
     
@@ -494,24 +486,24 @@
       
       <xf:label>
 	<xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
-      <xf:input class="Source" ref="Identifier" />
-   </xf:label>
+	<xf:input class="Source" ref="Identifier" />
+      </xf:label>
    
-   <xf:label>
-     <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
-     <!--
-	 <xf:output value="' '"/>
-	 <xf:output value="position()"/>
-	 <xf:output ref="instance('messages')/message[key/text()='goal-of']/value"/>  
-	 <xf:output value="' '"/><xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>
-	 <xf:output ref="instance('messages')/message[key/text()='objective-name']/value"/>
-     -->
-     <xf:input class="Source" ref="Name" />
-   </xf:label>
-   <xf:trigger class="linebutton remove-button">
-     <xf:label>X</xf:label>
-     <xf:delete ref="."  ev:event="DOMActivate" />
-   </xf:trigger>
+      <xf:label>
+	<xf:output ref="instance('messages')/message[key/text()='name']/value"/>
+	<!--
+	    <xf:output value="' '"/>
+	    <xf:output value="position()"/>
+	    <xf:output ref="instance('messages')/message[key/text()='goal-of']/value"/>  
+	    <xf:output value="' '"/><xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>
+	    <xf:output ref="instance('messages')/message[key/text()='objective-name']/value"/>
+	-->
+	<xf:input class="Source" ref="Name" />
+      </xf:label>
+      <xf:trigger class="linebutton remove-button">
+	<xf:label>X</xf:label>
+	<xf:delete ref="."  ev:event="DOMActivate" />
+      </xf:trigger>
    
     </div>
     <div class="line">
@@ -522,9 +514,9 @@
     </div>
     <!--
 	<xf:label>
-      <xf:output ref="instance('messages')/message[key/text()='sequence-indicator']/value"/>
-      <xf:input class="SequenceIndicator1" ref="SequenceIndicator" />
-      </xf:label>
+	<xf:output ref="instance('messages')/message[key/text()='sequence-indicator']/value"/>
+	<xf:input class="SequenceIndicator1" ref="SequenceIndicator" />
+	</xf:label>
     -->
   </xf:repeat>
 </xf:group>
@@ -534,7 +526,8 @@
 
   <xf:trigger  class="linebutton add-button">
     <xf:label>
-      <xf:output ref="instance('messages')/message[key/text()='add']/value"/> 
+    <xf:output ref="instance('messages')/message[key/text()='add']/value"/> 
+
       <xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
     </xf:label>
     <xf:action  ev:event="DOMActivate">

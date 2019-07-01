@@ -62,14 +62,16 @@
 	</div>
       </header>
       <main>	
+
+
 	<div class="line" >
 	  <xf:label class="lineitem firstitem" >
-	    <b><xf:output ref="instance('messages')/message[key/text()='plan-name']/value"/>: </b>
+	    <b><xf:output ref="instance('messages')/message[key/text()='plan-name']/value"/></b>
 	    <xf:input class="Source" ref="Name">
 	      </xf:input>			
 	  </xf:label>
 	  <xf:label class="lineitem">
-	    <xf:output ref="instance('messages')/message[key/text()='plan-report-type']/value"/>:
+	    <xf:output ref="instance('messages')/message[key/text()='plan-report-type']/value"/>
 	    <xf:select1 class="Source" ref="@Type" appearance="minimal">
 		<xf:item>
 		  <xf:label>Strategic_Plan</xf:label>
@@ -86,6 +88,20 @@
 	    </xf:select1>
 	  </xf:label>
 	</div>
+
+	  <div class="line">
+	    <xf:label class="lineitem firstitem">
+	      <b>
+	      <xf:output ref="instance('messages')/message[key/text()='plan-start-date']/value"/></b>
+
+	      <xf:input class="Source" ref="AdministrativeInformation/StartDate" />
+	    </xf:label>
+	    <xf:label class="lineitem">
+	      <xf:output ref="instance('messages')/message[key/text()='plan-end-date']/value"/>
+	      <xf:input ref="AdministrativeInformation/EndDate" /> 
+	    </xf:label>
+	  </div>
+
 	<!--
 	    <xf:label class="linefirstitem">
 	    <xf:output ref="instance('messages')/message[key/text()='plan-source']/value"/>
@@ -110,16 +126,12 @@
 	      </xf:action>
 	      </xf:trigger>  			
 	-->      
-	  <div class="line">
-	    <xf:label class="lineitem firstitem">
-	      <xf:output ref="instance('messages')/message[key/text()='plan-start-date']/value"/>
-	      <xf:input ref="AdministrativeInformation/StartDate" />
-	    </xf:label>
-	    <xf:label class="lineitem">
-	      <xf:output ref="instance('messages')/message[key/text()='plan-end-date']/value"/>
-	      <xf:input ref="AdministrativeInformation/EndDate" />	
-	    </xf:label>
-	  </div>
+
+
+
+
+
+
 	  <div class="line" >
 	    <xf:label class="lineitem firstitem">
 	      <xf:output ref="instance('messages')/message[key/text()='plan-description']/value/text()"/>

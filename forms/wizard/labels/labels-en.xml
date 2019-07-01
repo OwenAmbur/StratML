@@ -12,7 +12,7 @@
 <message><key>expected-result</key><value>Expected Result</value></message>
 <message><key>end-date</key><value>End Date</value></message>
 
-<message><key>start-date</key><value>End Date</value></message>
+<message><key>start-date</key><value>Start Date</value></message>
 
 
 <message><key>error-entry-submission</key><value>Entry Submission Error</value></message>
@@ -20,15 +20,15 @@
 <message><key>performance-information</key><value>Performance Information</value></message>
 
 
-<message><key>plan-report-type</key><value>Plan or Report Type</value></message>
+<message><key>plan-report-type</key><value>Type</value></message>
 
-<message><key>plan-description</key><value>Description of Plan</value></message>
+<message><key>plan-description</key><value>Description</value></message>
 <message><key>plan-information</key><value>Plan Information</value></message>
-<message><key>plan-name</key><value>Name of Plan</value></message>
-<message><key>plan-source</key><value>Source of Plan</value></message>
-<message><key>plan-start-date</key><value>Start Date of Plan</value></message>
-<message><key>plan-end-date</key><value>End Date of Plan</value></message>
-<message><key>plan-publication-date</key><value>Publication Date of Plan</value></message>
+<message><key>plan-name</key><value>Name</value></message>
+<message><key>plan-source</key><value>Source</value></message>
+<message><key>plan-start-date</key><value>Start Date</value></message>
+<message><key>plan-end-date</key><value>End Date</value></message>
+<message><key>plan-publication-date</key><value>Publication Date</value></message>
 
 
 <message><key>identifier</key><value>Identifier</value></message>
@@ -51,14 +51,15 @@
 <message><key>other-information</key><value>Other Information</value></message>
 
 <message><key>organization</key><value>Organization</value></message>
-<message><key>organization-information</key><value>Organization Information</value></message>
-<message><key>organization-name</key><value>Organization Name</value></message>
-<message><key>organization-description</key><value>Organization Description</value></message>
+<message><key>organization-information</key><value>Org. Information</value></message>
+<message><key>organization-name</key><value>Org. Name</value></message>
+<message><key>organization-description</key><value>Org. Description</value></message>
 <message><key>organization-of</key><value> of Organization</value></message>
 
 
-
 <message><key>objective</key><value>Objective</value></message>
+<message><key>objectives</key><value>Objectives</value></message>
+
 <message><key>objective-information</key><value>Objective Information</value></message>
 <message><key>objective-name</key><value>Objective Name</value></message>
 <message><key>objective-description</key><value>Objective Description</value></message>
@@ -114,7 +115,7 @@
 <message><key>vision-description</key><value>Vision Description</value></message>
 
 <message><key>mission</key><value>Mission</value></message>
-<message><key>mission-identifier</key><value>Mission Identifier</value></message>
+<message><key>mission-identifier</key><value>Mission Id.</value></message>
 <message><key>mission-description</key><value>Mission Description</value></message>
 
 <message><key>number-of-units</key><value>Number Of Units</value></message>
@@ -129,10 +130,61 @@
 <message><key>goal</key><value>Goal</value></message>
 <message><key>goal-name</key><value>Goal Name</value></message>
 <message><key>goals</key><value>Goals</value></message>
-<message><key>goals-information</key><value>Goals &amp; Objetives</value></message>
+<message><key>goals-information</key><value>Goals &amp; Objectives</value></message>
 
 <message><key>goal-identifier</key><value>Goal Identifier</value></message>
 <message><key>goal-of</key><value> of Goal</value></message>
+
+<message><key>goal-of</key><value> of Goal</value></message>
+<!-- Pendiente pasar a castellano -->
+<message><key>sequence-indicator</key><value>Sequence Indicator</value></message>
+<message><key>measurement-dimension</key><value>Measurement Dimension</value></message>
+<message><key>measurement-unit</key><value>Unit of measurement</value></message>
+<message><key>performance-indicator-type</key><value>Type</value></message>
+
+
+
+<message><key>relationship</key><value>Relationship</value></message>
+
+<message><key>relationship-type</key><value>Relationship Type</value></message>
+<message><key>reference-identifier</key><value>Referent Identifier</value></message>
+<message><key>measurement-instance</key><value>Measurement Instance</value></message>
+
+
+<!--
+
+			<PerformanceIndicator ValueChainStage="" PerformanceIndicatorType="">
+
+				  <Relationship RelationshipType="">
+            <Identifier/>
+            <ReferentIdentifier>[To_be_inserted_by_user]</ReferentIdentifier>
+	        <Name/>
+		    <Description/> 
+		      </Relationship>
+		        <MeasurementInstance>
+            <TargetResult>
+              <Description>[To be described]</Description>
+              <Descriptor>
+	      <DescriptorName> </DescriptorName>
+	      <DescriptorValue> </DescriptorValue>
+              </Descriptor>
+              <NumberOfUnits/>
+              <StartDate/>
+              <EndDate/>
+            </TargetResult>
+            <ActualResult>
+              <Description>[To be determined]</Description>
+              <Descriptor>
+	      <DescriptorName> </DescriptorName>
+	      <DescriptorValue> </DescriptorValue>
+              </Descriptor>
+              <NumberOfUnits/>
+              <StartDate/>
+              <EndDate/>
+            </ActualResult>
+	      </MeasurementInstance>
+
+-->
 
 
 
@@ -144,8 +196,8 @@
 
 <message><key>given-name</key><value>Given Name</value></message>
 <message><key>surname</key><value>Surname</value></message>
-<message><key>email-address</key><value>Email Address</value></message>
-<message><key>telephone-number</key><value>Telephone Number</value></message>
+<message><key>email-address</key><value>Email</value></message>
+<message><key>telephone-number</key><value>Telephone</value></message>
 
 
 

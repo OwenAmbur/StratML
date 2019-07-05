@@ -109,6 +109,7 @@
 <message><key>stakeholder-type</key><value>Stakeholder Type</value></message>
 
 <message><key>sequence-indicator</key><value>Sequence Indicator</value></message>
+<message><key>seq-indicator</key><value>Seq. Indicator</value></message>
 
 <message><key>vision</key><value>Vision</value></message>
 <message><key>vision-identifier</key><value>Vision Identifier</value></message>
@@ -118,13 +119,16 @@
 <message><key>mission-identifier</key><value>Mission Id.</value></message>
 <message><key>mission-description</key><value>Mission Description</value></message>
 
-<message><key>number-of-units</key><value>Number Of Units</value></message>
+<message><key>number-of-units</key><value>Units</value></message>
 <message><key>descriptor-value</key><value>Descriptor Value</value></message>
 
 
 <message><key>value</key><value>Value</value></message>
 <message><key>values</key><value>Values</value></message>
-<message><key>value-chain-stage</key><value>Value Chain Stage</value></message>
+<message><key>value-chain-stage</key><value>Value Chain Stage</value>
+<hint>Value Chain Stage</hint>
+
+</message>
 
 
 <message><key>goal</key><value>Goal</value></message>
@@ -138,8 +142,15 @@
 <message><key>goal-of</key><value> of Goal</value></message>
 <!-- Pendiente pasar a castellano -->
 <message><key>sequence-indicator</key><value>Sequence Indicator</value></message>
+
 <message><key>measurement-dimension</key><value>Measurement Dimension</value></message>
 <message><key>measurement-unit</key><value>Unit of measurement</value></message>
+
+<message><key>measurement</key><value>Measurement</value></message>
+<message><key>dimension</key><value>Dimension</value></message>
+<message><key>unit</key><value>Unit</value></message>
+
+
 <message><key>performance-indicator-type</key><value>Type</value></message>
 
 

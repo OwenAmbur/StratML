@@ -53,21 +53,14 @@
       </div>
     </header>
     <main class="mainol goalspage"  >
-      
-<!--<h2><img src="img/goal-blue-icon.svg" class="type-icon" /> Goals</h2>
--->
-        <!--
-      <xf:group>
-        -->
 	<ol class="mainol" >
 	  <xf:repeat ref="//Goal" >
 	    <li>
 	      <fieldset>
-		<div class="headerline goalheader line" >
-		  <img src="img/goal-blue-icon.svg" class="type-icon" />  <xf:output ref="instance('messages')/message[key/text()='goal']/value"/>
-		     <xf:output ref="Name" />
+		<div class="titleline goalheader" >
+		  <img src="img/goal-blue-icon.svg" class="type-icon" />  <xf:output ref="instance('messages')/message[key/text()='goal']/value" class="nopaddingtext" />   <xf:output ref="Name" class="nopaddingtext" />
 		</div>
-		<div class="headerline line" >
+		<div class="headerline line subsection" >
 	  
 		  <xf:label class="lineitem">
 		    <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
@@ -82,16 +75,13 @@
 		    <xf:delete ref="."  ev:event="DOMActivate" />
 		  </xf:trigger>
 		</div>
-		<div class="line" >
+		<div class="line subsection" >
 		  <xf:label class="lineitem">
 		    <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
 		    <xf:textarea  ref="Description" />
 		  </xf:label>
 		</div>
-		
 		<div class="subsection">
-		  
-<!-- <h3><img src="img/performance-blue-icon.svg" class="type-icon" /> <xf:output ref="instance('messages')/message[key/text()='objectives']/value"/></h3> -->
 		<!--
 		<div class="line" >
 		  <xf:label class="lineitem">
@@ -474,12 +464,13 @@
 
 
 <!-- ......................... Objetives ............................. --> 
-<xf:group>
+<div class="subsection">
+
   <xf:repeat id="objectiverepeat" nodeset="Objective" appearance="compact">
-    <div class="headerline goalheader line" >
-<img src="img/performance-blue-icon.svg" class="type-icon" /> 
-	<xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
-      <xf:output ref="Name" />
+    <div class="titleline objectiveheader" >
+      <img src="img/target_blue_icon1.svg" class="type-icon"  /> 
+	<xf:output ref="instance('messages')/message[key/text()='objective']/value" class="nopaddingtext"/>
+	<xf:output ref="Name" class="nopaddingtext" />
     </div>
     
     <div class="line">
@@ -519,10 +510,10 @@
 	</xf:label>
     -->
   </xf:repeat>
-</xf:group>
+</div>
 
 </div>
-<div class="add-button">
+<div class="org-add-button">
 
   <xf:trigger  class="linebutton add-button">
     <xf:label>
@@ -547,7 +538,7 @@
 </xf:repeat>
 </ol>
 <br/>
-<div class="add-bunttons" >
+<div class="org-add-buntton subsection" >
 <xf:trigger class="add-button">
   <xf:label>
     <xf:output ref="instance('messages')/message[key/text()='add']/value"/> 

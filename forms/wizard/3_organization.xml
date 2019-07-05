@@ -65,7 +65,7 @@
 	  <div class="line" >
 	    <xf:label class="linefirstitem">
 		  <xf:output ref="instance('messages')/message[key/text()='organization-name']/value" />
-		  <xf:input class="Source" ref="Name" />
+		  <xf:input class="Source longinput" ref="Name" />
 	    </xf:label>
 	  </div>
 	  <div class="line" >
@@ -297,12 +297,10 @@
 		    <xf:group>	
 		      <xf:repeat id="valuerepeat" ref="instance('default')//Value" appearance="compact">
 			<div class="line" >
-			  <xf:label class="linefirstitem" >
+			  <xf:label class="linefirstitem nopaddingtext" >
 			    <span class="nopaddingtext" >
-			      <xf:output value="position()"/>
-			    </span>
-			    <span class="nopaddingtext" >
-			      <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
+			      <xf:output value="position()" class="nopaddingtext" />
+			      <xf:output ref="instance('messages')/message[key/text()='name']/value" class="nopaddingtext" />
 			    </span>
 			    <xf:input class="Source longinput" ref="Name" />
 			    
@@ -314,26 +312,20 @@
 			</div>
 			<div class="line" >
 			  <xf:label class="singleitem" >
-
 			    <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
 			    <xf:textarea rows="6" class="textarea" ref="Description">
 			    </xf:textarea>
 			  </xf:label>
 			</div>
-
-
 		      </xf:repeat>
-		      
 		      <br/>
 		    </xf:group>
 		  </div>
-
-
 		  <fieldset class="org-add-button">
 		    <xf:trigger class="default-button">
 		      <xf:label>
 			<span class="nopaddingtext" ><xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
-			<xf:output ref="instance('messages')/message[key/text()='value']/value"/>
+			<xf:output ref="instance('messages')/message[key/text()='value']/value" class="opaddingtext"/>
 		      </xf:label>
 		      <xf:action ev:event="DOMActivate">		        	
 			<xf:insert origin="instance('template')//Value" context="." at="last()" position="before" />

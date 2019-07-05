@@ -320,7 +320,7 @@
 	      <xf:label>&lt; Back</xf:label>
 	      <xf:toggle case="cuatro" ev:event="DOMActivate" />
 	      <xf:action ev:event="DOMActivate">
-		<xf:load resource="4_performance.xml" show="embed" target="subform" />
+		<xf:load resource="4_goals.xml" show="embed" target="subform" />
 	      </xf:action>
 	    </xf:submit>
 	    <xf:trigger class="alert">

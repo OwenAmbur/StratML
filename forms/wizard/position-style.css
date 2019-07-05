@@ -31,7 +31,7 @@ padding-left:2em;
  h2 , h3, h4, h5 {
     width:92% ;
     padding-right: 4%;
-    padding-left: 4%;
+    padding-left: 0.6em ;
     padding-top :0.1em;
     margin-top:0.6em;
     padding-bottom:0.1em;
@@ -94,9 +94,10 @@ a.item-title {
 
 .type-icon {
 display: inline ; 
-width:14; 
+width:30px; 
 margin-right: 0.5em ; 
 }
+
 /*.............   Elementos genericos */
 
 /* Elementon diferentes */
@@ -116,10 +117,33 @@ p.entitydescription {
     clear : both ;
     margin-top:0.8em;
     padding-top:0.1em;
-  /*  margin-top : 1.1em ; */
     width:100%;
-/*    border:1px solid silver;  */ 
+
 }
+
+
+.titleline  {
+    display:inline ;
+    float : left ;
+    clear : both ;
+    margin-top:0.8em;
+    padding-top:0.1em;
+    width:92%;
+}
+
+div.headerline {
+    display : block;
+    clear:both;
+}
+
+div.headerline > label  {
+    display : inline;
+
+}
+
+
+
+
 
 .singleitem {
     display:block;
@@ -138,14 +162,7 @@ p.entitydescription {
     padding-top : 0.5em ;
 }
 
-div.headerline {
-    display : block;
-    clear:both;
-}
 
-div.headerline > label  {
-    display : inline;
-}
 
 div.buttonline {
     display : block;
@@ -165,10 +182,6 @@ div.subcategoryheader {
     display:block;
     margin:2em;
     margin-left:3em;
-}
-
-.linebutton {
-    float:right;
 }
 
 /* ---------------------------------------------------------- */
@@ -206,8 +219,6 @@ main {
     display:block;
 }
 
-#breadcrumb a, label.subheader,  #lang-selector select {
-}
 
 #breadcrumb {
     float:left;
@@ -247,7 +258,7 @@ label.subheader {
 
 .nopaddingtext {
     min-width:0.5em ;
-    margin-right: 0.2em ;
+    margin-right: 1em ;
     margin-left:0.2em;
 }
 
@@ -260,11 +271,15 @@ textarea {
     min-heght : 8em ;
     margin-top : 0.5em ; 
 }
+
 .longinput input {
-    min-width:40em;
+    min-width:30em;
 }
 
-input.xforms-value,   .xforms-input , textarea , select  { 
+/*
+input.xforms-value,   .xforms-input 
+,*/
+ input[type="text"],textarea , select  { 
     border : 1px solid #b1c1d7 ; 
     border-radius: 3px;
 
@@ -295,12 +310,15 @@ input.xforms-value,   .xforms-input , textarea , select  {
     
 }
 
-.xforms-output {
-    display:inline-block;   min-width :8em; 
+div.line .xforms-output {
+    display:inline-block;   min-width :5em; 
 }
 
+div.line .nopaddingtext {
+    min-width :0.5em; 
+}
 
-.xforms-output .nopaddingtext ,  .nopaddingtext .xforms-output   {
+.nopaddingtext    {
     display:inline-block; min-width :0.5em;
 }
 
@@ -317,13 +335,24 @@ input.xforms-value,   .xforms-input , textarea , select  {
 
 }
 
-
+/*
 .remove-button {
     clear:none;
     float:right;
     }
 
+*/
 
+.remove-button {
+
+    display : inline;
+
+/*    float:right;
+    clear:none;*/
+
+    margin-top:0 ; 
+    
+}
 
 .org-add-button, add-buttons {
     display:block; 
@@ -339,8 +368,8 @@ input.xforms-value,   .xforms-input , textarea , select  {
 }
 
  .org-add-button .add-button  ,  .add-buttons .add-button  {
-         margin-top:2.5em ; 
-
+     margin-top:1em ; 
+     margin-bottom:1em ; 
     float:left;
 }
 
@@ -375,14 +404,6 @@ input.xforms-value,   .xforms-input , textarea , select  {
 .navigation-buttons * {
 }
 
-.remove-button {
-
-    display : inline;
-    float:right;
-    clear:none;
-    margin-top:0 ; 
-    
-}
 
 .title-logo {
     width:40px;
@@ -407,13 +428,18 @@ ol  {
 margin-left:5em ;
 }
 
+ol.subsection {
+margin-left:1.5em ;
+
+}
+
 ol.mainform-list {
 line-height:2.5em;
 list-style-type:none;
 }
 
-ol.mainol, ol.mainperformace {
-    margin-left : 0em ;
-
+ol.mainol, ol.mainperformace, main.goalspage, main.performancepage  {
+    margin-left : 1em ;
+    padding-left: 1em;
 }
 

@@ -23,24 +23,24 @@ h1 {
 }
 
 h2 {
-    background : #d0d0d0;
+/*    background : #d0d0d0; */ 
     font-size:150%;
 }
 
 h3 {
-    background : #dcdcdc;
+ /*    background : #dcdcdc; */
     font-size:135%;
 
 }
 
 h4 {
-    background : #f3f3f3;
+ /*    background : #f3f3f3; */
     font-size:120%;
 
 }
 
 h5 {
-    background : #f6f6f6;
+   /*  background : #f6f6f6; */
     font-size:110%;
 
 }
@@ -49,13 +49,13 @@ h5 {
 
 /* ............... Elementos cabecera */
 .goalheader {
-    background : #f6f6f6;
-    /* border-bottom : 2px solid #122e49  ; */
+ /*   background : #f6f6f6;*/
+ /*    border-bottom : 0.4px solid #122e49  ; */
 }
 
 .objectiveheader {
-    background : #fafafa;
-    /*       border-bottom : 1px solid #122e49  ;  */
+    /*background : #fafafa;*/
+    /*border-bottom : 0.2px solid #122e49  ; */
 }
 
 a.item-title {
@@ -159,7 +159,8 @@ button *.xforms-label {
 
 /* 0_mainform */
 
-ol.mainform-list {
+ol.mainform-list , .mainol, .performancepage li {
     list-style-type:none;
 }
+
 

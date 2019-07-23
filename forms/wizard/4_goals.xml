@@ -54,7 +54,7 @@
     </header>
     <main class="mainol goalspage"  >
 	<ol class="mainol" >
-	  <xf:repeat ref="//Goal" >
+	  <xf:repeat ref="/PerformancePlanOrReport/StrategicPlanCore/Goal" >
 	    <li>
 	      <fieldset>
 		<div class="titleline goalheader" >
@@ -74,6 +74,25 @@
 		    <xf:label>X</xf:label>
 		    <xf:delete ref="."  ev:event="DOMActivate" />
 		  </xf:trigger>
+		  <xf:trigger ref="./../[preceding-sibling::Goal]" class="iconbutton" >
+		    <xf:label>
+		      <img src="img/up.svg" />
+		    </xf:label>
+		    <xf:action ev:event="DOMActivate">
+		      <xf:insert origin="context()" ref="preceding-sibling::Goal[1]" position="before"/>
+		      <xf:delete ref="."/>
+		    </xf:action>
+		  </xf:trigger>
+		  <xf:trigger ref="./../[following-sibling::Goal]" class="iconbutton">
+		    <xf:label>
+		      <img src="img/down.svg" />
+		    </xf:label>
+		    <xf:action ev:event="DOMActivate">
+		      <xf:insert origin="context()" ref="following-sibling::Goal[1]" />
+		      <xf:delete ref="."/>
+		    </xf:action>
+		  </xf:trigger>
+		  
 		</div>
 		<div class="line subsection" >
 		  <xf:label class="lineitem">
@@ -468,7 +487,7 @@
 
   <xf:repeat id="objectiverepeat" nodeset="Objective" appearance="compact">
     <div class="titleline objectiveheader" >
-      <img src="img/target_blue_icon1.svg" class="type-icon"  /> 
+      <img src="img/target_blue_icon_3.svg" class="type-icon"  /> 
 	<xf:output ref="instance('messages')/message[key/text()='objective']/value" class="nopaddingtext"/>
 	<xf:output ref="Name" class="nopaddingtext" />
     </div>
@@ -495,7 +514,25 @@
 	<xf:label>X</xf:label>
 	<xf:delete ref="."  ev:event="DOMActivate" />
       </xf:trigger>
-   
+      <xf:trigger ref=".[preceding-sibling::Objective]"  class="iconbutton">
+	<xf:label> 
+	  <img src="img/up.svg" />
+	</xf:label>
+	<xf:action ev:event="DOMActivate">
+	  <xf:insert origin="context()" ref="preceding-sibling::Objective[1]" position="before"/>
+	  <xf:delete ref="."/>
+	</xf:action>
+      </xf:trigger>
+      <xf:trigger ref=".[following-sibling::Objective]" class="iconbutton">
+	<xf:label>
+	  <img src="img/down.svg" />
+	</xf:label>
+	<xf:action ev:event="DOMActivate">
+	  <xf:insert origin="context()" ref="following-sibling::Objective[1]" />
+	  <xf:delete ref="."/>
+	</xf:action>
+      </xf:trigger>
+      
     </div>
     <div class="line">
       <xf:label class="lineitem">
@@ -522,7 +559,11 @@
       <xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
     </xf:label>
     <xf:action  ev:event="DOMActivate">
-      <xf:insert origin="instance('template')//Objective" context="." at="last()" position="after"/>
+      <xf:insert 
+	  origin="instance('template')//Objective" 
+	  context="." 
+	  ref="Objective" 
+	  at="last()" position="after"/>
     </xf:action>
   </xf:trigger>
 </div>
@@ -545,7 +586,10 @@
     <xf:output ref="instance('messages')/message[key/text()='goal']/value"/>
   </xf:label>
   <xf:action  ev:event="DOMActivate">
-    <xf:insert origin="instance('template')//Goal" context="." at="last" position="after"/>
+    <xf:insert 
+	origin="instance('template')//Goal" context="/PerformancePlanOrReport/StrategicPlanCore" 
+	ref="Goal"
+	at="last()" position="after"/>
   </xf:action>
 </xf:trigger>
 </div>

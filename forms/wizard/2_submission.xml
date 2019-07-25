@@ -55,14 +55,38 @@
     <main>
       <div class="section">
 	<div class="line">
-	  <xf:label><xf:output ref="instance('messages')/message[key/text()='plan-publication-date']/value"/>
+	  <xf:label class="lineitem"> <xf:output ref="instance('messages')/message[key/text()='plan-publication-date']/value"/>
 	  <xf:input ref="AdministrativeInformation/PublicationDate">
 	  </xf:input>
 	  </xf:label>
-	  <xf:label>
-	    <xf:output ref="instance('messages')/message[key/text()='plan-source']/value"/>
-	    <xf:input ref="//AdministrativeInformation/Source" />
-	  </xf:label>
+	  <xf:input ref="AdministrativeInformation/Source" id="plansource" class="lineitem">
+	    <xf:label>
+	      <xf:output ref="instance('messages')/message[key/text()='plan-source']/value"/>
+	    </xf:label>
+	  </xf:input>
+	  <div class="lineitem" >
+	  <!-- TODO : Include a caseref and clean the mess -->
+
+	  <xf:switch ref="instance('config')/source" caseref="text()">
+	    <xf:case id="false"   >
+	      <xf:trigger   class="default-button">
+		<xf:label  >
+		
+		  <xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" />
+		  <xf:output ref="instance('messages')/message[key/text()='plan-source']/value" class="opaddingtext"/>
+		</xf:label>
+		<xf:action ev:event="DOMActivate">		        	
+		  <xf:insert origin="instance('template')/AdministrativeInformation/Source"
+			     context="instance('default')/AdministrativeInformation/"
+			     at="last" position="after" />
+		  <xf:setfocus control="plansource"/>
+		</xf:action>
+	      </xf:trigger>
+	    </xf:case>
+	    <xf:case id="true"  >
+	    </xf:case>
+	  </xf:switch>
+	  </div>
 	</div>
 	<div class="line">
 	  <xf:label class="lineitem">

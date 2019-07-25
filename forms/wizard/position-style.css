@@ -276,6 +276,11 @@ textarea {
     min-width:30em;
 }
 
+.smallinput input {
+    width:3em;
+    display:inline;
+}
+
 /*
 input.xforms-value,   .xforms-input 
 ,*/
@@ -404,6 +409,12 @@ div.line .nopaddingtext {
 .navigation-buttons * {
 }
 
+.iconbutton button {
+}
+
+.iconbutton label {
+    width:15px;
+}
 
 .title-logo {
     width:40px;

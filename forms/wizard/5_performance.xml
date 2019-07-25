@@ -56,7 +56,7 @@
       </div>
     </header>
     <main class="performancepage">
-      <xf:repeat ref="//Goal">
+      <xf:repeat ref="/PerformancePlanOrReport/StrategicPlanCore/Goal">
         <!-- ................. Goal Resume ...................... -->
 	<xf:switch >
 	  <xf:case id="goalshow" >

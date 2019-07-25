@@ -109,7 +109,7 @@
 <message><key>stakeholder-type</key><value>Stakeholder Type</value></message>
 
 <message><key>sequence-indicator</key><value>Sequence Indicator</value></message>
-<message><key>seq-indicator</key><value>Seq. Indicator</value></message>
+<message><key>seq-indicator</key><value>#</value></message>
 
 <message><key>vision</key><value>Vision</value></message>
 <message><key>vision-identifier</key><value>Vision Identifier</value></message>
@@ -158,7 +158,7 @@
 <message><key>relationship</key><value>Relationship</value></message>
 
 <message><key>relationship-type</key><value>Relationship Type</value></message>
-<message><key>reference-identifier</key><value>Referent Identifier</value></message>
+<message><key>reference-identifier</key><value>Ref. Id.</value></message>
 <message><key>measurement-instance</key><value>Measurement Instance</value></message>
 
 

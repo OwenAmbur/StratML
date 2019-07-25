@@ -124,6 +124,10 @@ textarea {
     color : #172e49 ;
 }
 
+.hiddeninput input{
+    border:0;
+}
+
 .xform-focus {
     background:#121233; 
     color:white; 
@@ -151,6 +155,16 @@ button *.xforms-label {
 
 .alert button  {
     background: linear-gradient(to bottom,  #33121e   0%, #172e49 10%  ,#660000 80%,  #1e99cc 100%);
+}
+
+.iconbutton button {
+    background:transparent;     
+    color : #172e49 ; 
+    border:0; 
+}
+
+.iconbutton button .xforms-label {
+    color : #172e49 ; 
 }
 
 .org-add-button {

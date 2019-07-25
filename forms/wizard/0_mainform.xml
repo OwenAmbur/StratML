@@ -39,7 +39,7 @@
     
     <xf:model>
       <xf:instance xmlns="" id="default" resource="data/stratml-template.xml" />
-      <xf:instance xmlns="" id="template" resource="data/stratml-template.xml" />       
+      <xf:instance xmlns="" id="template" resource="data/stratml-template2.xml" />       
       <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
       <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
       <xf:bind nodeset="//StartDate" type="xf:date" required="false()" />
@@ -72,6 +72,8 @@
       <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/NumberOfUnits" type="xf:decimal"/>
       <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/NumberOfUnits" type="xf:decimal"/>
       <xf:bind ref="instance('config')/identifier" readonly="true()"  />
+      <xf:bind ref="instance('config')/source"
+	       calculate="count(instance('default')/AdministrativeInformation/Source) > 0"  />
       <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
 	<xf:resource value="instance('config')/file/text()"/>
       </xf:submission>      
@@ -142,7 +144,7 @@
 		<xf:send submission="change-language"/>
 	      </xf:action>
 	    </xf:select1>      
-	    <img  id="page-counter"  src="img/counter_5.svg" alt="Step 5"/>
+	    <img  id="page-counter"  src="img/counter_1.svg" alt="Step 5"/>
 	  </div>
 	</header>
 	<main>

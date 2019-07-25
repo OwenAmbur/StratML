@@ -39,7 +39,7 @@
       <Name>[To be named]</Name>
       <Description>[To be described]</Description>
       <Identifier/>
-      <SequenceIndicator>1</SequenceIndicator> 
+      <SequenceIndicator>1</SequenceIndicator>
       <Stakeholder StakeholderTypeType="">
 	<Name>[To be named]</Name> 
 	<Description/> 
@@ -54,7 +54,8 @@
 	<Name >Objective Name</Name> 
 	<Description/> 
 	<Identifier/>				
-	<SequenceIndicator/> 
+
+	<SequenceIndicator>1</SequenceIndicator>
 	<Stakeholder StakeholderTypeType="">
 	  <Name>[To be named]</Name> 
 	  <Description/> 

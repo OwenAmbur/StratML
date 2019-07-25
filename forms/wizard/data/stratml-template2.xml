@@ -1,87 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
-<?xsltforms-options debug="no"?>
-<?xsltforms-options css-converson="no"?>
-<html 
-    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
-    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<PerformancePlanOrReport Type="Performance_Plan">
+  <id/>
+  <Name>Plan Name Goes Here</Name>
+  <Description/>
+  <OtherInformation/>
   
-  <head>
-    <style type="text/css">
-      hr {height: 5px; width: 22%; color: red; background-color: red; }
-      hr.goal {height: 10px; width: 80%; color: blue; background-color: blue; }
-      h1 {color:orange; }
-      span.noread {color:orange;}
-      div.logo {font-family: Garamond; font-size:300%; font-weight: bold;}
-      span.definition {font-family: Helvetica; font-size:40%;}
-      span.button {font-family: Helvetica; font-size:100%; width:15ex;}
-      div.intro {font-family: Arial; font-size:95%; text-align:left;}
-      div.LEFT {font-family: Helvetica; font-size:100%; text-align:left; margin:15px;}
-      @namespace xf url("http://www.w3.org/2002/xforms");
-      label, legend {font-weight: normal;}
-      /* The default field width for all inputs */
-      .xforms-value {width: 125px; font-size: 150%}
-      
-      /* custom field width overrides relative to current font size */
-      /* ex is the size of the current lowercase 'x' in pixels */
-      /* em is the size of the current "M" character in pixels */
-      .Source .xforms-value {width:40ex}
-      .Acronym .xforms-value {width:40ex}
-      .SequenceIndicator .xforms-value {width:35ex}
-      .SequenceIndicator1 .xforms-value {width:35ex}
-      .name .xforms-value {width:35ex}
-      .email .xforms-value {width:35ex;  }
-      /*.email .xforms-value {width:35ex; font-size: 150%}*/
-      .textarea .xforms-value {width:60ex; font-family: Helvetica;sans-serif; font-size: 150%}
-      .textarea1 .xforms-value {width:55ex; font-family: Helvetica;sans-serif; font-size: 150%}
-      .textareabig .xforms-value {width:90ex; font-family: Helvetica;sans-serif; font-size: 125%}
-      
-      ..StakeholderTypeType .xforms-value {width:30ex}
-      .value, .xforms-value{ font-size: inherit}
-      
-      td {vertical-align: top;}
-      
-      body {
-      padding: 3em ; 
-      }
-      
-      fieldset {
-      display: block; 
-      border : 1em;
-      margin-top : 1em ; 
-      }
-      
-      fieldset  fieldset {
-      margin: 0em; 
-      }
-      
-      label{
-      display : inline;
-      margin:1em;
-      padding:2em ;
-      }
-      
-      label.xforms-label {
-      display : inline;
-      margin:1em;
-      padding:2em ;
-      }
-
-      div.line {
-      display:inline-block;
-      width:100%
-      }
-      
-    </style>
+  <StrategicPlanCore>
+	    
+    <Organization>
+      <Name/> 
+      <Acronym/> 
+      <Identifier/>
+      <Description/>
+      <Stakeholder StakeholderTypeType="">
+	<Name>[To be named]</Name>
+	<Description/>
+	<Role>
+	  <Name>[To be named]</Name>
+	  <Description/>
+	  <RoleType/>
+	</Role>
+      </Stakeholder>
+    </Organization>
+    <Vision>
+      <Description/>
+	  <Identifier/>					
+    </Vision>
+    <Mission>
+      <Description/>
+      <Identifier/>
+    </Mission>
+    <Value>
+      <Name/>
+      <Description/> 
+    </Value>
     
-    <link rel="stylesheet" type="text/css"  href="./style.css"/>
-    <xf:model>
-      <xf:instance xmlns="" id="default" source="data/-intro">
-	 <xf:label>Finish</xf:label>
-	 <xf:message >Fin</xf:message>
-       </xf:submit>
-
-
-
-   </body>
-</html>
+    <Goal>
+      <Name>[To be named]</Name>
+      <Description>[To be described]</Description>
+      <Identifier/>
+<!--
+      <SequenceIndicator>1</SequenceIndicator>-->
+      <Stakeholder StakeholderTypeType="">
+	<Name>[To be named]</Name> 
+	<Description/> 
+	<Role>
+	  <Name>[To be named]</Name>
+	  <Description/>
+	  <RoleType/>
+        </Role>
+      </Stakeholder>
+      <OtherInformation/>
+      <Objective>
+	<Name >Objetive Name</Name> 
+	<Description/> 
+	<Identifier/>				
+	<SequenceIndicator>1</SequenceIndicator>
+	<Stakeholder StakeholderTypeType="">
+	  <Name>[To be named]</Name> 
+	  <Description/> 
+	  <Role>
+            <Name>[To be named]</Name>
+            <Description/>
+            <RoleType/>
+          </Role>		
+	</Stakeholder>
+	<OtherInformation/>
+	<PerformanceIndicator ValueChainStage="" PerformanceIndicatorType="">
+	  <SequenceIndicator/>
+	  <MeasurementDimension/>
+	  <UnitOfMeasurement/>
+	  <Identifier></Identifier>
+	  <Relationship RelationshipType="">
+            <Identifier></Identifier>
+            <ReferentIdentifier>[To_be_inserted_by_user]</ReferentIdentifier>
+	    <Name>Relationship</Name>
+	    <Description/> 
+	  </Relationship>
+	  <MeasurementInstance>
+            <TargetResult>
+              <Description>Measurement Instance Target Result Description[To be described]</Description>
+              <Descriptor>
+		<DescriptorName>Descriptor Name</DescriptorName>
+		<DescriptorValue>Descriptor Value</DescriptorValue>
+              </Descriptor>
+              <NumberOfUnits>12</NumberOfUnits>
+              <StartDate/>
+              <EndDate/>
+            </TargetResult>
+            <ActualResult>
+              <Description>[To be determined] Actual Result Description</Description>
+              <Descriptor>
+		<DescriptorName> </DescriptorName>
+		<DescriptorValue> </DescriptorValue>
+              </Descriptor>
+              <NumberOfUnits/>
+              <StartDate/>
+              <EndDate/>
+            </ActualResult>
+	  </MeasurementInstance>
+	  <OtherInformation>Other Information</OtherInformation>
+	</PerformanceIndicator>		
+      </Objective>
+    </Goal>
+  </StrategicPlanCore>
+  
+  <AdministrativeInformation>
+    <Identifier/>
+    <StartDate/>
+    <EndDate/>
+    <PublicationDate/>
+    <Source></Source>
+  </AdministrativeInformation>
+  <Submitter>
+    <Identifier/>
+    <GivenName/>
+    <Surname/>
+    <PhoneNumber/>
+    <EmailAddress/>
+  </Submitter>		
+</PerformancePlanOrReport>

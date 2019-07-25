@@ -61,15 +61,10 @@
 	</div>
       </header>
       <main>	
-
-
 	<h3>Load  from an URL</h3>
 	<div class="subsection" >
-
 	  <p>Load an existing StratML file from an URL on a public server site.</p>
-
 	  <div class="line" >
-	    
 	    <form style='border: 0px solid gray; padding: 5px' action='/forms/walt5.pl'>
 	      StratML <b>URL</b>: 
 	      <input name='url' size='30'/>
@@ -78,7 +73,6 @@
 	  </div>
 	  <div class="line" />
 	</div>
-
 	<br/><br/>
 	<h3>Load from file</h3>
 	<div class="subsection"><p>Load a local StratML file from your computer</p>
@@ -91,23 +85,6 @@
 	    </form>
 	  </div>
 	  </div>
-
-
-
-	  
-
-
-
-
-
-
-
-
-
-
-
-
       </main>
-
   </body>
 </html>

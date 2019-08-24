@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PerformancePlanOrReport Type="Performance_Plan">
   <id/>
-  <Name>Plan Name Goes Here</Name>
+  <Name></Name>
   <Description/>
   <OtherInformation/>
   
@@ -13,10 +13,10 @@
       <Identifier/>
       <Description/>
       <Stakeholder StakeholderTypeType="">
-	<Name>[To be named]</Name>
+	<Name></Name>
 	<Description/>
 	<Role>
-	  <Name>[To be named]</Name>
+	  <Name></Name>
 	  <Description/>
 	  <RoleType/>
 	</Role>
@@ -36,31 +36,31 @@
     </Value>
     
     <Goal>
-      <Name>[To be named]</Name>
-      <Description>[To be described]</Description>
+      <Name></Name>
+      <Description></Description>
       <Identifier/>
       <SequenceIndicator>1</SequenceIndicator>
       <Stakeholder StakeholderTypeType="">
-	<Name>[To be named]</Name> 
+	<Name></Name> 
 	<Description/> 
 	<Role>
-	  <Name>[To be named]</Name>
+	  <Name></Name>
 	  <Description/>
 	  <RoleType/>
         </Role>
       </Stakeholder>
       <OtherInformation/>
       <Objective>
-	<Name >Objective Name</Name> 
+	<Name ></Name> 
 	<Description/> 
 	<Identifier/>				
 
 	<SequenceIndicator>1</SequenceIndicator>
 	<Stakeholder StakeholderTypeType="">
-	  <Name>[To be named]</Name> 
+	  <Name></Name> 
 	  <Description/> 
 	  <Role>
-            <Name>[To be named]</Name>
+            <Name></Name>
             <Description/>
             <RoleType/>
           </Role>		
@@ -73,23 +73,23 @@
 	  <Identifier></Identifier>
 	  <Relationship RelationshipType="">
             <Identifier></Identifier>
-            <ReferentIdentifier>[To_be_inserted_by_user]</ReferentIdentifier>
-	    <Name>Relationship</Name>
+            <ReferentIdentifier></ReferentIdentifier>
+	    <Name></Name>
 	    <Description/> 
 	  </Relationship>
 	  <MeasurementInstance>
             <TargetResult>
-              <Description>Measurement Instance Target Result Description[To be described]</Description>
+              <Description></Description>
               <Descriptor>
-		<DescriptorName>Descriptor Name</DescriptorName>
-		<DescriptorValue>Descriptor Value</DescriptorValue>
+		<DescriptorName></DescriptorName>
+		<DescriptorValue></DescriptorValue>
               </Descriptor>
               <NumberOfUnits>12</NumberOfUnits>
               <StartDate/>
               <EndDate/>
             </TargetResult>
             <ActualResult>
-              <Description>[To be determined] Actual Result Description</Description>
+              <Description></Description>
               <Descriptor>
 		<DescriptorName> </DescriptorName>
 		<DescriptorValue> </DescriptorValue>
@@ -99,7 +99,7 @@
               <EndDate/>
             </ActualResult>
 	  </MeasurementInstance>
-	  <OtherInformation>Other Information</OtherInformation>
+	  <OtherInformation></OtherInformation>
 	</PerformanceIndicator>		
       </Objective>
     </Goal>

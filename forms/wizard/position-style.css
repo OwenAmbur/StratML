@@ -267,8 +267,8 @@ label.subheader {
 
 textarea {
     display : block ; 
-    min-width : 55em;
-    min-heght : 8em ;
+    min-width : 65em;
+    min-height: 15em ;
     margin-top : 0.5em ; 
 }
 

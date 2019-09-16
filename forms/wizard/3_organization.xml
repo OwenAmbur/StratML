@@ -27,16 +27,13 @@
     <link rel="stylesheet" type="text/css"  href="./format-style.css" />
   </head>
   <body>
+    <!--
     <header>
       <h1>
 	<img  class="title-logo" width="80px" src="img/organization_logo_white.svg" alt="StratML logo"/>
 	<xf:output ref="instance('messages')/message[key/text()='organization-information']/value"/>
 	<img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
       </h1>	
-      
-      <!--
-	  <H2>Sharing organizational goals, objectives, and performance indicators</H2>
-      -->
       <div id="subheader"> 
 	<div id="breadcrumb"> &gt; 
 	<a href="0_mainform.xml">Create Plan</a> &gt; 
@@ -59,6 +56,7 @@
 	<img  id="page-counter"  src="img/counter_3.svg" alt="Step 3"/>
       </div>
     </header>
+    -->
     <main>
       <xf:repeat id="orgrepeat" ref="StrategicPlanCore/Organization" appearance="compact">
 	<div class="section" >

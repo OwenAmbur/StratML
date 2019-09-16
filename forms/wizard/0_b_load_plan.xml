@@ -32,7 +32,8 @@
   
   <body>
 <!--    <xf:group id="subform"> -->
-      <header>
+<!--
+  <header>
 	<h1>
 	  <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>
 	  <xf:output ref="instance('messages')/message[key/text()='plan-information']/value/text()"/>
@@ -60,6 +61,7 @@
 	  <img  id="page-counter"  src="img/counter_1.svg" alt="Step 1"/>
 	</div>
       </header>
+  -->
       <main>	
 	<h3>Load  from an URL</h3>
 	<div class="subsection" >

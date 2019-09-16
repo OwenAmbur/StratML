@@ -22,9 +22,10 @@
     <link rel="stylesheet" type="text/css"  href="./format-style.css" />
   </head>
   <body>
-    <a name="top"/>
-    <header>
-      <!-- ..................... Titles ........................... -->
+    <!-- 
+   <a name="top"/>
+   <header>
+      
       <h1>
 	<img  class="title-logo" width="80px" src="img/submission_logo_white.svg" alt="StratML logo"/>
 	<xf:output ref="instance('messages')/message[key/text()='submission-information']/value"/>
@@ -52,6 +53,7 @@
 	<img  id="page-counter"  src="img/counter_2.svg" alt="Step 2"/>
       </div>
     </header>
+    -->
     <main>
       <div class="section">
 	<div class="line">

@@ -23,8 +23,8 @@
     <link rel="stylesheet" type="text/css"  href="./format-style.css" />
   </head>
   <body>
+    <!--
     <header>
-      <!-- ..................... Titles ........................... -->
       <h1>	
 	<img  class="title-logo" width="80px" src="img/goals_logo_white.svg" />
 	<xf:output ref="instance('messages')/message[key/text()='goals-information']/value"/>
@@ -52,6 +52,7 @@
 	<img  id="page-counter"  src="img/counter_4.svg" alt="Step 4"/>
       </div>
     </header>
+    -->
     <main class="mainol goalspage"  >
 	<ol class="mainol" >
 	  <xf:repeat ref="/PerformancePlanOrReport/StrategicPlanCore/Goal" >

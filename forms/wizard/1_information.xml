@@ -32,7 +32,8 @@
   </head>
   
   <body>
-<!--    <xf:group id="subform"> -->
+    <!--    <xf:group id="subform"> -->
+    <!--
       <header>
 	<h1>
 	  <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>
@@ -61,9 +62,8 @@
 	  <img  id="page-counter"  src="img/counter_1.svg" alt="Step 1"/>
 	</div>
       </header>
+      -->
       <main>	
-
-
 	<div class="line" >
 	  <xf:label class="lineitem firstitem" >
 	    <b><xf:output ref="instance('messages')/message[key/text()='plan-name']/value"/></b>

@@ -58,21 +58,21 @@
       <!--
 	  TODO : REVISAR LA FORMULA GENERATE ID 
       -->
-      <xf:bind nodeset="StrategicPlanCore/Goal/Identifier[./text()='']"
-	       calculate="concat('org:stratml:plan:',StrategicPlanCore/Organization/Identifier ,':',StrategicPlanCore/Name,':Goal#' , count(../preceding-sibling::*),   count(./preceding-sibling::*) )"
-	       />
-      <!--
-      <xf:bind nodeset="StrategicPlanCore/Goal/Identifier" readonly="true()" type="xsd:string"/>
-      -->
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Identifier"  type="xsd:string"
-
-calculate="concat('org:stratml:plan:', StrategicPlanCore/Organization/Identifier ,':',StrategicPlanCore/Name,':Objective#' , count(../preceding-sibling::*),   count(./preceding-sibling::*) )"
-	      
-/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier"  type="xsd:string"
-
-calculate="concat('org:stratml:plan:',StrategicPlanCore/Organization/Identifier,':',StrategicPlanCore/Name,':PerformanceIndicator#' , count(../preceding-sibling::*),   count(./preceding-sibling::*) )"
-/>
+      <xf:bind
+	  nodeset="StrategicPlanCore/Goal/Identifier[./text()='']"
+	  calculate="uuid()"
+	  readonly="false()"
+	  />
+      <xf:bind
+	  nodeset="StrategicPlanCore/Goal/Objective/Identifier"
+	  type="xsd:string" calculate="uuid()"
+	  readonly="false()"
+	  />
+      <xf:bind
+	  nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier"  type="xsd:string"
+	  calculate="uuid()"
+	  readonly="false()"
+	  />
       <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Goal/Name" required="true()" type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Goal/Description"  type="xsd:string"/>
@@ -86,6 +86,13 @@ calculate="concat('org:stratml:plan:',StrategicPlanCore/Organization/Identifier,
       <xf:bind ref="instance('config')/identifier" readonly="true()"  />
       <xf:bind ref="instance('config')/source"
 	       calculate="count(instance('default')/AdministrativeInformation/Source) > 0"  />
+      <function signature="my:uuid() as xs:string" language="text/javascript">
+	function uuid() {
+	return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+	(c ^ crypto.getRandomValues(new Uint8Array(1))[0] &amp; 15 >> c / 4).toString(16)
+	);
+	}
+      </function>
       <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
 	<xf:resource value="instance('config')/file/text()"/>
       </xf:submission>      

@@ -261,7 +261,9 @@
        x="-171.16977"
        y="170.4801"
        id="text6423"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonone'),'DOMActivate')"
+><tspan
          sodipodi:role="line"
          id="tspan6425"
          x="-171.16977"
@@ -273,7 +275,9 @@
        y="170.4801"
        x="-147.04025"
        style="font-style:normal;font-weight:normal;font-size:5.02698374px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttontwo'),'DOMActivate')"
+><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.72962856px;font-family:Mingzat;-inkscape-font-specification:Mingzat;fill:#ffffff"
          y="170.4801"
          x="-147.04025"
@@ -285,7 +289,9 @@
        x="-121.57022"
        y="170.4801"
        id="text6431"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonthree'),'DOMActivate')"
+><tspan
          sodipodi:role="line"
          id="tspan6433"
          x="-121.57022"
@@ -297,7 +303,10 @@
        y="170.4801"
        x="-98.110931"
        style="font-style:normal;font-weight:normal;font-size:5.02698374px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonfour'),'DOMActivate')"
+       >
+      <tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.72962856px;font-family:Mingzat;-inkscape-font-specification:Mingzat;fill:#ffffff"
          y="170.4801"
          x="-98.110931"
@@ -309,7 +318,10 @@
        x="-73.981422"
        y="170.4801"
        id="text6439"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonfive'),'DOMActivate')"
+       >
+      <tspan
          sodipodi:role="line"
          id="tspan6441"
          x="-73.981422"

@@ -109,7 +109,7 @@
 <message><key>stakeholder-type</key><value>Stakeholder Type</value></message>
 
 <message><key>sequence-indicator</key><value>Sequence Indicator</value></message>
-<message><key>seq-indicator</key><value>#</value></message>
+<message><key>seq-indicator</key><value>Seq. Indicator</value></message>
 
 <message><key>vision</key><value>Vision</value></message>
 <message><key>vision-identifier</key><value>Vision Identifier</value></message>

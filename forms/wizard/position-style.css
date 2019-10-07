@@ -412,6 +412,17 @@ div.line .nopaddingtext {
 .iconbutton button {
 }
 
+/*
+.smallicons label, .smallicons *.smallicon, .smallicons button , .smallicons span  
+*/
+span.iconbutton 
+{
+
+    margin-left:2px;
+    margin-right:2px;
+}
+
+
 .iconbutton label {
     width:15px;
 }

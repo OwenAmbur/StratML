@@ -34,6 +34,7 @@
     <meta name="DC.date" content="2018-08-19"/>
     <link rel="stylesheet" type="text/css"  href="./position-style.css" />
     <link rel="stylesheet" type="text/css"  href="./format-style.css" />
+    
     <xf:model>
       <xf:instance xmlns="" id="default" resource="data/stratml-template.xml" />
       <xf:instance xmlns="" id="template" resource="data/stratml-template2.xml" />       
@@ -49,23 +50,17 @@
       <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name" required="true()" type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
-      <xf:bind
-	  nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier"
-	  type="xsd:string"
-	  calculate="uuid()"
-	  readonly="false()"/>
-      <xf:bind
-	  nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier[./text()='']"
-	  type="xsd:string"
-	  calculate="uuid()"
-	  readonly="false()"
-	  />      
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier"  type="xsd:string"/>      
       <xf:bind nodeset="StrategicPlanCore/Organization/Identifier[./text()='']"  type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Vision/Identifier[./text()='']"  type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Mission/Identifier[./text()='']"  type="xsd:string"/>
+      <!--
+	  TODO : REVISAR LA FORMULA GENERATE ID 
+      -->
       <xf:bind
 	  nodeset="StrategicPlanCore/Goal/Identifier[./text()='']"
-	  type="xsd:string" calculate="uuid()"
+	  calculate="uuid()"
 	  readonly="false()"
 	  />
       <xf:bind
@@ -74,8 +69,7 @@
 	  readonly="false()"
 	  />
       <xf:bind
-	  nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier[./text()='']"
-	  type="xsd:string"
+	  nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier[./text()='']"  type="xsd:string"
 	  calculate="uuid()"
 	  readonly="false()"
 	  />
@@ -100,7 +94,7 @@
 	}
       </function>
       <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
-	<xf:resource value="concat('labels/labels-',instance('config')/file/text(),'.xml')"/>
+	<xf:resource value="instance('config')/file/text()"/>
       </xf:submission>      
       <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
@@ -127,112 +121,91 @@
       <xf:action ev:event="xforms-ready"     >
 	<xf:load  show="embed" target="page-counter" >
 	  <!--
-	  <xf:resource
+	      <xf:resource
 	      value="concat('img/counter_', instance('config')/page, '.svg')" />
 	  -->
-<xf:resource
-	      value="'pagecounter.xml'" />
+	  <xf:resource
+	      value="'pagecounter_simple.xml'" />
 	</xf:load>
-      </xf:action>
-
-      <!--.................... Fast Action to save the document ................ -->
-      <xf:submission id="fastsave"  
-		     method="put"
-		     replace="none"
-		     >
-	<xf:resource
-	    value="concat(instance('config')/server-path , instance('config')/filename)" />
-      </xf:submission>
-      
+      </xf:action>      
     </xf:model>
     <script type="text/javascript">
       var ConfirmExit=function(){
       if(confirm('Do you want to discard the data and start a new document?')) {
       window.location = 'Intro.xml' ;
-      } ;
+      };
       }
-  </script>
+    </script>
   </head>
   <body>
     <div id="marco">       
-	<header>
-	  <h1>
-	    <!--
-		<img  class="title-logo" width="80px" src="img/stratml_logo_white.svg" alt="StratML logo"/>
-	    -->
-	    <xf:repeat ref=".[instance('config')/page=0]" >
+      <header>
+	<h1>
+	  <!--
+	      <img  class="title-logo" width="80px" src="img/stratml_logo_white.svg" alt="StratML logo"/>
+	  -->
+	  <xf:repeat ref=".[instance('config')/page=0]" >
 	    <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>	    
 	    Performance Plan/Report Form
-	    </xf:repeat>
-	    <xf:repeat ref=".[instance('config')/page=1]" >
-	  <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>
-	  <xf:output ref="instance('messages')/message[key/text()='plan-information']/value/text()"/>
-	    </xf:repeat>
-	    <xf:repeat ref=".[instance('config')/page=2]" >
-<img  class="title-logo" width="80px" src="img/submission_logo_white.svg" alt="StratML logo"/>
-	<xf:output ref="instance('messages')/message[key/text()='submission-information']/value"/>
-	
-	    </xf:repeat>
-	    <xf:repeat ref=".[instance('config')/page=3]" >
-	      <img  class="title-logo" width="80px" src="img/organization_logo_white.svg" alt="StratML logo"/>
-	      <xf:output ref="instance('messages')/message[key/text()='organization-information']/value"/>
-	    </xf:repeat>
-	    <xf:repeat ref=".[instance('config')/page=4]" >
-	      <img  class="title-logo" width="80px" src="img/goals_logo_white.svg" />
-	      <xf:output ref="instance('messages')/message[key/text()='goals-information']/value"/>
-</xf:repeat>
-	    <xf:repeat ref=".[instance('config')/page=5]" >
-	      <img class="title-logo" width="80px" src="img/performance_logo_white.svg" alt="StratML logo"/>
-              <xf:output ref="instance('messages')/message[key/text()='performance-information']/value"/>
-	    </xf:repeat>
-	    <img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
-	  </h1>    
-	  <div id="subheader"> 
-	    <div id="breadcrumb"> &gt; <a href="0_mainform.xml">Performance Plan </a> 
-	    </div>
-	
-	    <div id="lang-selector" class="smallicons" >
-		<xf:submit submission="fastsave">
-		  <xf:label class="iconbutton" >
-		  <img src="img/disk.svg" alt="Store current document" rel="Store current document" class="small-icon"/>	    	  </xf:label>
-		</xf:submit>
-		<xf:trigger>
-		  <xf:label  class="iconbutton" >
-		    <img src="img/configuration.svg" class="small-icon" />
-		  </xf:label>
-		  <xf:toggle case="cerob" ev:event="DOMActivate" />	  
-		  <xf:action ev:event="DOMActivate" >
-		    <xf:load resource="configuration.xml" show="embed" target="subform"/>
-		  </xf:action>
-		</xf:trigger>
-		
-	      
-	      <xf:select1 ref="instance('config')/file" >
-	      <xf:label class="subheader">
-		Language
+	  </xf:repeat>
+	  <xf:repeat ref=".[instance('config')/page=1]" >
+	    <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>
+	    <xf:output ref="instance('messages')/message[key/text()='plan-information']/value/text()"/>
+	  </xf:repeat>
+	  <xf:repeat ref=".[instance('config')/page=2]" >
+	    <img  class="title-logo" width="80px" src="img/submission_logo_white.svg" alt="StratML logo"/>
+	    <xf:output ref="instance('messages')/message[key/text()='submission-information']/value"/>
+	    
+	  </xf:repeat>
+	  <xf:repeat ref=".[instance('config')/page=3]" >
+	    <img  class="title-logo" width="80px" src="img/organization_logo_white.svg" alt="StratML logo"/>
+	    <xf:output ref="instance('messages')/message[key/text()='organization-information']/value"/>
+	  </xf:repeat>
+	  <xf:repeat ref=".[instance('config')/page=4]" >
+	    <img  class="title-logo" width="80px" src="img/goals_logo_white.svg" />
+	    <xf:output ref="instance('messages')/message[key/text()='goals-information']/value"/>
+	  </xf:repeat>
+	  <xf:repeat ref=".[instance('config')/page=5]" >
+	    
+
+	    <img class="title-logo" width="80px" src="img/performance_logo_white.svg" alt="StratML logo"/>
+            <xf:output ref="instance('messages')/message[key/text()='performance-information']/value"/>
+	  </xf:repeat>
+	  
+
+
+	  <img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
+
+	</h1>    
+	<div id="subheader"> 
+	  <div id="breadcrumb"> &gt; <a href="0_mainform_simple.xml">Strategic Plan</a>
+	  </div> 
+	  <xf:select1 ref="instance('config')/file"  id="lang-selector">
+	    <xf:label class="subheader">
+	      Language
+	    </xf:label>
+	    <xf:item>
+	      <xf:label>English
 	      </xf:label>
-	      <xf:item>
-		<xf:label>English
-		</xf:label>
-		<xf:value>en
-		</xf:value> 
-	      </xf:item>
-	      <xf:item>
-		<xf:label>Spanish
-		</xf:label>
-		<xf:value>es
-		</xf:value>
-	      </xf:item>
-	      <xf:action ev:event="xforms-value-changed">
-		<xf:send submission="change-language"/>
-	      </xf:action>
-	    </xf:select1>
-	    </div>
-            <xf:group id="page-counter" >
-            </xf:group>
-	  </div>
-	</header>
-	      <xf:group id="subform" >
+	      <xf:value>labels/labels-en.xml/
+	      </xf:value> 
+	    </xf:item>
+	    <xf:item>
+	      <xf:label>Spanish
+	      </xf:label>
+	      <xf:value>labels/labels-es.xml
+	      </xf:value>
+	    </xf:item>
+	    <xf:action ev:event="xforms-value-changed">
+	      <xf:send submission="change-language"/>
+	    </xf:action>
+	  </xf:select1>      
+
+          <xf:group id="page-counter" >
+          </xf:group>
+	</div>
+      </header>
+      <xf:group id="subform" >
 	<main>
 	  <div class="line">
 	    <p>Follow these steps to create a performance plan:
@@ -244,6 +217,7 @@
 	      </li>
 	      <li>
 		<img class="0-mainform-list-icon" src="img/submission-blue-icon.svg" />
+		
 		Submission Information
 	      </li>
 	      <li>
@@ -254,14 +228,17 @@
 		<img class="0-mainform-list-icon" src="img/goal-blue-icon.svg" />
 		Goals and Objectives
 	      </li>
-	      <li>
-		<img class="0-mainform-list-icon" src="img/performance-blue-icon.svg" />
-		Performance
-	      </li>
+	      <!--
+		  <li>
+		  <img class="0-mainform-list-icon" src="img/performance-blue-icon.svg" />
+		  Performance
+		  </li>
+	      -->
 	    </ol>
 	  </div>
 	</main>
       </xf:group>    
+
       <xf:switch >
 	<!-- ...... 0 Start Page..... --> 
 	<xf:case id="cero" >
@@ -284,7 +261,6 @@
 	  </fieldset>
 	</xf:case>
 	<!-- ...... 0 b load page ..... --> 
-	
 	<xf:case id="cerob" >
 	  <fieldset class="navigation-buttons" >
 	    <xf:trigger class="alert">
@@ -300,14 +276,10 @@
 	      <xf:action ev:event="DOMActivate" >
 		<xf:load resource="1_information.xml" show="embed" target="subform" />
 		<xf:setvalue ref="instance('config')/page" value="1" />
-
-		
-
 	      </xf:action>
 	    </xf:trigger>
 	  </fieldset>
 	</xf:case>
-
 	<xf:case id="uno">
 	  <fieldset class="navigation-buttons">
 	    <xf:trigger class="alert">
@@ -316,15 +288,6 @@
  		<xf:load resource="javascript:ConfirmExit()" />
 	      </xf:action>
 	    </xf:trigger>
-	    <!--<xf:trigger class="alert">
-	      <xf:label> <b>X</b> Cancel</xf:label>
-	      <xf:toggle case="cero" ev:event="DOMActivate" />
-	      <xf:action ev:event="DOMActivate">
-		<xf:load resource="0_mainform.xml"  />
-		<xf:setvalue ref="instance('config')/page" value="0" />
-	      </xf:action>
-	    </xf:trigger>
-	    -->
 	    <xf:trigger class="green"  id="buttontwo">
 	      <xf:label>Next  &gt;</xf:label>
 	      <xf:toggle case="dos" ev:event="DOMActivate" />
@@ -361,7 +324,6 @@
 	    </xf:trigger>
 	  </fieldset>
 	</xf:case>
-
 	<xf:case id="tres" >
 	  <fieldset class="navigation-buttons">
 	    <xf:trigger>
@@ -388,7 +350,6 @@
 	    </xf:trigger>
 	  </fieldset>
 	</xf:case>
-
 	<xf:case id="cuatro" >
 	  <fieldset class="navigation-buttons">
 	    <xf:trigger>
@@ -403,83 +364,16 @@
 	      <xf:label> <b>X</b> Cancel</xf:label>
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="javascript:ConfirmExit()" />
-		<!--
-		<xf:load resource="0_mainform.xml" />
-		-->
 	      </xf:action>
 	    </xf:trigger>
-	    <xf:trigger class="green" id="buttonfive">
-	      <xf:label>Next  &gt;</xf:label>
-	      <xf:toggle case="cinco" ev:event="DOMActivate" />	  
-	      <xf:action ev:event="DOMActivate">
-		<xf:load resource="5_performance.xml" show="embed" target="subform"/>
-		<xf:setvalue ref="instance('config')/page" value="5" />
-	      </xf:action>
-	    </xf:trigger>
-	  </fieldset>
-	</xf:case>
-
-	<xf:case id="cinco" >
-	  <fieldset class="navigation-buttons">
-	    <xf:submit>
-	      <xf:label>&lt; Back</xf:label>
-	      <xf:toggle case="cuatro" ev:event="DOMActivate" />
-	      <xf:action ev:event="DOMActivate">
-		<xf:load resource="4_goals.xml" show="embed" target="subform" />
-		<xf:setvalue ref="instance('config')/data/page" value="4" />
-	      </xf:action>
+	    <xf:submit submission="s03" >
+	      <xf:label>With Style</xf:label>
 	    </xf:submit>
-	    <xf:trigger class="alert">
-	      <xf:label> <b>X</b> Cancel</xf:label>
-	      <xf:action ev:event="DOMActivate">
-		<xf:load resource="javascript:ConfirmExit()" />
-	      </xf:action>
-	    </xf:trigger>
-	    <!--
-	    <xf:trigger class="green">
-	      <xf:label>Review  &gt;</xf:label>
-	      <xf:toggle case="seis" ev:event="DOMActivate" />	  
-	      <xf:action ev:event="DOMActivate">
-		<xf:load resource="6_review.xml" show="embed" target="subform"/>
-	      </xf:action>
-	    </xf:trigger>
-	    -->
-	      <xf:submit submission="s03" >
-		<xf:label>With Style</xf:label>
-	      </xf:submit>
-	      <xf:submit submission="s02" class="green">
-		<xf:label>Plain XML</xf:label>
-	      </xf:submit>
-	  </fieldset>
-	</xf:case>
-
-	<!--
-	<xf:case id="seis" >
-	  <fieldset class="navigation-buttons">
-	    <xf:submit>
-	      <xf:label>&lt; Back</xf:label>
-	      <xf:toggle case="cinco" ev:event="DOMActivate" />
-	      <xf:action ev:event="DOMActivate">
-		<xf:load resource="5_performance.xml" show="embed" target="subform" />
-	      </xf:action>
+	    <xf:submit submission="s02" class="green">
+	      <xf:label>Plain XML</xf:label>
 	    </xf:submit>
-	    <xf:trigger class="alert">
-	      <xf:label> <b>X</b> Cancel</xf:label>
-	      <xf:action ev:event="DOMActivate">
-		<xf:load resource="javascript:ConfirmExit()" />
-	      </xf:action>
-	    </xf:trigger>
-	    <xf:trigger class="green">
-	      <xf:label>Export  &gt; &gt; </xf:label>
-	      <xf:toggle case="seis" ev:event="DOMActivate" />	  
-	      <xf:action ev:event="DOMActivate">
-		<xf:load resource="6_review.xml" show="embed" target="subform"/>
-	      </xf:action>
-	    </xf:trigger>
 	  </fieldset>
 	</xf:case>
-	-->
-
       </xf:switch>
     </div>
   </body>

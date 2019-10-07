@@ -4,5 +4,7 @@
   <subform>dos</subform>
   <identifier></identifier>
   <source></source>
+  <path>http://localhost:8984/stratml/test/</path>
+  <filename>testfile.xml</filename>
   <page>0</page>
 </data>

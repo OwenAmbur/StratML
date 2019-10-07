@@ -1,0 +1,21 @@
+<messages xmlns="" lang="en">
+
+<!--
+  <message><key>actual-result</key><value>Actual Result</value></message>
+-->
+  <message><key>stratml-title</key><value>StratML Forms</value></message>
+
+  <!-- ........... Intro site ............... -->
+  <message><key>intro-line</key><value>
+  Please choose one of the available options</value></message>
+  
+  <message><key>create-strategic-plan</key><value>
+  Create a Strategic plan</value></message>
+  <message><key>create-performance-plan</key><value>
+  Create a performance plan</value></message> 
+
+
+  
+  
+</messages>
+

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?stylesheet href="style.css" type="text/css"?>
+<?xsltforms-options debug="no"?>
+<?css-conversion no ?>
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Style-Type" content="text/plain; charset=us-ascii"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <title>StratML Form Introduction</title>
+    <meta name="DC.title" content="StratML Part 1 to Part 2 Conversion XForm"/>
+    <meta name="title" content="Strategic Plan (StratML Part 2) XForm"/>
+    <meta name="DC.subject" scheme="DCTERMS.LCSH" content="Strategic Plans, StratML Part 2, StratML, XForms, XSLTForms, Performance Plans, Performance Reports"/>
+    <meta name="DC.contributor" content="Joe Carmel"/>
+    <meta name="DC.contributor" content="Owen Ambur"/>
+    <meta name="DC.contributor" content="Andre Cusson (hyperbase.com)"/>
+    <meta name="DC.contributor" content="Alain Couthures (agencexml.com)"/>
+    <meta name="DC.contributor" content="Gannon J. Dick (rustprivacy.org)"/>
+    <meta name="DC.contributor" content="Colin Mackenzie (mackenziesolutions.co.uk)"/>
+    <meta name="DC.contributor" content="Ibrahim Shah"/>
+    <meta name="DC.contributor" content="Jorge Sanchez (vionta.net)"/>
+    <meta name="DC.rights" content="Public domain"/>
+    <meta name="DC.rights.accessRights" content="public"/>
+    <meta name="DC.format.medium" scheme="DCTERMS.IMT" content="text/xml"/> 
+    <meta name="medium" content="XForm"/>
+    <meta name="DC.identifier" scheme="DCTERMS.URI" content="http://www.legisworks.org/StratML/"/>
+    <meta name="DC.language" scheme="DCTERMS.RFC3066" content="en-US"/> 
+    <meta http-equiv="Content-Language" content="en-US"/>
+    <meta name="keywords" content="Strategic Plans, StratML, XForms, XSTForms, Performance Plans, Performance Reports"/>
+    <meta name="DC.date" content="2018-08-19"/>
+    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="./format-style.css" />
+    <xf:model>
+      <xf:instance xmlns="" id="texts" src="labels/texts-en.xml" />    
+      <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
+      <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
+
+    </xf:model>
+  </head>
+  <body>
+    <div id="marco">       
+      <header>
+	<h1>
+	  <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>	    
+	  <xf:output ref="instance('texts')/message[key/text()='stratml-title']/value/text()"/>
+	  <img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
+	</h1>    
+	<div id="subheader"> 
+	  
+	  <div id="breadcrumb"> . 	    </div>
+	  
+	  <xf:select1 ref="instance('config')/file"  id="lang-selector">
+	    <xf:label class="subheader">
+	      Language
+	    </xf:label>
+	    <xf:item>
+	      <xf:label>English
+	      </xf:label>
+	      <xf:value>labels/labels-en.xml/
+	      </xf:value> 
+	    </xf:item>
+	    <xf:item>
+	      <xf:label>Spanish
+	      </xf:label>
+	      <xf:value>labels/labels-es.xml
+	      </xf:value>
+	    </xf:item>
+	    <xf:action ev:event="xforms-value-changed">
+	      <xf:send submission="change-language"/>
+	    </xf:action>
+	  </xf:select1>      
+	  
+
+	</div>
+      </header>
+      <main>
+	<div class="line">
+	  <p>
+	    <xf:output ref="instance('texts')/message[key/text()='intro-line']/value/text()"/>	  
+	  </p>
+
+          
+          <ol class="mainform-list">
+	    <li>
+	      <a href="0_mainform_simple.xml">
+		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
+		<xf:output ref="instance('texts')/message[key/text()='create-strategic-plan']/value/text()"/>
+	      </a>
+	    </li>
+	    <li>
+	      <a href="0_mainform.xml">
+		<img class="0-mainform-list-icon" src="img/performance-blue-icon.svg" />
+		<xf:output ref="instance('texts')/message[key/text()='create-performance-plan']/value/text()"/>
+	      </a>
+	    </li>
+	    <!--
+		<li>
+		<img class="0-mainform-list-icon" src="img/disk.svg" />
+		Load an Existing plan
+		</li>
+		<li>
+		<img class="0-mainform-list-icon" src="img/configuration.svg" />
+		Manage Configuration
+		</li>
+	    -->
+	  </ol>
+	</div>
+      </main>
+    </div>
+  </body>
+</html>

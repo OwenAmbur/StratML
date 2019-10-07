@@ -27,7 +27,7 @@
 <message><key>plan-description</key><value>Descripci&#243;n del plan</value></message>
 <message><key>plan-information</key><value>Informaci&#243;n del plan</value></message>
 <message><key>plan-name</key><value>Nombre del plan</value></message>
-<message><key>plan-source</key><value>Fuente del plan</value></message>
+<message><key>plan-source</key><value>Origen del plan</value></message>
 <message><key>plan-start-date</key><value>Fecha de inicio del plan</value></message>
 <message><key>plan-end-date</key><value>Fecha de fin del plan</value></message>
 <message><key>plan-publication-date</key><value>Fecha de publicaci&#243;n del plan</value></message>

@@ -58,7 +58,7 @@ h5 {
     /*border-bottom : 0.2px solid #122e49  ; */
 }
 
-a.item-title {
+a {
     text-decoration: none ;
 }
 
@@ -157,11 +157,13 @@ button *.xforms-label {
     background: linear-gradient(to bottom,  #33121e   0%, #172e49 10%  ,#660000 80%,  #1e99cc 100%);
 }
 
-.iconbutton button {
+.iconbutton button, #lang-selector button {
     background:transparent;     
     color : #172e49 ; 
-    border:0; 
+    border:0;
 }
+
+
 
 .iconbutton button .xforms-label {
     color : #172e49 ; 

@@ -19,113 +19,83 @@
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
       </xf:submission>
     </xf:model>
-		    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
     <link rel="stylesheet" type="text/css"  href="./format-style.css" />
   </head>
   <body>
-    <!--
-    <header>
-      <h1>	
-	<img  class="title-logo" width="80px" src="img/goals_logo_white.svg" />
-	<xf:output ref="instance('messages')/message[key/text()='goals-information']/value"/>
-	<img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
-      </h1>
-      <div id="subheader"> 
-	<div id="breadcrumb"> &gt; 
-	<a href="0_mainform.xml">Create Plan</a> &gt; 
-	<a href="4_goals.xml">4. Goals</a> 	
-	</div>
-	<xf:select1 ref="instance('config')/file"  id="lang-selector">
-	  <xf:label class="subheader">Language</xf:label>
-	  <xf:item>
-	    <xf:label>English</xf:label>
-	    <xf:value>labels/labels-en.xml/</xf:value> 
-	  </xf:item>
-	  <xf:item>
-	    <xf:label>Spanish</xf:label>
-	    <xf:value>labels/labels-es.xml</xf:value>
-	  </xf:item>
-	  <xf:action ev:event="xforms-value-changed">
-	    <xf:send submission="change-language"/>
-	  </xf:action>
-	</xf:select1>      
-	<img  id="page-counter"  src="img/counter_4.svg" alt="Step 4"/>
-      </div>
-    </header>
-    -->
     <main class="mainol goalspage"  >
-	<ol class="mainol" >
-	  <xf:repeat ref="/PerformancePlanOrReport/StrategicPlanCore/Goal" >
-	    <li>
-	      <fieldset>
-		<div class="titleline goalheader" >
-		  <xf:input ref="SequenceIndicator" class="hiddeninput smallinput"/>
-
-		  <img src="img/goal-blue-icon.svg" class="type-icon" />  <xf:output ref="instance('messages')/message[key/text()='goal']/value" class="nopaddingtext" />   <xf:output ref="Name" class="nopaddingtext" />
-		</div>
-		<div class="headerline line subsection" >
-		  <xf:label class="lineitem">
-		    <xf:trigger class="iconbutton"  ref=".[not(Identifier)]" >
-		      <xf:label>
-			<img src="img/more.svg" />
-			<xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
-		      </xf:label>
-		      <xf:action ev:event="DOMActivate">
-			<xf:insert context="." ref="Identifier" 
-				   origin="//Identifier[1]" />
-		      </xf:action>
-		    </xf:trigger>
-		    <xf:repeat ref=".[Identifier]">
+      <ol class="mainol" >
+	<xf:repeat ref="/PerformancePlanOrReport/StrategicPlanCore/Goal" >
+	  <li>
+	    <fieldset>
+	      <div class="titleline goalheader" >
+		<xf:input ref="SequenceIndicator" class="hiddeninput smallinput"/>
+		<img src="img/goal-blue-icon.svg" class="type-icon" />
+		<xf:output ref="instance('messages')/message[key/text()='goal']/value" class="nopaddingtext" />
+		<xf:output ref="Name" class="nopaddingtext" />
+	      </div>
+	      <div class="headerline line subsection" >
+		<xf:label class="lineitem">
+		  <xf:trigger class="iconbutton"  ref=".[not(Identifier)]" >
+		    <xf:label>
+		      <img src="img/more.svg" />
 		      <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
-		      <xf:input ref="Identifier" />
-		    </xf:repeat>
-		  </xf:label>
-		  <xf:label class="lineitem" >
-		    <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
-		    <xf:input class="Source" ref="Name" />
-		  </xf:label>		  
-		  <xf:trigger class="linebutton iconbutton">
-		    <xf:label>
-		      <img src="img/cross.svg" alt="delete goal" />
-		    </xf:label>
-		    <xf:delete ref="."  ev:event="DOMActivate" />
-		  </xf:trigger>
-		  <xf:trigger ref=".[preceding-sibling::Goal]" class="iconbutton" >
-		    <xf:label>
-		      <img src="img/up.svg" />
 		    </xf:label>
 		    <xf:action ev:event="DOMActivate">
-		      <xf:insert origin="context()" ref="preceding-sibling::Goal[1]" position="before"/>
-		      <xf:delete ref="."/>
+		      <xf:insert context="." ref="Identifier" 
+				 origin="//Identifier[1]" />
 		    </xf:action>
 		  </xf:trigger>
-		  <xf:trigger ref=".[following-sibling::Goal]" class="iconbutton" >
-		    <xf:label>
-		      <img src="img/down.svg" />
-		    </xf:label>
-		    <xf:action ev:event="DOMActivate">
-		      <xf:insert origin="context()" ref="following-sibling::Goal[1]" />
-		      <xf:delete ref="."/>
-		    </xf:action>
-		  </xf:trigger>
-		  
-		</div>
-		<div class="line subsection" >
-		  <xf:label class="lineitem">
-		    <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
-		    <xf:textarea  ref="Description" />
+		  <xf:repeat ref=".[Identifier]">
+		    <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
+		    <xf:input ref="Identifier" />
+		  </xf:repeat>
+		</xf:label>
+		<xf:label class="lineitem" >
+		  <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
+		  <xf:input class="Source" ref="Name" />
+		</xf:label>		  
+		<xf:trigger class="linebutton iconbutton">
+		  <xf:label>
+		    <img src="img/cross.svg" alt="delete goal" />
 		  </xf:label>
-		</div>
-		<div class="subsection">
+		  <xf:delete ref="."  ev:event="DOMActivate" />
+		</xf:trigger>
+		<xf:trigger ref=".[preceding-sibling::Goal]" class="iconbutton" >
+		  <xf:label>
+		    <img src="img/up.svg" />
+		  </xf:label>
+		  <xf:action ev:event="DOMActivate">
+		    <xf:insert origin="context()" ref="preceding-sibling::Goal[1]" position="before"/>
+		    <xf:delete ref="."/>
+		  </xf:action>
+		</xf:trigger>
+		<xf:trigger ref=".[following-sibling::Goal]" class="iconbutton" >
+		  <xf:label>
+		    <img src="img/down.svg" />
+		  </xf:label>
+		  <xf:action ev:event="DOMActivate">
+		    <xf:insert origin="context()" ref="following-sibling::Goal[1]" />
+		    <xf:delete ref="."/>
+		  </xf:action>
+		</xf:trigger>
+	      </div>
+	      <div class="line subsection" >
+		<xf:label class="lineitem">
+		  <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+		  <xf:textarea  ref="Description" />
+		</xf:label>
+	      </div>
+	      <div class="subsection">
 		<!--
-		<div class="line" >
-		  <xf:label class="lineitem">
+		    <div class="line" >
+		    <xf:label class="lineitem">
 		    <xf:output ref="instance('messages')/message[key/text()='sequence-indicator']/value"/>
 		    <xf:input class="SequenceIndicator" ref="SequenceIndicator" />
-		  </xf:label>
-		</div>
-		  -->		
-      
+		    </xf:label>
+		    </div>
+		-->		
+		
 		<!-- Stake holder .........................................................
 		     <xf:group>
 		     <xf:repeat id="goalstakerepeat" nodeset="Stakeholder" appearance="compact">
@@ -141,110 +111,110 @@
 		     <tr valign="top"><td><b><xf:output ref="instance('messages')/message[key/text()='stakeholder-type']/value"/> : </b></td><td>
 		     <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
                      <xf:item>
-                    <xf:label>Organization</xf:label>
-                    <xf:value>Organization</xf:value> 
-                    </xf:item>
-                    <xf:item>
-                    <xf:label>Person</xf:label>
-                    <xf:value>Person</xf:value> 
-                    </xf:item>
-                    <xf:item>
-                    <xf:label>Group</xf:label>
-                    <xf:value>Generic_Group</xf:value> 
-                    </xf:item>
-		    </xf:select1></td></tr>
-		    
-		    
-		    <tr><td><b><xf:output ref="instance('messages')/message[key/text()='stakeholder-name']/value"/>: </b></td><td>
-		    <xf:input class="Source" ref="Name">
-		    <xf:label></xf:label>
-		    </xf:input></td></tr>
-		    
-		    <tr><td><b><xf:output ref="instance('messages')/message[key/text()='description']/value"/>: </b></td><td>
-		    <xf:textarea rows="6" class="textarea" ref="Description">
-		    <xf:label></xf:label>
-		    </xf:textarea>
-		    </td></tr>
-	
-	<tr><td colspan="3">
-	<ul>
-	
-        <xf:group>
-	<xf:repeat id="goalrolerepeat" nodeset="Role" appearance="compact">
+                     <xf:label>Organization</xf:label>
+                     <xf:value>Organization</xf:value> 
+                     </xf:item>
+                     <xf:item>
+                     <xf:label>Person</xf:label>
+                     <xf:value>Person</xf:value> 
+                     </xf:item>
+                     <xf:item>
+                     <xf:label>Group</xf:label>
+                     <xf:value>Generic_Group</xf:value> 
+                     </xf:item>
+		     </xf:select1></td></tr>
+		     
+		     
+		     <tr><td><b><xf:output ref="instance('messages')/message[key/text()='stakeholder-name']/value"/>: </b></td><td>
+		     <xf:input class="Source" ref="Name">
+		     <xf:label></xf:label>
+		     </xf:input></td></tr>
+		     
+		     <tr><td><b><xf:output ref="instance('messages')/message[key/text()='description']/value"/>: </b></td><td>
+		     <xf:textarea rows="6" class="textarea" ref="Description">
+		     <xf:label></xf:label>
+		     </xf:textarea>
+		     </td></tr>
+		     
+		     <tr><td colspan="3">
+		     <ul>
+		     
+		     <xf:group>
+		     <xf:repeat id="goalrolerepeat" nodeset="Role" appearance="compact">
 
-        <table>
-	<tr><td colspan="2"><h3>
-	<xf:output ref="instance('messages')/message[key/text()='role']/value"/> <xf:output value="' '"/>	
-	<xf:output value="position()"/>  <xf:output ref="instance('messages')/message[key/text()='stakeholder-of']/value"/>:</h3></td></tr>
+<table>
+<tr><td colspan="2"><h3>
+<xf:output ref="instance('messages')/message[key/text()='role']/value"/> <xf:output value="' '"/>	
+<xf:output value="position()"/>  <xf:output ref="instance('messages')/message[key/text()='stakeholder-of']/value"/>:</h3></td></tr>
 
-	<tr valign="top">
-          <td><b><xf:output ref="instance('messages')/message[key/text()='role-name']/value"/>: </b></td>
-          <td><xf:input  class="Source" ref="Name"><xf:label></xf:label></xf:input></td></tr>
+<tr valign="top">
+<td><b><xf:output ref="instance('messages')/message[key/text()='role-name']/value"/>: </b></td>
+<td><xf:input  class="Source" ref="Name"><xf:label></xf:label></xf:input></td></tr>
 
-	<tr>
-           <td><b><xf:output ref="instance('messages')/message[key/text()='role-description']/value"/>: </b></td>
-           <td><xf:textarea rows="6" class="textarea" ref="Description"><xf:label></xf:label></xf:textarea></td></tr>
+<tr>
+<td><b><xf:output ref="instance('messages')/message[key/text()='role-description']/value"/>: </b></td>
+<td><xf:textarea rows="6" class="textarea" ref="Description"><xf:label></xf:label></xf:textarea></td></tr>
 
-        <tr><td colspan="3">
-          <ul>
-          <xf:group>
-	      <xf:repeat id="goalroletyperepeat" nodeset="RoleType" appearance="compact">  
+<tr><td colspan="3">
+<ul>
+<xf:group>
+<xf:repeat id="goalroletyperepeat" nodeset="RoleType" appearance="compact">  
 
-               <table>
-     	         <tr valign="top">
-                    <td><b><xf:output ref="instance('messages')/message[key/text()='role-type']/value"/> <xf:output value="' '"/><xf:output value="position()"/>: </b></td>
-                    <td><xf:select1 class="Source" ref="." appearance="minimal"><xf:label/>
-                    <xf:item><xf:label>Performer</xf:label><xf:value>Performer</xf:value></xf:item>
-                    <xf:item><xf:label>Beneficiary</xf:label><xf:value>Beneficiary</xf:value></xf:item>
-                    </xf:select1>
-                    </td>
-                 </tr>
+<table>
+<tr valign="top">
+<td><b><xf:output ref="instance('messages')/message[key/text()='role-type']/value"/> <xf:output value="' '"/><xf:output value="position()"/>: </b></td>
+<td><xf:select1 class="Source" ref="." appearance="minimal"><xf:label/>
+<xf:item><xf:label>Performer</xf:label><xf:value>Performer</xf:value></xf:item>
+<xf:item><xf:label>Beneficiary</xf:label><xf:value>Beneficiary</xf:value></xf:item>
+</xf:select1>
+</td>
+</tr>
 
-                 <tr>
-                    <td> </td>
-                    <td><xf:trigger><xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/></xf:label>
-		      <xf:delete nodeset="." at="1" if="count(//StrategicPlanCore/Goal/Stakeholder/Role/RoleType) > 1" ev:event="DOMActivate" />
-        	    </xf:trigger></td></tr>
-               </table>
+<tr>
+<td> </td>
+<td><xf:trigger><xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/></xf:label>
+<xf:delete nodeset="." at="1" if="count(//StrategicPlanCore/Goal/Stakeholder/Role/RoleType) > 1" ev:event="DOMActivate" />
+</xf:trigger></td></tr>
+</table>
 
-               <xf:trigger>
-    	       <xf:label>
-			<xf:output ref="instance('messages')/message[key/text()='add']/value"/> <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/></xf:label>
-       	       <xf:action ev:event="DOMActivate">
-		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref="."></xf:setvalue>
-	        </xf:action>
-	       </xf:trigger>
+<xf:trigger>
+<xf:label>
+<xf:output ref="instance('messages')/message[key/text()='add']/value"/> <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/></xf:label>
+<xf:action ev:event="DOMActivate">
+<xf:insert nodeset="." at="1" position="before" />
+<xf:setvalue ref="."></xf:setvalue>
+</xf:action>
+</xf:trigger>
 
-              </xf:repeat>
-          </xf:group>
-          </ul>
-       </td></tr>
-
-
+</xf:repeat>
+</xf:group>
+</ul>
+</td></tr>
 
 
-      <tr><td>	</td></tr> 
-      <tr><td> </td><td colspan="1">
-		<xf:trigger>
-		<xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> <xf:output ref="instance('messages')/message[key/text()='role']/value"/></xf:label>
-			<xf:delete nodeset="." at="1" if="count(//StrategicPlanCore/Goal/Stakeholder/Role) > 1" ev:event="DOMActivate" />
-		</xf:trigger>
-      </td></tr>
 
-      </table>
 
-      <xf:trigger>
-	<xf:label><xf:output ref="instance('messages')/message[key/text()='add']/value"/> <xf:output ref="instance('messages')/message[key/text()='role']/value"/></xf:label>
-       	<xf:action ev:event="DOMActivate">
-		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
-		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
-		<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
-		        			        	
+<tr><td>	</td></tr> 
+<tr><td> </td><td colspan="1">
+<xf:trigger>
+<xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> <xf:output ref="instance('messages')/message[key/text()='role']/value"/></xf:label>
+<xf:delete nodeset="." at="1" if="count(//StrategicPlanCore/Goal/Stakeholder/Role) > 1" ev:event="DOMActivate" />
+</xf:trigger>
+</td></tr>
 
-	</xf:action>
-	</xf:trigger>
+</table>
+
+<xf:trigger>
+<xf:label><xf:output ref="instance('messages')/message[key/text()='add']/value"/> <xf:output ref="instance('messages')/message[key/text()='role']/value"/></xf:label>
+<xf:action ev:event="DOMActivate">
+<xf:insert nodeset="." at="1" position="before" />
+<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
+<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
+
+
+</xf:action>
+</xf:trigger>
 
 
 </xf:repeat>
@@ -263,20 +233,20 @@
 
 <tr><td> </td><td>
 <xf:trigger>
-	<xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/> </xf:label>
-	<xf:delete nodeset="." at="1" if="count(//Goal/Stakeholder) > 1" ev:event="DOMActivate" />
+<xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/> </xf:label>
+<xf:delete nodeset="." at="1" if="count(//Goal/Stakeholder) > 1" ev:event="DOMActivate" />
 </xf:trigger>
-			
+
 </td></tr>
 
 </table>
 
 <xf:trigger>
-	<xf:label><xf:output ref="instance('messages')/message[key/text()='add']/value"/> <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/></xf:label>
+<xf:label><xf:output ref="instance('messages')/message[key/text()='add']/value"/> <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/></xf:label>
 <xf:action  ev:event="DOMActivate">
-	<xf:insert nodeset="." at="1" position="before"/>
-	<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
-	<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+<xf:insert nodeset="." at="1" position="before"/>
+<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
+<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
 
 </xf:action>
 
@@ -288,36 +258,36 @@
 
 
 <tr><td></td><td>
--->
+		-->
 
-<!--
-<xf:group>
-<xf:repeat id="objectiverepeat" nodeset="Objective" appearance="compact">
-<table>
-<tr><td colspan="2"><h3><xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
-<xf:output value="' '"/>
- <xf:output value="position()"/>  <xf:output ref="instance('messages')/message[key/text()='goal-of']/value"/>  <xf:output value="' '"/><xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>:</h3></td></tr>
+		<!--
+		    <xf:group>
+		    <xf:repeat id="objectiverepeat" nodeset="Objective" appearance="compact">
+		    <table>
+		    <tr><td colspan="2"><h3><xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
+		    <xf:output value="' '"/>
+		    <xf:output value="position()"/>  <xf:output ref="instance('messages')/message[key/text()='goal-of']/value"/>  <xf:output value="' '"/><xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>:</h3></td></tr>
 
 <tr><td><b><xf:output ref="instance('messages')/message[key/text()='objective-name']/value"/>: </b></td><td>
 <xf:input class="Source" ref="Name">
-	<xf:label></xf:label>
+<xf:label></xf:label>
 </xf:input></td></tr>
 
 <tr><td><b><xf:output ref="instance('messages')/message[key/text()='description']/value"/>: </b></td><td>
 <xf:textarea rows="6" class="textarea" ref="Description">
-	<xf:label></xf:label>
+<xf:label></xf:label>
 </xf:textarea>
 </td></tr>
 
 <tr><td><b><span class="noread"><xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>: </span></b></td><td>
 <xf:input class="Source" ref="Identifier">
-	<xf:label></xf:label>
+<xf:label></xf:label>
 </xf:input></td></tr>
 
 
 <tr><td><b><xf:output ref="instance('messages')/message[key/text()='sequence-indicator']/value"/>: </b></td><td>
 <xf:input class="SequenceIndicator1" ref="SequenceIndicator">
-	<xf:label></xf:label>
+<xf:label></xf:label>
 </xf:input></td></tr>
 
 
@@ -329,31 +299,31 @@
 <table>
 <tr><td colspan="2"><h3><xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/> <xf:output value="concat(' ' , position())"/>  <xf:output ref="instance('messages')/message[key/text()='objective-of']/value"/>:</h3></td></tr>
 
-      <tr valign="top"><td><b><xf:output ref="instance('messages')/message[key/text()='stakeholder-type']/value"/>: </b></td><td>
-           <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
-                <xf:item>
-                    <xf:label>Organization</xf:label>
-                    <xf:value>Organization</xf:value> 
-                </xf:item>
-                <xf:item>
-                    <xf:label>Person</xf:label>
-                    <xf:value>Person</xf:value> 
-                </xf:item>
-                <xf:item>
-                    <xf:label>Group</xf:label>
-                    <xf:value>Generic_Group</xf:value> 
-                </xf:item>
-          </xf:select1></td></tr>
+<tr valign="top"><td><b><xf:output ref="instance('messages')/message[key/text()='stakeholder-type']/value"/>: </b></td><td>
+<xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
+<xf:item>
+<xf:label>Organization</xf:label>
+<xf:value>Organization</xf:value> 
+</xf:item>
+<xf:item>
+<xf:label>Person</xf:label>
+<xf:value>Person</xf:value> 
+</xf:item>
+<xf:item>
+<xf:label>Group</xf:label>
+<xf:value>Generic_Group</xf:value> 
+</xf:item>
+</xf:select1></td></tr>
 
 
 <tr valign="top"><td><b><xf:output ref="instance('messages')/message[key/text()='stakeholder-name']/value"/>: </b></td><td>
 <xf:input  class="Source" ref="Name">
-	<xf:label></xf:label>
+<xf:label></xf:label>
 </xf:input></td></tr>
 
 <tr><td><b><xf:output ref="instance('messages')/message[key/text()='description']/value"/>: </b></td><td>
 <xf:textarea rows="6" class="textarea" ref="Description">
-	<xf:label></xf:label>
+<xf:label></xf:label>
 </xf:textarea>
 </td></tr>
 
@@ -364,79 +334,79 @@
 
 
 <tr><td colspan="3">
-       <ul>
+<ul>
 
-        <xf:group>
-	      <xf:repeat id="objrolerepeat" nodeset="Role" appearance="compact">
+<xf:group>
+<xf:repeat id="objrolerepeat" nodeset="Role" appearance="compact">
 
-        <table>
-	<tr><td colspan="2"><h3><xf:output ref="instance('messages')/message[key/text()='role']/value"/> <xf:output value="' '"/><xf:output value="position()"/>  <xf:output ref="instance('messages')/message[key/text()='stakeholder-of']/value"/>:</h3></td></tr>
+<table>
+<tr><td colspan="2"><h3><xf:output ref="instance('messages')/message[key/text()='role']/value"/> <xf:output value="' '"/><xf:output value="position()"/>  <xf:output ref="instance('messages')/message[key/text()='stakeholder-of']/value"/>:</h3></td></tr>
 
-	<tr valign="top">
-          <td><b><xf:output ref="instance('messages')/message[key/text()='role-name']/value"/>: </b></td>
-          <td><xf:input  class="Source" ref="Name"><xf:label></xf:label></xf:input></td></tr>
+<tr valign="top">
+<td><b><xf:output ref="instance('messages')/message[key/text()='role-name']/value"/>: </b></td>
+<td><xf:input  class="Source" ref="Name"><xf:label></xf:label></xf:input></td></tr>
 
-	<tr>
-           <td><b><xf:output ref="instance('messages')/message[key/text()='role-description']/value"/>: </b></td>
-           <td><xf:textarea rows="6" class="textarea" ref="Description"><xf:label></xf:label></xf:textarea></td></tr>
+<tr>
+<td><b><xf:output ref="instance('messages')/message[key/text()='role-description']/value"/>: </b></td>
+<td><xf:textarea rows="6" class="textarea" ref="Description"><xf:label></xf:label></xf:textarea></td></tr>
 
-        <tr><td colspan="3">
-          <ul>
-          <xf:group>
-	      <xf:repeat id="objroletyperepeat" nodeset="RoleType" appearance="compact">  
+<tr><td colspan="3">
+<ul>
+<xf:group>
+<xf:repeat id="objroletyperepeat" nodeset="RoleType" appearance="compact">  
 
-               <table>
-     	         <tr valign="top">
-                    <td><b><xf:output ref="instance('messages')/message[key/text()='role-type']/value"/> <xf:output value="' '"/> <xf:output value="position()"/>: </b></td>
-                    <td><xf:select1 class="Source" ref="." appearance="minimal"><xf:label/>
-                    <xf:item><xf:label>Performer</xf:label><xf:value>Performer</xf:value></xf:item>
-                    <xf:item><xf:label>Beneficiary</xf:label><xf:value>Beneficiary</xf:value></xf:item>
-                    </xf:select1>
-                    </td>
-                 </tr>
+<table>
+<tr valign="top">
+<td><b><xf:output ref="instance('messages')/message[key/text()='role-type']/value"/> <xf:output value="' '"/> <xf:output value="position()"/>: </b></td>
+<td><xf:select1 class="Source" ref="." appearance="minimal"><xf:label/>
+<xf:item><xf:label>Performer</xf:label><xf:value>Performer</xf:value></xf:item>
+<xf:item><xf:label>Beneficiary</xf:label><xf:value>Beneficiary</xf:value></xf:item>
+</xf:select1>
+</td>
+</tr>
 
-                 <tr>
-                    <td> </td>
-                    <td><xf:trigger><xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/></xf:label>
-		      <xf:delete nodeset="." at="1" if="count(//StrategicPlanCore/Objective/Stakeholder/Role/RoleType) > 1" ev:event="DOMActivate" />
-        	    </xf:trigger></td></tr>
-               </table>
+<tr>
+<td> </td>
+<td><xf:trigger><xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/></xf:label>
+<xf:delete nodeset="." at="1" if="count(//StrategicPlanCore/Objective/Stakeholder/Role/RoleType) > 1" ev:event="DOMActivate" />
+</xf:trigger></td></tr>
+</table>
 
-               <xf:trigger>
-    	       <xf:label><xf:output ref="instance('messages')/message[key/text()='add']/value"/> <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/></xf:label>
-       	       <xf:action ev:event="DOMActivate">
-		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref="."></xf:setvalue>
-	        </xf:action>
-	       </xf:trigger>
+<xf:trigger>
+<xf:label><xf:output ref="instance('messages')/message[key/text()='add']/value"/> <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/></xf:label>
+<xf:action ev:event="DOMActivate">
+<xf:insert nodeset="." at="1" position="before" />
+<xf:setvalue ref="."></xf:setvalue>
+</xf:action>
+</xf:trigger>
 
-              </xf:repeat>
-          </xf:group>
-          </ul>
-       </td></tr>
-
-
+</xf:repeat>
+</xf:group>
+</ul>
+</td></tr>
 
 
-      <tr><td>	</td></tr> 
-      <tr><td> </td><td colspan="1">
-		<xf:trigger>
-		<xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> Role</xf:label>
-			<xf:delete nodeset="." at="1" if="count(//StrategicPlanCore/Objective/Stakeholder/Role) > 1" ev:event="DOMActivate" />
-		</xf:trigger>
-      </td></tr>
 
-      </table>
 
-      <xf:trigger>
-	<xf:label><xf:output ref="instance('messages')/message[key/text()='add']/value"/> <xf:output ref="instance('messages')/message[key/text()='role']/value"/></xf:label>
-       	<xf:action ev:event="DOMActivate">
-		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
-		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
-		<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
-		    	</xf:action>
-	</xf:trigger>
+<tr><td>	</td></tr> 
+<tr><td> </td><td colspan="1">
+<xf:trigger>
+<xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> Role</xf:label>
+<xf:delete nodeset="." at="1" if="count(//StrategicPlanCore/Objective/Stakeholder/Role) > 1" ev:event="DOMActivate" />
+</xf:trigger>
+</td></tr>
+
+</table>
+
+<xf:trigger>
+<xf:label><xf:output ref="instance('messages')/message[key/text()='add']/value"/> <xf:output ref="instance('messages')/message[key/text()='role']/value"/></xf:label>
+<xf:action ev:event="DOMActivate">
+<xf:insert nodeset="." at="1" position="before" />
+<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
+<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
+</xf:action>
+</xf:trigger>
 
 
 </xf:repeat>
@@ -450,17 +420,17 @@
 
 
 <tr><td> </td><td colspan="1">
-			
+
 <xf:trigger>
-	<xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/></xf:label>
-	<xf:delete nodeset="." at="1" if="count(nodeindex('objectiverepeat')/Stakeholder) > 1" ev:event="DOMActivate" />
-	<xf:action if="count(nodeindex('objectiverepeat')/Stakeholder) = 1" ev:event="DOMActivate">
-		<xf:setvalue ref="nodeindex('objectiverepeat')/Stakeholder/Name"/>
-		<xf:setvalue ref="nodeindex('objectiverepeat')/Stakeholder/Description"/>
-		<xf:setvalue ref="nodeindex('objectiverepeat')/Stakeholder/Role"/>
-	</xf:action>
+<xf:label><xf:output ref="instance('messages')/message[key/text()='remove']/value"/> <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/></xf:label>
+<xf:delete nodeset="." at="1" if="count(nodeindex('objectiverepeat')/Stakeholder) > 1" ev:event="DOMActivate" />
+<xf:action if="count(nodeindex('objectiverepeat')/Stakeholder) = 1" ev:event="DOMActivate">
+<xf:setvalue ref="nodeindex('objectiverepeat')/Stakeholder/Name"/>
+<xf:setvalue ref="nodeindex('objectiverepeat')/Stakeholder/Description"/>
+<xf:setvalue ref="nodeindex('objectiverepeat')/Stakeholder/Role"/>
+</xf:action>
 </xf:trigger>
-			
+
 </td></tr>
 </table>
 
@@ -469,16 +439,16 @@
 
 
 <xf:trigger>
-	<xf:label>
-		<xf:output ref="instance('messages')/message[key/text()='add']/value"/> 
-		<xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/>
-	</xf:label>
-	<xf:action  ev:event="DOMActivate">
-					<xf:insert nodeset="." at="1" position="before"/>
-					<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
-					<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
-	
-	</xf:action>
+<xf:label>
+<xf:output ref="instance('messages')/message[key/text()='add']/value"/> 
+<xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/>
+</xf:label>
+<xf:action  ev:event="DOMActivate">
+<xf:insert nodeset="." at="1" position="before"/>
+<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
+<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+
+</xf:action>
 </xf:trigger>
 </xf:repeat>
 </xf:group>
@@ -487,398 +457,510 @@
 
 
 
--->
-<!--
-<br/>			
-<xf:trigger>
-  <xf:label>X</xf:label>
-  <xf:delete ref="."  ev:event="DOMActivate" />
-</xf:trigger>
-</fieldset>
--->
+		-->
+
+		<!-- ......................... Objetives ............................. --> 
+		<div class="subsection">
+		  <xf:repeat id="objectiverepeat" nodeset="Objective" appearance="compact">
+		    <div class="titleline objectiveheader" >
+		      <xf:input ref="SequenceIndicator" class="hiddeninput smallinput"/>
+		      <img src="img/target_blue_icon_3.svg" class="type-icon"  />
+		      <xf:output ref="instance('messages')/message[key/text()='objective']/value" class="nopaddingtext"/>
+		      <xf:output ref="Name" class="nopaddingtext" />
+		    </div>
+		    <div class="line">
+		      <!--
+			  <xf:label class="lineitem">
+			  <xf:trigger class="iconbutton"  ref=".[not(SequenceIndicator)]" >
+			  <xf:label>
+			  <img src="img/addsequence.svg" /> 
+			  </xf:label>
+			  <xf:action ev:event="DOMActivate">
+			  <xf:insert 
+			  context="." ref="SequenceIndicator" 
+			  origin="instance('template')//SequenceIndicator[1]" />
+			  <xf:setvalue ref="./SequenceIndicator" 
+			  value="count(parent::*/preceding-sibling::Objective)+1" />
+			  </xf:action>
+			  </xf:trigger>
+			  <xf:repeat ref=".[SequenceIndicator]">
+			  <xf:input ref="SequenceIndicator" class="hiddeninput smallinput"/>
+			  </xf:repeat>
+			  </xf:label>
+		      -->
+		      
+		      <xf:input class="Source" ref="Identifier" >
+			<xf:label>
+			  <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
+			</xf:label>
+		      </xf:input>
+
+		      <!--
+			  <xf:label>
+			  <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
+			  <xf:input class="Source" ref="Identifier" />
+			  </xf:label>
+		      -->
+		      <xf:label>
+			<xf:output ref="instance('messages')/message[key/text()='name']/value"/>
+			<!--
+			    <xf:output value="' '"/>
+			    <xf:output value="position()"/>
+			    <xf:output ref="instance('messages')/message[key/text()='goal-of']/value"/>  
+			    <xf:output value="' '"/><xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>
+			    <xf:output ref="instance('messages')/message[key/text()='objective-name']/value"/>
+			-->
+			<xf:input class="Source" ref="Name" />
+		      </xf:label>
+		      <!--
+			  <xf:label class="lineitem">
+			  <xf:trigger class="iconbutton"  ref=".[not(Sequence)]" >
+			  <xf:label>
+			  <img src="img/more.svg" />
+			  <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
+			  </xf:label>
+			  <xf:action ev:event="DOMActivate">
+			  <xf:insert context="." ref="Identifier" 
+			  origin="//Identifier[1]" />
+			  </xf:action>
+			  </xf:trigger>
+			  <xf:repeat ref=".[Identifier]">
+			  <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
+			  <xf:input ref="Identifier" />
+			  </xf:repeat>
+			  </xf:label>
+		      -->
+		      <xf:trigger class="linebutton iconbutton">
+			<xf:label>
+			  <img src="img/cross.svg" />
+			</xf:label>
+			<xf:delete ref="."  ev:event="DOMActivate" />
+		      </xf:trigger>
+		      <xf:trigger ref=".[preceding-sibling::Objective]"  class="iconbutton">
+			<xf:label> 
+			  <img src="img/up.svg" />
+			</xf:label>
+			<xf:action ev:event="DOMActivate">
+			  <xf:insert origin="context()" ref="preceding-sibling::Objective[1]" position="before"/>
+			  <xf:delete ref="."/>
+			</xf:action>
+		      </xf:trigger>
+		      <xf:trigger ref=".[following-sibling::Objective]" class="iconbutton">
+			<xf:label>
+			  <img src="img/down.svg" />
+			</xf:label>
+			<xf:action ev:event="DOMActivate">
+			  <xf:insert origin="context()" ref="following-sibling::Objective[1]" />
+			  <xf:delete ref="."/>
+			</xf:action>
+		      </xf:trigger>
+		      
+		    </div>
+		    <div class="line">
+		      <xf:label class="lineitem">
+			<xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+			<xf:textarea  ref="Description" />
+		      </xf:label>
+		    </div>
+		    
+		    <!-- ................................ STAKEHOLDER DIALOG (Objectives) ................................... -->
+		    <div>
+		      <xf:group ref=".[Stakeholder]" >
+			<h3>
+			  <xf:output ref="instance('messages')/message[key/text()='stakeholders']/value"/>
+			</h3>
+			<xf:repeat ref="Stakeholder" appearance="compact" >
+			  <div class="line" >
+			    <xf:label class="lineitem">
+			      <xf:output ref="instance('messages')/message[key/text()='stakeholder-name']/value"/>
+			      <xf:input  class="Source" ref="Name" />
+			    </xf:label>
+			    <xf:label class="lineitem">		
+			      <xf:output ref="instance('messages')/message[key/text()='stakeholder-type']/value"/>
+			      <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
+				<xf:item>
+				  <xf:label>Organization</xf:label>
+				  <xf:value>Organization</xf:value> 
+				</xf:item>
+				<xf:item>
+				  <xf:label>Person</xf:label>
+				  <xf:value>Person</xf:value> 
+				</xf:item>
+				<xf:item>
+				  <xf:label>Group</xf:label>
+				  <xf:value>Generic_Group</xf:value> 
+				</xf:item>
+			      </xf:select1>
+			    </xf:label>
+			    <!-- ........... Item buttons .............. -->
+			    <xf:trigger  class="remove-button">
+			      <xf:label>X</xf:label>
+			      <xf:delete nodeset="." at="1" if="count(//Stakeholder) > 1"   ev:event="DOMActivate" />
+			    </xf:trigger>
+			    <xf:trigger ref=".[preceding-sibling::Stakeholder]" class="iconbutton" >
+			      <xf:label>
+				<img src="img/up.svg" />
+			      </xf:label>
+			      <xf:action ev:event="DOMActivate">
+				<xf:insert origin="context()" ref="preceding-sibling::Stakeholder[1]" position="before"/>
+				<xf:delete ref="."/>
+			      </xf:action>
+			    </xf:trigger>
+			    <xf:trigger ref=".[following-sibling::Stakeholder]" class="iconbutton">
+			      <xf:label>
+				<img src="img/down.svg" />
+			      </xf:label>
+			      <xf:action ev:event="DOMActivate">
+				<xf:insert origin="context()" ref="following-sibling::Stakeholder[1]" />
+				<xf:delete ref="."/>
+			      </xf:action>
+			    </xf:trigger>
+			    <!-- ........... // Item buttons .............. -->
+			  </div>
+			  <div class="line" >
+			    <xf:label class="singleitem" >
+			      <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+			      <xf:textarea rows="6" class="textarea" ref="Description">
+			      </xf:textarea>
+			    </xf:label>
+			  </div>
+			  <!-- ............... Roles ................ -->
+			  <xf:group ref=".[Role]" >
+			    <h3>
+			      <xf:output ref="instance('messages')/message[key/text()='roles']/value"/>
+			    </h3>
+			    <xf:repeat id="orgrolerepeat" ref="Role" appearance="compact">
+			      <div class="line" >
+				<xf:label class="lineitem" >
+				  <xf:output ref="instance('messages')/message[key/text()='role-name']/value"/>
+				  <xf:input  class="Source" ref="Name" />
+				</xf:label>
+				<xf:label class="lineitem" >      
+				  <xf:repeat id="orgroletyperepeat" nodeset="RoleType" appearance="compact">  
+				    <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/> 
+				    <xf:select1 class="Source" ref="." appearance="minimal"><xf:label/>
+				    <xf:item><xf:label>Performer</xf:label><xf:value>Performer</xf:value></xf:item>
+				    <xf:item><xf:label>Beneficiary</xf:label><xf:value>Beneficiary</xf:value></xf:item>
+				    </xf:select1>
+				  </xf:repeat>
+				</xf:label>
+				<!-- ........... Item buttons .............. -->
+				<xf:trigger  class="remove-button">
+				  <xf:label>X</xf:label>
+				  <xf:delete nodeset="." at="1" if="count(//Role) > 1"   ev:event="DOMActivate" />
+				</xf:trigger>
+				<xf:trigger ref=".[preceding-sibling::Role]" class="iconbutton" >
+				  <xf:label>
+				    <img src="img/up.svg" />
+				  </xf:label>
+				  <xf:action ev:event="DOMActivate">
+				    <xf:insert origin="context()" ref="preceding-sibling::Role[1]" position="before"/>
+				    <xf:delete ref="."/>
+				  </xf:action>
+				</xf:trigger>
+				<xf:trigger ref=".[following-sibling::Role]" class="iconbutton">
+				  <xf:label>
+				    <img src="img/down.svg" />
+				  </xf:label>
+				  <xf:action ev:event="DOMActivate">
+				    <xf:insert origin="context()" ref="following-sibling::Role[1]" />
+				    <xf:delete ref="."/>
+				  </xf:action>
+				</xf:trigger>
+				<!-- ........... // Item buttons .............. -->
+			      </div>
+			      <div class="line" >
+				<xf:label class="singleitem" >
+				  <xf:output ref="instance('messages')/message[key/text()='role-description']/value"/>
+				  <xf:textarea rows="6" class="textarea" ref="Description"></xf:textarea>
+				</xf:label>
+			      </div>
+			    </xf:repeat>
+			  </xf:group>
+			  <fieldset class="org-add-button">
+			    <xf:trigger class="default-button">
+			      <xf:label>
+				<span class="nopaddingtext" >
+				<xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
+				<xf:output ref="instance('messages')/message[key/text()='role']/value" class="nopaddingtext"/>
+			      </xf:label>
+			      <!-- TODO : Review last -->
+			      <xf:action ev:event="DOMActivate">		        	
+				<xf:insert origin="instance('template')/StrategicPlanCore/Organization/Stakeholder/Role" 
+					   context="." 
+					   ref="Role"
+					   at="last()"
+					   position="after"
+					   />
+			      </xf:action>
+			    </xf:trigger>
+			  </fieldset>
+			</xf:repeat>
+		      </xf:group>
+		    </div>
+		    <fieldset class="org-add-button">
+		      <xf:trigger class="default-button">
+			<xf:label>
+			  <span class="nopaddingtext" >
+			  <xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
+			  <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value" class="nopaddingtext"/>
+			</xf:label>
+			<xf:action ev:event="DOMActivate">		        	
+			  <xf:insert
+			      origin="instance('template')/StrategicPlanCore/Organization/Stakeholder" 
+			      context="." 
+			      ref="Stakeholder"
+			      at="last()"
+			      position="after"
+			      />
+			</xf:action>
+		      </xf:trigger>
+		    </fieldset>
+		    
+		    
+		    <!-- ............................ //Stakeholders End ........................... -->	  
+		    
+		    
+		  </xf:repeat>
+		</div>
+
+	      </div>
+	      <div class="org-add-button">
+
+		<xf:trigger  class="linebutton add-button">
+		  <xf:label>
+		    <xf:output ref="instance('messages')/message[key/text()='add']/value"/> 
+
+		    <xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
+		  </xf:label>
+		  <xf:action  ev:event="DOMActivate">
+		    <xf:insert 
+			origin="instance('template')//Objective" 
+			context="." 
+			ref="Objective" 
+			at="last()" position="after"/>
+		    <xf:insert 
+			context="./Objective[last()]" ref="SequenceIndicator" 
+			origin="instance('template')//SequenceIndicator[1]" />
+		    <xf:setvalue ref="./Objective[last()]/SequenceIndicator" 
+				 value="count(./../../Objective)" />
+		  </xf:action>
+		</xf:trigger>
+	      </div>
+	    </fieldset>			
 
 
-<!-- ......................... Objetives ............................. --> 
-<div class="subsection">
 
-  <xf:repeat id="objectiverepeat" nodeset="Objective" appearance="compact">
-    <div class="titleline objectiveheader" >
+	    <!-- ........................ // Objetives ........................... -->
 
-	  <xf:input ref="SequenceIndicator" class="hiddeninput smallinput"/>
-      <img src="img/target_blue_icon_3.svg" class="type-icon"  />
-      <xf:output ref="instance('messages')/message[key/text()='objective']/value" class="nopaddingtext"/>
-	<xf:output ref="Name" class="nopaddingtext" />
-    </div>
-    
-    <div class="line">
 
-      <!--
-      <xf:label class="lineitem">
-	<xf:trigger class="iconbutton"  ref=".[not(SequenceIndicator)]" >
+
+
+
+
+
+
+	    <!-- ................................ STAKEHOLDER DIALOG (GOALS>................................... -->
+	    <div>
+	      <xf:group ref=".[Stakeholder]" >
+	      <h3>
+		<xf:output ref="instance('messages')/message[key/text()='stakeholders']/value"/>
+	      </h3>
+	      <xf:repeat ref="Stakeholder" appearance="compact" >
+		<div class="line" >
+		  <xf:label class="lineitem">
+		    <xf:output ref="instance('messages')/message[key/text()='stakeholder-name']/value"/>
+		    <xf:input  class="Source" ref="Name" />
+		  </xf:label>
+		  <xf:label class="lineitem">		
+		    <xf:output ref="instance('messages')/message[key/text()='stakeholder-type']/value"/>
+		    <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
+		      <xf:item>
+			<xf:label>Organization</xf:label>
+			<xf:value>Organization</xf:value> 
+		      </xf:item>
+		      <xf:item>
+			<xf:label>Person</xf:label>
+			<xf:value>Person</xf:value> 
+		      </xf:item>
+		      <xf:item>
+			<xf:label>Group</xf:label>
+			<xf:value>Generic_Group</xf:value> 
+		      </xf:item>
+		    </xf:select1>
+		  </xf:label>
+		  <!-- ........... Item buttons .............. -->
+		  <xf:trigger  class="remove-button">
+		    <xf:label>X</xf:label>
+		    <xf:delete nodeset="." at="1" if="count(//Stakeholder) > 1"   ev:event="DOMActivate" />
+		  </xf:trigger>
+		  <xf:trigger ref=".[preceding-sibling::Stakeholder]" class="iconbutton" >
+		    <xf:label>
+		      <img src="img/up.svg" />
+		    </xf:label>
+		    <xf:action ev:event="DOMActivate">
+		      <xf:insert origin="context()" ref="preceding-sibling::Stakeholder[1]" position="before"/>
+		      <xf:delete ref="."/>
+		    </xf:action>
+		  </xf:trigger>
+		  <xf:trigger ref=".[following-sibling::Stakeholder]" class="iconbutton">
+		    <xf:label>
+		      <img src="img/down.svg" />
+		    </xf:label>
+		    <xf:action ev:event="DOMActivate">
+		      <xf:insert origin="context()" ref="following-sibling::Stakeholder[1]" />
+		      <xf:delete ref="."/>
+		    </xf:action>
+		  </xf:trigger>
+		  <!-- ........... // Item buttons .............. -->
+		</div>
+		<div class="line" >
+		  <xf:label class="singleitem" >
+		    <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+		    <xf:textarea rows="6" class="textarea" ref="Description">
+		    </xf:textarea>
+		  </xf:label>
+		</div>
+		<!-- ............... Roles ................ -->
+		<xf:group ref="Role" >
+		<h3>
+		  <xf:output ref="instance('messages')/message[key/text()='roles']/value"/>
+		</h3>
+		<xf:repeat id="orgrolerepeat1" ref="Role" appearance="compact">
+		  <div class="line" >
+		    <xf:label class="lineitem" >
+		      <xf:output ref="instance('messages')/message[key/text()='role-name']/value"/>
+		      <xf:input  class="Source" ref="Name" />
+		    </xf:label>
+
+		    <xf:label class="lineitem" >      
+		      <xf:repeat id="orgroletyperepeat1" nodeset="RoleType" appearance="compact">  
+			
+			<xf:output ref="instance('messages')/message[key/text()='role-type']/value"/> 
+			<xf:select1 class="Source" ref="." appearance="minimal"><xf:label/>
+			<xf:item><xf:label>Performer</xf:label><xf:value>Performer</xf:value></xf:item>
+			<xf:item><xf:label>Beneficiary</xf:label><xf:value>Beneficiary</xf:value></xf:item>
+			</xf:select1>
+
+		      </xf:repeat>
+		    </xf:label>
+		    
+		    <!-- ........... Item buttons .............. -->
+		    <xf:trigger  class="remove-button">
+		      <xf:label>X</xf:label>
+		      <xf:delete nodeset="." at="1" if="count(//Role) > 1"   ev:event="DOMActivate" />
+		    </xf:trigger>
+		    <xf:trigger ref=".[preceding-sibling::Role]" class="iconbutton" >
+		      <xf:label>
+			<img src="img/up.svg" />
+		      </xf:label>
+		      <xf:action ev:event="DOMActivate">
+			<xf:insert origin="context()" ref="preceding-sibling::Role[1]" position="before"/>
+			<xf:delete ref="."/>
+		      </xf:action>
+		    </xf:trigger>
+		    <xf:trigger ref=".[following-sibling::Role]" class="iconbutton">
+		      <xf:label>
+			<img src="img/down.svg" />
+		      </xf:label>
+		      <xf:action ev:event="DOMActivate">
+			<xf:insert origin="context()" ref="following-sibling::Role[1]" />
+			<xf:delete ref="."/>
+		      </xf:action>
+		    </xf:trigger>
+		    <!-- ........... // Item buttons .............. -->
+		  </div>
+		  <div class="line" >
+		    <xf:label class="singleitem" >
+		      <xf:output ref="instance('messages')/message[key/text()='role-description']/value"/>
+		      <xf:textarea rows="6" class="textarea" ref="Description"></xf:textarea>
+		    </xf:label>
+		  </div>
+		</xf:repeat>
+		</xf:group>
+		<fieldset class="org-add-button">
+		  <xf:trigger class="default-button">
+		    <xf:label>
+		      <span class="nopaddingtext" >
+		      <xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
+		      <xf:output ref="instance('messages')/message[key/text()='role']/value" class="nopaddingtext"/>
+		    </xf:label>
+		    <!-- TODO : Review last -->
+		    <xf:action ev:event="DOMActivate">		        	
+		      <xf:insert origin="instance('template')/StrategicPlanCore/Organization/Stakeholder/Role" 
+				 context="." 
+				 ref="Role"
+				 at="last()"
+				 position="after"
+				 />
+		    </xf:action>
+		  </xf:trigger>
+		</fieldset>
+	      </xf:repeat>
+	    </xf:group>
+	    </div>
+	    <fieldset class="org-add-button">
+	      <xf:trigger class="default-button">
+		<xf:label>
+		  <span class="nopaddingtext" >
+		  <xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
+		  <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value" class="nopaddingtext"/>
+		</xf:label>
+		<xf:action ev:event="DOMActivate">		        	
+		  <xf:insert
+		      origin="instance('template')/StrategicPlanCore/Organization/Stakeholder" 
+		      context="." 
+		      ref="Stakeholder"
+		      at="last()"
+		      position="after"
+		      />
+		</xf:action>
+	      </xf:trigger>
+	    </fieldset>
+
+
+	    <!-- ............................ //Stakeholders End ........................... -->	  
+
+
+
+
+
+
+	  </li>
+
+
+
+
+
+	</xf:repeat>
+      </ol>
+      <br/>
+      <div class="org-add-buntton subsection" >
+	<xf:trigger class="add-button">
 	  <xf:label>
-	    <img src="img/addsequence.svg" /> 
+	    <xf:output ref="instance('messages')/message[key/text()='add']/value"/> 
+	    <xf:output ref="instance('messages')/message[key/text()='goal']/value"/>
 	  </xf:label>
-	  <xf:action ev:event="DOMActivate">
+	  <xf:action  ev:event="DOMActivate">
 	    <xf:insert 
-		context="." ref="SequenceIndicator" 
-		origin="instance('template')//SequenceIndicator[1]" />
-	    <xf:setvalue ref="./SequenceIndicator" 
-			 value="count(parent::*/preceding-sibling::Objective)+1" />
-	  </xf:action>
-	</xf:trigger>
-	<xf:repeat ref=".[SequenceIndicator]">
-	  <xf:input ref="SequenceIndicator" class="hiddeninput smallinput"/>
-	</xf:repeat>
-      </xf:label>
-      -->
+		origin="instance('template')//Goal" 
+		context="/PerformancePlanOrReport/StrategicPlanCore" 
+		ref="Goal"
+		at="last()" position="after"/>
 
-	<xf:input class="Source" ref="Identifier" >
-	  <xf:label>
-	    <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
-	  </xf:label>
-	</xf:input>
-
-      
-
-
-      <!--
-      <xf:label>
-	<xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
-	<xf:input class="Source" ref="Identifier" />
-      </xf:label>
-      -->
-      <xf:label>
-	<xf:output ref="instance('messages')/message[key/text()='name']/value"/>
-	<!--
-	    <xf:output value="' '"/>
-	    <xf:output value="position()"/>
-	    <xf:output ref="instance('messages')/message[key/text()='goal-of']/value"/>  
-	    <xf:output value="' '"/><xf:output value="count(parent::*/preceding-sibling::Goal) + 1"/>
-	    <xf:output ref="instance('messages')/message[key/text()='objective-name']/value"/>
-	-->
-	<xf:input class="Source" ref="Name" />
-      </xf:label>
-      <!--
-      <xf:label class="lineitem">
-	<xf:trigger class="iconbutton"  ref=".[not(Sequence)]" >
-	  <xf:label>
-	    <img src="img/more.svg" />
-	    <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
-	  </xf:label>
-	  <xf:action ev:event="DOMActivate">
-	    <xf:insert context="." ref="Identifier" 
-		       origin="//Identifier[1]" />
-	  </xf:action>
-	</xf:trigger>
-	<xf:repeat ref=".[Identifier]">
-	  <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
-	  <xf:input ref="Identifier" />
-	</xf:repeat>
-      </xf:label>
-      -->
-<!--
-      <xf:trigger class="linebutton remove-button">
-
--->
-      <xf:trigger class="linebutton iconbutton">
-	<xf:label>
-	  <img src="img/cross.svg" />
-	</xf:label>
-	<xf:delete ref="."  ev:event="DOMActivate" />
-      </xf:trigger>
-      <xf:trigger ref=".[preceding-sibling::Objective]"  class="iconbutton">
-	<xf:label> 
-	  <img src="img/up.svg" />
-	</xf:label>
-	<xf:action ev:event="DOMActivate">
-	  <xf:insert origin="context()" ref="preceding-sibling::Objective[1]" position="before"/>
-	  <xf:delete ref="."/>
-	</xf:action>
-      </xf:trigger>
-      <xf:trigger ref=".[following-sibling::Objective]" class="iconbutton">
-	<xf:label>
-	  <img src="img/down.svg" />
-	</xf:label>
-	<xf:action ev:event="DOMActivate">
-	  <xf:insert origin="context()" ref="following-sibling::Objective[1]" />
-	  <xf:delete ref="."/>
-	</xf:action>
-      </xf:trigger>
-      
-    </div>
-    <div class="line">
-      <xf:label class="lineitem">
-	<xf:output ref="instance('messages')/message[key/text()='description']/value"/>
-	<xf:textarea  ref="Description" />
-      </xf:label>
-    </div>
-    <!--
-	<xf:label>
-	<xf:output ref="instance('messages')/message[key/text()='sequence-indicator']/value"/>
-	<xf:input class="SequenceIndicator1" ref="SequenceIndicator" />
-	</xf:label>
-    -->
-
-<!-- ................................ STAKEHOLDER DIALOG ................................... -->
-<div>
-<h3>
-  <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/>
-</h3>
-<xf:repeat ref="Stakeholder" appearance="compact" >
-  <div class="line" >
-    <xf:label class="lineitem">
-      <xf:output ref="instance('messages')/message[key/text()='stakeholder-name']/value"/>
-      <xf:input  class="Source" ref="Name" />
-    </xf:label>
-    <xf:label class="lineitem">		
-      <xf:output ref="instance('messages')/message[key/text()='stakeholder-type']/value"/>
-      <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
-	<xf:item>
-	  <xf:label>Organization</xf:label>
-	  <xf:value>Organization</xf:value> 
-	</xf:item>
-	<xf:item>
-	  <xf:label>Person</xf:label>
-	  <xf:value>Person</xf:value> 
-	</xf:item>
-	<xf:item>
-	  <xf:label>Group</xf:label>
-	  <xf:value>Generic_Group</xf:value> 
-	</xf:item>
-      </xf:select1>
-    </xf:label>
-    <!-- ........... Item buttons .............. -->
-    <xf:trigger  class="remove-button">
-      <xf:label>X</xf:label>
-      <xf:delete nodeset="." at="1" if="count(//Stakeholder) > 1"   ev:event="DOMActivate" />
-    </xf:trigger>
-    <xf:trigger ref=".[preceding-sibling::Stakeholder]" class="iconbutton" >
-      <xf:label>
-	<img src="img/up.svg" />
-      </xf:label>
-      <xf:action ev:event="DOMActivate">
-	<xf:insert origin="context()" ref="preceding-sibling::Stakeholder[1]" position="before"/>
-	<xf:delete ref="."/>
-      </xf:action>
-    </xf:trigger>
-    <xf:trigger ref=".[following-sibling::Stakeholder]" class="iconbutton">
-      <xf:label>
-	<img src="img/down.svg" />
-      </xf:label>
-      <xf:action ev:event="DOMActivate">
-	<xf:insert origin="context()" ref="following-sibling::Stakeholder[1]" />
-	<xf:delete ref="."/>
-      </xf:action>
-    </xf:trigger>
-    <!-- ........... // Item buttons .............. -->
-  </div>
-  <div class="line" >
-    <xf:label class="singleitem" >
-      <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
-      <xf:textarea rows="6" class="textarea" ref="Description">
-      </xf:textarea>
-    </xf:label>
-  </div>
-  <!-- ............... Roles ................ -->
-  <h3>
-    <xf:output ref="instance('messages')/message[key/text()='role']/value"/>
-  </h3>
-  <xf:repeat id="orgrolerepeat" ref="Role" appearance="compact">
-    <div class="line" >
-      <xf:label class="lineitem" >
-	<xf:output ref="instance('messages')/message[key/text()='role-name']/value"/>
-	<xf:input  class="Source" ref="Name" />
-      </xf:label>
-
-      <xf:label class="lineitem" >      
-	<xf:repeat id="orgroletyperepeat" nodeset="RoleType" appearance="compact">  
-	  
-	  <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/> 
-	  <xf:select1 class="Source" ref="." appearance="minimal"><xf:label/>
-	  <xf:item><xf:label>Performer</xf:label><xf:value>Performer</xf:value></xf:item>
-	  <xf:item><xf:label>Beneficiary</xf:label><xf:value>Beneficiary</xf:value></xf:item>
-	  </xf:select1>
-
-	</xf:repeat>
-      </xf:label>
-      
-      <!-- ........... Item buttons .............. -->
-      <xf:trigger  class="remove-button">
-	<xf:label>X</xf:label>
-	<xf:delete nodeset="." at="1" if="count(//Role) > 1"   ev:event="DOMActivate" />
-      </xf:trigger>
-      <xf:trigger ref=".[preceding-sibling::Role]" class="iconbutton" >
-	<xf:label>
-	  <img src="img/up.svg" />
-	</xf:label>
-	<xf:action ev:event="DOMActivate">
-	  <xf:insert origin="context()" ref="preceding-sibling::Role[1]" position="before"/>
-	  <xf:delete ref="."/>
-	</xf:action>
-      </xf:trigger>
-      <xf:trigger ref=".[following-sibling::Role]" class="iconbutton">
-	<xf:label>
-	  <img src="img/down.svg" />
-	</xf:label>
-	<xf:action ev:event="DOMActivate">
-	  <xf:insert origin="context()" ref="following-sibling::Role[1]" />
-	  <xf:delete ref="."/>
-	</xf:action>
-      </xf:trigger>
-      <!-- ........... // Item buttons .............. -->
-    </div>
-    <div class="line" >
-      <xf:label class="singleitem" >
-	<xf:output ref="instance('messages')/message[key/text()='role-description']/value"/>
-	<xf:textarea rows="6" class="textarea" ref="Description"></xf:textarea>
-      </xf:label>
-    </div>
-  </xf:repeat>
-  <fieldset class="org-add-button">
-    <xf:trigger class="default-button">
-      <xf:label>
-	<span class="nopaddingtext" >
-	<xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
-	<xf:output ref="instance('messages')/message[key/text()='role']/value" class="nopaddingtext"/>
-      </xf:label>
-      <!-- TODO : Review last -->
-      <xf:action ev:event="DOMActivate">		        	
-	<xf:insert origin="instance('template')/StrategicPlanCore/Organization/Stakeholder/Role" 
-		   context="." 
-		   ref="Role"
-		   at="last()"
-		   position="after"
-		   />
-      </xf:action>
-    </xf:trigger>
-  </fieldset>
-</xf:repeat>
-</div>
-<fieldset class="org-add-button">
-  <xf:trigger class="default-button">
-    <xf:label>
-      <span class="nopaddingtext" >
-      <xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
-      <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value" class="nopaddingtext"/>
-    </xf:label>
-    <xf:action ev:event="DOMActivate">		        	
-      <xf:insert
-	  origin="instance('template')/StrategicPlanCore/Organization/Stakeholder" 
-	  context="." 
-	  ref="Stakeholder"
-	  at="last()"
-	  position="after"
-	  />
-    </xf:action>
-  </xf:trigger>
-</fieldset>
-
-
-<!-- ............................ //Stakeholders End ........................... -->	  
-
-    
-  </xf:repeat>
-</div>
-
-</div>
-<div class="org-add-button">
-
-  <xf:trigger  class="linebutton add-button">
-    <xf:label>
-    <xf:output ref="instance('messages')/message[key/text()='add']/value"/> 
-
-      <xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
-    </xf:label>
-    <xf:action  ev:event="DOMActivate">
-      <xf:insert 
-	  origin="instance('template')//Objective" 
-	  context="." 
-	  ref="Objective" 
-	  at="last()" position="after"/>
-      <xf:insert 
-		context="./Objective[last()]" ref="SequenceIndicator" 
-		origin="instance('template')//SequenceIndicator[1]" />
-      <xf:setvalue ref="./Objective[last()]/SequenceIndicator" 
-			 value="count(./../../Objective)" />
-    </xf:action>
-  </xf:trigger>
-</div>
-</fieldset>			
-
-
-
-<!-- ........................ // Objetives ........................... -->
-
-
-</li>
-
-
-
-
-
-</xf:repeat>
-</ol>
-<br/>
-<div class="org-add-buntton subsection" >
-<xf:trigger class="add-button">
-  <xf:label>
-    <xf:output ref="instance('messages')/message[key/text()='add']/value"/> 
-    <xf:output ref="instance('messages')/message[key/text()='goal']/value"/>
-  </xf:label>
-  <xf:action  ev:event="DOMActivate">
-    <xf:insert 
-	origin="instance('template')//Goal" 
-	context="/PerformancePlanOrReport/StrategicPlanCore" 
-	ref="Goal"
-	at="last()" position="after"/>
-
-          <xf:insert 
+            <xf:insert 
 		context="/PerformancePlanOrReport/StrategicPlanCore/Goal[last()]" ref="SequenceIndicator" 
 		origin="instance('template')//SequenceIndicator[1]" />
-      <xf:setvalue ref="/PerformancePlanOrReport/StrategicPlanCore/Goal[last()]/SequenceIndicator" 
+	    <xf:setvalue ref="/PerformancePlanOrReport/StrategicPlanCore/Goal[last()]/SequenceIndicator" 
 			 value="count(/PerformancePlanOrReport/StrategicPlanCore/Goal)" />
-  </xf:action>
-</xf:trigger>
-</div>
-<br/>
-
-<!--
-</xf:group>
--->
+	  </xf:action>
+	</xf:trigger>
+      </div>
+      <br/>
 
 
+      <!-- // ============================ // Fin cambios ================================== -->
 
-		  
-
-
-
-<!-- // ============================ // Fin cambios ================================== -->
-
-
-		</main>
-<!--
-	  <fieldset class="navigation-buttons">
-			<xf:submit>
-				<xf:label>Back</xf:label>
-				<xf:action ev:event="DOMActivate">
-					<xf:load resource="3_organization.xml" />
-				</xf:action>
-			</xf:submit>
-
-     <xf:submit class="alert">
-			<xf:label>Menu</xf:label>
-			<xf:action ev:event="DOMActivate">
-				<xf:load resource="0_mainform.xml" />
-			</xf:action>
-      </xf:submit>
-
-       <xf:submit submission="wizard-intro">
-				<xf:label>Next</xf:label>
-				<xf:action ev:event="DOMActivate">
-					<xf:load resource="5_performance.xml" />
-				</xf:action>
-       </xf:submit>
-		</fieldset>
-		-->
-   </body>
+    </main>
+  </body>
 </html>

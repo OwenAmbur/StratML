@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="302.56538"
-     inkscape:cy="-200.3171"
+     inkscape:zoom="28.315774"
+     inkscape:cx="3.084949"
+     inkscape:cy="9.5000042"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -62,6 +62,8 @@
        class="linesandangles_een"
        d="m 25.779576,90.805682 v 5.027086 h 4.43566 v -5.027086 z m 1.108914,0.418925 h 2.217832 v 1.466231 H 26.88849 Z m 2.957107,4.189236 h -3.69639 v -4.189236 h 0.369639 v 1.885157 h 2.957118 v -1.885157 h 0.369633 z m -1.478552,-3.979776 h 0.554458 v 1.047311 h -0.554458 z"
        style="fill:#172e49;fill-opacity:1;stroke-width:0.19675511"
-       id="path6-4" />
+       id="path6-4"
+       inkscape:export-xdpi="338.73999"
+       inkscape:export-ydpi="338.73999" />
   </g>
 </svg>

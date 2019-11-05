@@ -5,6 +5,8 @@
 
 <message><key>actual-result</key><value>Resultado obtenido</value></message>
 
+<message><key>close</key><value>Cerrar</value></message>
+
 <message><key>descriptor-name</key><value>Nombre del descriptor</value></message>
 
 <message><key>target-result</key><value>Resultado esperado</value></message>
@@ -42,6 +44,8 @@
 <message><key>name</key><value>Nombre</value></message>
 <message><key>description</key><value>Descripci&#243;n</value></message>
 
+
+<message><key>manage</key><value>Gestionar</value></message>
 
 <message><key>measurement-instance</key><value>Medici&#243;n</value></message>
 
@@ -97,6 +101,8 @@
 
 
 <message><key>stakeholder</key><value>Interesado/Stakeholder</value></message>
+<message><key>stakeholders</key><value>Interesados/Stakeholders</value></message>
+
 <message><key>stakeholder-name</key><value>Nombre del Interesado/Stakeholder</value></message>
 <message><key>stakeholder-information</key><value>Informaci&#243;n Interesado/Stakeholder</value></message>
 <message><key>stakeholder-description</key><value>Descripci&#243;n del Interesado/Stakeholder</value></message>

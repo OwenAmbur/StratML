@@ -618,6 +618,165 @@
 	<xf:input class="SequenceIndicator1" ref="SequenceIndicator" />
 	</xf:label>
     -->
+
+<!-- ................................ STAKEHOLDER DIALOG ................................... -->
+<div>
+<h3>
+  <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value"/>
+</h3>
+<xf:repeat ref="Stakeholder" appearance="compact" >
+  <div class="line" >
+    <xf:label class="lineitem">
+      <xf:output ref="instance('messages')/message[key/text()='stakeholder-name']/value"/>
+      <xf:input  class="Source" ref="Name" />
+    </xf:label>
+    <xf:label class="lineitem">		
+      <xf:output ref="instance('messages')/message[key/text()='stakeholder-type']/value"/>
+      <xf:select1 class="StakeholderTypeType" ref="@StakeholderTypeType" appearance="minimal" incremental="true">  
+	<xf:item>
+	  <xf:label>Organization</xf:label>
+	  <xf:value>Organization</xf:value> 
+	</xf:item>
+	<xf:item>
+	  <xf:label>Person</xf:label>
+	  <xf:value>Person</xf:value> 
+	</xf:item>
+	<xf:item>
+	  <xf:label>Group</xf:label>
+	  <xf:value>Generic_Group</xf:value> 
+	</xf:item>
+      </xf:select1>
+    </xf:label>
+    <!-- ........... Item buttons .............. -->
+    <xf:trigger  class="remove-button">
+      <xf:label>X</xf:label>
+      <xf:delete nodeset="." at="1" if="count(//Stakeholder) > 1"   ev:event="DOMActivate" />
+    </xf:trigger>
+    <xf:trigger ref=".[preceding-sibling::Stakeholder]" class="iconbutton" >
+      <xf:label>
+	<img src="img/up.svg" />
+      </xf:label>
+      <xf:action ev:event="DOMActivate">
+	<xf:insert origin="context()" ref="preceding-sibling::Stakeholder[1]" position="before"/>
+	<xf:delete ref="."/>
+      </xf:action>
+    </xf:trigger>
+    <xf:trigger ref=".[following-sibling::Stakeholder]" class="iconbutton">
+      <xf:label>
+	<img src="img/down.svg" />
+      </xf:label>
+      <xf:action ev:event="DOMActivate">
+	<xf:insert origin="context()" ref="following-sibling::Stakeholder[1]" />
+	<xf:delete ref="."/>
+      </xf:action>
+    </xf:trigger>
+    <!-- ........... // Item buttons .............. -->
+  </div>
+  <div class="line" >
+    <xf:label class="singleitem" >
+      <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+      <xf:textarea rows="6" class="textarea" ref="Description">
+      </xf:textarea>
+    </xf:label>
+  </div>
+  <!-- ............... Roles ................ -->
+  <h3>
+    <xf:output ref="instance('messages')/message[key/text()='role']/value"/>
+  </h3>
+  <xf:repeat id="orgrolerepeat" ref="Role" appearance="compact">
+    <div class="line" >
+      <xf:label class="lineitem" >
+	<xf:output ref="instance('messages')/message[key/text()='role-name']/value"/>
+	<xf:input  class="Source" ref="Name" />
+      </xf:label>
+
+      <xf:label class="lineitem" >      
+	<xf:repeat id="orgroletyperepeat" nodeset="RoleType" appearance="compact">  
+	  
+	  <xf:output ref="instance('messages')/message[key/text()='role-type']/value"/> 
+	  <xf:select1 class="Source" ref="." appearance="minimal"><xf:label/>
+	  <xf:item><xf:label>Performer</xf:label><xf:value>Performer</xf:value></xf:item>
+	  <xf:item><xf:label>Beneficiary</xf:label><xf:value>Beneficiary</xf:value></xf:item>
+	  </xf:select1>
+
+	</xf:repeat>
+      </xf:label>
+      
+      <!-- ........... Item buttons .............. -->
+      <xf:trigger  class="remove-button">
+	<xf:label>X</xf:label>
+	<xf:delete nodeset="." at="1" if="count(//Role) > 1"   ev:event="DOMActivate" />
+      </xf:trigger>
+      <xf:trigger ref=".[preceding-sibling::Role]" class="iconbutton" >
+	<xf:label>
+	  <img src="img/up.svg" />
+	</xf:label>
+	<xf:action ev:event="DOMActivate">
+	  <xf:insert origin="context()" ref="preceding-sibling::Role[1]" position="before"/>
+	  <xf:delete ref="."/>
+	</xf:action>
+      </xf:trigger>
+      <xf:trigger ref=".[following-sibling::Role]" class="iconbutton">
+	<xf:label>
+	  <img src="img/down.svg" />
+	</xf:label>
+	<xf:action ev:event="DOMActivate">
+	  <xf:insert origin="context()" ref="following-sibling::Role[1]" />
+	  <xf:delete ref="."/>
+	</xf:action>
+      </xf:trigger>
+      <!-- ........... // Item buttons .............. -->
+    </div>
+    <div class="line" >
+      <xf:label class="singleitem" >
+	<xf:output ref="instance('messages')/message[key/text()='role-description']/value"/>
+	<xf:textarea rows="6" class="textarea" ref="Description"></xf:textarea>
+      </xf:label>
+    </div>
+  </xf:repeat>
+  <fieldset class="org-add-button">
+    <xf:trigger class="default-button">
+      <xf:label>
+	<span class="nopaddingtext" >
+	<xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
+	<xf:output ref="instance('messages')/message[key/text()='role']/value" class="nopaddingtext"/>
+      </xf:label>
+      <!-- TODO : Review last -->
+      <xf:action ev:event="DOMActivate">		        	
+	<xf:insert origin="instance('template')/StrategicPlanCore/Organization/Stakeholder/Role" 
+		   context="." 
+		   ref="Role"
+		   at="last()"
+		   position="after"
+		   />
+      </xf:action>
+    </xf:trigger>
+  </fieldset>
+</xf:repeat>
+</div>
+<fieldset class="org-add-button">
+  <xf:trigger class="default-button">
+    <xf:label>
+      <span class="nopaddingtext" >
+      <xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
+      <xf:output ref="instance('messages')/message[key/text()='stakeholder']/value" class="nopaddingtext"/>
+    </xf:label>
+    <xf:action ev:event="DOMActivate">		        	
+      <xf:insert
+	  origin="instance('template')/StrategicPlanCore/Organization/Stakeholder" 
+	  context="." 
+	  ref="Stakeholder"
+	  at="last()"
+	  position="after"
+	  />
+    </xf:action>
+  </xf:trigger>
+</fieldset>
+
+
+<!-- ............................ //Stakeholders End ........................... -->	  
+
+    
   </xf:repeat>
 </div>
 
@@ -652,6 +811,10 @@
 
 
 </li>
+
+
+
+
 
 </xf:repeat>
 </ol>

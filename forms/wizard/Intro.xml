@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
-<?stylesheet href="style.css" type="text/css"?>
+<?xml-stylesheet href="./xsltforms/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
 <?css-conversion no ?>
 <html 
@@ -38,7 +37,18 @@
       <xf:instance xmlns="" id="texts" src="labels/texts-en.xml" />    
       <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
       <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
+      <!--
+      <xf:submission
+	  id="backtomainsite" 
+	  action="http://stratml.us" >
+      </xf:submission>
 
+      <xf:submission
+	  id="startml" 
+	  action="0_mainform_simple.xml" >
+      </xf:submission>
+      -->
+      
     </xf:model>
   </head>
   <body>
@@ -51,7 +61,9 @@
 	</h1>    
 	<div id="subheader"> 
 	  
-	  <div id="breadcrumb"> . 	    </div>
+	  <div id="breadcrumb">
+	    <a href="http://stratml.us">..</a> &gt; <a href="Intro">StratML Forms</a> &gt; <a name="breadcrumb">Intro</a>  
+	  </div>
 	  
 	  <xf:select1 ref="instance('config')/file"  id="lang-selector">
 	    <xf:label class="subheader">
@@ -74,7 +86,10 @@
 	    </xf:action>
 	  </xf:select1>      
 	  
-
+	    <a href="../documentation.html" target="blank" >
+	      <img src="img/documentation-icon.svg" alt="documentation" />
+	    </a>
+	    
 	</div>
       </header>
       <main>
@@ -110,6 +125,26 @@
 	  </ol>
 	</div>
       </main>
+      <fieldset  class="navigation-buttons">
+      	<xf:trigger >
+	  <xf:action ev:event="DOMActivate" >
+	    <xf:load   >
+	      <xf:resource
+		  value="'http://stratml.us'" />
+	    </xf:load>
+	  </xf:action>
+	  <xf:label>Back to main site</xf:label>
+	</xf:trigger>
+	<xf:trigger>
+	  <xf:action ev:event="DOMActivate" >
+	    <xf:load   >
+	      <xf:resource
+		  value="'0_mainform_simple.xml'" />
+	    </xf:load>
+	  </xf:action>
+	  <xf:label>Start Planning</xf:label>
+	</xf:trigger>
+      </fieldset>
     </div>
   </body>
 </html>

@@ -2,7 +2,10 @@
 @namespace xf url("http://www.w3.org/2002/xforms");
 @namespace html url("http://www.w3.org/1999/xhtml");
 
-
+:root {
+    --margenbaselateral: 50px;
+    --margenbaseelemento: 0.4em;
+}
 
 body {
     margin-left :40px;
@@ -143,8 +146,6 @@ div.headerline > label  {
 
 
 
-
-
 .singleitem {
     display:block;
 /*    margin-top : 1.1em ; */
@@ -215,45 +216,55 @@ main {
 
 /* ............... Subheader row ................... */
 
-#subheader {
+div.subheader {
     display:block;
+    positon:relative;
+    clear:all;
 }
-
 
 #breadcrumb {
     float:left;
-    display:block; 
-    padding-left:50px;
+    padding-left:var(--margenbaselateral);
     padding-top:0px;
-    min-width:33%;
+    min-width:50%;
 } 
 
-#breadcrumb a {
-    display:inline;
-    text-decoration:none;
-
-} 
-
-#breadcrumb p {
-    padding-top:0px;
-    margin-top:0px;
-
-} 
-
-label.subheader {
+#confifurationoptions {
+    float: right;
+    display : block; 
+    padding-right: var(--margenbaselateral);
 }
 
-#lang-selector  {
-    float:left;
-    display:inline;     
-    
+#confifurationoptions > *  {
+    display: inline;
+    padding-left:0.5em ;
+
 }
+
+#confifurationoptions img {
+    /* 
+       display:inline-block;
+       mar	gin-top: var(--margenbaseelemento);
+    border:1px solid black; 
+   */
+}
+
+
+#confifurationoptions  * {
+    margin:0;
+}
+
+#confifurationoptions  *  {
+    /*
+    border:1px solid black; 
+   */
+}
+
+
 
 #page-counter {
-    display:inline;
     float:right;
-    padding-right:50px;
-    width:160px;     
+    padding-right:var(--margenbaselateral);
 }
 
 .nopaddingtext {
@@ -337,8 +348,17 @@ div.line .nopaddingtext {
     clear:both;
     margin-right:100px;
              margin-top:2.5em ; 
-
 }
+
+.button-icon {
+    max-height:60%;
+    display:inline;
+    padding:0;
+    margin:auto;
+    vertical-align:middle;
+}
+
+
 
 /*
 .remove-button {
@@ -415,6 +435,7 @@ div.line .nopaddingtext {
 /*
 .smallicons label, .smallicons *.smallicon, .smallicons button , .smallicons span  
 */
+
 span.iconbutton 
 {
 

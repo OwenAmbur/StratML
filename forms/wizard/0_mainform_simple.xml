@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
-<?stylesheet href="style.css" type="text/css"?>
+<?xml-stylesheet href="./xsltforms/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
 <?css-conversion no ?>
 <html 
@@ -11,7 +10,7 @@
     <meta http-equiv="Content-Style-Type" content="text/plain; charset=us-ascii"/>
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Expires" content="-1"/>
-    <title>StratML Part 1 to Part 2 XForm</title>
+    <title>StratML Strategic plan</title>
     <meta name="DC.title" content="StratML Part 1 to Part 2 Conversion XForm"/>
     <meta name="title" content="Strategic Plan (StratML Part 2) XForm"/>
     <meta name="DC.subject" scheme="DCTERMS.LCSH" content="Strategic Plans, StratML Part 2, StratML, XForms, XSLTForms, Performance Plans, Performance Reports"/>
@@ -55,9 +54,6 @@
       <xf:bind nodeset="StrategicPlanCore/Organization/Identifier[./text()='']"  type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Vision/Identifier[./text()='']"  type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Mission/Identifier[./text()='']"  type="xsd:string"/>
-      <!--
-	  TODO : REVISAR LA FORMULA GENERATE ID 
-      -->
       <xf:bind
 	  nodeset="StrategicPlanCore/Goal/Identifier[./text()='']"
 	  calculate="uuid()"
@@ -93,13 +89,31 @@
 	);
 	}
       </function>
-      <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
+      <xf:submission id="change-language" replace="instance"
+		     instance="messages" method="get" serialization="none">
+	<!-- lenguajes -->
 	<xf:resource value="instance('config')/file/text()"/>
-      </xf:submission>      
+      </xf:submission>
       <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
 	</xf:message>
       </xf:submission>
+      <xf:action ev:event="xforms-ready"     >
+	<xf:load  show="embed" target="page-counter" >
+	  <xf:resource
+	      value="'pagecounter_simple.xml'" />
+	</xf:load>
+      </xf:action>
+      <xf:submission id="tempararysave"  
+		     method="put"
+		     replace="none"
+		     >
+	<xf:resource
+	    value="concat(instance('config')/path , 
+		   instance('config')/filename)" />
+      </xf:submission>
+      
+      <!-- ........... Legacy submission methods ..................  --> 
       <xf:submission id="s01" method="post" show="new" replace="all" action="/cgi-bin/txs.php?exec=beautify.txs">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Submit error.</xf:message>				
       </xf:submission>
@@ -117,17 +131,7 @@
       <xf:submission id="s03" show="new" method="post" action="http://stratml.us/forms/showpart2post1.pl">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
       </xf:submission>
-      <!-- resource="concat('img/counter_2.svg -->
-      <xf:action ev:event="xforms-ready"     >
-	<xf:load  show="embed" target="page-counter" >
-	  <!--
-	      <xf:resource
-	      value="concat('img/counter_', instance('config')/page, '.svg')" />
-	  -->
-	  <xf:resource
-	      value="'pagecounter_simple.xml'" />
-	</xf:load>
-      </xf:action>      
+      <!-- ........... // Legacy submission methods ..................  --> 
     </xf:model>
     <script type="text/javascript">
       var ConfirmExit=function(){
@@ -141,9 +145,6 @@
     <div id="marco">       
       <header>
 	<h1>
-	  <!--
-	      <img  class="title-logo" width="80px" src="img/stratml_logo_white.svg" alt="StratML logo"/>
-	  -->
 	  <xf:repeat ref=".[instance('config')/page=0]" >
 	    <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>	    
 	    Performance Plan/Report Form
@@ -166,41 +167,51 @@
 	    <xf:output ref="instance('messages')/message[key/text()='goals-information']/value"/>
 	  </xf:repeat>
 	  <xf:repeat ref=".[instance('config')/page=5]" >
-	    
-
 	    <img class="title-logo" width="80px" src="img/performance_logo_white.svg" alt="StratML logo"/>
             <xf:output ref="instance('messages')/message[key/text()='performance-information']/value"/>
 	  </xf:repeat>
-	  
-
-
 	  <img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
-
 	</h1>    
-	<div id="subheader"> 
-	  <div id="breadcrumb"> &gt; <a href="0_mainform_simple.xml">Strategic Plan</a>
-	  </div> 
-	  <xf:select1 ref="instance('config')/file"  id="lang-selector">
-	    <xf:label class="subheader">
-	      Language
-	    </xf:label>
-	    <xf:item>
-	      <xf:label>English
+	<div class="subheader">
+	  <div id="breadcrumb">
+	    <a href="http://stratml.us">..</a> &gt; <a href="Intro.xml">StratML Forms</a> &gt; <a name="breadcrumb">Strategic Plan</a>  
+	  </div>
+	  <div id="confifurationoptions" >
+	    <xf:trigger class="iconbutton">
+	      <xf:label> <img src="img/configuration.svg" alt="configuration" />
 	      </xf:label>
-	      <xf:value>labels/labels-en.xml/
-	      </xf:value> 
-	    </xf:item>
-	    <xf:item>
-	      <xf:label>Spanish
+	      <xf:toggle case="config" ev:event="DOMActivate" />
+	      <xf:action ev:event="DOMActivate">
+		<xf:load resource="configuration.xml" show="embed" target="subform" />
+	      </xf:action>
+	    </xf:trigger>
+	    <xf:select1 ref="instance('config')/file"  id="lang-selector">
+	      <xf:label class="subheader">
+		Language
 	      </xf:label>
-	      <xf:value>labels/labels-es.xml
-	      </xf:value>
-	    </xf:item>
-	    <xf:action ev:event="xforms-value-changed">
-	      <xf:send submission="change-language"/>
-	    </xf:action>
-	  </xf:select1>      
-
+	      <xf:item>
+		<xf:label>English
+		</xf:label>
+		<xf:value>labels/labels-en.xml
+		</xf:value> 
+	      </xf:item>
+	      <xf:item>
+		<xf:label>Spanish
+		</xf:label>
+		<xf:value>labels/labels-es.xml
+		</xf:value>
+	      </xf:item>
+	      <xf:action ev:event="xforms-value-changed">
+		<xf:send submission="change-language"/>
+	      </xf:action>
+	    </xf:select1>      
+	    <a href="../documentation.html" target="blank" >
+	      <img src="img/documentation-icon.svg" alt="documentation" />
+	    </a>
+	  </div>
+	</div>
+	
+	<div class="subheader">
           <xf:group id="page-counter" >
           </xf:group>
 	</div>
@@ -208,7 +219,7 @@
       <xf:group id="subform" >
 	<main>
 	  <div class="line">
-	    <p>Follow these steps to create a performance plan:
+ 	    <p>Follow these steps to create a performance plan:
 	    </p>
             <ol class="mainform-list">
 	      <li>
@@ -288,6 +299,14 @@
  		<xf:load resource="javascript:ConfirmExit()" />
 	      </xf:action>
 	    </xf:trigger>
+
+	    <xf:submit submission="temporarysave" class="alert">
+	      <xf:label>
+		<img src="img/temporarysave.svg" class="button-icon"/>
+		Save
+	      </xf:label>
+	    </xf:submit>
+	    
 	    <xf:trigger class="green"  id="buttontwo">
 	      <xf:label>Next  &gt;</xf:label>
 	      <xf:toggle case="dos" ev:event="DOMActivate" />
@@ -314,6 +333,14 @@
  		<xf:load resource="javascript:ConfirmExit()" />
 	      </xf:action>
 	    </xf:trigger>
+	    
+	    <xf:submit submission="temporarysave" class="alert">
+	      <xf:label>
+		<img src="img/temporarysave.svg"  class="button-icon" />
+		Save
+	      </xf:label>
+	    </xf:submit>
+
 	    <xf:trigger class="green" id="buttonthree"> 
 	      <xf:label>Next &gt;</xf:label>
 	      <xf:toggle case="tres" ev:event="DOMActivate" />
@@ -340,6 +367,12 @@
 		<xf:load resource="javascript:ConfirmExit()" />
 	      </xf:action>
 	    </xf:trigger>
+	    <xf:submit submission="temporarysave" class="alert">
+	      <xf:label>
+		<img src="img/temporarysave.svg"   class="button-icon" />
+		Save
+	      </xf:label>
+	    </xf:submit>
 	    <xf:trigger class="green" id="buttonfour">
 	      <xf:label>Next  &gt;</xf:label>
 	      <xf:toggle case="cuatro" ev:event="DOMActivate" />	  

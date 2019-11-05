@@ -5,6 +5,8 @@
 
 <message><key>actual-result</key><value>Actual Result</value></message>
 
+<message><key>close</key><value>Close</value></message>
+
 <message><key>descriptor-name</key><value>Descriptor Name</value></message>
 
 <message><key>target-result</key><value>Target Result</value></message>
@@ -40,6 +42,8 @@
 <message><key>name</key><value>Name</value></message>
 <message><key>description</key><value>Description</value></message>
 
+
+<message><key>manage</key><value>Manage</value></message>
 
 <message><key>measurement-instance</key><value>Measurement Instance</value></message>
 
@@ -102,6 +106,7 @@
 
 
 <message><key>stakeholder</key><value>Stakeholder</value></message>
+<message><key>stakeholders</key><value>Stakeholders</value></message>
 <message><key>stakeholder-name</key><value>Stakeholder Name</value></message>
 <message><key>stakeholder-information</key><value>Stakeholder Information</value></message>
 <message><key>stakeholder-description</key><value>Stakeholder Description</value></message>

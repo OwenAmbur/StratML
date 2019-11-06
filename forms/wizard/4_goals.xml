@@ -96,7 +96,7 @@
 		    </div>
 		-->		
 		
-		<!-- Stake holder .........................................................
+		<!-- Stake holder ......................................................... 
 		     <xf:group>
 		     <xf:repeat id="goalstakerepeat" nodeset="Stakeholder" appearance="compact">
 		     <table>
@@ -822,7 +822,8 @@
 		  </xf:label>
 		</div>
 		<!-- ............... Roles ................ -->
-		<xf:group ref="Role" >
+		<xf:group ref=".[Role]" >
+		  
 		<h3>
 		  <xf:output ref="instance('messages')/message[key/text()='roles']/value"/>
 		</h3>

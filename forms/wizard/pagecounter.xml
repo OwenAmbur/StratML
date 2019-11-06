@@ -92,7 +92,7 @@
 	  <path
 	      style="opacity:1;fill:#c6bb2e;fill-opacity:1;stroke:#ffffff;stroke-width:0.13673395;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 	      d="m -183.31824,156.11519 23.45926,0 6.70264,10.53273 -6.70264,10.53272 -23.45926,0 6.70265,-10.53272 z"
-	      id="rect6410"
+	      id="rect64102"
 	      inkscape:connector-curvature="0"
 	      sodipodi:nodetypes="ccccccc"
 	      onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonone'),'DOMActivate')"
@@ -125,7 +125,7 @@
       <path
 	  sodipodi:nodetypes="ccccccc"
 	  inkscape:connector-curvature="0"
-	  id="path6413"
+	  id="path6413b"
 	  d="m -159.18872,156.11519 23.45926,0 6.70265,10.53273 -6.70265,10.53272 -23.45926,0 6.70265,-10.53272 z"
 	  style="opacity:1;fill:#c6bb2e;fill-opacity:1;stroke:#ffffff;stroke-width:0.13673395;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 	  onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttontwo'),'DOMActivate')"
@@ -135,7 +135,7 @@
     <path
        sodipodi:nodetypes="ccccccc"
        inkscape:connector-curvature="0"
-       id="path6413"
+       id="path6413c"
        d="m -159.18872,156.11519 23.45926,0 6.70265,10.53273 -6.70265,10.53272 -23.45926,0 6.70265,-10.53272 z"
        style="opacity:1;fill:#103265;fill-opacity:1;stroke:#ffffff;stroke-width:0.13673395;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttontwo'),'DOMActivate')"
@@ -162,7 +162,7 @@
       <path
 	  style="opacity:1;fill:#c6bb2e;fill-opacity:1;stroke:#ffffff;stroke-width:0.13673395;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 	  d="m -135.05919,156.11519 23.45925,0 6.70265,10.53273 -6.70265,10.53272 -23.45925,0 6.70264,-10.53272 z"
-	  id="path6415"
+	  id="path6415b"
 	  inkscape:connector-curvature="0"
 	  sodipodi:nodetypes="ccccccc"
        onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonthree'),'DOMActivate')"
@@ -174,7 +174,7 @@
       <path
 	  style="opacity:1;fill:#103265;fill-opacity:1;stroke:#ffffff;stroke-width:0.13673395;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 	  d="m -135.05919,156.11519 23.45925,0 6.70265,10.53273 -6.70265,10.53272 -23.45925,0 6.70264,-10.53272 z"
-	  id="path6415"
+	  id="path6415c"
 	  inkscape:connector-curvature="0"
 	  sodipodi:nodetypes="ccccccc"
        onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonthree'),'DOMActivate')"
@@ -198,7 +198,7 @@
       <path
 	  sodipodi:nodetypes="ccccccc"
 	  inkscape:connector-curvature="0"
-	  id="path6417"
+	  id="path6417b"
 	  d="m -110.92967,156.11519 23.459259,0 6.702638,10.53273 -6.702638,10.53272 -23.459259,0 6.70264,-10.53272 z"
 	  style="opacity:1;fill:#c6bb2e;fill-opacity:1;stroke:#ffffff;stroke-width:0.13673395;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 	  onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonfour'),'DOMActivate')"
@@ -208,7 +208,7 @@
       <path
 	  sodipodi:nodetypes="ccccccc"
 	  inkscape:connector-curvature="0"
-	  id="path6417"
+	  id="path6417c"
 	  d="m -110.92967,156.11519 23.459259,0 6.702638,10.53273 -6.702638,10.53272 -23.459259,0 6.70264,-10.53272 z"
 	  style="opacity:1;fill:#103265;fill-opacity:1;stroke:#ffffff;stroke-width:0.13673395;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 	  onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonfour'),'DOMActivate')"
@@ -232,7 +232,7 @@
       <path
 	  style="opacity:1;fill:#c6bb2e;fill-opacity:1;stroke:#ffffff;stroke-width:0.13673395;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 	  d="m -86.800151,156.11519 23.459258,0 6.70264,10.53273 -6.70264,10.53272 -23.459258,0 6.702648,-10.53272 z"
-	  id="path6419"
+	  id="path6419b"
 	  inkscape:connector-curvature="0"
 	  sodipodi:nodetypes="ccccccc" 	  onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonfive'),'DOMActivate')"
 	  />
@@ -243,7 +243,7 @@
       <path
 	  style="opacity:1;fill:#103265;fill-opacity:1;stroke:#ffffff;stroke-width:0.13673395;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 	  d="m -86.800151,156.11519 23.459258,0 6.70264,10.53273 -6.70264,10.53272 -23.459258,0 6.702648,-10.53272 z"
-	  id="path6419"
+	  id="path6419c"
 	  inkscape:connector-curvature="0"
 	  sodipodi:nodetypes="ccccccc" 	  onclick="XsltForms_xmlevents.dispatch(document.getElementById('buttonfive'),'DOMActivate')"
 	  />

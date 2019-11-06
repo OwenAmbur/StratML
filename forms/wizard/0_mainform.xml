@@ -189,7 +189,7 @@
 	    <a href="http://stratml.us">..</a> &gt; <a href="Intro.xml">StratML Forms</a> &gt; <a name="breadcrumb">Strategic Plan</a>  
 	  </div>
 	  <div id="confifurationoptions" >
-	    <xf:trigger class="iconbutton">
+	    <xf:trigger class="iconbutton configurationbutton button-icon">
 	      <xf:label> <img src="img/configuration.svg" alt="configuration" />
 	      </xf:label>
 	      <xf:toggle case="config" ev:event="DOMActivate" />
@@ -217,7 +217,7 @@
 		<xf:send submission="change-language"/>
 	      </xf:action>
 	    </xf:select1>      
-	    <a href="../documentation.html" target="blank" >
+	    <a href="../documentation.html" target="blank" class="button-icon">
 	      <img src="img/documentation-icon.svg" alt="documentation" />
 	    </a>
 	  </div>

@@ -25,13 +25,11 @@ display:block;
 }
 
 .subsection {
-display:block;
-padding-left:2em; 
+    display:block;
+    padding-left:2em; 
 }
 
-
-
- h2 , h3, h4, h5 {
+h2, h3, h4, h5 {
     width:92% ;
     padding-right: 4%;
     padding-left: 0.6em ;
@@ -46,7 +44,6 @@ padding-left:2em;
 }
 
 
-
 h1 {
     width:92% ;
     padding-right: 4%;
@@ -56,11 +53,6 @@ h1 {
     text-align : left;
 }
 
-
-
-h2 {
-
-} 
 
 h3 *.xforms-output {
     display:inline; 
@@ -75,11 +67,9 @@ h4 {
 
 .goalheader {
     width:92% ;
-
     display:block; 
     padding-left:4%;
     padding-right: 4%;
-
     clear:both;
 }
 
@@ -88,6 +78,7 @@ h4 {
     padding-left:4%;
     padding-right: 4%;
     clear:both;
+
 }
 
 
@@ -141,15 +132,10 @@ div.headerline {
 
 div.headerline > label  {
     display : inline;
-
 }
-
-
 
 .singleitem {
     display:block;
-/*    margin-top : 1.1em ; */
-
 }
 
 .firstitem ,{
@@ -226,38 +212,21 @@ div.subheader {
     float:left;
     padding-left:var(--margenbaselateral);
     padding-top:0px;
-    min-width:50%;
 } 
 
 #confifurationoptions {
     float: right;
-    display : block; 
     padding-right: var(--margenbaselateral);
 }
 
 #confifurationoptions > *  {
     display: inline;
-    padding-left:0.5em ;
-
+    padding-left:3em ;
 }
 
-#confifurationoptions img {
-    /* 
-       display:inline-block;
-       mar	gin-top: var(--margenbaseelemento);
-    border:1px solid black; 
-   */
-}
-
-
-#confifurationoptions  * {
-    margin:0;
-}
-
-#confifurationoptions  *  {
-    /*
-    border:1px solid black; 
-   */
+#confifurationoptions #lang-selector  {
+    padding-left:0;
+    border:1px solid white; 
 }
 
 
@@ -271,6 +240,13 @@ div.subheader {
     min-width:0.5em ;
     margin-right: 1em ;
     margin-left:0.2em;
+}
+
+
+div.subheader #page-counter {
+    float : right ; 
+    clear:both;
+    margin-top:2em; 
 }
 
 /* .................... Elements .................. */

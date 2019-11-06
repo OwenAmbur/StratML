@@ -85,6 +85,7 @@
 
 
 <message><key>role</key><value>Perfil</value></message>
+<message><key>roles</key><value>Perfiles</value></message>
 <message><key>role-information</key><value>Informaci&#243;n del Perfil</value></message>
 <message><key>role-name</key><value>Nombre del Perfil</value></message>
 <message><key>role-description</key><value>Descripci&#243;n del Perfil</value></message>

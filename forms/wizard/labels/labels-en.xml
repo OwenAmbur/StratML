@@ -84,6 +84,8 @@
 
 
 <message><key>role</key><value>Role</value></message>
+<message><key>roles</key><value>Roles</value></message>
+
 <message><key>role-information</key><value>Role Information</value></message>
 <message><key>role-name</key><value>Role Name</value></message>
 <message><key>role-description</key><value>Role Description</value></message>

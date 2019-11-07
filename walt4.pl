@@ -1,7 +1,8 @@
 #!/usr/bin/perl
-#use cPanelUserConfig;
+use cPanelUserConfig;
 use CGI::Carp qw(fatalsToBrowser);
-use CGI;
+use CGI qw(:standard);
+use IO::Handle;
 use XML::DOM;
 use HTTP::Lite;
 use strict;
@@ -52,7 +53,7 @@ if ($cgi->param('url')) {
   $xmldoc=GetFileFromURL($cgi->param('url'));
 } elsif ($cgi->param('f')) {
 	my $buffer;
-	my $io_handle = $cgi->upload('f');
+	my $io_handle = $cgi->upload('f')->handle;
 	while ( my $bytesread = $io_handle->read($buffer,1024) ) {
   	  $xmldoc.=$buffer;
   	}

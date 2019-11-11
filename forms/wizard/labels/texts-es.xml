@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="" lang="es">
+
+  <message><key>stratml-title</key><value>StratML Forms</value></message>
+
+  <!-- ........... Intro site ............... -->
+  <message><key>intro-line</key>
+  <value>Por favor, elija una de las siguientes opciones</value></message>
+  <message><key>create-strategic-plan</key>
+  <value>Crear un plan strategico</value></message>
+  <message><key>create-performance-plan</key>
+  <value>Crear un plan de rendimiento</value></message> 
+  
+</messages>
+

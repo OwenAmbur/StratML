@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-  <file>labels/labels-en.xml</file>
+  <file>en</file>
   <subform>dos</subform>
   <identifier></identifier>
   <source></source>
-  <path>http://localhost:8984/stratml/test/</path>
+  <path>http://localhost:8984/webdav/data/</path>
+  <sourcedocument>http://localhost:8984/rest/data/template.xml</sourcedocument>
   <filename>testfile.xml</filename>
   <page>0</page>
 </data>

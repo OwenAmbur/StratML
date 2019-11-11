@@ -1,4 +1,5 @@
 
+
 @namespace xf url("http://www.w3.org/2002/xforms");
 @namespace html url("http://www.w3.org/1999/xhtml");
 
@@ -217,16 +218,22 @@ div.subheader {
 #confifurationoptions {
     float: right;
     padding-right: var(--margenbaselateral);
+
 }
 
 #confifurationoptions > *  {
     display: inline;
-    padding-left:3em ;
+    padding-left:1.5em ;
+    padding-right:0;
 }
+
+#confifurationoptions *  {
+      padding-right:0;
+}
+
 
 #confifurationoptions #lang-selector  {
     padding-left:0;
-    border:1px solid white; 
 }
 
 

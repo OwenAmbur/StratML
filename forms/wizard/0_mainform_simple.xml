@@ -33,22 +33,17 @@
     <meta name="DC.date" content="2018-08-19"/>
     <link rel="stylesheet" type="text/css"  href="./position-style.css" />
     <link rel="stylesheet" type="text/css"  href="./format-style.css" />
-    
     <xf:model>
       <xf:instance xmlns="" id="default" resource="data/stratml-template.xml" />
-      <xf:instance xmlns="" id="template" resource="data/stratml-template2.xml" />       
-      <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
+      <xf:instance xmlns="" id="template" resource="data/stratml-template2.xml" />
+      <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />
+      <xf:instance xmlns="" id="texts" src="labels/texts-en.xml" />
       <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
       <xf:bind nodeset="//StartDate" type="xf:date" required="false()" />
       <xf:bind nodeset="//EndDate" type="xf:date" required="false()"/>
       <xf:bind nodeset="AdministrativeInformation/PublicationDate" type="xf:date"/>
       <xf:bind nodeset="/PerformancePlanOrReport/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+
       <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier" type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier"  type="xsd:string"/>      
       <xf:bind nodeset="StrategicPlanCore/Organization/Identifier[./text()='']"  type="xsd:string"/>
@@ -56,7 +51,7 @@
       <xf:bind nodeset="StrategicPlanCore/Mission/Identifier[./text()='']"  type="xsd:string"/>
       <xf:bind
 	  nodeset="StrategicPlanCore/Goal/Identifier[./text()='']"
-	  calculate="uuid()"
+	  type="xsd:string" calculate="uuid()"
 	  readonly="false()"
 	  />
       <xf:bind
@@ -69,7 +64,7 @@
 	  calculate="uuid()"
 	  readonly="false()"
 	  />
-      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+
       <xf:bind nodeset="StrategicPlanCore/Goal/Name" required="true()" type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Goal/Description"  type="xsd:string"/>
       <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Description"  type="xf:string"/>
@@ -79,9 +74,25 @@
       <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorValue" type="xf:string"/>
       <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/NumberOfUnits" type="xf:decimal"/>
       <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/NumberOfUnits" type="xf:decimal"/>
+
+      
+      <xf:bind nodeset="StrategicPlanCore//Stakeholder/Name"  type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore//Role/Name"  type="xsd:string"/>
+
+      <!--
+      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name" required="true()" type="xsd:string"/>
+
+      <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      -->
+
+      <!--
       <xf:bind ref="instance('config')/identifier" readonly="true()"  />
       <xf:bind ref="instance('config')/source"
 	       calculate="count(instance('default')/AdministrativeInformation/Source) > 0"  />
+      -->
       <function signature="my:uuid() as xs:string" language="text/javascript">
 	function uuid() {
 	return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
@@ -90,27 +101,57 @@
 	}
       </function>
       <xf:submission id="change-language" replace="instance"
-		     instance="messages" method="get" serialization="none">
-	<!-- lenguajes -->
-	<xf:resource value="instance('config')/file/text()"/>
+		   instance="messages" method="get"
+		   serialization="none" >
+      <xf:resource value="concat('labels/labels-',instance('config')/file/text(),'.xml')"/>
       </xf:submission>
+    <xf:submission id="change-texts" replace="instance"
+		   instance="texts" method="get"
+		   serialization="none" >
+      <xf:resource value="concat('labels/texts-', instance('config')/file/text(),'.xml')"/>
+    </xf:submission>      
+    <!--
       <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
 	</xf:message>
       </xf:submission>
+    -->
       <xf:action ev:event="xforms-ready"     >
 	<xf:load  show="embed" target="page-counter" >
 	  <xf:resource
 	      value="'pagecounter_simple.xml'" />
 	</xf:load>
       </xf:action>
-      <xf:submission id="tempararysave"  
+      <xf:submission id="temporarysave"  
 		     method="put"
 		     replace="none"
+		     instance="default"
 		     >
 	<xf:resource
 	    value="concat(instance('config')/path , 
 		   instance('config')/filename)" />
+		   <xf:message level="modeless" ev:event="xforms-submit-error">Error saving document
+		   <div>
+		     <xf:output value="event('error-type')" /> - 
+		     <xf:output value="event('resource-uri')" /> 
+		     
+		   </div>
+		   
+		   <ul>
+		     
+		     <xf:repeat id="tempsaveerrrepeat" nodeset="//node()[not(is-valid(.))]" appearance="compact"><li>*
+		     The following field value is not valid 
+		     <xf:output value="local-name(./..)"/> -
+		     <xf:output value="local-name(.)"/> : <xf:output value="./text()"/>
+		   </li>
+		     </xf:repeat>
+		   </ul>
+		   </xf:message>
+		   
+		   <xf:message level="modeless" ev:event="xforms-binding-exception">Error in node content
+		   <xf:repeat id="tempsaveerrrepeat2" nodeset="//node()[not(is-valid(.))]" appearance="compact">* <xf:output value="."/> <br/></xf:repeat>
+		   </xf:message>
+
       </xf:submission>
       
       <!-- ........... Legacy submission methods ..................  --> 
@@ -171,7 +212,8 @@
             <xf:output ref="instance('messages')/message[key/text()='performance-information']/value"/>
 	  </xf:repeat>
 	  <img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
-	</h1>    
+	</h1>
+
 	<div class="subheader">
 	  <div id="breadcrumb">
 	    <a href="http://stratml.us">..</a> &gt; <a href="Intro.xml">StratML Forms</a> &gt; <a name="breadcrumb">Strategic Plan</a>  
@@ -185,6 +227,29 @@
 		<xf:load resource="configuration.xml" show="embed" target="subform" />
 	      </xf:action>
 	    </xf:trigger>
+
+
+	  <xf:select1 ref="instance('config')/file"  id="lang-selector">
+	    <xf:label class="subheader">
+	      <xf:output ref="instance('messages')/message[key/text()='language']/value/text()"/>	  
+	    </xf:label>
+	    <xf:item>
+	      <xf:label>English
+	      </xf:label>
+	      <xf:value>en</xf:value> 
+	    </xf:item>
+	    <xf:item>
+	      <xf:label>Spanish
+	      </xf:label>
+	      <xf:value>es</xf:value>
+	    </xf:item>
+	    <xf:action ev:event="xforms-value-changed">
+	      <xf:send submission="change-texts" />
+	      <xf:send submission="change-language"/>
+	    </xf:action>
+	  </xf:select1>
+	  <!--
+	    
 	    <xf:select1 ref="instance('config')/file"  id="lang-selector">
 	      <xf:label class="subheader">
 		Language
@@ -205,6 +270,8 @@
 		<xf:send submission="change-language"/>
 	      </xf:action>
 	    </xf:select1>      
+	  -->
+	  
 	    <a href="../documentation.html" target="blank" >
 	      <img src="img/documentation-icon.svg" alt="documentation" />
 	    </a>
@@ -219,7 +286,7 @@
       <xf:group id="subform" >
 	<main>
 	  <div class="line">
- 	    <p>Follow these steps to create a performance plan:
+	    <p>Follow these steps to create a performance plan:
 	    </p>
             <ol class="mainform-list">
 	      <li>
@@ -228,7 +295,6 @@
 	      </li>
 	      <li>
 		<img class="0-mainform-list-icon" src="img/submission-blue-icon.svg" />
-		
 		Submission Information
 	      </li>
 	      <li>
@@ -249,7 +315,6 @@
 	  </div>
 	</main>
       </xf:group>    
-
       <xf:switch >
 	<!-- ...... 0 Start Page..... --> 
 	<xf:case id="cero" >

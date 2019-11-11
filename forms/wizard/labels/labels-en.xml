@@ -37,6 +37,8 @@
 <message><key>identifier</key><value>Identifier</value></message>
 <message><key>indicator-type</key><value>Indicator Type</value></message>
 
+<message><key>language</key><value>Language</value></message>
+
 <message><key>link</key><value>Link</value></message>
 
 <message><key>name</key><value>Name</value></message>

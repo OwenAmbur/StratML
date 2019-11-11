@@ -14,7 +14,8 @@
       <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
       
       <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
-	<xf:resource value="instance('config')/file/text()"/>
+	<!-- <xf:resource value="instance('config')/file/text()"/> -->
+	<xf:resource value="concat('labels/labels-',instance('config')/file/text(),'.xml')"/>
       </xf:submission>
       
       <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
@@ -27,7 +28,7 @@
       
       
     </xf:model>
-		    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
     <link rel="stylesheet" type="text/css"  href="./format-style.css" />
   </head>
   

@@ -118,11 +118,35 @@
       <xf:submission id="temporarysave"  
 		     method="put"
 		     replace="none"
+		     instance="default"
 		     >
 	<xf:resource
 	    value="concat(instance('config')/path , 
 		   instance('config')/filename)" />
+		   <xf:message level="modeless" ev:event="xforms-submit-error">Error saving document
+		   <div>
+		     <xf:output value="event('error-type')" /> - 
+		     <xf:output value="event('resource-uri')" /> 
+		     
+		   </div>
+		   
+		   <ul>
+		     
+		     <xf:repeat id="tempsaveerrrepeat" nodeset="//node()[not(is-valid(.))]" appearance="compact"><li>*
+		     The following field value is not valid 
+		     <xf:output value="local-name(./..)"/> -
+		     <xf:output value="local-name(.)"/> : <xf:output value="./text()"/>
+		   </li>
+		     </xf:repeat>
+		   </ul>
+		   </xf:message>
+		   
+		   <xf:message level="modeless" ev:event="xforms-binding-exception">Error in node content
+		   <xf:repeat id="tempsaveerrrepeat2" nodeset="//node()[not(is-valid(.))]" appearance="compact">* <xf:output value="."/> <br/></xf:repeat>
+		   </xf:message>
+
       </xf:submission>
+      
       <!-- ........... Legacy submission methods ..................  --> 
       <xf:submission id="s01" method="post" show="new" replace="all" action="/cgi-bin/txs.php?exec=beautify.txs">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Submit error.</xf:message>				
@@ -184,7 +208,6 @@
 	</h1>
 
 	<div class="subheader">
-	  
 	  <div id="breadcrumb">
 	    <a href="http://stratml.us">..</a> &gt; <a href="Intro.xml">StratML Forms</a> &gt; <a name="breadcrumb">Strategic Plan</a>  
 	  </div>
@@ -197,6 +220,29 @@
 		<xf:load resource="configuration.xml" show="embed" target="subform" />
 	      </xf:action>
 	    </xf:trigger>
+
+
+	  <xf:select1 ref="instance('config')/file"  id="lang-selector">
+	    <xf:label class="subheader">
+	      <xf:output ref="instance('messages')/message[key/text()='language']/value/text()"/>	  
+	    </xf:label>
+	    <xf:item>
+	      <xf:label>English
+	      </xf:label>
+	      <xf:value>en</xf:value> 
+	    </xf:item>
+	    <xf:item>
+	      <xf:label>Spanish
+	      </xf:label>
+	      <xf:value>es</xf:value>
+	    </xf:item>
+	    <xf:action ev:event="xforms-value-changed">
+	      <xf:send submission="change-texts" />
+	      <xf:send submission="change-language"/>
+	    </xf:action>
+	  </xf:select1>
+	  <!--
+	    
 	    <xf:select1 ref="instance('config')/file"  id="lang-selector">
 	      <xf:label class="subheader">
 		Language
@@ -217,7 +263,9 @@
 		<xf:send submission="change-language"/>
 	      </xf:action>
 	    </xf:select1>      
-	    <a href="../documentation.html" target="blank" class="button-icon">
+	  -->
+	  
+	    <a href="../documentation.html" target="blank" >
 	      <img src="img/documentation-icon.svg" alt="documentation" />
 	    </a>
 	  </div>
@@ -227,7 +275,6 @@
           <xf:group id="page-counter" >
           </xf:group>
 	</div>
-	
       </header>
       <xf:group id="subform" >
 	<main>
@@ -281,7 +328,6 @@
 	  </fieldset>
 	</xf:case>
 	<!-- ...... 0 b load page ..... --> 
-	
 	<xf:case id="cerob" >
 	  <fieldset class="navigation-buttons" >
 	    <xf:trigger class="alert">
@@ -297,14 +343,10 @@
 	      <xf:action ev:event="DOMActivate" >
 		<xf:load resource="1_information.xml" show="embed" target="subform" />
 		<xf:setvalue ref="instance('config')/page" value="1" />
-
-		
-
 	      </xf:action>
 	    </xf:trigger>
 	  </fieldset>
 	</xf:case>
-
 	<xf:case id="uno">
 	  <fieldset class="navigation-buttons">
 	    <xf:trigger class="alert">

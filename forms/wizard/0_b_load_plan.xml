@@ -24,7 +24,17 @@
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
       </xf:submission>
       
-      
+      <xf:submission
+	  id="loaddocfromurl" method="get"
+	  replace="instance" instance="default"
+	  >
+	<xf:resource value="instance('config')/sourcedocument/text()" />
+	<xf:message
+	    level="modeless" ev:event="xforms-submit-error" >
+	  Error loading document, please review URL
+	</xf:message>
+      </xf:submission>
+
     </xf:model>
     <link rel="stylesheet" type="text/css"  href="./position-style.css" />
     <link rel="stylesheet" type="text/css"  href="./format-style.css" />
@@ -67,11 +77,29 @@
 	<div class="subsection" >
 	  <p>Load an existing StratML file from an URL on a public server site.</p>
 	  <div class="line" >
+
+
+	  <xf:input ref="instance('config')/sourcedocument" >
+	   <xf:label>
+	      <xf:output ref="instance('messages')/message[key/text()='server-path']/value" />
+	    </xf:label>
+	  </xf:input>
+	 
+
+	  <xf:submit submission="loaddocfromurl" >
+	    <xf:label>
+	      Load from URL
+	    </xf:label>
+	  </xf:submit>
+	 
+	  <!--
+	    
 	    <form style='border: 0px solid gray; padding: 5px' action='/forms/walt5.pl'>
 	      StratML <b>URL</b>: 
 	      <input name='url' size='30'/>
 	      <input  style='font-size: 80%'  type='submit' value='Import StratML From URL'/>
 	    </form>
+	  -->
 	  </div>
 	  <div class="line" />
 	</div>

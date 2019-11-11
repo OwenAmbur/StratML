@@ -38,6 +38,7 @@
 <message><key>identifier</key><value>Identificador</value></message>
 <message><key>indicator-type</key><value>Tipo de indicador</value></message>
 
+<message><key>language</key><value>Lenguaje</value></message>
 
 <message><key>link</key><value>Enlace</value></message>
 

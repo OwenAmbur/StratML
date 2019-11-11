@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PerformancePlanOrReport Type="Performance_Plan">
   <id/>
-  <Name></Name>
+  <Name>Template</Name>
   <Description/>
   <OtherInformation/>
   
@@ -36,7 +36,7 @@
     </Value>
     
     <Goal>
-      <Name></Name>
+      <Name>Template</Name>
       <Description></Description>
       <Identifier/>
       <SequenceIndicator>1</SequenceIndicator>

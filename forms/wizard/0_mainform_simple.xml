@@ -172,6 +172,14 @@
       <xf:submission id="s03" show="new" method="post" action="http://stratml.us/forms/showpart2post1.pl">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
       </xf:submission>
+      <xf:submission
+	  id="cargadoc"
+	  replace="instance"
+	  instance="default" method="get"
+	  serialization="none" 
+	  >
+	<xf:resource value="instance('config')/sourcedocument" />
+      </xf:submission>
       <!-- ........... // Legacy submission methods ..................  --> 
     </xf:model>
     <script type="text/javascript">

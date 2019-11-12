@@ -146,7 +146,14 @@
 		   </xf:message>
 
       </xf:submission>
-      
+      <xf:submission
+	  id="cargadoc"
+	  replace="instance"
+	  instance="default" method="get"
+	  serialization="none" 
+	  >
+	<xf:resource value="instance('config')/sourcedocument" />
+      </xf:submission>      
       <!-- ........... Legacy submission methods ..................  --> 
       <xf:submission id="s01" method="post" show="new" replace="all" action="/cgi-bin/txs.php?exec=beautify.txs">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Submit error.</xf:message>				

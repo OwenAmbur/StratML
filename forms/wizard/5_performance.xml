@@ -188,62 +188,87 @@
 				  </div>
 				  <xf:repeat ref="MeasurementInstance">
 				    <fieldset>
-				      <h5 class="subsection">Target Result</h5>
 				      <div class="line subsection">
-					<xf:label>
-					  <xf:output ref="instance('messages')/message[key/text()='number-of-units']/value"/>
-					  <xf:input ref="TargetResult/NumberOfUnits"/>
-					</xf:label>
-				      </div>
+					
+					<table>
+					<tr>
+					  <td>
 
-				      <div class="subsection">
-					<!-- Pendiente, no se ve -->
-					<xf:label class="lineitem">
-					  <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
-					  <xf:textarea ref="TargetResult/Description">
-					  </xf:textarea>
-					</xf:label>
-				      </div>
-				      <div class="line subsection" >
-					<xf:label>
-					  <xf:output ref="instance('messages')/message[key/text()='start-date']/value"/>
-					  <xf:input ref="TargetResult/StartDate"/>
-					</xf:label>
-					<xf:label>
-					  <xf:output ref="instance('messages')/message[key/text()='end-date']/value"/>
-					  <xf:input ref="TargetResult/EndDate"/>
-					</xf:label>
-				      </div>
-				    </fieldset>
-				    <fieldset>
-				      <xf:repeat ref="ActualResult">
-					<h5 class="subsection">Actual Result</h5>
-					<div class="line subsection">
-					  <xf:label>
+					  </td>
+					  <td>
+					    <h5 class="subsection">Target</h5>
+					  </td>
+					  <td>
+					    <h5 class="subsection">Actual</h5>
+					  </td>
+					</tr>
+
+
+					<tr>
+					  <td>
 					    <xf:output ref="instance('messages')/message[key/text()='number-of-units']/value"/>
-					    <xf:input ref="NumberOfUnits"/>
-					  </xf:label>
-					</div>
+					  </td>
+					  <td>
 
-					<div class="subsection">
-					  <xf:label class="lineitem">
-					    <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
-					    <xf:textarea ref="Description"/>
-					  </xf:label>
-					</div>
-					<div class="line subsection">
+					  <xf:input ref="TargetResult/NumberOfUnits"/>
+					 </td>
+					  <td>					   
+					    <xf:input ref="ActualResult/NumberOfUnits"/>
+					  </td>
+					</tr>
+<!-- 
 
-					  <xf:label>
+End 
+Description 
+-->
+					<tr>
+					  <td>
 					    <xf:output ref="instance('messages')/message[key/text()='start-date']/value"/>
-					    <xf:input ref="StartDate"/>
-					  </xf:label>
-					  <xf:label>
+					  </td>
+					  <td>
+					    <xf:input ref="TargetResult/StartDate"/>
+					 </td>
+					  <td>
+					    <xf:input ref="ActualResult/StartDate"/>
+					  </td>
+					</tr>
+
+					<tr>
+					  <td>
 					    <xf:output ref="instance('messages')/message[key/text()='end-date']/value"/>
-					    <xf:input ref="EndDate"/>
-					  </xf:label>
-					</div>
-				      </xf:repeat>
+					  </td>
+					  <td>
+					    <xf:input ref="TargetResult/EndDate" />
+					 </td>
+					  <td>
+					    <xf:input ref="ActualResult/EndDate" />
+					  </td>
+					</tr>
+
+					<tr>
+					  <td>
+					    <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+					  </td>
+					  <td>
+					    <xf:textarea ref="TargetResult/Description"  />
+					 </td>
+					  <td>
+					    <xf:textarea ref="ActualResult/Description" />
+					  </td>
+					</tr>
+
+					
+					
+
+				      </table>
+				      
+
+				      </div>
+
 				    </fieldset>
+
+
+
 				  </xf:repeat>
 				  <!-- se
 				       guir ...
@@ -301,12 +326,7 @@
 					      <xf:input ref="Name"/>
 					    </xf:label>
 					  </div>
-					  <div class="line">
-					    <xf:label class="lineitem">
-					      <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
-					      <xf:textarea ref="Description"/>
-					    </xf:label>
-					  </div>
+
 					  <div class="line">
 					    <xf:label>
 					      <xf:output ref="instance('messages')/message[key/text()='type']/value"/>
@@ -340,6 +360,13 @@
 					      <!-- <xf:input ref="ReferentIdentifier"/> -->
 					    </xf:label>
 					  </div>
+					  <div class="line">
+					    <xf:label class="lineitem">
+					      <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+					      <xf:textarea ref="Description"/>
+					    </xf:label>
+					  </div>
+
 					</div>
 				      </div>
 				    </xf:repeat>

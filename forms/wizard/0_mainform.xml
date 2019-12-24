@@ -38,56 +38,58 @@
       <xf:instance xmlns="" id="template" resource="data/stratml-template2.xml" />       
       <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
       <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
-      <xf:bind nodeset="//StartDate" type="xf:date" required="false()" />
-      <xf:bind nodeset="//EndDate" type="xf:date" required="false()"/>
-      <xf:bind nodeset="AdministrativeInformation/PublicationDate" type="xf:date"/>
-      <xf:bind nodeset="/PerformancePlanOrReport/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind ref="//*:StartDate" type="xf:date" required="false()" />
+      <xf:bind ref="//*:EndDate" type="xf:date" required="false()"/>
+      <xf:bind ref="*:AdministrativeInformation/PublicationDate" type="xf:date"/>
+      <xf:bind ref="/*:PerformancePlanOrReport/Name" required="true()" type="xsd:string"/>
+      <xf:bind ref="*:StrategicPlanCore/Organization/Stakeholder/Name" required="true()" type="xsd:string"/>
+      <xf:bind ref="*:StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind ref="*:StrategicPlanCore/Goal/Stakeholder/Name" required="true()" type="xsd:string"/>
+      <xf:bind ref="*:StrategicPlanCore/Goal/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind ref="*:StrategicPlanCore/Goal/Objective/Stakeholder/Name" required="true()" type="xsd:string"/>
+      <xf:bind ref="*:StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
       <xf:bind
-	  nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier"
+	  nodeset="*:StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier"
 	  type="xsd:string"
 	  calculate="uuid()"
 	  readonly="false()"/>
       <xf:bind
-	  nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier[./text()='']"
+	  nodeset="*:StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier[./text()='']"
 	  type="xsd:string"
 	  calculate="uuid()"
 	  readonly="false()"
 	  />      
-      <xf:bind nodeset="StrategicPlanCore/Organization/Identifier[./text()='']"  type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Vision/Identifier[./text()='']"  type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Mission/Identifier[./text()='']"  type="xsd:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Organization/Identifier[./text()='']"  type="xsd:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Vision/Identifier[./text()='']"  type="xsd:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Mission/Identifier[./text()='']"  type="xsd:string"/>
       <xf:bind
-	  nodeset="StrategicPlanCore/Goal/Identifier[./text()='']"
+	  nodeset="*:StrategicPlanCore/Goal/Identifier[./text()='']"
 	  type="xsd:string" calculate="uuid()"
 	  readonly="false()"
 	  />
       <xf:bind
-	  nodeset="StrategicPlanCore/Goal/Objective/Identifier[./text()='']"
+	  nodeset="*:StrategicPlanCore/Goal/Objective/Identifier[./text()='']"
 	  type="xsd:string" calculate="uuid()"
 	  readonly="false()"
 	  />
+      <!--
       <xf:bind
 	  nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier[./text()='']"
 	  type="xsd:string"
 	  calculate="uuid()"
 	  readonly="false()"
 	  />
-      <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Name" required="true()" type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Description"  type="xsd:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Description"  type="xf:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorName" type="xf:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorValue" type="xf:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorName" type="xf:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorValue" type="xf:string"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/NumberOfUnits" type="xf:decimal"/>
-      <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/NumberOfUnits" type="xf:decimal"/>
+      -->
+      <xf:bind nodeset="*:StrategicPlanCore/Organization/Stakeholder/Role/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Goal/Name" required="true()" type="xsd:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Goal/Description"  type="xsd:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Description"  type="xf:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorName" type="xf:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorValue" type="xf:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorName" type="xf:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorValue" type="xf:string"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/NumberOfUnits" type="xf:decimal"/>
+      <xf:bind nodeset="*:StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/NumberOfUnits" type="xf:decimal"/>
       <xf:bind ref="instance('config')/identifier" readonly="true()"  />
       <xf:bind ref="instance('config')/source"
 	       calculate="count(instance('default')/AdministrativeInformation/Source) > 0"  />

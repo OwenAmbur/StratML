@@ -279,6 +279,11 @@ td textarea {
     min-width:30em;
 }
 
+.midinput input {
+    min-width:18em;
+}
+
+
 .smallinput input {
     width:3em;
     display:inline;

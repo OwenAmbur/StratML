@@ -68,7 +68,7 @@
 	<div class="line" >
 	  <xf:label class="lineitem firstitem" >
 	    <b><xf:output ref="instance('messages')/message[key/text()='plan-name']/value"/></b>
-	    <xf:input class="Source" ref="Name">
+	    <xf:input class="Source midinput" ref="Name">
 	      </xf:input>			
 	  </xf:label>
 	  <xf:label class="lineitem">

@@ -126,7 +126,7 @@
 
 <message><key>mission</key><value>Mission</value></message>
 <message><key>mission-identifier</key><value>Mission Id.</value></message>
-<message><key>mission-description</key><value>Mission Description</value></message>
+<message><key>mission-description</key><value>Mission</value></message>
 
 <message><key>number-of-units</key><value>Units</value></message>
 <message><key>descriptor-value</key><value>Descriptor Value</value></message>

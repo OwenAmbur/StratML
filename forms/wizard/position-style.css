@@ -262,7 +262,7 @@ div.subheader #page-counter {
 textarea {
     display : block ; 
     min-width : 65em;
-    min-height: 7em ;
+    min-height: 4em ;
     margin-top : 0.5em ; 
     overflow:visible;
 
@@ -270,7 +270,7 @@ textarea {
 
 td textarea {
     min-width : 30em;
-    min-height:20em;
+    min-height:6em;
     overflow:visible;
 }
 

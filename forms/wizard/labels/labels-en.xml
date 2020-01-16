@@ -128,8 +128,8 @@
 <message><key>stakeholder-of</key><value> of Stakeholder</value></message>
 <message><key>stakeholder-type</key><value>Stakeholder Type</value></message>
 
-<message><key>switch-performance</key><value>Cambiar a Performance</value></message>
-<message><key>switch-strategic</key><value>Cambiar a Strategia</value></message>
+<message><key>switch-performance</key><value>Switch to Performance</value></message>
+<message><key>switch-strategic</key><value>Switch to Strategy</value></message>
 
 
 <message><key>sequence-indicator</key><value>Sequence Indicator</value></message>

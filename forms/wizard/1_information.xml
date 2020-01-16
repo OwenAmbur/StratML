@@ -26,6 +26,31 @@
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
       </xf:submission>
       
+
+
+
+<!--
+      <xf:action ev:event="counter-strategy"     >
+	<xf:load  show="embed" target="page-counter" >
+	  <xf:resource
+	      value="'pagecounter_strategy.xml'" />
+	</xf:load>
+      </xf:action>
+
+      
+      <xf:action ev:event="counter-performance"     >
+	<xf:load  show="embed" target="page-counter" >
+	  <xf:resource
+	      value="'pagecounter.xml'" />
+	</xf:load>
+      </xf:action>
+
+
+      <message ev:event="counter-performance" >Hello, Circle!</message>
+      <message ev:event="counter-strategy">Hello, Text!</message>
+-->
+
+      
       
     </xf:model>
     <link rel="stylesheet" type="text/css"  href="./position-style.css" />
@@ -73,6 +98,73 @@
 	  </xf:label>
 	  <xf:label class="lineitem">
 	    <xf:output ref="instance('messages')/message[key/text()='plan-report-type']/value"/>
+	    
+	    <xf:output ref="@Type"/>
+
+	  <xf:trigger class="green" id="buttonfou1" ref=".[./@Type='Strategic_Plan']"> 
+	      <xf:label>
+	      		 <xf:output ref="instance('messages')/message[key/text()='switch-performance']/value"/>
+	   
+	   </xf:label>
+
+	      <xf:action ev:event="DOMActivate">
+
+		<!--
+		<xf:insert 
+		    origin="instance('template')//Goal" 
+		    context="/PerformancePlanOrReport/StrategicPlanCore" 
+		    ref="Goal"
+		    at="last()" position="after"/>
+
+		<xf:insert 
+		    context="/PerformancePlanOrReport/StrategicPlanCore/Goal[first()]" ref="SequenceIndicator" 
+		origin="instance('template')//SequenceIndicator[1]" />
+		<xf:setvalue ref="/PerformancePlanOrReport/StrategicPlanCore/Goal[last()]/SequenceIndicator" 
+			     value="count(/PerformancePlanOrReport/StrategicPlanCore/Goal)" />
+				<xf:setvalue ref="@Type" value="Strategic_Plan" />
+		-->
+		<xf:insert origin="instance('template')//PerformanceIndicator" 
+			   context="/PerformancePlanOrReport/StrategicPlanCore/Goal[1]/Objective[1]" ref="PerformanceIndicator" 
+			   at="1" position="after"/>
+
+  		<xf:setvalue ref="@Type" value="'Performance_Plan'" />
+		<!--
+		<xf:load  show="embed" target="page-counter" >
+		  <xf:resource
+		      value="'pagecounter.xml'" />
+		</xf:load>
+		-->
+		<xf:dispatch name="counter-performance"  targetid="m" />
+
+	      </xf:action>
+	    </xf:trigger>
+
+	    <xf:trigger class="green" id="buttonefour" ref=".[./@Type='Performance_Plan']"> 
+	      <xf:label>
+	      	 <xf:output ref="instance('messages')/message[key/text()='switch-strategic']/value"/>
+	      </xf:label>
+
+	      <xf:action ev:event="DOMActivate">
+		<!--
+		<xf:load resource="4_goals.xml" show="embed" target="subform"/>
+		-->
+		<xf:setvalue ref="@Type" value="'Strategic_Plan'" />
+		<xf:delete ref="//PerformanceIndicator" />
+		<!--
+		<xf:load  show="embed" target="page-counter" >
+		  <xf:resource
+		      value="'pagecounter_strategy.xml'" />
+		</xf:load>
+		-->
+		<xf:dispatch name="counter-strategy" targetid="m"   />
+	      </xf:action>
+	    </xf:trigger>
+
+
+
+
+	    
+	    <!--
 	    <xf:select1 class="Source" ref="@Type" appearance="minimal">
 		<xf:item>
 		  <xf:label>Strategic_Plan</xf:label>
@@ -87,6 +179,7 @@
 		  <xf:value>Perfo rmance_Report</xf:value>
 		</xf:item>
 	    </xf:select1>
+	    -->
 	  </xf:label>
 	</div>
 

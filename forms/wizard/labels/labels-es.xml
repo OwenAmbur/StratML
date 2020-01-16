@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messages xmlns="" lang="es">
 
+<!-- Chuleta acentos 
+a	225
+e	233
+i	237
+o   243
+u   250
+-->
+
+
 <message><key>acronym</key><value>Acr&#243;nimo</value></message>
 
 <message><key>actual-result</key><value>Resultado obtenido</value></message>
+<message><key>back</key><value>Atr&#225;s</value></message>
+
+<message><key>browse-plan</key><value>Ver un plan existente</value></message>
+
+<message><key>cancel</key><value>Cancelar</value></message>
 
 <message><key>close</key><value>Cerrar</value></message>
 
@@ -24,7 +38,7 @@
 
 
 
-<message><key>plan-report-type</key><value>Tipo de plan o informe</value></message>
+<message><key>plan-report-type</key><value>Tipo</value></message>
 
 <message><key>plan-description</key><value>Descripci&#243;n del plan</value></message>
 <message><key>plan-information</key><value>Informaci&#243;n del plan</value></message>
@@ -33,6 +47,7 @@
 <message><key>plan-start-date</key><value>Fecha de inicio del plan</value></message>
 <message><key>plan-end-date</key><value>Fecha de fin del plan</value></message>
 <message><key>plan-publication-date</key><value>Fecha de publicaci&#243;n del plan</value></message>
+<message><key>server-path</key><value>Ruta del servidor</value></message>
 
 
 <message><key>identifier</key><value>Identificador</value></message>
@@ -73,7 +88,7 @@
 
 
 <message><key>other-information</key><value>Otra informaci&#243;n</value></message>
-
+<message><key>with-style</key><value>Con estilo</value></message>
 <message><key>performance-indicator</key><value>Indicador de rendimiento</value></message>
 
 
@@ -143,6 +158,8 @@
 <message><key>submitter-information</key><value>Informaci&#243;n del remitente</value></message>
 
 <message><key>submission-information</key><value>Informaci&#243;n del env&#237;o</value></message>
+
+<message><key>start</key><value>Start</value></message>
 
 
 <message><key>type</key><value>Tipo</value></message>

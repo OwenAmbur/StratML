@@ -33,10 +33,12 @@
     <meta name="DC.date" content="2018-08-19"/>
     <link rel="stylesheet" type="text/css"  href="./position-style.css" />
     <link rel="stylesheet" type="text/css"  href="./format-style.css" />
-    <xf:model>
-      <xf:instance xmlns="" id="default" resource="data/stratml-template.xml" />
+    <xf:model id="m">
+      <xf:instance xmlns="" id="default" resource="data/stratml-template-performance.xml" />
       <xf:instance xmlns="" id="template" resource="data/stratml-template2.xml" />       
       <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
+      <xf:instance xmlns="" id="texts" src="labels/texts-en.xml" />      
+
       <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
       <xf:bind ref="//*:StartDate" type="xf:date" required="false()" />
       <xf:bind ref="//*:EndDate" type="xf:date" required="false()"/>
@@ -100,23 +102,46 @@
 	);
 	}
       </function>
-      <xf:submission id="change-language" replace="instance"
-		     instance="messages" method="get" serialization="none">
-	<!-- lenguajes -->
-	<!-- 
-	     <xf:resource value="concat('labels/labels-',instance('config')/file/text(),'.xml')"/>
-	-->
-      </xf:submission>      
+   	<xf:submission id="change-language" replace="instance"
+		   instance="messages" method="get"
+		   serialization="none" >
+      <xf:resource value="concat('labels/labels-',instance('config')/file/text(),'.xml')"/>
+    </xf:submission>
+    <xf:submission id="change-texts" replace="instance"
+		   instance="texts" method="get"
+		   serialization="none" >
+      <xf:resource value="concat('labels/texts-', instance('config')/file/text(),'.xml')"/>
+    </xf:submission>  
       <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
 	</xf:message>
       </xf:submission>
+
+      <!-- ........... // Counter load  ..................  --> 
+      
       <xf:action ev:event="xforms-ready"     >
 	<xf:load  show="embed" target="page-counter" >
 	  <xf:resource
 	      value="'pagecounter.xml'" />
 	</xf:load>
       </xf:action>
+
+      <xf:action ev:event="counter-strategy"     >
+	<xf:load  show="embed" target="page-counter" >
+	  <xf:resource
+	      value="'pagecounter_strategy.xml'" />
+	</xf:load>
+      </xf:action>
+
+      
+      <xf:action ev:event="counter-performance"     >
+	<xf:load  show="embed" target="page-counter" >
+	  <xf:resource
+	      value="'pagecounter.xml'" />
+	</xf:load>
+      </xf:action>
+
+      
       <xf:submission id="temporarysave"  
 		     method="put"
 		     replace="none"
@@ -174,7 +199,9 @@
       <xf:submission id="s03" show="new" method="post" action="http://stratml.us/forms/showpart2post1.pl">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
       </xf:submission>
-      <!-- ........... // Legacy submission methods ..................  --> 
+
+
+
     </xf:model>
     <script type="text/javascript">
       var ConfirmExit=function(){
@@ -246,35 +273,13 @@
 	      <xf:value>es</xf:value>
 	    </xf:item>
 	    <xf:action ev:event="xforms-value-changed">
+	      <!-- 
 	      <xf:send submission="change-texts" />
+	      -->
 	      <xf:send submission="change-language"/>
 	    </xf:action>
 	  </xf:select1>
-	  <!--
-	    
-	    <xf:select1 ref="instance('config')/file"  id="lang-selector">
-	      <xf:label class="subheader">
-		Language
-	      </xf:label>
-	      <xf:item>
-		<xf:label>English
-		</xf:label>
-		<xf:value>labels/labels-en.xml
-		</xf:value> 
-	      </xf:item>
-	      <xf:item>
-		<xf:label>Spanish
-		</xf:label>
-		<xf:value>labels/labels-es.xml
-		</xf:value>
-	      </xf:item>
-	      <xf:action ev:event="xforms-value-changed">
-		<xf:send submission="change-language"/>
-	      </xf:action>
-	    </xf:select1>      
-	  -->
-	  
-	    <a href="../documentation.html" target="blank" >
+	    <a href="doc/documentation.html" target="blank" >
 	      <img src="img/documentation-icon.svg" alt="documentation" />
 	    </a>
 	  </div>
@@ -288,28 +293,31 @@
       <xf:group id="subform" >
 	<main>
 	  <div class="line">
-	    <p>Follow these steps to create a performance plan:
-	    </p>
+	    <p>
+	   		<xf:output ref="instance('texts')/message[key/text()='steps-performance']/value/text()" />: 
+	   	</p>
             <ol class="mainform-list">
 	      <li>
 		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
-		Plan Information
+		<xf:output ref="instance('messages')/message[key/text()='plan-information']/value/text()"/>
 	      </li>
 	      <li>
 		<img class="0-mainform-list-icon" src="img/submission-blue-icon.svg" />
-		Submission Information
+		<xf:output ref="instance('messages')/message[key/text()='submission-information']/value/text()"/>
 	      </li>
 	      <li>
 		<img class="0-mainform-list-icon" src="img/organization-blue-icon.svg" />
-		Organization
+		<xf:output ref="instance('messages')/message[key/text()='organization']/value/text()"/>
 	      </li>
 	      <li>
 		<img class="0-mainform-list-icon" src="img/goal-blue-icon.svg" />
-		Goals and Objectives
+		<xf:output ref="instance('messages')/message[key/text()='goals-objectives']/value/text()"/>
+	     
 	      </li>
 	      <li>
 		<img class="0-mainform-list-icon" src="img/performance-blue-icon.svg" />
-		Performance
+			<xf:output ref="instance('messages')/message[key/text()='performance']/value/text()"/>
+
 	      </li>
 	    </ol>
 	  </div>
@@ -319,6 +327,7 @@
 	<!-- ...... 0 Start Page..... --> 
 	<xf:case id="cero" >
 	  <fieldset class="navigation-buttons">
+	    <!--
 	    <xf:trigger >
 	      <xf:label>Load an existing Plan</xf:label>
 	      <xf:toggle case="cerob" ev:event="DOMActivate" />	  
@@ -326,8 +335,17 @@
 		<xf:load resource="0_b_load_plan.xml" show="embed" target="subform"/>
 	      </xf:action>
 	    </xf:trigger>
+	    -->
+	    <xf:trigger class="alert">
+	      <xf:label> <b>X</b>
+	      <xf:output ref="instance('messages')/message[key/text()='cancel']/value/text()"/>
+	       </xf:label>
+	      <xf:action ev:event="DOMActivate">
+ 		<xf:load resource="javascript:ConfirmExit()" />
+	      </xf:action>
+	    </xf:trigger>
 	    <xf:trigger class="green" id="buttonone" >
-	      <xf:label>Create Plan &gt;</xf:label>
+	      <xf:label>	      <xf:output ref="instance('messages')/message[key/text()='start']/value/text()"/> &gt;</xf:label>
 	      <xf:toggle case="uno" ev:event="DOMActivate" />	  
 	      <xf:action ev:event="DOMActivate" >
 		<xf:load resource="1_information.xml" show="embed" target="subform"/>
@@ -340,14 +358,16 @@
 	<xf:case id="cerob" >
 	  <fieldset class="navigation-buttons" >
 	    <xf:trigger class="alert">
-	      <xf:label> <b>X</b> Cancel</xf:label>
+	      <xf:label> <b>X</b>
+	      <xf:output ref="instance('messages')/message[key/text()='cancel']/value/text()"/>
+	        </xf:label>
 	      <xf:toggle case="cero" ev:event="DOMActivate" />
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="0_mainform.xml"  />
 	      </xf:action>
 	    </xf:trigger>
 	    <xf:trigger class="green" >
-	      <xf:label>Start Editing  &gt;</xf:label>
+	      <xf:label>	      <xf:output ref="instance('messages')/message[key/text()='start']/value/text()"/> &gt;</xf:label>
 	      <xf:toggle case="uno" ev:event="DOMActivate" />	  
 	      <xf:action ev:event="DOMActivate" >
 		<xf:load resource="1_information.xml" show="embed" target="subform" />
@@ -359,7 +379,9 @@
 	<xf:case id="uno">
 	  <fieldset class="navigation-buttons">
 	    <xf:trigger class="alert">
-	      <xf:label> <b>X</b> Cancel</xf:label>
+	      <xf:label> <b>X</b>
+	      <xf:output ref="instance('messages')/message[key/text()='cancel']/value/text()"/>
+	      </xf:label>
 	      <xf:action ev:event="DOMActivate">
  		<xf:load resource="javascript:ConfirmExit()" />
 	      </xf:action>
@@ -368,12 +390,14 @@
 	    <xf:submit submission="temporarysave" class="alert">
 	      <xf:label>
 		<img src="img/temporarysave.svg" class="button-icon"/>
-		Save
+		<xf:output ref="instance('messages')/message[key/text()='save']/value/text()"/>
 	      </xf:label>
 	    </xf:submit>
 	    
 	    <xf:trigger class="green"  id="buttontwo">
-	      <xf:label>Next  &gt;</xf:label>
+	      <xf:label>
+		<xf:output ref="instance('messages')/message[key/text()='next']/value/text()"/>	
+	      &gt;</xf:label>
 	      <xf:toggle case="dos" ev:event="DOMActivate" />
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="2_submission.xml" show="embed" target="subform" />   
@@ -385,7 +409,8 @@
 	<xf:case id="dos" >
 	  <fieldset class="navigation-buttons">
 	    <xf:submit>
-	      <xf:label>&lt; Back</xf:label>
+	      <xf:label>&lt; <xf:output ref="instance('messages')/message[key/text()='back']/value/text()"/>
+	       </xf:label>
 	      <xf:toggle case="uno" ev:event="DOMActivate" />
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="1_information.xml" show="embed" target="subform" />
@@ -393,7 +418,7 @@
 	      </xf:action>
 	    </xf:submit>
 	    <xf:trigger class="alert">
-	      <xf:label> <b>X</b> Cancel</xf:label>
+	      <xf:label> <b>X</b><xf:output ref="instance('messages')/message[key/text()='cancel']/value/text()"/></xf:label>
 	      <xf:action ev:event="DOMActivate">
  		<xf:load resource="javascript:ConfirmExit()" />
 	      </xf:action>
@@ -402,12 +427,14 @@
 	    <xf:submit submission="temporarysave" class="alert">
 	      <xf:label>
 		<img src="img/temporarysave.svg"  class="button-icon" />
-		Save
+		<xf:output ref="instance('messages')/message[key/text()='save']/value/text()"/>
 	      </xf:label>
 	    </xf:submit>
 
 	    <xf:trigger class="green" id="buttonthree"> 
-	      <xf:label>Next &gt;</xf:label>
+	      <xf:label>
+		<xf:output ref="instance('messages')/message[key/text()='next']/value/text()"/>
+	      &gt;</xf:label>
 	      <xf:toggle case="tres" ev:event="DOMActivate" />
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="3_organization.xml" show="embed" target="subform"/>
@@ -419,7 +446,8 @@
 	<xf:case id="tres" >
 	  <fieldset class="navigation-buttons">
 	    <xf:trigger>
-	      <xf:label>&lt; Back</xf:label>
+	      <xf:label>&lt; <xf:output ref="instance('messages')/message[key/text()='back']/value/text()"/>
+	      </xf:label>
 	      <xf:toggle case="dos" ev:event="DOMActivate" />
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="2_submission.xml" show="embed" target="subform" />
@@ -427,7 +455,7 @@
 	      </xf:action>
 	    </xf:trigger>
 	    <xf:trigger class="alert">
-	      <xf:label> <b>X</b> Cancel</xf:label>
+	      <xf:label> <b>X</b> <xf:output ref="instance('messages')/message[key/text()='cancel']/value/text()"/></xf:label>
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="javascript:ConfirmExit()" />
 	      </xf:action>
@@ -435,11 +463,13 @@
 	    <xf:submit submission="temporarysave" class="alert">
 	      <xf:label>
 		<img src="img/temporarysave.svg"   class="button-icon" />
-		Save
+		<xf:output ref="instance('messages')/message[key/text()='save']/value/text()"/>
 	      </xf:label>
 	    </xf:submit>
 	    <xf:trigger class="green" id="buttonfour">
-	      <xf:label>Next  &gt;</xf:label>
+	      <xf:label>
+		<xf:output ref="instance('messages')/message[key/text()='next']/value/text()"/>	
+	      &gt;</xf:label>
 	      <xf:toggle case="cuatro" ev:event="DOMActivate" />	  
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="4_goals.xml" show="embed" target="subform"/>
@@ -448,10 +478,12 @@
 	    </xf:trigger>
 	  </fieldset>
 	</xf:case>
-	<xf:case id="cuatro" >
+	<xf:case id="cuatro"  >
 	  <fieldset class="navigation-buttons">
 	    <xf:trigger>
-	      <xf:label>&lt; Back</xf:label>
+	      <xf:label>&lt;
+	      <xf:output ref="instance('messages')/message[key/text()='back']/value/text()"/>	
+	      </xf:label>
 	      <xf:toggle case="tres" ev:event="DOMActivate" />
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="3_organization.xml" show="embed" target="subform" />
@@ -459,7 +491,7 @@
 	      </xf:action>
 	    </xf:trigger>
 	    <xf:trigger class="alert">
-	      <xf:label> <b>X</b> Cancel</xf:label>
+	      <xf:label> <b>X</b> <xf:output ref="instance('messages')/message[key/text()='cancel']/value/text()"/></xf:label>
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="javascript:ConfirmExit()" />
 	      </xf:action>
@@ -467,11 +499,14 @@
 	    <xf:submit submission="temporarysave" class="alert">
 	      <xf:label>
 		<img src="img/temporarysave.svg"   class="button-icon" />
-		Save
+		<xf:output ref="instance('messages')/message[key/text()='save']/value/text()"/>	
 	      </xf:label>
 	    </xf:submit>
-	    <xf:trigger class="green" id="buttonfive">
-	      <xf:label>Next  &gt;</xf:label>
+	    
+	    <xf:trigger class="green" id="buttonfive" ref=".[instance('default')/PerformancePlanOrReport/@Type='Performance_Plan']" >
+	      <xf:label>
+	    	<xf:output ref="instance('messages')/message[key/text()='next']/value/text()"/>	
+ &gt;</xf:label>
 	      <xf:toggle case="cinco" ev:event="DOMActivate" />	  
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="5_performance.xml" show="embed" target="subform"/>
@@ -481,10 +516,11 @@
 	  </fieldset>
 	</xf:case>
 
-	<xf:case id="cinco" >
+	<xf:case id="cinco" ref=".[Goal]" >
 	  <fieldset class="navigation-buttons">
 	    <xf:submit>
-	      <xf:label>&lt; Back</xf:label>
+	      <xf:label>&lt;
+	      <xf:output ref="instance('messages')/message[key/text()='back']/value/text()"/>	 </xf:label>
 	      <xf:toggle case="cuatro" ev:event="DOMActivate" />
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="4_goals.xml" show="embed" target="subform" />
@@ -492,7 +528,9 @@
 	      </xf:action>
 	    </xf:submit>
 	    <xf:trigger class="alert">
-	      <xf:label> <b>X</b> Cancel</xf:label>
+	      <xf:label> <b>X</b>
+	      <xf:output ref="instance('messages')/message[key/text()='cancel']/value/text()"/>
+	      </xf:label>
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="javascript:ConfirmExit()" />
 	      </xf:action>
@@ -500,14 +538,15 @@
 	    <xf:submit submission="temporarysave" class="alert">
 	      <xf:label>
 		<img src="img/temporarysave.svg"   class="button-icon" />
-		Save
+		<xf:output ref="instance('messages')/message[key/text()='save']/value/text()"/>
 	      </xf:label>
 	    </xf:submit>
 	    <xf:submit submission="s03" >
-	      <xf:label>With Style</xf:label>
+	      
+	      <xf:label>	<xf:output ref="instance('messages')/message[key/text()='with-style']/value/text()"/></xf:label>
 	    </xf:submit>
 	    <xf:submit submission="s02" class="green">
-	      <xf:label>Plain XML</xf:label>
+	      <xf:label>	<xf:output ref="instance('messages')/message[key/text()='plain-xml']/value/text()"/></xf:label>
 	    </xf:submit>
 	  </fieldset>
 	</xf:case>

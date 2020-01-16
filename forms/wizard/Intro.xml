@@ -76,12 +76,17 @@
 	      </xf:label>
 	      <xf:value>es</xf:value>
 	    </xf:item>
+	
+	    
 	    <xf:action ev:event="xforms-value-changed">
 	      <xf:send submission="change-texts" />
+	       
+	      
 	      <xf:send submission="change-language"/>
 	    </xf:action>
 	  </xf:select1>      
-	  <a href="../documentation.html" target="blank" class="button-icon">
+	  	          
+	  <a href="doc/documentation.html" target="blank" class="button-icon">
 	    <img src="img/documentation-icon.svg" alt="documentation" />
 	  </a>
 	</div>
@@ -94,7 +99,7 @@
 	  </p>
           <ol class="mainform-list">
 	    <li>
-	      <a href="0_mainform_simple.xml">
+	      <a href="0_mainform_strategy.xml">
 		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
 		<xf:output ref="instance('texts')/message[key/text()='create-strategic-plan']/value/text()"/>
 	      </a>
@@ -105,6 +110,26 @@
 		<xf:output ref="instance('texts')/message[key/text()='create-performance-plan']/value/text()"/>
 	      </a>
 	    </li>
+ 	    <li>
+	      <a href="load_plan_modify.xml">
+ 		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
+		<xf:output ref="instance('texts')/message[key/text()='modify-plan']/value/text()"/>
+ 	      </a>
+	    </li>
+	    <!-- 
+	    <li>
+	      <a href="load_plan_browse.xml">
+ 		<img class="0-mainform-list-icon" src="img/load-blue-icon.svg" />
+		<xf:output ref="instance('texts')/message[key/text()='browse-plan']/value/text()"/>
+ 	      </a>
+	    </li>
+	    -->
+	    <li>
+	      <a href="http://stratml.us/drybridge/index.htm">
+ 		<img class="0-mainform-list-icon" src="img/documentation-icon.svg" />
+		<xf:output ref="instance('texts')/message[key/text()='browse-documentation']/value/text()"/></a>
+	    </li>
+	     
 	    <!--
 		<li>
 		<img class="0-mainform-list-icon" src="img/disk.svg" />
@@ -118,6 +143,7 @@
 	  </ol>
 	</div>
       </main>
+      <!--
       <fieldset  class="navigation-buttons">
       	<xf:trigger >
 	  <xf:action ev:event="DOMActivate" >
@@ -139,6 +165,7 @@
 	  <xf:label>Start Planning</xf:label>
 	</xf:trigger>
       </fieldset>
+-->
     </div>
   </body>
 </html>

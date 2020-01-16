@@ -8,4 +8,8 @@
   <sourcedocument>http://localhost:8984/rest/data/template.xml</sourcedocument>
   <filename>testfile.xml</filename>
   <page>0</page>
+  <plan-load-path>http://localhost:8984/loadplan.html</plan-load-path>
+  <local-plan-path>http://localhost:8984/localplan.html</local-plan-path>
+  <browse-path>http://localhost:8984/browseplans.html</browse-path>
+  
 </data>

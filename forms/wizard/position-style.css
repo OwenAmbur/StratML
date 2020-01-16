@@ -351,6 +351,7 @@ div.line .nopaddingtext {
     max-height:60%;
     display:inline;
     padding:0;
+    padding-right:0.5em;
     margin:auto;
     vertical-align:middle;
 }
@@ -477,6 +478,12 @@ ol.mainform-list {
 line-height:2.5em;
 list-style-type:none;
 }
+
+ol.mainform-list  img {
+    padding-right: 0.5em ;
+}
+
+
 
 ol.mainol, ol.mainperformace, main.goalspage, main.performancepage  {
     margin-left : 1em ;

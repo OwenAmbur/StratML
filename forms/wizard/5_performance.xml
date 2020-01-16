@@ -246,13 +246,15 @@ Description
 					</tr>
 
 					<tr>
-					  <td>
+					  <td colspan="2">
 					    <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
-					  </td>
-					  <td>
+                        <br/>
 					    <xf:textarea ref="TargetResult/Description"  />
 					 </td>
 					  <td>
+                        <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+                        <br/>
+					      
 					    <xf:textarea ref="ActualResult/Description" />
 					  </td>
 					</tr>

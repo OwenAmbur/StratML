@@ -94,6 +94,8 @@
 <message><key>relationship</key><value>Relationship</value></message>
 <message><key>relationship-identifier</key><value>Relationship Identifier</value></message>
 
+<message><key>reload</key><value>Reload</value></message>
+
 
 <message><key>role</key><value>Role</value></message>
 <message><key>roles</key><value>Roles</value></message>

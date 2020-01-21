@@ -99,6 +99,8 @@ u   250
 <message><key>relationship</key><value>Relaci&#243;n</value></message>
 <message><key>relationship-identifier</key><value>Identificador de la relaci&#243;n</value></message>
 
+<message><key>reload</key><value>Regargar</value></message>
+
 
 <message><key>role</key><value>Perfil</value></message>
 <message><key>roles</key><value>Perfiles</value></message>

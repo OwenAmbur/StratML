@@ -11,13 +11,9 @@
       <xf:instance xmlns="" id="template" resource="data/stratml-template.xml" />       
       <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
       <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
-      
-
-      
-      
     </xf:model>
-    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
-    <link rel="stylesheet" type="text/css"  href="./format-style.css" />
+    <link rel="stylesheet" type="text/css"  href="css/position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="css/format-style.css" />
   </head>
   
   <body>
@@ -43,6 +39,14 @@
 	      <xf:output ref="instance('messages')/message[key/text()='filename']/value" /></xf:label>
 	  </xf:input>
 
+
+
+<xf:submit submission="reload-plan" class="green">
+	      <xf:label>
+	      	<xf:output ref="instance('messages')/message[key/text()='reload']/value/text()"/>
+	      </xf:label>
+	    </xf:submit>
+	    
 	</div>
 
 	<div class="line" />

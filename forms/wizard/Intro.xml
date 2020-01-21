@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="./xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
 <?css-conversion no ?>
 <html 
@@ -31,8 +31,8 @@
     <meta http-equiv="Content-Language" content="en-US"/>
     <meta name="keywords" content="Strategic Plans, StratML, XForms, XSTForms, Performance Plans, Performance Reports"/>
     <meta name="DC.date" content="2018-08-19"/>
-    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
-    <link rel="stylesheet" type="text/css"  href="./format-style.css" />
+    <link rel="stylesheet" type="text/css"  href="css/position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="css/format-style.css" />
     <xf:model>
 
       <xf:submission id="change-language" replace="instance"
@@ -53,96 +53,89 @@
   <body>
     <div id="marco">       
       <header>
-	<h1>
-	  <img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>	    
-	  <xf:output ref="instance('messages')/message[key/text()='stratml-title']/value/text()"/>
-	  <img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
-	</h1>    
-	<div id="subheader"> 
-	  <div id="breadcrumb">
-	    <a href="http://stratml.us">..</a> &gt; <a href="Intro">StratML Forms</a> &gt; <a name="breadcrumb">Intro</a>  
-	  </div>
-	  <xf:select1 ref="instance('config')/file"  id="lang-selector">
-	    <xf:label class="subheader">
-	      <xf:output ref="instance('messages')/message[key/text()='language']/value/text()"/>	  
-	    </xf:label>
-	    <xf:item>
-	      <xf:label>English
-	      </xf:label>
-	      <xf:value>en</xf:value> 
-	    </xf:item>
-	    <xf:item>
-	      <xf:label>Spanish
-	      </xf:label>
-	      <xf:value>es</xf:value>
-	    </xf:item>
-	
-	    
-	    <xf:action ev:event="xforms-value-changed">
-	      <xf:send submission="change-texts" />
-	       
-	      
-	      <xf:send submission="change-language"/>
-	    </xf:action>
-	  </xf:select1>      
-	  	          
-	  <a href="doc/documentation.html" target="blank" class="button-icon">
-	    <img src="img/documentation-icon.svg" alt="documentation" />
-	  </a>
-	</div>
-
+		<h1>
+			<img  class="title-logo" width="80px" src="img/plan-white-icon.svg" alt="StratML logo"/>	  
+	 			Strategic Markup Language
+			<img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
+		</h1>    
+		<div id="subheader"> 
+		  <div id="breadcrumb">
+		    <a href="http://stratml.us">..</a> &gt; <a href="Intro">StratML Forms</a> &gt; <a name="breadcrumb">Intro</a>  
+		  </div>
+		  <xf:select1 ref="instance('config')/file"  id="lang-selector">
+		    <xf:label class="subheader">
+		      <xf:output ref="instance('messages')/message[key/text()='language']/value/text()"/>	  
+		    </xf:label>
+		    <xf:item>
+		      <xf:label>English
+		      </xf:label>
+		      <xf:value>en</xf:value> 
+		    </xf:item>
+		    <xf:item>
+		      <xf:label>Spanish
+		      </xf:label>
+		      <xf:value>es</xf:value>
+		    </xf:item>
+			<xf:action ev:event="xforms-value-changed">
+		      <xf:send submission="change-texts" />
+		      <xf:send submission="change-language"/>
+		    </xf:action>
+		  </xf:select1>      
+		  <a href="doc/documentation.html" target="blank" class="button-icon">
+		    <img src="img/documentation-icon.svg" alt="documentation" />
+		  </a>
+		</div>
       </header>
-      <main>
-	<div class="line">
-	  <p>
-	    <xf:output ref="instance('texts')/message[key/text()='intro-line']/value/text()"/>	  
-	  </p>
+      <main>	
+		<div class="line">
+		  <p>
+	    	<xf:output ref="instance('texts')/message[key/text()='intro-line']/value/text()"/>	  
+		  </p>
           <ol class="mainform-list">
-	    <li>
-	      <a href="0_mainform_strategy.xml">
-		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
-		<xf:output ref="instance('texts')/message[key/text()='create-strategic-plan']/value/text()"/>
-	      </a>
-	    </li>
-	    <li>
-	      <a href="0_mainform.xml">
-		<img class="0-mainform-list-icon" src="img/performance-blue-icon.svg" />
-		<xf:output ref="instance('texts')/message[key/text()='create-performance-plan']/value/text()"/>
-	      </a>
-	    </li>
- 	    <li>
-	      <a href="load_plan_modify.xml">
- 		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
-		<xf:output ref="instance('texts')/message[key/text()='modify-plan']/value/text()"/>
- 	      </a>
-	    </li>
-	    <!-- 
-	    <li>
-	      <a href="load_plan_browse.xml">
- 		<img class="0-mainform-list-icon" src="img/load-blue-icon.svg" />
-		<xf:output ref="instance('texts')/message[key/text()='browse-plan']/value/text()"/>
- 	      </a>
-	    </li>
-	    -->
-	    <li>
-	      <a href="http://stratml.us/drybridge/index.htm">
- 		<img class="0-mainform-list-icon" src="img/documentation-icon.svg" />
-		<xf:output ref="instance('texts')/message[key/text()='browse-documentation']/value/text()"/></a>
-	    </li>
-	     
-	    <!--
-		<li>
-		<img class="0-mainform-list-icon" src="img/disk.svg" />
-		Load an Existing plan
-		</li>
-		<li>
-		<img class="0-mainform-list-icon" src="img/configuration.svg" />
-		Manage Configuration
-		</li>
-	    -->
-	  </ol>
+		    <li>
+		      <a href="0_mainform_strategy.xml">
+			<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
+			<xf:output ref="instance('texts')/message[key/text()='create-strategic-plan']/value/text()"/>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="0_mainform.xml">
+			<img class="0-mainform-list-icon" src="img/performance-blue-icon.svg" />
+			<xf:output ref="instance('texts')/message[key/text()='create-performance-plan']/value/text()"/>
+		      </a>
+		    </li>
+	 	    <li>
+		      <a href="load_plan_modify.xml">
+	 		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
+			<xf:output ref="instance('texts')/message[key/text()='modify-plan']/value/text()"/>
+	 	      </a>
+		    </li>
+		    <!-- 
+		    <li>
+		      <a href="load_plan_browse.xml">
+	 		<img class="0-mainform-list-icon" src="img/load-blue-icon.svg" />
+			<xf:output ref="instance('texts')/message[key/text()='browse-plan']/value/text()"/>
+	 	      </a>
+		    </li>
+		    -->
+		    <li>
+		      <a href="http://stratml.us/drybridge/index.htm">
+	 		<img class="0-mainform-list-icon" src="img/documentation-icon.svg" />
+			<xf:output ref="instance('texts')/message[key/text()='browse-documentation']/value/text()"/></a>
+		    </li>	     
+		    <!--
+			<li>
+			<img class="0-mainform-list-icon" src="img/disk.svg" />
+			Load an Existing plan
+			</li>
+			<li>
+			<img class="0-mainform-list-icon" src="img/configuration.svg" />
+			Manage Configuration
+			</li>
+		    -->
+	  	</ol>
 	</div>
-      </main>
+   </main>
       <!--
       <fieldset  class="navigation-buttons">
       	<xf:trigger >

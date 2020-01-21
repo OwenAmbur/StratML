@@ -23,8 +23,8 @@
 		     replace="data-instance" 
 		     />
     </xf:model>
-    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
-    <link rel="stylesheet" type="text/css"  href="./format-style.css" />
+    <link rel="stylesheet" type="text/css"  href="../css/position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="../css/format-style.css" />
   </head>
   <body>
     <main>

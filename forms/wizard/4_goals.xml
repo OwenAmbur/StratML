@@ -19,8 +19,8 @@
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
       </xf:submission>
     </xf:model>
-    <link rel="stylesheet" type="text/css"  href="./position-style.css" />
-    <link rel="stylesheet" type="text/css"  href="./format-style.css" />
+    <link rel="stylesheet" type="text/css"  href="css/position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="css/format-style.css" />
   </head>
   <body>
     <main class="mainol goalspage"  >
@@ -473,7 +473,7 @@
 			  <xf:label class="lineitem">
 			  <xf:trigger class="iconbutton"  ref=".[not(SequenceIndicator)]" >
 			  <xf:label>
-			  <img src="img/addsequence.svg" /> 
+			  <img ../img/addsequence.svg" /> 
 			  </xf:label>
 			  <xf:action ev:event="DOMActivate">
 			  <xf:insert 
@@ -516,7 +516,7 @@
 			  <xf:label class="lineitem">
 			  <xf:trigger class="iconbutton"  ref=".[not(Sequence)]" >
 			  <xf:label>
-			  <img src="img/more.svg" />
+			  <img ../img/more.svg" />
 			  <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
 			  </xf:label>
 			  <xf:action ev:event="DOMActivate">

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="no"?>
+<?css-conversion no ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:xf="http://www.w3.org/2002/xforms"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<head>	
+		<!--  ............ Metadata ............ -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type"
+			content="text/plain; charset=us-ascii" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="-1" />
+		<title>StratML Performance Plan</title>
+		<!--  ............ Contributors Metadata ............ -->
+		<meta name="DC.title" content="StratML Part 1 to Part 2 Conversion XForm" />
+		<meta name="title" content="Strategic Plan (StratML Part 2) XForm" />
+		<meta name="DC.subject" scheme="DCTERMS.LCSH" content="Strategic Plans, StratML Part 2, StratML, XForms, XSLTForms, Performance Plans, Performance Reports" />
+		<meta name="DC.contributor" content="Joe Carmel" />
+		<meta name="DC.contributor" content="Owen Ambur" />
+		<meta name="DC.contributor" content="Andre Cusson (hyperbase.com)" />
+		<meta name="DC.contributor" content="Alain Couthures (agencexml.com)" />
+		<meta name="DC.contributor" content="Gannon J. Dick (rustprivacy.org)" />
+		<meta name="DC.contributor" content="Colin Mackenzie (mackenziesolutions.co.uk)" />
+		<meta name="DC.contributor" content="Ibrahim Shah" />
+		<meta name="DC.contributor" content="Jorge Sanchez (vionta.net)" />
+		<meta name="DC.rights" content="Public domain" />
+		<meta name="DC.rights.accessRights" content="public" />
+		<meta name="DC.format.medium" scheme="DCTERMS.IMT" content="text/xml" />
+		<meta name="medium" content="XForm" />
+		<meta name="DC.identifier" scheme="DCTERMS.URI" content="http://www.legisworks.org/StratML/" />
+		<meta name="DC.language" scheme="DCTERMS.RFC3066" content="en-US" />
+		<meta http-equiv="Content-Language" content="en-US" />
+		<meta name="keywords" content="Strategic Plans, StratML, XForms, XSTForms, Performance Plans, Performance Reports" />
+		<meta name="DC.date" content="2018-08-19" />
+		<!--  ............ Style ............ -->
+		<link rel="stylesheet" type="text/css"	href="css/position-style.css" />
+		<link rel="stylesheet" type="text/css" href="css/format-style.css" />
+		<!--  ............ Instances ............ -->
+		<xf:model id="m">
+			<xf:instance xmlns="" id="messages"	src="labels/labels-en.xml" />
+			<xf:instance xmlns="" id="texts"    src="labels/texts-en.xml" />
+			<xf:instance xmlns="" id="config"   resource="data/form-config.xml" />
+			<!-- 
+			<xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
+				<xf:resource
+					value="concat('labels/labels-',instance('config')/file/text(),'.xml')" />
+			</xf:submission>
+			<xf:submission id="change-texts" replace="instance"
+				instance="texts" method="get" serialization="none">
+				<xf:resource
+					value="concat('labels/texts-', instance('config')/file/text(),'.xml')" />
+			</xf:submission>
+			 -->
+		</xf:model>
+		<!--  ............ //Instances ............ -->
+		 <script type="text/javascript">
+		      var ConfirmExit=function(){
+		      if(confirm('Do you want to discard the data and start a new document?')) {
+		      window.location = 'Intro.xml' ;
+		      };
+		      }
+		  </script>
+	</head>
+	<body>
+		<div id="marco">
+			<header>
+				<h1>
+					<img class="title-logo" width="80px"
+						src="img/plan-white-icon.svg" alt="StratML logo" />
+					Performance Plan/Report Form
+					<img class="stratml-logo" src="img/stratml_logo_white.svg"
+						alt="StratML logo" />
+				</h1>
+				<div class="subheader">
+					<div id="breadcrumb">
+						<a href="http://stratml.us">..</a>
+						&gt;
+						<a href="Intro.xml">StratML Forms</a>
+						&gt;
+						<a name="breadcrumb">Modify Existing Plan</a>
+					</div>
+				</div>
+			</header>
+			<xf:group id="subform">
+				<main>
+					<div class="line">
+						<p><xf:output ref="instance('texts')/message[key/text()='steps-load']/value/text()" />:</p>
+						<ol class="mainform-list">
+							<li>
+								<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
+									Load a plan from the repository (ej: /rest/data/testfile2.xml ):
+								<!-- Usual stratml action action='http://stratml.us/forms/walt5.pl' -->
+								<form action="{instance('config')//plan-load-path/text()}"  method="GET" >
+									<input name='doc'  />
+									<input name="repository"  value="true" type="hidden"/>
+									<input type='submit' value='Import' />
+								</form>
+							</li>
+							<li>
+								<img class="0-mainform-list-icon"
+									src="img/plan-blue-icon.svg" />
+								<a href="{instance('config')/browse-path/text()}" >
+								Browse repository plans:
+								</a>
+								<!-- <xf:output ref="instance('messages')/message[key/text()='submission-information']/value/text()"/> -->
+							</li>
+							<!--  Tests Pending
+							<li>
+								<img class="0-mainform-list-icon"
+									src="img/plan-blue-icon.svg" />
+								Load a remote plan:
+
+								<form action="{instance('config')/plan-load-path/text()}" >
+									<input name='doc'  />
+									<input name="repository"  value="false" type="hidden" />
+									<input type='submit' value='Import' />
+								</form>					
+							</li>
+							-->
+							<li>
+								<img class="0-mainform-list-icon"
+									src="img/plan-blue-icon.svg" />
+								Load a local plan:
+							</li>
+							<form action="{instance('config')/local-plan-path/text()}" method="post"
+								enctype="multipart/form-data">
+								<input type='file' name='f' accept='.xml' />
+								<input type='submit' value='Import' />
+							</form>
+						</ol>
+					</div>
+				</main>
+			</xf:group>
+			<fieldset class="navigation-buttons">
+				<xf:trigger class="alert">
+					<xf:label>
+						<b>X</b>
+						<xf:output
+							ref="instance('messages')/message[key/text()='back']/value/text()" />
+					</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load resource="javascript:ConfirmExit()" />
+					</xf:action>
+				</xf:trigger>
+			</fieldset>
+		</div>
+	</body>
+</html>

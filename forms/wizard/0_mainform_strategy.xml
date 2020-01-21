@@ -34,11 +34,12 @@
     <link rel="stylesheet" type="text/css"  href="css/position-style.css" />
     <link rel="stylesheet" type="text/css"  href="css/format-style.css" />
     <xf:model id="m">
-	  <xf:instance xmlns="" id="default" resource="data/stratml-template-performance.xml" />
-      <xf:instance xmlns="" id="template" src="data/stratml-template2.xml" />       
+      <xf:instance xmlns="" id="default" resource="data/stratml-template-strategy.xml" />
+      <xf:instance xmlns="" id="template" resource="data/stratml-template2.xml" />       
       <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
       <xf:instance xmlns="" id="texts" src="labels/texts-en.xml" />      
-      <xf:instance xmlns="" id="config" src="data/form-config.xml" />
+
+      <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
       <xf:bind ref="//*:StartDate" type="xf:date" required="false()" />
       <xf:bind ref="//*:EndDate" type="xf:date" required="false()"/>
       <xf:bind ref="*:AdministrativeInformation/PublicationDate" type="xf:date"/>
@@ -111,13 +112,6 @@
 		   serialization="none" >
       <xf:resource value="concat('labels/texts-', instance('config')/file/text(),'.xml')"/>
     </xf:submission>
-    <xf:submission id="reload-plan" replace="instance"
-		   instance="default" method="get"
-		   serialization="none" >
-		   
-      <xf:resource value="concat(instance('config')/path/text(), instance('config')/filename/text())"/>
-    </xf:submission>
-    
       <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
 	</xf:message>
@@ -128,7 +122,7 @@
       <xf:action ev:event="xforms-ready"     >
 	<xf:load  show="embed" target="page-counter" >
 	  <xf:resource
-	      value="'pagecounter.xml'" />
+	      value="'pagecounter_strategy.xml'" />
 	</xf:load>
       </xf:action>
 
@@ -293,8 +287,8 @@
 	<main>
 	  <div class="line">
 	    <p>
-	   		<xf:output ref="instance('texts')/message[key/text()='steps-performance']/value/text()" />: 
-	   	</p>
+	      <xf:output ref="instance('texts')/message[key/text()='steps-strategy']/value/text()" /> 
+	    </p>
             <ol class="mainform-list">
 	      <li>
 		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
@@ -313,12 +307,7 @@
 		<xf:output ref="instance('messages')/message[key/text()='goals-objectives']/value/text()"/>
 	     
 	      </li>
-	      <li>
-		<img class="0-mainform-list-icon" src="img/performance-blue-icon.svg" />
-			<xf:output ref="instance('messages')/message[key/text()='performance']/value/text()"/>
-
-	      </li>
-	    </ol>
+	      	    </ol>
 	  </div>
 	</main>
       </xf:group>    
@@ -501,17 +490,27 @@
 		<xf:output ref="instance('messages')/message[key/text()='save']/value/text()"/>	
 	      </xf:label>
 	    </xf:submit>
-	    
-	    <xf:trigger class="green" id="buttonfive" ref=".[instance('default')/PerformancePlanOrReport/@Type='Performance_Plan']" >
+	    <xf:trigger class="green" id="buttonfive"  ref=".[./@Type='Performance_Plan']" >
 	      <xf:label>
-	    	<xf:output ref="instance('messages')/message[key/text()='next']/value/text()"/>	
+			<xf:output ref="instance('messages')/message[key/text()='next']/value/text()"/>	
  &gt;</xf:label>
-	      <xf:toggle case="cinco" ev:event="DOMActivate" />	  
+	    <xf:toggle case="cinco" ev:event="DOMActivate" />	  
 	      <xf:action ev:event="DOMActivate">
 		<xf:load resource="5_performance.xml" show="embed" target="subform"/>
 		<xf:setvalue ref="instance('config')/page" value="5" />
 	      </xf:action>
 	    </xf:trigger>
+	    <xf:submit submission="s03"  ref=".[./@Type='Strategic_Plan']" >
+	      <xf:label>
+		<xf:output ref="instance('messages')/message[key/text()='with-style']/value/text()"/>	
+	      </xf:label>
+	    </xf:submit>
+	    <xf:submit submission="s02" class="green"  ref=".[./@Type='Strategic_Plan']" >
+	      <xf:label>
+		<xf:output ref="instance('messages')/message[key/text()='plain-xml']/value/text()"/>	
+	      </xf:label>
+	    </xf:submit>
+	  
 	  </fieldset>
 	</xf:case>
 
@@ -542,13 +541,10 @@
 	    </xf:submit>
 	    <xf:submit submission="s03" >
 	      
-	      <xf:label>	
-	      <xf:output ref="instance('messages')/message[key/text()='with-style']/value/text()"/></xf:label>
+	      <xf:label>	<xf:output ref="instance('messages')/message[key/text()='with-style']/value/text()"/></xf:label>
 	    </xf:submit>
 	    <xf:submit submission="s02" class="green">
-	      <xf:label>
-	      	<xf:output ref="instance('messages')/message[key/text()='plain-xml']/value/text()"/>
-	      </xf:label>
+	      <xf:label>	<xf:output ref="instance('messages')/message[key/text()='plain-xml']/value/text()"/></xf:label>
 	    </xf:submit>
 	  </fieldset>
 	</xf:case>

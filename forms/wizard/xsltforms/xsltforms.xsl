@@ -389,7 +389,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 				<xsl:text>";
 </xsl:text>
 			</script>
-			<link type="text/css" href="{$resourcesdircss}/xsltforms.css" pivalue="{translate(normalize-space(/processing-instruction('xml-stylesheet')[1]), '.', '.')}" rel="stylesheet"/>
+			<link type="text/css" href="{$resourcesdircss}xsltforms.css" pivalue="{translate(normalize-space(/processing-instruction('xml-stylesheet')[1]), '.', '.')}" rel="stylesheet"/>
 			<link type="text/css" href="style.css" rel="stylesheet" />
 			<xsl:apply-templates select="xhtml:head/xhtml:*[local-name() != 'script' and local-name() != 'style' and local-name() != 'link' and local-name() != 'meta'] | xhtml:head/comment() | head/title | head/comment()" mode="nons"/>
 			<xsl:apply-templates select="xhtml:head/xhtml:style | xhtml:head/xhtml:link | head/style | head/link">

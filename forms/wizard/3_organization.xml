@@ -39,6 +39,13 @@
 		<xf:output ref="instance('messages')/message[key/text()='organization-name']/value" />
 		<xf:input class="Source longinput" ref="Name" />
 	      </xf:label>
+	      
+	       <xf:trigger  class="linebutton iconbutton">
+		  	<xf:label>
+				<img src="img/cross.svg" alt="delete Stakeholder" />
+			</xf:label>
+		  	<xf:delete ref="."  ev:event="DOMActivate" />
+		  </xf:trigger>
 	    </div>
 	    <div class="line" >
 	      <xf:label class="lineitem">
@@ -109,9 +116,11 @@
 		    </xf:select1>
 		  </xf:label>
 		  <!-- ........... Item buttons .............. -->
-		  <xf:trigger  class="remove-button">
-		    <xf:label>X</xf:label>
-		    <xf:delete nodeset="." at="1" if="count(//Stakeholder) > 1"   ev:event="DOMActivate" />
+		  <xf:trigger  class="linebutton iconbutton">
+		  	<xf:label>
+				<img src="img/cross.svg" alt="delete Stakeholder" />
+			</xf:label>
+		  	<xf:delete ref="."  ev:event="DOMActivate" />
 		  </xf:trigger>
 		  <xf:trigger ref=".[preceding-sibling::Stakeholder]" class="iconbutton" >
 		    <xf:label>
@@ -161,10 +170,12 @@
 			</xf:repeat>
 	      	      </xf:label>
 		      <!-- ........... Item buttons .............. -->
-		      <xf:trigger  class="remove-button">
-			<xf:label>X</xf:label>
-			<xf:delete nodeset="." at="1" if="count(//Role) > 1"   ev:event="DOMActivate" />
-		      </xf:trigger>
+		       <xf:trigger  class="linebutton iconbutton">
+			  	<xf:label>
+					<img src="img/cross.svg" alt="delete goal" />
+				</xf:label>
+			  	<xf:delete ref="."  ev:event="DOMActivate" />
+			  </xf:trigger>
 		      <xf:trigger ref=".[preceding-sibling::Role]" class="iconbutton" >
 			<xf:label>
 			  <img src="img/up.svg" />
@@ -197,8 +208,7 @@
 		<fieldset class="org-add-button">
 		  <xf:trigger class="default-button">
 		    <xf:label>
-		      <span class="nopaddingtext" >
-		      <xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
+		       <img src="img/add-white-icon.svg"   class="button-icon" />
 		      <xf:output ref="instance('messages')/message[key/text()='role']/value" class="nopaddingtext"/>
 		    </xf:label>
 		    <!-- TODO : Review last -->
@@ -218,8 +228,8 @@
 	  <fieldset class="org-add-button">
 	    <xf:trigger class="default-button">
 	      <xf:label>
-		<span class="nopaddingtext" >
-		<xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
+		 <img src="img/add-white-icon.svg"   class="button-icon" />
+
 		<xf:output ref="instance('messages')/message[key/text()='stakeholder']/value" class="nopaddingtext"/>
 	      </xf:label>
 	      <!-- TODO : Review last -->
@@ -236,67 +246,13 @@
 	  </fieldset>
 	</xf:repeat>
 	<!-- ............................ //Stakeholders End ........................... -->	  
-	<xf:dialog id="stakeholderdialog">
-	  <h3>
-	    <xf:output ref="instance('messages')/message[key/text()='manage']/value"/>
-	    <xf:output ref="instance('messages')/message[key/text()='stakeholders']/value"/>
-	  </h3>
-	  <div class="line" >
-	    <xf:label class="lineitem">
-	      <xf:output ref="instance('messages')/message[key/text()='stakeholder-name']/value"/>
-	      <xf:input  class="Source" ref="Stakeholder[1]/Name" id="stakeholderdialogname" />
-	    </xf:label>
-	    <xf:label class="lineitem">		
-	      <xf:output ref="instance('messages')/message[key/text()='stakeholder-type']/value"/>
-	      <xf:select1 class="StakeholderTypeType" ref="Stakeholder[1]/@StakeholderTypeType" appearance="minimal" incremental="true">  
-		<xf:item>
-		  <xf:label>Organization</xf:label>
-		  <xf:value>Organization</xf:value> 
-		</xf:item>
-		<xf:item>
-		  <xf:label>Person</xf:label>
-		  <xf:value>Person</xf:value> 
-		</xf:item>
-		<xf:item>
-		  <xf:label>Group</xf:label>
-		  <xf:value>Generic_Group</xf:value> 
-		</xf:item>
-	      </xf:select1>
-	      
-	    </xf:label>
-	  </div>
-	  <div class="line" >
-	    <textarea ref="Stakeholder[1]/Description" >
-	    </textarea>
-	  </div>
-	  <xf:trigger class="default-button">
-	    <xf:label>
-	      <span class="nopaddingtext" >
-	      <xf:output ref="instance('messages')/message[key/text()='close']/value" class="nopaddingtext" /></span>
-	    </xf:label>
-	    <xf:action ev:event="DOMActivate">		        	
-	      <xf:hide dialog="stakeholderdialog"/>
-	    </xf:action>
-	  </xf:trigger>
-	</xf:dialog>
-	<xf:trigger class="default-button">
-	  <xf:label>
-	    <span class="nopaddingtext" >
-	      <xf:output ref="instance('messages')/message[key/text()='add']/value"/>
-	      <xf:output ref="instance('messages')/message[key/text()='stakeholders']/value"/>
-	    </span>
-	  </xf:label>
-	  <xf:action ev:event="DOMActivate">		        	
-	    <xf:show dialog="stakeholderdialog"/>
-	    <xf:setfocus control="stakeholderdialogname"/>
-	  </xf:action>
-	</xf:trigger>
+	
 	<!-- ................................ STAKEHOLDER DIALOG ................................... -->
 	<br/>
 	<fieldset class="org-add-button">
 	  <xf:trigger class="default-button">
 	    <xf:label>
-	      <span class="nopaddingtext" ><xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
+	    	 <img src="img/add-white-icon.svg"   class="button-icon" />
 	      <xf:output ref="instance('messages')/message[key/text()='organization']/value" class="nopaddingtext"/>
 	    </xf:label>
 	    <!-- TODO : Review last -->
@@ -332,10 +288,12 @@
 		  </span>
 		  <xf:input class="Source longinput" ref="Name" />
 		</xf:label>
-		<xf:trigger  class="remove-button">
-		  <xf:label>X</xf:label>
-		  <xf:delete nodeset="." at="1" if="count(//Value) > 1"   ev:event="DOMActivate" />
-		</xf:trigger>
+	  <xf:trigger  class="linebutton iconbutton">
+		  	<xf:label>
+				<img src="img/cross.svg" alt="delete goal" />
+			</xf:label>
+		  	<xf:delete ref="."  ev:event="DOMActivate" />
+		  </xf:trigger>
 		<xf:trigger ref=".[preceding-sibling::Value]" class="iconbutton" >
 		  <xf:label>
 		    <img src="img/up.svg" />
@@ -367,7 +325,7 @@
 	    <fieldset class="org-add-button">
 	      <xf:trigger class="default-button">
 		<xf:label>
-		  <span class="nopaddingtext" ><xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" /></span>
+		 <img src="img/add-white-icon.svg"   class="button-icon" />
 		  <xf:output ref="instance('messages')/message[key/text()='value']/value" class="nopaddingtext"/>
 		</xf:label>
 		<!-- TODO : Review last -->

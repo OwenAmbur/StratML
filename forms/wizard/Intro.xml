@@ -34,7 +34,6 @@
     <link rel="stylesheet" type="text/css"  href="css/position-style.css" />
     <link rel="stylesheet" type="text/css"  href="css/format-style.css" />
     <xf:model>
-
       <xf:submission id="change-language" replace="instance"
 		   instance="messages" method="get"
 		   serialization="none" >
@@ -60,8 +59,9 @@
 		</h1>    
 		<div id="subheader"> 
 		  <div id="breadcrumb">
-		    <a href="http://stratml.us">..</a> &gt; <a href="Intro">StratML Forms</a> &gt; <a name="breadcrumb">Intro</a>  
+		    <a href="http://stratml.us">..</a> &gt; <a href="Intro.xml">StratML Forms</a> &gt; <a name="breadcrumb">Intro</a>  
 		  </div>
+		  	  <div id="confifurationoptions" >
 		  <xf:select1 ref="instance('config')/file"  id="lang-selector">
 		    <xf:label class="subheader">
 		      <xf:output ref="instance('messages')/message[key/text()='language']/value/text()"/>	  
@@ -81,9 +81,10 @@
 		      <xf:send submission="change-language"/>
 		    </xf:action>
 		  </xf:select1>      
-		  <a href="doc/documentation.html" target="blank" class="button-icon">
+		  <a href="doc/documentation.html" target="blank" >
 		    <img src="img/documentation-icon.svg" alt="documentation" />
 		  </a>
+		  </div>
 		</div>
       </header>
       <main>	

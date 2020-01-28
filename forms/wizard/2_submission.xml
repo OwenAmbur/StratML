@@ -73,8 +73,7 @@
 	    <xf:case id="false"   >
 	      <xf:trigger   class="default-button">
 		<xf:label  >
-		
-		  <xf:output ref="instance('messages')/message[key/text()='add']/value" class="nopaddingtext" />
+		  <img src="img/add-white-icon.svg"   class="button-icon" />
 		  <xf:output ref="instance('messages')/message[key/text()='plan-source']/value" class="opaddingtext"/>
 		</xf:label>
 		<xf:action ev:event="DOMActivate">		        	

@@ -121,6 +121,12 @@
 				      <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
 				      <xf:input ref="Identifier"/>
 				    </xf:label>
+				    <xf:trigger  class="linebutton iconbutton">
+					  	<xf:label>
+							<img src="img/cross.svg" alt="delete Stakeholder" />
+						</xf:label>
+					  	<xf:delete ref="."  ev:event="DOMActivate" />
+					  </xf:trigger>
 				  </div>
 				  <!--
 				      <div class="line subsection">
@@ -327,6 +333,12 @@ Description
 					      <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
 					      <xf:input ref="Name"/>
 					    </xf:label>
+					    <xf:trigger  class="linebutton iconbutton">
+						  	<xf:label>
+								<img src="img/cross.svg" alt="delete Relationship" />
+							</xf:label>
+						  	<xf:delete ref="."  ev:event="DOMActivate" />
+						  </xf:trigger>
 					  </div>
 
 					  <div class="line">

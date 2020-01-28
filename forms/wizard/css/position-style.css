@@ -352,6 +352,9 @@ div.line .nopaddingtext {
     display:inline;
     padding:0;
     padding-right:0.5em;
+    padding-left:0.5em;
+    padding-bottom:2px;
+    
     margin:auto;
     vertical-align:middle;
 }

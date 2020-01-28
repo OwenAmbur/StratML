@@ -123,11 +123,11 @@
 							<li>
 								<img class="0-mainform-list-icon"
 									src="img/plan-blue-icon.svg" />
-								Load a local plan:
+								Load a local plan: 1
 							</li>
 							<form action="{instance('config')/local-plan-path/text()}" method="post"
 								enctype="multipart/form-data">
-								<input type='file' name='f' accept='.xml' />
+								<input type='file' name='doc' accept='.xml' />
 								<input type='submit' value='Import' />
 							</form>
 						</ol>

@@ -183,3 +183,26 @@ mainform-list a {
 	
 color:#172e49;
 }
+
+
+
+/************************Results Table *************************/ 
+
+table.results th {
+	background-color: #c0c0d0 ;
+	color:#172e49 ; 
+}
+
+table.results td {
+	color:#172e49 ; 
+}
+
+table.results tr:nth-child(odd) {
+	
+}
+
+table.results tr:nth-child(odd) {
+	background-color: #f8f8f8;
+}
+
+	

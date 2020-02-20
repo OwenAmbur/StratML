@@ -363,8 +363,11 @@ Count = <xf:output value="count(//node()[not(is-valid(.))])"/> <br/>
 		</table>
 		
 		<p><div class="intro">
-	This form provides an easy way to convert strategic plans into performance plans and reports by documenting stakeholder roles and performance indicators for each objective. Click the "Plain XML" button at the bottom of the form and then save the file on your hard drive in plain XML tagged format. Click the "With Style" button to save it in a more attractive presentation format but you will also need to download and place the <a href="../forms/part2stratml.xsl">stylesheet</a> in the same directory. When you have saved the file, you can either reimport it into this form for further editing or use <a href="https://en.wikipedia.org/wiki/Comparison_of_XML_editors">any other XML editor</a>. When you're ready to share it with others, post it on the Web. If you'd like to have it indexed in the StratML collection, send the URL to <a href="mailto:Owen.Ambur@verizon.net">Owen Ambur</a>.
-		<br/>
+This XML Form (XForm) provides an easy  way to create Part 2 StratML files or convert Part 1 files into the Part 2 format.<br/>		This form provides an easy way to convert strategic plans into performance plans and reports by documenting stakeholder roles and performance indicators for each objective. Click the "Plain XML" button at the bottom of the form and then save the file on your hard drive in plain XML tagged format. Click the "With Style" button to save it in a more attractive presentation format but you will also need to download and place the <a href="../forms/part2stratml.xsl">stylesheet</a> in the same directory. When you have saved the file, you can either reimport it into this form for further editing or use <a href="https://en.wikipedia.org/wiki/Comparison_of_XML_editors">any other XML editor</a>. When you're ready to share it with others, post it on the Web. If you'd like to have it indexed in the StratML collection, send the URL to <a href="mailto:Owen.Ambur@verizon.net">Owen Ambur</a>.
+                Part 2 files (which will be available at <a href="http://legisworks.org/StratML/XML">legisworks.org/StratML/XML</a> can be re-imported into this form.<br/>	
+		Save the XML file you create here to your hard drive for further editing with your XML editor.<br/>	
+The XML and XML+XSL buttons will also store the latest version of the StratML file at <a href="http://legisworks.org/StratML/XML">legisworks.org/StratML/XML</a> using <br/>the Plan's Name and Organization/Identifier in the file.<br/>	
+Part 2 files stored locally or stored outside of legisworks.org cannot be imported at this time.		<br/>
 		</div></p>
 		
 		</td></tr>

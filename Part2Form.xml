@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- ................................................
-	Remember to point to the right Xslt Forms distribution folder 
-	in the line below. Usually xsltforms/xsltforms.xsl	
-	Xslt Forms is mantained by Alain Couthures (Agence Xml).
-..................................................-->
-<?xml-stylesheet href="lib/xsltforms/1.3-652/xsltforms.xsl" type="text/xsl"?>
+<?xml-stylesheet href="/lib/xsltforms/1.3-652/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:xf="http://www.w3.org/2002/xforms"
@@ -21,13 +16,14 @@
 
 <meta name="DC.title" content="StratML Part 1 to Part 2 Conversion XForm"/>
 <meta name="title" content="Strategic Plan (StratML Part 2) XForm" />
-<meta name="DC.subject" scheme="DCTERMS.LCSH" content="Strategic Plans, StratML Part 2, StratML, XForms, XSLTForms" />
+<meta name="DC.subject" scheme="DCTERMS.LCSH" content="Strategic Plans, StratML Part 2, StratML, XForms, XSLTForms, Performance Plans, Performance Reports" />
 <meta name="DC.contributor" content="Joe Carmel"/>
 <meta name="DC.contributor" content="Owen Ambur"/>
 <meta name="DC.contributor" content="Andre Cusson (hyperbase.com)"/>
 <meta name="DC.contributor" content="Alain Couthures (agencexml.com)"/>
 <meta name="DC.contributor" content="Gannon J. Dick (rustprivacy.org)"/>
 <meta name="DC.contributor" content="Colin Mackenzie (mackenziesolutions.co.uk)"/>
+<meta name="DC.contributor" content="Ibrahim Shah"/>
 <meta name="DC.rights" content="Public domain"/>
 <meta name="DC.rights.accessRights" content="public" />
 <meta name="DC.format.medium" scheme="DCTERMS.IMT" content="text/xml" /> 
@@ -35,8 +31,8 @@
 <meta name="DC.identifier" scheme="DCTERMS.URI" content="http://www.legisworks.org/StratML/" />
 <meta name="DC.language" scheme="DCTERMS.RFC3066" content="en-US" /> 
 <meta http-equiv="Content-Language" content="en-US" />
-<meta name="keywords" content="Strategic Plans, StratML, XForms, XSTForms" />
-<meta name="DC.date" content="2015-09-01"/>
+<meta name="keywords" content="Strategic Plans, StratML, XForms, XSTForms, Performance Plans, Performance Reports" />
+<meta name="DC.date" content="2020-01-07"/>
 
 <style type="text/css">
 hr {height: 5px; width: 22%; color: red; background-color: red; }
@@ -76,7 +72,7 @@ td {vertical-align: top;}
 
 <xf:model>
 	<xf:instance xmlns="">
-	<PerformancePlanOrReport Type="Strategic_Plan">
+	<PerformancePlanOrReport Type="Performance_Plan">
 	<id></id>
 	<Name>Plan Name Goes Here</Name>
 	<Description></Description>
@@ -156,7 +152,7 @@ td {vertical-align: top;}
                     </Relationship>
                     <MeasurementInstance>
                               <TargetResult>
-                                 <Description>[To be described]</Description>
+                                 <Description></Description>
                                  <Descriptor>
                                  	<DescriptorName> </DescriptorName>
                                  	<DescriptorValue> </DescriptorValue>
@@ -174,8 +170,7 @@ td {vertical-align: top;}
                                  <NumberOfUnits></NumberOfUnits>
                                  <StartDate/>
                                  <EndDate/>
-</ActualResult>
-
+                              </ActualResult>
                       </MeasurementInstance>
                     <OtherInformation></OtherInformation>
                 </PerformanceIndicator>
@@ -219,25 +214,23 @@ td {vertical-align: top;}
 <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Name" required="false()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="false()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name" required="false()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="false()"  type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name"  type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name" required="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name" required="false()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name" required="false()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier" readonly="true()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier" readonly="false()" type="xsd:string"/>
 
-<xf:bind nodeset="StrategicPlanCore/Organization/Identifier" readonly="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Vision/Identifier" readonly="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Mission/Identifier" readonly="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Identifier" readonly="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Identifier" readonly="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier" readonly="true()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Organization/Identifier" readonly="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Vision/Identifier" readonly="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Mission/Identifier" readonly="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Identifier" readonly="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Identifier" readonly="false()" type="xsd:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier" readonly="false()" type="xsd:string"/>
 
-
-<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name" required="false()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Name" required="true()" type="xsd:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Description" required="true()" type="xsd:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Description" required="true()" type="xf:string"/>
-<xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorName"  type="xf:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Description" required="false()" type="xf:string"/>
+<xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorName"  type="xf:string" />
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorValue" type="xf:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorName"  type="xf:string"/>
 <xf:bind nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorValue" type="xf:string"/>
@@ -253,13 +246,13 @@ td {vertical-align: top;}
 
 
 
-<xf:submission id="s01" method="post" show="new" replace="all" action="/cgi-bin/txs.php?exec=beautify.txs">
+<xf:submission id="s01" method="post" show="new" replace="all" action="/forms/txs.php?exec=beautify.txs">
 	<xf:message level="modeless" ev:event="xforms-submit-error">Submit error.</xf:message>				
 </xf:submission>
 
 
 
-<xf:submission id="s02" show="new" method="post" action="http://stratml.us/forms/showpart2xml.pl">
+<xf:submission id="s02" show="new" method="post" action="showpart2xml.pl">
 
 <xf:action ev:event="xforms-submit-error">
   <xf:message level="modeless">Entry Submission Error - Count reflects all paths to same element. There are less errors to fix than those shown.<br/>
@@ -277,18 +270,10 @@ Count = <xf:output value="count(//node()[not(is-valid(.))])"/> <br/>
 
 
 
-<xf:submission id="s03" show="new" method="post" action="http://stratml.us/forms/showpart2post1.pl">
+<xf:submission id="s03" show="new" method="post" action="showpart2post1.pl">
 <xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
 
 </xf:submission>
-
-
-<xf:submission id="scomment" show="new" method="post" action="http://stratml.us/forms/showpart2postcomment.pl">
-<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
-</xf:submission>
-
-
-
 
 
 <xf:submission id="gannon" show="new" method="post" action="../cgi-bin/gannon.pl">
@@ -337,33 +322,42 @@ Count = <xf:output value="count(//node()[not(is-valid(.))])"/> <br/>
 	<!-- StratML banner -->
 	<table border="0">
 		<tr valign="top">
-		<td valign="top" align="left"><img width="120px" src="Plan_H.jpg" alt="StratML logo"/></td>
-		<td valign="top" align="left"><div class="logo">StratML Part 1 to Part 2 XForm <font size="1"><br/></font>
-			<span class="definition"><b>Sharing organizational strategies and directions</b>
+		<td valign="top" align="left"><img width="120px" src="http://stratml.us/forms/Plan_H.jpg" alt="StratML logo"/></td>
+		<td valign="top" align="left"><div class="logo">Performance Plan/Report Form <font size="1"><br/></font>
+
+			<span class="definition"><b>Sharing organizational goals, objectives, and performance indicators</b>
 </span></div>
 
 		<table width="100%">
 			<tr align="center">
 			<!-- <td><span class="button"><b><a href="http://www.aiim.org/documents/StratML_Schemas/PerformancePlanOrReport.xsd">Part 2.1 Schema</a>  </b></span></td> -->
-			<td> <span class="button"><b><a href="http://legisworks.org/StratML/catalog.html" target="_blank">Catalog </a>  </b></span></td>
+			
+			<!-- <td> <span class="button"><b><a href="http://legisworks.org/StratML/catalog.html" target="_blank">Catalog </a>  </b></span></td> -->
 
-			<td><span class="button"><b>URLS to try: <a href="http://stratml.us/StratMLSiteMap.xml" target="_blank">Part 1</a> or <a href="http://legisworks.org/StratML/XML">Part 2</a> </b></span></td>
+			<!-- <td><span class="button"><b>URLS to try: <a href="http://stratml.us/StratMLSiteMap.xml" target="_blank">Part 1</a> or <a href="http://legisworks.org/StratML/XML">Part 2</a> </b></span></td> -->
 
 			<!-- td><span class="button"><b><a href="http://xml.fido.gov/stratml/drybridge/urls.xml" target="_blank">URLs to try</a>  </b></span></td>
 			<td><span class="button"><b><a href="http://stratml.us/StratMLSiteMap.xml" target="_blank">URLs to try</a>  </b></span></td -->	
 
-			<td><span class="button"><b><a href="http://legisworks.org/StratML/Part1Form.xml" target="_blank">Part 1 Form </a>  </b></span></td>
+			<!-- <td><span class="button"><b><a href="http://legisworks.org/StratML/Part1Form.xml" target="_blank">Part 1 Form </a>  </b></span></td> -->
 
 
-			<td><span class="button"><b><a href="http://stratml.us" target="_blank">StratML.us </a>  </b></span></td>
-			<td><span class="button"><b><a href="http://www.agencexml.com" target="_blank">XSLTForms</a>  </b></span></td>
+			<!-- <td><span class="button"><b><a href="http://stratml.us" target="_blank">StratML.us </a>  </b></span></td> -->
+			<!-- <td><span class="button"><b><a href="http://www.agencexml.com" target="_blank">XSLTForms</a>  </b></span></td> -->
 			<!-- <td><span class="button"><b><a href="http://www.w3.org/TR/xforms/" target="_blank">XForms Spec</a>  </b></span></td> -->
-			<td><span class="button"><b><a href="aboutstratxform.html" target="_blank">About</a> </b></span></td>
+			<!-- <td><span class="button"><b><a href="aboutstratxform.html" target="_blank">About</a> </b></span></td> -->
 			</tr>
 		</table>
-		
+	
 		<p><div class="intro">
-	This form provides an easy way to convert strategic plans into performance plans and reports by documenting stakeholder roles and performance indicators for each objective. Click the "Plain XML" button at the bottom of the form and then save the file on your hard drive in plain XML tagged format. Click the "With Style" button to save it in a more attractive presentation format but you will also need to download and place the <a href="../forms/part2stratml.xsl">stylesheet</a> in the same directory. When you have saved the file, you can either reimport it into this form for further editing or use <a href="https://en.wikipedia.org/wiki/Comparison_of_XML_editors">any other XML editor</a>. When you're ready to share it with others, post it on the Web. If you'd like to have it indexed in the StratML collection, send the URL to <a href="mailto:Owen.Ambur@verizon.net">Owen Ambur</a>.
+		This form provides an easy way to convert strategic plans into performance plans and reports by documenting stakeholder roles and performance indicators for each objective.  Click the XML button at the bottom of the form and then save the file on your hard drive in plain XML format.  Click the XML+XSL button to save it in a more attractive presentation format but you will also need to download and place the <a href="http://stratml.us/forms/part2stratml.xsl">stylesheet</a> in the same directory. When you have saved the file, you can either reimport it into this form for further editing or use any other <a href="https://en.wikipedia.org/wiki/Comparison_of_XML_editors">XML editor</a>.  When you're ready to share it with others, post it on the Web. If you'd like to have it indexed in the <a href="http://stratml.us/drybridge/index.htm">StratML collection</a>, send the URL to <a href="mailto:Owen.Ambur@verizon.net">Owen Ambur</a>. <br/>
+<!--                Part 2 files (which will be available at <a href="http://legisworks.org/StratML/XML">legisworks.org/StratML/XML</a> can be re-imported into this form.<br/>
+-->
+
+<!--
+The XML and XML+XSL buttons will also store the latest version of the StratML file at <a href="http://legisworks.org/StratML/XML">legisworks.org/StratML/XML</a> using <br/>the Plan's Name and Organization/Identifier in the file.<br/>
+-->
+<!-- Part 2 files stored locally or stored outside of legisworks.org cannot be imported at this time. -->
 		<br/>
 		</div></p>
 		
@@ -379,15 +373,15 @@ Count = <xf:output value="count(//node()[not(is-valid(.))])"/> <br/>
 <center>
 <table width="60%" border="1">
 	<tr><td>
-	<form style='border: 0px solid gray; padding: 5px' action='http://stratml.us/forms/walt5.pl'>StratML <b>URL</b>: <input name='url' size='30'/>
+	<form style='border: 0px solid gray; padding: 5px' action='walt5.pl'>StratML <b>URL</b>: <input name='url' size='30'/>
 	<input  style='font-size: 80%'  type='submit' value='Import StratML From URL'/>
 	</form>
 	
 	</td><td>
-	<!-- form style='border: 0px white; padding: 5px' action='http://stratml.us/forms/walt5.pl' method='post' enctype='multipart/form-data' accept='image/*'>
+	<!-- form style='border: 0px white; padding: 5px' action='/forms/walt5.pl' method='post' enctype='multipart/form-data' accept='image/*'>
 	Local StratML <b>File</b>: <input type='file' name='f' accept='image/*'/ -->
 
-	<form style='border: 0px white; padding: 5px' action='http://stratml.us/forms/walt5.pl' method='post' enctype='multipart/form-data'>
+	<form style='border: 0px white; padding: 5px' action='walt5.pl' method='post' enctype='multipart/form-data'>
 	Local StratML <b>File</b>: <input type='file' name='f' accept='.xml'/>
 	<b> </b><input style='font-size: 80%' type='submit' value='Import StratML From File'/></form>
 	</td></tr>
@@ -594,7 +588,7 @@ Plan or Report Type:
                <xf:trigger>
     	       <xf:label>Add Role Type</xf:label>
        	       <xf:action ev:event="DOMActivate">
-		<xf:insert nodeset="." at="1" position="before" />
+		<xf:insert nodeset="." at="1" position="after" />
 		<xf:setvalue ref="."></xf:setvalue>
 	        </xf:action>
 	       </xf:trigger>
@@ -621,7 +615,7 @@ Plan or Report Type:
 	<xf:label>Add Role</xf:label>
        	<xf:action ev:event="DOMActivate">
 		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
+		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
 		        			        	
@@ -651,7 +645,7 @@ Plan or Report Type:
 	<xf:label>Add Stakeholder</xf:label>
        	<xf:action ev:event="DOMActivate">
 		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
+		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
 		        			        	
 		<!--	<xf:insert nodeset="Stakeholder" at="index('orgstakerepeat')" position="after"/>
@@ -684,7 +678,7 @@ Plan or Report Type:
 		<xf:setvalue ref=".[current()]/Acronym"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Identifier"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
-		<xf:setvalue ref=".[current()]/Stakeholder/Name"></xf:setvalue>
+		<xf:setvalue ref=".[current()]/Stakeholder/Name">[To be named]</xf:setvalue>
 		<xf:setvalue ref=".[current()]/Stakeholder/Description"></xf:setvalue>
 	</xf:action>
 </xf:trigger>
@@ -943,7 +937,7 @@ Plan or Report Type:
 	<xf:label>Add Role</xf:label>
        	<xf:action ev:event="DOMActivate">
 		<xf:insert nodeset="." at="1" position="before" />
-		<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
+		<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
 		<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
 		<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
 		        			        	
@@ -1228,14 +1222,11 @@ Plan or Report Type:
 <td/>
 <td>
  <xf:group><xf:repeat id="perfindrepeat" nodeset="PerformanceIndicator" appearance="compact">
+
  <table>
  <tr>
-<td colspan="2"><h3>Performance Indicator <xf:output value="count(./../parent::*/preceding-sibling::Goal) + 1"/>
-. <xf:output value="count(parent::*/preceding-sibling::Objective) + 1"/>
-. <xf:output value="position()"/>  :</h3></td></tr>
- <tr valign="top"><td style="font-weight:bold;">Sequence Indicator: </td>
- <td><xf:input class="Source" ref="SequenceIndicator" /></td>
- </tr>
+ <td colspan="2"><h3>Performance Indicator <xf:output value="position()"/>:</h3></td></tr>
+
  <tr valign="top"><td style="font-weight:bold;">Indicator Type: </td>
  <td><xf:select1 class="Source" ref="@PerformanceIndicatorType" appearance="minimal">
  <xf:label/>
@@ -1278,6 +1269,13 @@ Plan or Report Type:
  </td>
  <td><xf:input class="Source" ref="Identifier"><xf:label/></xf:input></td>
 </tr>
+
+<tr><td><b>Sequence Indicator: </b> </td><td>
+<xf:input class="SequenceIndicator" ref="SequenceIndicator">
+        <xf:label></xf:label>
+</xf:input>
+</td></tr>
+
 
 <tr valign="top">
  <td style="font-weight:bold;">Measurement Dimension:</td>
@@ -1365,7 +1363,7 @@ Unit Of Measurement:
 			 		<table>
 			     	         <tr ColSpan="2" valign="top">
 			                    <td ><b>Referent Identifier<xf:output value="position()"/>: </b></td>
-			                    <td ><xf:input class="Source" ref="//StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier"><xf:label/></xf:input></td>
+			                    <td ><xf:input class="Source" ref="."><xf:label/></xf:input></td>
 			                 </tr>
 			
 			                 <tr ColSpan="2">
@@ -1379,7 +1377,7 @@ Unit Of Measurement:
 			    	       <xf:label>Add Referent </xf:label>
 			       	       <xf:action ev:event="DOMActivate">
 					<xf:insert nodeset="." at="1" position="before" />
-					<xf:setvalue ref="."></xf:setvalue>
+					<xf:setvalue ref=".">[To_be_inserted_by_user]</xf:setvalue>
 				        </xf:action>
 				       </xf:trigger>
 				       </td>
@@ -1421,10 +1419,11 @@ Unit Of Measurement:
 		<xf:label>Add Relationship</xf:label>
 		<xf:action ev:event="DOMActivate">
 			<xf:insert nodeset="." at="1" position="before"/>
-                       	<xf:setvalue ref=".[current()]/@RelationshipType"/>
-                        <xf:setvalue ref=".[current()]/Name"/>
-                        <xf:setvalue ref=".[current()]/Description"/>
+                       	<xf:setvalue ref=".[current()]/@RelationshipType"></xf:setvalue>
+                        <xf:setvalue ref=".[current()]/Name"></xf:setvalue>
+                        <xf:setvalue ref=".[current()]/Description"></xf:setvalue>
                         <xf:setvalue ref=".[current()]/Identifier"></xf:setvalue>
+                        <xf:setvalue ref=".[current()]/ReferentIdentifier">[To_be_inserted_by_user]</xf:setvalue>
                   </xf:action>
 		</xf:trigger>
 
@@ -1484,7 +1483,7 @@ Unit Of Measurement:
  </td>
  </tr>
 
- 
+
 
 <tr>
  <td style="font-weight:bold;">Descriptor Value </td>
@@ -1584,7 +1583,6 @@ Unit Of Measurement:
  </xf:input>
  </td>
  </tr>
-
  <tr>
   <td style="font-weight:bold;">Descriptor Value </td>
   <td>
@@ -1736,17 +1734,18 @@ Unit Of Measurement:
                                                                      <xf:action ev:event="DOMActivate">
                                                                         <xf:insert nodeset="." at="1" position="before"/>
                                                                         <xf:setvalue ref=".[current()]/Identifier"/>
+                                                                        <xf:setvalue ref=".[current()]/SequenceIndicator"/>
                                                                         <xf:setvalue ref=".[current()]/MeasurementDimension"/>
                                                                         <xf:setvalue ref=".[current()]/UnitOfMeasurement"/>
                                                                         <xf:setvalue ref=".[current()]/OtherInformation"/>
                                                                         <xf:setvalue ref=".[current()]/MeasurementInstance/TargetResult/NumberOfUnits"></xf:setvalue>
-                                                                        <xf:setvalue ref=".[current()]/MeasurementInstance/TargetResult/Description">[To be described]</xf:setvalue>
+                                                                        <xf:setvalue ref=".[current()]/MeasurementInstance/TargetResult/Description"></xf:setvalue>
                                                                         <xf:setvalue ref=".[current()]/MeasurementInstance/TargetResult/Descriptor/DescriptorName"/>
                                                                         <xf:setvalue ref=".[current()]/MeasurementInstance/TargetResult/Descriptor/DescriptorValue"/>
                                                                         <xf:setvalue ref=".[current()]/MeasurementInstance/TargetResult/StartDate"/>
                                                                         <xf:setvalue ref=".[current()]/MeasurementInstance/TargetResult/EndDate"/>
                                                                         <xf:setvalue ref=".[current()]/MeasurementInstance/ActualResult/NumberOfUnits"></xf:setvalue>
-                                                                        <xf:setvalue ref=".[current()]/MeasurementInstance/ActualResult/Description">[To be determined]</xf:setvalue>
+                                                                        <xf:setvalue ref=".[current()]/MeasurementInstance/ActualResult/Description"></xf:setvalue>
                                                                          <xf:setvalue ref=".[current()]/MeasurementInstance/ActualResult/Descriptor/DescriptorName"/>
                                                                         <xf:setvalue ref=".[current()]/MeasurementInstance/ActualResult/Descriptor/DescriptorValue"/>
                                                                         <xf:setvalue ref=".[current()]/MeasurementInstance/ActualResult/StartDate"/>
@@ -1892,15 +1891,11 @@ Unit Of Measurement:
 </xf:submit> -->
 
 <xf:submit submission="s02">
-  <xf:label>Plain XML</xf:label>
+	<xf:label>XML</xf:label>
 </xf:submit>
 <xf:submit submission="s03">
-	<xf:label>With Style</xf:label>
+	<xf:label>XML+XSL</xf:label>
 </xf:submit>
-<xf:submit submission="scomment">
-	<xf:label>For Comment</xf:label>
-</xf:submit>
-
 
 <!--
 <xf:submit submission="gannon">
@@ -1928,12 +1923,11 @@ Unit Of Measurement:
 <xf:submit submission="catalog-xform">
 	<xf:label>Catalog</xf:label>
 </xf:submit> -->
-<!-- Hidden 2019-04-03 
+<!--
 <xf:trigger>
 	<xf:label>Reset</xf:label>
 	<xf:reset ev:event="DOMActivate"/>
-</xf:trigger>
--->
+</xf:trigger> -->
 </center>
 <p></p>
 </td></tr>

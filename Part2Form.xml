@@ -364,9 +364,7 @@ Count = <xf:output value="count(//node()[not(is-valid(.))])"/> <br/>
 		
 		<p><div class="intro">
 		This XML Form (XForm) provides an easy  way to create Part 2 StratML files or convert Part 1 files into the Part 2 format.<br/>
-                Part 2 files (which will be available at <a 
-href="http://legisworks.org/StratML/XML">legisworks.org/StratML/XML</a> can be re-imported into this form.<br/>
-		Save the XML file you create here to your hard drive for further editing with your XML editor.<br/>
+                Part 2 files (which will be available at <a href="http://legisworks.org/StratML/XML">legisworks.org/StratML/XML</a> can be re-imported into this form.<br/>		Save the XML file you create here to your hard drive for further editing with your XML editor.<br/>
 The XML and XML+XSL buttons will also store the latest version of the StratML file at <a href="http://legisworks.org/StratML/XML">legisworks.org/StratML/XML</a> using <br/>the Plan's Name and Organization/Identifier in the file.<br/>
 Part 2 files stored locally or stored outside of legisworks.org cannot be imported at this time.
 		<br/>

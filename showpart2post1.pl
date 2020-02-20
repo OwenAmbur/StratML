@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use cPanelUserConfig;
-
+use CGI::Carp qw(fatalsToBrowser);
+use CGI qw(:standard);
 use Data::UUID;
 $ug = new Data::UUID; 
 
@@ -11,7 +12,7 @@ $ug = new Data::UUID;
 # print OUT "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
 
-open(OUT,">temp-stratml/temp.xml");
+open(OUT,">temp.xml") or die "Can't create file: $!\n";
 print OUT "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 # print OUT "<?xml-stylesheet type=\"text/xsl\" href=\"Crane-StratML2HTML.xsl\"?>\n";
 print OUT "<?xml-stylesheet type=\"text/xsl\" href=\"part2stratml.xsl\"?>\n";
@@ -130,9 +131,9 @@ if ($posted_information=~m@<Organization>\s*(<Name>[^<]*?</Name>|<Name/>)\s*(<Ac
 
 		print "Content-type: text/html\n\n";	
 		print "<html><head>";
-		print "  <meta http-equiv=\"Refresh\" content=\"0; url=../temp-stratml/temp.xml\">\n";
+		print "  <meta http-equiv=\"Refresh\" content=\"0; url=temp.xml\">\n";
 		print "</head><body>";
-		print "  <p>Please follow <a href=\"../temp-stratml/temp.xml\">link</a>!</p>\n";
+		print "  <p>Please follow <a href=\"temp.xml\">link</a>!</p>\n";
 		print "</body></html>\n";
 		exit;
 
@@ -161,8 +162,8 @@ $l=gmtime();
 $uuid1= lc($ug->create_str());
 
 # 2015/09/14 - to not uuid relationship/identifiers.  remover if/when identifier changes names
-$posted_information=~s|<Relationship>(\s*)<Identifier>|<Relationship>\1<Identifier8>|g;
-$posted_information=~s|<Relationship RelationshipType="">(\s*)<Identifier>|<Relationship>\1<Identifier8>|g;
+# $posted_information=~s|<Relationship>(\s*)<Identifier>|<Relationship>\1<Identifier8>|g;
+# $posted_information=~s|<Relationship RelationshipType="">(\s*)<Identifier>|<Relationship>\1<Identifier8>|g;
 
 # $posted_information=~s|<Relationship>(\s*)<Identifier/>|<Relationship>\1<Identifier8/>|g;
 # $posted_information=~s|<Relationship RelationshipType="">(\s*)<Identifier/>|<Relationship>\1<Identifier8/>|g;

@@ -9,6 +9,7 @@
 <message><key>browse-plan</key><value>Browse an existent plan</value></message>
 
 <message><key>cancel</key><value>Cancel</value></message>
+
 <message><key>close</key><value>Close</value></message>
 
 <message><key>descriptor-name</key><value>Descriptor Name</value></message>
@@ -110,17 +111,10 @@
 <message><key>performer</key><value>Performer</value></message>
 <message><key>beneficiary</key><value>Performer</value></message>
 
-
-<message><key>performer</key><value>Performer</value></message>
-<message><key>performer</key><value>Performer</value></message>
-
 <message><key>remove</key><value>Remove </value></message>
 <message><key>add</key><value>Add </value></message>
 
-
-
 <message><key>save</key><value>Save</value></message>
-
 
 <message><key>stakeholder</key><value>Stakeholder</value></message>
 <message><key>stakeholders</key><value>Stakeholders</value></message>
@@ -132,7 +126,6 @@
 
 <message><key>switch-performance</key><value>Switch to Performance</value></message>
 <message><key>switch-strategic</key><value>Switch to Strategy</value></message>
-
 
 <message><key>sequence-indicator</key><value>Sequence Indicator</value></message>
 <message><key>seq-indicator</key><value>Seq. Indicator</value></message>
@@ -156,7 +149,6 @@
 
 </message>
 
-
 <message><key>goal</key><value>Goal</value></message>
 <message><key>goal-name</key><value>Goal Name</value></message>
 <message><key>goals</key><value>Goals</value></message>
@@ -165,9 +157,6 @@
 <message><key>goal-identifier</key><value>Goal Identifier</value></message>
 <message><key>goal-of</key><value> of Goal</value></message>
 
-<message><key>goal-of</key><value> of Goal</value></message>
-<!-- Pendiente pasar a castellano -->
-<message><key>sequence-indicator</key><value>Sequence Indicator</value></message>
 
 <message><key>measurement-dimension</key><value>Measurement Dimension</value></message>
 <message><key>measurement-unit</key><value>Unit of measurement</value></message>

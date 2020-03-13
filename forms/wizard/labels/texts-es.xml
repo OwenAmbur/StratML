@@ -12,6 +12,7 @@
   <message><key>create-performance-plan</key>
   <value>Crear un plan de rendimiento</value></message> 
   <message><key>modify-plan</key><value>Modificar un plan existente</value></message>  
+    <message><key>modify-plan-options</key><value>Otras opciones de carga</value></message>  
   <message><key>browse-documentation</key><value>Consultar la documentación de StratML</value></message>  
   <message><key>steps-strategy</key><value>Sigue estos pasos para crear un plan estrategico</value></message>  
   <message><key>steps-performance</key><value>Sigue estos pasos para crear un plan de rendimiento</value></message>  

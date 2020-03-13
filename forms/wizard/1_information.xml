@@ -46,7 +46,7 @@
 					<b>
 						<xf:output ref="instance('messages')/message[key/text()='plan-name']/value" />
 					</b>
-					<xf:input class="Source midinput" ref="Name">
+					<xf:input class="Source midinput" ref="*:Name">
 					</xf:input>
 				</xf:label>
 				<xf:label class="lineitem">
@@ -88,13 +88,13 @@
 							ref="instance('messages')/message[key/text()='plan-start-date']/value" />
 					</b>
 
-					<xf:input class="Source"
+					<xf:input class="*:Source"
 						ref="AdministrativeInformation/StartDate" />
 				</xf:label>
 				<xf:label class="lineitem">
 					<xf:output
 						ref="instance('messages')/message[key/text()='plan-end-date']/value" />
-					<xf:input ref="AdministrativeInformation/EndDate" />
+					<xf:input ref="*:AdministrativeInformation/*:EndDate" />
 				</xf:label>
 			</div>
 
@@ -103,7 +103,7 @@
 					<xf:output
 						ref="instance('messages')/message[key/text()='plan-description']/value/text()" />
 					<xf:textarea rows="6" class="textareabig"
-						ref="Description" />
+						ref="*:Description" />
 				</xf:label>
 			</div>
 		</main>

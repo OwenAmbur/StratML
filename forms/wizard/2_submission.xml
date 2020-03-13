@@ -58,10 +58,10 @@
       <div class="section">
 	<div class="line">
 	  <xf:label class="lineitem"> <xf:output ref="instance('messages')/message[key/text()='plan-publication-date']/value"/>
-	  <xf:input ref="AdministrativeInformation/PublicationDate">
+	  <xf:input ref="*:AdministrativeInformation/*:PublicationDate">
 	  </xf:input>
 	  </xf:label>
-	  <xf:input ref="AdministrativeInformation/Source" id="plansource" class="lineitem">
+	  <xf:input ref="*:AdministrativeInformation/*:Source" id="plansource" class="lineitem">
 	    <xf:label>
 	      <xf:output ref="instance('messages')/message[key/text()='plan-source']/value"/>
 	    </xf:label>
@@ -99,21 +99,21 @@
 	<div class="line" >
 	  <xf:label class="lineitem firstitem" >
 	    <xf:output ref="instance('messages')/message[key/text()='given-name']/value"/>
-	    <xf:input class="name" ref="Submitter/GivenName" />
+	    <xf:input class="name" ref="*:Submitter/*:GivenName" />
 	  </xf:label>
 	  <xf:label class="lineitem">
 	    <xf:output ref="instance('messages')/message[key/text()='surname']/value"/> 
-	    <xf:input class="name" ref="Submitter/Surname"/>
+	    <xf:input class="name" ref="*:Submitter/*:Surname"/>
   	  </xf:label>
 	</div>
 	<div class="line" >
 	  <xf:label  class="lineitem firstitem">
 	    <xf:output ref="instance('messages')/message[key/text()='email-address']/value" />	  
-	    <xf:input class="email" ref="Submitter/EmailAddress" />
+	    <xf:input class="email" ref="*:Submitter/*:EmailAddress" />
 	  </xf:label>
 	  <xf:label  class="lineitem">
 	    <xf:output ref="instance('messages')/message[key/text()='telephone-number']/value"/>
-	    <xf:input ref="Submitter/PhoneNumber" />
+	    <xf:input ref="*:Submitter/*:PhoneNumber" />
 	  </xf:label>
 	</div>
       </div>

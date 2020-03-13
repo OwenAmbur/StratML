@@ -90,22 +90,22 @@
 						<p><xf:output ref="instance('texts')/message[key/text()='steps-load']/value/text()" />:</p>
 						<ol class="mainform-list">
 							<li>
-								<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
-									Load a plan from the repository (ej: /rest/data/testfile2.xml ):
-								<!-- Usual stratml action action='http://stratml.us/forms/walt5.pl' -->
-								<form action="{instance('config')//plan-load-path/text()}"  method="GET" >
-									<input name='doc'  />
-									<input name="repository"  value="true" type="hidden"/>
-									<input type='submit' value='Import' />
-								</form>
-							</li>
-							<li>
 								<img class="0-mainform-list-icon"
 									src="img/plan-blue-icon.svg" />
 								<a href="{instance('config')/browse-path/text()}" >
 								Browse repository plans:
 								</a>
 								<!-- <xf:output ref="instance('messages')/message[key/text()='submission-information']/value/text()"/> -->
+							</li>
+							<li>
+								<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
+									Load a plan from the repository (ej: /stratmlapp/rest/data/testfile2.xml ):
+								<!-- Usual stratml action action='http://stratml.us/forms/walt5.pl' -->
+								<form action="{instance('config')//plan-load-path/text()}"  method="GET" >
+									<input name='doc'  />
+									<input name="repository"  value="true" type="hidden"/>
+									<input type='submit' value='Import' />
+								</form>
 							</li>
 							<!--  Tests Pending
 							<li>
@@ -120,16 +120,18 @@
 								</form>					
 							</li>
 							-->
+							<!-- 
 							<li>
 								<img class="0-mainform-list-icon"
 									src="img/plan-blue-icon.svg" />
-								Load a local plan: 1
-							</li>
+								Load a local plan: 
 							<form action="{instance('config')/local-plan-path/text()}" method="post"
 								enctype="multipart/form-data">
 								<input type='file' name='doc' accept='.xml' />
 								<input type='submit' value='Import' />
 							</form>
+							</li>
+							 -->
 						</ol>
 					</div>
 				</main>

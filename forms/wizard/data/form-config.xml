@@ -4,11 +4,11 @@
   <subform>dos</subform>
   <identifier></identifier>
   <source></source>
-  <path>http://localhost:8984</path>
-  <sourcedocument>http://localhost:8984/rest/data/template.xml</sourcedocument>
-  <filename>/webdav/data/testfile.xml</filename>
+  <path></path>
+  <sourcedocument>../rest/data/template.xml</sourcedocument>
+  <filename>../rest/data/testfile.xml</filename>
   <page>0</page>
-  <plan-load-path>http://localhost:8984/static/loadplan.htm</plan-load-path>
-  <local-plan-path>http://localhost:8984/static/localplan.htm</local-plan-path>
-  <browse-path>http://localhost:8984/static/browse.htm</browse-path>
+  <plan-load-path>loadplan.htm</plan-load-path>
+  <local-plan-path>localplan.htm</local-plan-path>
+  <browse-path>browse.htm</browse-path>
 </data>

@@ -14,6 +14,7 @@
   <message><key>create-performance-plan</key><value>
   Create a performance plan</value></message> 
   <message><key>modify-plan</key><value>Modify an existing plan</value></message>  
+  <message><key>modify-plan-options</key><value>Other load options</value></message>  
   <message><key>browse-documentation</key><value>Learn more about StratML</value></message>  
   <message><key>steps-strategy</key><value>Follow this steps to create a strategy plan</value></message>  
   <message><key>steps-performance</key><value>Follow these steps to create a performance plan</value></message>  

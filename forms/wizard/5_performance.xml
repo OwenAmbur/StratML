@@ -61,7 +61,7 @@
     </header>
     -->
     <main class="performancepage">
-      <xf:repeat ref="/PerformancePlanOrReport/StrategicPlanCore/Goal">
+      <xf:repeat ref="/*:PerformancePlanOrReport/*:StrategicPlanCore/*:Goal">
         <!-- ................. Goal Resume ...................... -->
 	<xf:switch >
 	  <xf:case id="goalshow" >
@@ -74,10 +74,10 @@
 	      <img src="img/goal-blue-icon.svg" class="type-icon"  /> 
               <!--<xf:output class="SequenceIndicator nopaddingtext" ref="SequenceIndicator" />-->
               <xf:output ref="instance('messages')/message[key/text()='goal']/value" class="nopaddingtext"  />
-              <xf:output ref="Name" class="nopaddingtext" />
+              <xf:output ref="*:Name" class="nopaddingtext" />
             </h2>
 	    <ol class="subsection" >
-              <xf:repeat id="objectiverepeat" ref="Objective" appearance="compact">
+              <xf:repeat id="objectiverepeat" ref="*:Objective" appearance="compact">
 		<xf:switch >
 		  <xf:case id="objectiveshow" >
 		    <li>
@@ -89,13 +89,13 @@
 			    </xf:label><xf:toggle case="objectivehide" ev:event="DOMActivate" />
 			</xf:trigger>
 			<img src="img/target_blue_icon_3.svg" class="type-icon"  /> 
-			<xf:output ref="sequenceindicator"/>
+			<xf:output ref="*:sequenceindicator"/>
 			<xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
-			<xf:output ref="Name"/>
+			<xf:output ref="*:Name"/>
 		      </h3>
 		      <!-- ........... Performance Indicator ............ -->
 		      <ol class="subsection" >
-			<xf:repeat ref="PerformanceIndicator" appearance="compact">
+			<xf:repeat ref="*:PerformanceIndicator" appearance="compact">
  			  <!-- ......... Switch ......... -->
 			  <xf:switch >
 			    <xf:case id="performanceshow" >
@@ -113,13 +113,13 @@
 				  <div class="line subsection">
 				    <xf:label>
 				      <xf:output ref="instance('messages')/message[key/text()='seq-indicator']/value"/>
-				      <xf:input ref="SequenceIndicator">
+				      <xf:input ref="*:SequenceIndicator">
 					<xf:hint>Please enter Sequence Indicator</xf:hint>
 				      </xf:input>
 				    </xf:label>
 				    <xf:label>
 				      <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
-				      <xf:input ref="Identifier"/>
+				      <xf:input ref="*:Identifier"/>
 				    </xf:label>
 				    <xf:trigger  class="linebutton iconbutton">
 					  	<xf:label>
@@ -139,11 +139,11 @@
 				  <div class="line subsection">
 				    <xf:label>
 				      <xf:output ref="instance('messages')/message[key/text()='dimension']/value"/>
-				      <xf:input ref="MeasurementDimension"/>
+				      <xf:input ref="*:MeasurementDimension"/>
 				    </xf:label>
 				    <xf:label>
 				      <xf:output ref="instance('messages')/message[key/text()='unit']/value"/>
-				      <xf:input ref="UnitOfMeasurement"/>
+				      <xf:input ref="*:UnitOfMeasurement"/>
 				    </xf:label>
 				  </div>
 				  <!-- side section
@@ -192,7 +192,7 @@
 				      </xf:select1>
 				    </xf:label>
 				  </div>
-				  <xf:repeat ref="MeasurementInstance">
+				  <xf:repeat ref="*:MeasurementInstance">
 				    <fieldset>
 				      <div class="line subsection">
 					
@@ -216,10 +216,10 @@
 					  </td>
 					  <td>
 
-					  <xf:input ref="TargetResult/NumberOfUnits"/>
+					  <xf:input ref="*:TargetResult/*:NumberOfUnits"/>
 					 </td>
 					  <td>					   
-					    <xf:input ref="ActualResult/NumberOfUnits"/>
+					    <xf:input ref="*:ActualResult/*:NumberOfUnits"/>
 					  </td>
 					</tr>
 <!-- 
@@ -232,10 +232,10 @@ Description
 					    <xf:output ref="instance('messages')/message[key/text()='start-date']/value"/>
 					  </td>
 					  <td>
-					    <xf:input ref="TargetResult/StartDate"/>
+					    <xf:input ref="*:TargetResult/*:StartDate"/>
 					 </td>
 					  <td>
-					    <xf:input ref="ActualResult/StartDate"/>
+					    <xf:input ref="*:ActualResult/*:StartDate"/>
 					  </td>
 					</tr>
 
@@ -244,10 +244,10 @@ Description
 					    <xf:output ref="instance('messages')/message[key/text()='end-date']/value"/>
 					  </td>
 					  <td>
-					    <xf:input ref="TargetResult/EndDate" />
+					    <xf:input ref="*:TargetResult/*:EndDate" />
 					 </td>
 					  <td>
-					    <xf:input ref="ActualResult/EndDate" />
+					    <xf:input ref="*:ActualResult/*:EndDate" />
 					  </td>
 					</tr>
 
@@ -255,13 +255,13 @@ Description
 					  <td colspan="2">
 					    <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
                         <br/>
-					    <xf:textarea ref="TargetResult/Description"  />
+					    <xf:textarea ref="*:TargetResult/*:Description"  />
 					 </td>
 					  <td>
                         <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
                         <br/>
 					      
-					    <xf:textarea ref="ActualResult/Description" />
+					    <xf:textarea ref="*:ActualResult/*:Description" />
 					  </td>
 					</tr>
 
@@ -318,7 +318,7 @@ Description
 				      </relationship>
 				  -->
 				  <div class="subsection" >
-				    <xf:repeat ref="Relationship">
+				    <xf:repeat ref="*:Relationship">
 				      <div class="section" >
 					<h4>
 					  <xf:output ref="instance('messages')/message[key/text()='relationship']/value"/>
@@ -327,11 +327,11 @@ Description
 					  <div class="line" >
  					    <xf:label>
 					      <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
-					      <xf:input ref="Identifier"/>
+					      <xf:input ref="*:Identifier"/>
 					    </xf:label>
 					    <xf:label>
 					      <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
-					      <xf:input ref="Name"/>
+					      <xf:input ref="*:Name"/>
 					    </xf:label>
 					    <xf:trigger  class="linebutton iconbutton">
 						  	<xf:label>
@@ -364,7 +364,7 @@ Description
 					      <!-- Check with Owen that the relation 
 						   is appropriate 
 					      -->
-					      <xf:input ref="ReferentIdentifier" />
+					      <xf:input ref="*:ReferentIdentifier" />
 					      <!--<xf:itemset nodeset="//PerformanceIndicator">
 						  <xf:label ref="Identifier"></xf:label>
 						  <xf:value ref="Identifier"></xf:value>
@@ -377,7 +377,7 @@ Description
 					  <div class="line">
 					    <xf:label class="lineitem">
 					      <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
-					      <xf:textarea ref="Description"/>
+					      <xf:textarea ref="*:Description"/>
 					    </xf:label>
 					  </div>
 
@@ -395,7 +395,7 @@ Description
 					<xf:insert 
 					    origin="instance('template')//Relationship" 
 					    context="."
-					    ref="Relationship"
+					    ref="*:Relationship"
 					    at="last()" position="after"/>
 				      </xf:action>
 				    </xf:trigger>
@@ -412,8 +412,8 @@ Description
 					</xf:label><xf:toggle case="performanceshow" ev:event="DOMActivate" />
 				    </xf:trigger>
 				    <img src="img/performance-blue-icon.svg" 					 class="type-icon"  /> 			
-				    <xf:output ref="SequenceIndicator" />
-				    <xf:output ref="Identifier"/>
+				    <xf:output ref="*:SequenceIndicator" />
+				    <xf:output ref="*:Identifier"/>
 				  </h4>				<!--Line 1 Seq Indicator Identifier Dimension Units -->
 				</li>
 				<!-- ....... // Switch ........ --></xf:case></xf:switch >
@@ -429,7 +429,7 @@ Description
     </xf:label>
     <xf:action ev:event="DOMActivate">
       <xf:insert origin="instance('template')//PerformanceIndicator" 
-		 context="." ref="PerformanceIndicator" 
+		 context="." ref="*:PerformanceIndicator" 
 		 at="last()" position="after"/>
     </xf:action>
   </xf:trigger>
@@ -444,9 +444,9 @@ Description
 	  </xf:label><xf:toggle case="objectiveshow" ev:event="DOMActivate" />
       </xf:trigger>
       <img src="img/target_blue_icon_3.svg" class="type-icon"  /> 
-      <xf:output ref="sequenceindicator"/>
+      <xf:output ref="*:sequenceindicator"/>
       <xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
-      <xf:output ref="Name"/>
+      <xf:output ref="*:Name"/>
     </h3>
   </li>
 </xf:case>
@@ -476,7 +476,7 @@ Description
     
     <!--<xf:output class="SequenceIndicator nopaddingtext" ref="SequenceIndicator" />-->
     <xf:output ref="instance('messages')/message[key/text()='goal']/value" class="nopaddingtext"  />
-    <xf:output ref="Name" class="nopaddingtext" />
+    <xf:output ref="*:Name" class="nopaddingtext" />
   </h2>
 
 

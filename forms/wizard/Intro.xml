@@ -105,12 +105,21 @@
 			<xf:output ref="instance('texts')/message[key/text()='create-performance-plan']/value/text()"/>
 		      </a>
 		    </li>
+		    
+	 	    <li>
+		      <a href="{instance('config')/browse-path/text()}" >
+		 		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
+				<xf:output ref="instance('texts')/message[key/text()='modify-plan']/value/text()"/>
+	 	      </a>
+		    </li>
 	 	    <li>
 		      <a href="load_plan_modify.xml">
 	 		<img class="0-mainform-list-icon" src="img/plan-blue-icon.svg" />
-			<xf:output ref="instance('texts')/message[key/text()='modify-plan']/value/text()"/>
+			<xf:output ref="instance('texts')/message[key/text()='modify-plan-options']/value/text()"/>
 	 	      </a>
 		    </li>
+		    
+		    
 		    <!-- 
 		    <li>
 		      <a href="load_plan_browse.xml">

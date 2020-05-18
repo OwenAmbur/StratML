@@ -4,7 +4,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw(:standard);
 use IO::Handle;
 use XML::DOM;
-use HTTP::Lite;
+use LWP::Simple;
 use strict;
 
  BEGIN {
@@ -188,43 +188,45 @@ exit;
 
 
 
+
 #######################################
 # GetFileFromURL
 #######################################
 sub GetFileFromURL {
-	my $website=$_[0];
-	my $errorstr=$_[1];
-	my $http = new HTTP::Lite;
-	my $req;
-	if (!($req = $http->request($website))) 
-		{
-		print "Content-type: text/html\n\n";		
-		print "<html><title>".$website." not available aa</title>\n";
-		print "<body>\n";	
-		print "<h2>".$website." is unavailable at this time.</h2>\n";
-		print "<p>Here's a link to the government's URL you requested. <a href=\"".$website."\">".$website."</a>";
-		print "</body></html>";
-		exit;
-		}
-		
-	my $body="";
-	$body = $http->body();
+my $website=$_[0];
+my $errorstr=$_[1];
+my $req;
+if (!($req = get($website)))
+  {
+  print $cgi->header;
+  print "<html><title>".$website." not available</title>\n";
+  print "<body>\n"; 
+  print "<h2>".$website." is unavailable at this time.(1)</h2>\n";
+  #print "<pre>".$_."\n".$http->status_message()."</pre>";
+  print "<p>Here's a link to the government's URL you requested. <a href=\"".$website."\">".$website."</a>";
+  print "</body></html>";
+  exit;
+  }
+  
+my $body=$req;
+#$body = $http->body();
 
-	# Text for availability
-	if ($errorstr && $body=~m|$errorstr|)
-		{
-		print "Content-type: text/html\n\n";		
-		print "<html><title>".$website." not available</title>\n";
-		print "<body>\n";	
-		print "<h2>".$website." is unavailable at this time.</h2>\n";
-		print "<p>Here's a link to the government's URL you requested. <a href=\"".$website."\">".$website."</a>";
-		print "</body></html>";
-		exit;
-		}
+# Text for availability
+if ($errorstr && $body=~m|$errorstr|)
+  {
+  print $cgi->header;
+  print "<html><title>".$website." not available</title>\n";
+  print "<body>\n"; 
+  print "<h2>".$website." is unavailable at this time.(2)</h2>\n";
+  #print "<pre>".$_."\n".$http->status_message()."</pre>";
+  print "<p>Here's a link to the government's URL you requested. <a href=\"".$website."\">".$website."</a>";
+  print "</body></html>";
+  exit;
+  }
 
-	return($body);	
+return($body);  
+
 }
-
 	
 	
 

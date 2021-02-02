@@ -31,7 +31,7 @@
 			<Description></Description>
 			<Identifier />
 			<SequenceIndicator>1</SequenceIndicator>
-			<OtherInformation />
+			<!--  <OtherInformation /> -->
 			<Objective>
 				<Name></Name>
 				<Description />

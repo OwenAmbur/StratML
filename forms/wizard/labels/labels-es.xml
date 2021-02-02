@@ -13,6 +13,8 @@ u   250
 <message><key>acronym</key><value>Acr&#243;nimo</value></message>
 
 <message><key>actual-result</key><value>Resultado obtenido</value></message>
+<message><key>actual-results</key><value>Resultados obtenidos</value></message>
+
 <message><key>back</key><value>Atr&#225;s</value></message>
 
 <message><key>browse-plan</key><value>Ver un plan existente</value></message>
@@ -26,6 +28,7 @@ u   250
 <message><key>goals-objectives</key><value>Metas y Objetivos</value></message>
 
 <message><key>target-result</key><value>Resultado esperado</value></message>
+<message><key>target-results</key><value>Resultados esperados</value></message>
 
 <message><key>expected-result</key><value>Resultado esperado</value></message>
 <message><key>end-date</key><value>Fecha de F/#237;n</value></message>
@@ -74,6 +77,7 @@ u   250
 <message><key>other-information</key><value>Otra informaci&#243;n</value></message>
 
 <message><key>organization</key><value>Organizaci&#243;n</value></message>
+<message><key>organizations</key><value>Organizaciones</value></message>
 <message><key>organization-information</key><value>Informaci&#243;n</value></message>
 <message><key>organization-name</key><value>Nombre</value></message>
 <message><key>organization-description</key><value>Descripci&#243;n</value></message>
@@ -96,6 +100,7 @@ u   250
 <message><key>with-style</key><value>Con estilo</value></message>
 
 <message><key>performance-indicator</key><value>Indicador de rendimiento</value></message>
+<message><key>performance-indicators</key><value>Indicadores de rendimiento</value></message>
 
 
 <message><key>referent</key><value>Referente</value></message>
@@ -106,6 +111,7 @@ u   250
 <message><key>relationship-identifier</key><value>Identificador de la relaci&#243;n</value></message>
 
 <message><key>reload</key><value>Regargar</value></message>
+<message><key>review</key><value>Revisar</value></message>
 
 
 <message><key>role</key><value>Perfil</value></message>
@@ -149,7 +155,8 @@ u   250
 <message><key>mission-description</key><value>Misi&#243;n (Descripci&#243;n)</value></message>
 
 <message><key>number-of-units</key><value>N&#250;mero de unidades</value></message>
-<message><key>descriptor-value</key><value>Descriptor del valor</value></message>
+<message><key>descriptor</key><value>Descriptor</value></message>
+<message><key>descriptor-value</key><value>Descriptor, valor</value></message>
 
 
 <message><key>value</key><value>Valor</value></message>

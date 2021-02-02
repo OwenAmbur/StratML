@@ -46,7 +46,7 @@
     </xf:submission>
     <xf:instance xmlns="" id="texts" src="labels/texts-en.xml" />      
     <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
-    <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
+    <xf:instance xmlns="" id="config" resource="form-config.xml" />
     </xf:model>
   </head>
   <body>
@@ -62,6 +62,12 @@
 		    <a href="http://stratml.us">..</a> &gt; <a href="Intro.xml">StratML Forms</a> &gt; <a name="breadcrumb">Intro</a>  
 		  </div>
 		  	  <div id="confifurationoptions" >
+		  	  <xf:repeat ref=".[instance('config')/browse-path/text()]" class="forceinline">
+			  	 <a href="{instance('config')/browse-path/text()}" target="blank" >
+			    <img src="img/list.svg" alt="Browse Plans" />
+			  </a>
+		  	  </xf:repeat>
+		  	   
 		  <xf:select1 ref="instance('config')/file"  id="lang-selector">
 		    <xf:label class="subheader">
 		      <xf:output ref="instance('messages')/message[key/text()='language']/value/text()"/>	  
@@ -81,6 +87,7 @@
 		      <xf:send submission="change-language"/>
 		    </xf:action>
 		  </xf:select1>      
+		  	   
 		  <a href="doc/documentation.html" target="blank" >
 		    <img src="img/documentation-icon.svg" alt="documentation" />
 		  </a>

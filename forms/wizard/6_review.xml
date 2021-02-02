@@ -9,7 +9,7 @@
       <xf:instance xmlns="" id="default" resource="data/stratml-template.xml"/>
       <xf:instance xmlns="" id="template" resource="data/stratml-template.xml"/>
       <xf:instance xmlns="" id="messages" src="labels/labels-en.xml"/>
-      <xf:instance xmlns="" id="config" resource="data/form-config.xml"/>
+      <xf:instance xmlns="" id="config" resource="form-config.xml"/>
       <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
         <xf:resource value="instance('config')/file/text()"/>
       </xf:submission>
@@ -21,73 +21,72 @@
     <link rel="stylesheet" type="text/css" href="css/format-style.css"/>
   </head>
   <body>
-    <!--
-        <?xsltforms-options css-converson="no"?>
-        <xsl:when test="translate(normalize-space(/processing-instruction('css-c
-	onversion')[1]), 'YESNO ', 'yesno')='no'">
-    -->
-    <header>
-      <h1>
-        <img class="title-logo" width="80px" src="img/performance_logo_white.svg" alt="StratML logo"/>
-        <xf:output ref="instance('messages')/message[key/text()='performance-information']/value"/>
-        <img class="stratml-logo" src="img/stratml_logo_white.svg" alt="StratMLlogo"/>
-      </h1>
-      <div id="subheader">
-        <div id="breadcrumb"> &gt;
-        <a href="0_mainform.xml">Create Plan</a> &gt;
-        <a name="Performance">5. Performance</a>
-        </div>
-        <!-- ..................... lANGUAGE ........................... -->
-        <xf:select1 id="lang-selector" ref="instance('config')/file">
-          <xf:label class="subheader">Language</xf:label>
-          <xf:item>
-            <xf:label>English</xf:label>
-            <xf:value>labels/labels-en.xml/</xf:value>
-          </xf:item>
-          <xf:item>
-            <xf:label>Spanish</xf:label>
-            <xf:value>labels/labels-es.xml</xf:value>
-          </xf:item>
-          <xf:action ev:event="xforms-value-changed">
-            <xf:send submission="change-language"/>
-          </xf:action>
-        </xf:select1>
-        <img id="page-counter" src="img/counter_5.svg" alt="Step 5"/>
-      </div>
-    </header>
     <main >
       <h3>StratML Report Data</h3>
-      <h3>Pending</h3>
-      <!-- 
-	   <ol>
+      <p>You are about to store the plan: <xf:output ref="*:Name" />(<xf:output ref="@Type" />)</p>
+      <!--
+      <xf:repeat ref="*:Description[text()!='']" >
+      <div class="line">
+	<p> 
+	  <xf:output ref="text()" />
+	</p>
+      </div>
+      </xf:repeat>
 
-<xf:repeat ref="instance('default')/*">
-<li>
-
-
-<ol>
-<xf:repeat ref="*">
-<li>
-<xf:output ref="local-name(.)"/>:
-<xf:output ref="text()" />
-<ol>
-
-
-
-
-
-
-
-</ol>
-</li>
-</xf:repeat>
-</ol>
-
-
-</li>
-</xf:repeat>
-</ol>
+      <div class="line" > 
+      	<xf:output ref="instance('messages')/message[key/text()='plan-publication-date']/value" />:
+	<xf:repeat ref="*:AdministrativeInformation/*:PublicationDate[text()!='']" >
+	  <xf:output ref="text()" />,
+	</xf:repeat>
+	<xf:repeat ref="*:Submitter/*:GivenName[text()!='']" >
+	  <xf:output class="name" ref="text()" />
+	</xf:repeat>
+	<xf:repeat ref="*:Submitter/*:Surname[text()!='']" >
+	  <xf:output class="name" ref="text()" />
+	</xf:repeat>
+	<xf:repeat ref="*:Submitter/*:EmailAddress[text()!='']" >
+	  [<xf:output class="email" ref="text()" />]
+	</xf:repeat>
+      </div>
       -->
+
+      <xf:repeat  ref="//*:Organization" >
+	<div class="line" > 
+	  <b><xf:output ref="instance('messages')/message[key/text()='organization']/value" /></b>
+    	  <p>
+    	    <xf:output   ref="*:Name" /> - 
+    	    <xf:output  ref="*:Identifier" /> | <xf:output   ref="*:Acronym" />
+	  </p>
+	  <p>
+	    <xf:output  ref="*:Description" />
+    	  </p>
+	</div>
+      </xf:repeat>
+
+      
+      <div class="line" > 
+	
+	<p>
+	  <label><xf:output ref="instance('messages')/message[key/text()='goals']/value" />:</label> <input type="text" value="{count(//*:Goal)}" class="borderless hiddeninput" />
+	</p>	
+    	<p>
+	  <label><xf:output ref="instance('messages')/message[key/text()='objectives']/value" />:</label> <input type="text" value="{count(//*:Objective)}" class="borderless" />
+	</p>
+    	<p>
+	  <label><xf:output ref="instance('messages')/message[key/text()='performance-indicators']/value" />:</label> <input type="text" value="{count(//*:PerformanceIndicator)}" class="borderless" />
+	</p>
+	<p>
+	  <label><xf:output ref="instance('messages')/message[key/text()='target-results']/value" />:</label> <input type="text" value="{count(//*:TargetResult)}" class="borderless" />
+	</p>
+	<p>
+	  <label><xf:output ref="instance('messages')/message[key/text()='actual-results']/value" />:</label> <input type="text" value="{count(//*:ActualResult)}" class="borderless" />
+	</p>
+	
+    	<p>
+	  <label><xf:output ref="instance('messages')/message[key/text()='stakeholders']/value" />:</label> <input type="text" value="{count(//*:Stakeholder)}" class="borderless" />
+	</p>
+    	
+      </div>
       <!-- ........................ // Goals  ........................... -->
     </main>
   </body>

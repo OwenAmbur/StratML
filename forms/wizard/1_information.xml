@@ -2,111 +2,147 @@
 <?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
 <?css-conversion no ?>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:xf="http://www.w3.org/2002/xforms"
-	xmlns:ev="http://www.w3.org/2001/xml-events"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<head>
+<html
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms"
+    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
 
-		<xf:model>
-			<xf:instance xmlns="" id="default"	resource="data/stratml-template.xml" />
-			<xf:instance xmlns="" id="template" resource="data/stratml-template.xml" />
-			<xf:instance xmlns="" id="messages"  src="labels/labels-en.xml" />
-			<xf:instance xmlns="" id="config" resource="data/form-config.xml" />
-			<xf:submission id="change-language" replace="instance"
-				instance="messages" method="get" serialization="none">
-				<xf:resource
-					value="concat('labels/labels-',instance('config')/file/text(),'.xml')" />
-			</xf:submission>
+    <xf:model>
+      <xf:instance xmlns="" id="default" resource="data/stratml-template.xml" />
+      <xf:instance xmlns="" id="template" resource="data/stratml-template.xml" />
+      <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />
+      <xf:instance xmlns="" id="config" resource="form-config.xml" />
+      <xf:submission id="change-language" replace="instance" instance="messages" method="get"
+		     serialization="none">
+	<xf:resource value="concat('labels/labels-',instance('config')/file/text(),'.xml')" />
+      </xf:submission>
 
-			<xf:submission id="wizard-intro" show="new"
-				method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
-				<xf:message level="modeless"
-					ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
-				</xf:message>
-			</xf:submission>
+      <xf:submission id="wizard-intro" show="new" method="post"
+		     action="./Strat_Part_2_Multilingual_Intro.xml">
+	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
+	</xf:message>
+      </xf:submission>
 
-			<xf:submission id="step-2" method="put"
-				replace="instance" action="temp-data.xml">
-				<xf:message level="modeless"
-					ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
-				</xf:message>
-			</xf:submission>
+      <xf:submission id="step-2" method="put" replace="instance" action="temp-data.xml">
+	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
+	</xf:message>
+      </xf:submission>
 
-		</xf:model>
-		<link rel="stylesheet" type="text/css" href="css/position-style.css" />
-		<link rel="stylesheet" type="text/css" href="css/format-style.css" />
-	</head>
+    </xf:model>
+    <link rel="stylesheet" type="text/css" href="css/position-style.css" />
+    <link rel="stylesheet" type="text/css" href="css/format-style.css" />
+  </head>
 
-	<body>
+  <body>
 
-		<main>
-			<div class="line">
-				<xf:label class="lineitem firstitem">
-					<b>
-						<xf:output ref="instance('messages')/message[key/text()='plan-name']/value" />
-					</b>
-					<xf:input class="Source midinput" ref="*:Name">
-					</xf:input>
-				</xf:label>
-				<xf:label class="lineitem">
-					<xf:output ref="instance('messages')/message[key/text()='plan-report-type']/value" />
-					<xf:output ref="@Type" />
-					<xf:trigger class="green" id="buttonfou1"
-						ref=".[./@Type='Strategic_Plan']">
-						<xf:label>
-							<xf:output
-								ref="instance('messages')/message[key/text()='switch-performance']/value" />
-						</xf:label>
-						<xf:action ev:event="DOMActivate">
-							<xf:insert
-								origin="instance('template')//PerformanceIndicator"
-								context="/PerformancePlanOrReport/StrategicPlanCore/Goal[1]/Objective[1]"
-								ref="PerformanceIndicator" at="1" position="after" />
-							<xf:setvalue ref="@Type" value="'Performance_Plan'" />
-							<xf:dispatch name="counter-performance" targetid="m" />
-						</xf:action>
-					</xf:trigger>
+    <main>
+      <div class="form-area" id="form_1">
+	<!-- ........ Header .............. -->
+	<category-header>
+	  <xf:output ref="instance('messages')/message[key/text()='plan-information']/value" />
+	</category-header>
 
-					<xf:trigger class="green" id="buttonefour" ref=".[./@Type='Performance_Plan']">
-						<xf:label>
-							<xf:output ref="instance('messages')/message[key/text()='switch-strategic']/value" />
-						</xf:label>
-						<xf:action ev:event="DOMActivate">
-							<xf:setvalue ref="@Type" value="'Strategic_Plan'" />
-							<xf:delete ref="//PerformanceIndicator" />
-							<xf:dispatch name="counter-strategy" targetid="m" />
-						</xf:action>
-					</xf:trigger>
-				</xf:label>
-			</div>
+	<!-- 
+	  Element Template
+	  <field>
+	    <xf:label>
+	      <field-label>
 
-			<div class="line">
-				<xf:label class="lineitem firstitem">
-					<b>
-						<xf:output
-							ref="instance('messages')/message[key/text()='plan-start-date']/value" />
-					</b>
+	      </field-label>
+	      <field-control>
 
-					<xf:input class="*:Source"
-						ref="AdministrativeInformation/StartDate" />
-				</xf:label>
-				<xf:label class="lineitem">
-					<xf:output
-						ref="instance('messages')/message[key/text()='plan-end-date']/value" />
-					<xf:input ref="*:AdministrativeInformation/*:EndDate" />
-				</xf:label>
-			</div>
+	      </field-control>
+	    </xf:label>
+	  </field>
+	-->
+	
+	<!-- .......... Line 1.................-->
+	<div class="line">
+	  <field>
+	    <xf:label>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='plan-name']/value" />
+	      </field-label>
+	      <field-control>
+		<xf:input ref="*:Name">
+		</xf:input>
+	      </field-control>
+	    </xf:label>
+	  </field>
+	  
+	  <field>
+	    <xf:label>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='plan-report-type']/value" />
+	      </field-label>
+	      <field-control>
+		<xf:trigger class="green" id="buttonefour" ref=".[./@Type='Performance_Plan']">
+		  <xf:label>
+		    <xf:output ref="instance('messages')/message[key/text()='switch-strategic']/value" />
+		  </xf:label>
+		  <xf:action ev:event="DOMActivate">
+		    <xf:setvalue ref="@Type" value="'Strategic_Plan'" />
+		    <xf:delete ref="//PerformanceIndicator" />
+		    <xf:dispatch name="counter-strategy" targetid="m" />
+		  </xf:action>
+		</xf:trigger>
+		<xf:output ref="@Type" />
+		<xf:trigger class="green" id="buttonfou1" ref=".[./@Type='Strategic_Plan']">
+		  <xf:label>
+		    <xf:output ref="instance('messages')/message[key/text()='switch-performance']/value" />
+		  </xf:label>
+		  <xf:action ev:event="DOMActivate">
+		    <xf:insert origin="instance('template')//PerformanceIndicator"
+			       context="/PerformancePlanOrReport/StrategicPlanCore/Goal[1]/Objective[1]" ref="PerformanceIndicator" at="1"
+			       position="after" />
+		    <xf:setvalue ref="@Type" value="'Performance_Plan'" />
+		    <xf:dispatch name="counter-performance" targetid="m" />
+		  </xf:action>
+		</xf:trigger>
+	      </field-control>
+	    </xf:label>
+	  </field>
+	</div>
 
-			<div class="line">
-				<xf:label class="lineitem firstitem">
-					<xf:output
-						ref="instance('messages')/message[key/text()='plan-description']/value/text()" />
-					<xf:textarea rows="6" class="textareabig"
-						ref="*:Description" />
-				</xf:label>
-			</div>
-		</main>
+	<!-- ....... Line 2 : Dates  ..............-->
+	<div class="line">
+	  <field>
+	    <xf:label>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='plan-start-date']/value" />
+	      </field-label>
+	      <field-control>
+		<xf:input class="*:Source" ref="AdministrativeInformation/StartDate" />
+	      </field-control>
+	    </xf:label>
+	  </field>
 
-	</body>
+	  <field>
+	    <xf:label>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='plan-end-date']/value" />
+	      </field-label>
+	      <field-control>
+		<xf:input ref="*:AdministrativeInformation/*:EndDate" />
+	      </field-control>
+	    </xf:label>
+	  </field>
+	</div>
+
+	<!-- ....... Line 3 : Description  ..............--> 
+	<div class="line">
+	  <field>
+	    <xf:label>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='plan-description']/value/text()" />
+	      </field-label>
+	      <field-control>
+		<xf:textarea  ref="*:Description" />
+	      </field-control>
+	    </xf:label>
+	  </field>
+	</div>
+      </div>
+    </main>
+  </body>
 </html>

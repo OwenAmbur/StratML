@@ -2,119 +2,157 @@
 <?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no"?>
 <?css-conversion no ?>
-<html 
-    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
-    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms"
+    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    >
   <head>
     <xf:model>
       <xf:instance xmlns="" id="default" resource="data/stratml-template.xml" />
       <xf:instance xmlns="" id="template" resource="data/stratml-template.xml" />
       <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />
-      <xf:instance xmlns="" id="config" resource="data/form-config.xml" />
-      <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
-	<xf:resource value="instance('config')/file/text()"/>
+      <xf:instance xmlns="" id="config" resource="form-config.xml" />
+      <xf:submission
+	  id="change-language" replace="instance" instance="messages" method="get"	   serialization="none">
+	<xf:resource value="instance('config')/file/text()" />
       </xf:submission>
-      <xf:submission id="wizard-intro" show="new" method="post" action="./Strat_Part_2_Multilingual_Intro.xml">
-	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.</xf:message>
+      <xf:submission id="wizard-intro" show="new" method="post"
+		     action="./Strat_Part_2_Multilingual_Intro.xml">
+	<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission Error - please check the form for red Xs.
+	</xf:message>
       </xf:submission>
     </xf:model>
-    <link rel="stylesheet" type="text/css"  href="../css/position-style.css" />
-    <link rel="stylesheet" type="text/css"  href="../css/format-style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/position-style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/format-style.css" />
   </head>
   <body>
-    <!-- 
-   <a name="top"/>
-   <header>
-      
-      <h1>
-	<img  class="title-logo" width="80px" src="img/submission_logo_white.svg" alt="StratML logo"/>
-	<xf:output ref="instance('messages')/message[key/text()='submission-information']/value"/>
-	<img  class="stratml-logo"  src="img/stratml_logo_white.svg" alt="StratML logo"/>
-      </h1>
-      <div id="subheader"> 
-	<div id="breadcrumb"> &gt; 
-	<a href="0_mainform.xml">Create Plan</a> &gt; 
-	<a href="2_submission.xml">2. Submission</a> 	
-	</div>
-	<xf:select1 id="lang-selector" ref="instance('config')/file">
-	  <xf:label class="subheader">Language</xf:label>
-	  <xf:item>
-	    <xf:label>English</xf:label>
-	    <xf:value>labels/labels-en.xml/</xf:value> 
-	  </xf:item>
-	  <xf:item>
-	    <xf:label>Spanish</xf:label>
-	    <xf:value>labels/labels-es.xml</xf:value>
-	  </xf:item>
-	  <xf:action ev:event="xforms-value-changed">
-	    <xf:send submission="change-language"/>
-	  </xf:action>
-	</xf:select1>      
-	<img  id="page-counter"  src="img/counter_2.svg" alt="Step 2"/>
-      </div>
-    </header>
-    -->
     <main>
-      <div class="section">
+      <div class="form-area" id="form_2">
+      	<category-header>
+	  <xf:output ref="instance('messages')/message[key/text()='submission-information']/value" />
+	</category-header>
+
 	<div class="line">
-	  <xf:label class="lineitem"> <xf:output ref="instance('messages')/message[key/text()='plan-publication-date']/value"/>
-	  <xf:input ref="*:AdministrativeInformation/*:PublicationDate">
-	  </xf:input>
-	  </xf:label>
-	  <xf:input ref="*:AdministrativeInformation/*:Source" id="plansource" class="lineitem">
+
+
+	  <!-- ............. Line 1 ............... -->
+	  <field>
 	    <xf:label>
-	      <xf:output ref="instance('messages')/message[key/text()='plan-source']/value"/>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='plan-publication-date']/value" />
+	      </field-label>
+	      <field-control>
+		<xf:input ref="*:AdministrativeInformation/*:PublicationDate">
+		</xf:input>
+	      </field-control>
 	    </xf:label>
-	  </xf:input>
-	  <div class="lineitem" >
-	  <!-- TODO : Include a caseref and clean the mess -->
+	  </field>
+
+	  <field>
+	    
+	    <xf:label>
+	      <xf:group ref=".[*:AdministrativeInformation/Source]" >
+
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='plan-source']/value" />
+	      </field-label>
+	      <field-control>
+		<xf:input ref="*:AdministrativeInformation/Source" />
+	      </field-control>
+	      </xf:group>
+	    </xf:label>
 
 	  <xf:switch ref="instance('config')/source" caseref="text()">
-	    <xf:case id="false"   >
-	      <xf:trigger   class="default-button">
-		<xf:label  >
-		  <img src="img/add-white-icon.svg"   class="button-icon" />
-		  <xf:output ref="instance('messages')/message[key/text()='plan-source']/value" class="opaddingtext"/>
-		</xf:label>
-		<xf:action ev:event="DOMActivate">		        	
-		  <xf:insert origin="instance('template')/AdministrativeInformation/Source"
-			     context="instance('default')/AdministrativeInformation/"
-			     at="last" position="after" />
-		  <xf:setfocus control="plansource"/>
-		</xf:action>
-	      </xf:trigger>
-	    </xf:case>
-	    <xf:case id="true"  >
+	      <xf:case id="false">
+		<xf:trigger class="add-button" title="Attach plan source link">
+		  <xf:label>
+		    <img src="img/add-blue-icon.svg" class="button-icon" />
+		    <xf:output ref="instance('messages')/message[key/text()='plan-source']/value" class="opaddingtext" />
+		  </xf:label>
+		  <xf:action ev:event="DOMActivate">
+		    <xf:insert
+			origin="instance('template')/AdministrativeInformation/Source"
+			context="instance('default')/AdministrativeInformation/"
+			at="last" position="after" />
+		    <xf:setfocus control="plansource" />
+		  </xf:action>
+		</xf:trigger>
+	      </xf:case>
+	      <xf:case id="true">
 	    </xf:case>
 	  </xf:switch>
-	  </div>
+	  </field>
 	</div>
+
+	
 	<div class="line">
-	  <xf:label class="lineitem">
-	    <xf:output ref="instance('messages')/message[key/text()='other-information']/value/text()"/>
-	    <xf:textarea class="textareabig" ref="OtherInformation" />
-	  </xf:label>
+	  <field>
+	    <xf:label>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='other-information']/value/text()" />
+	      </field-label>
+	      <field-control>
+		<xf:textarea class="textareabig" ref="OtherInformation" />
+	      </field-control>
+	    </xf:label>
+	  </field>
 	</div>
-	<h2><xf:output ref="instance('messages')/message[key/text()='submitter-information']/value"/></h2>
-	<div class="line" >
-	  <xf:label class="lineitem firstitem" >
-	    <xf:output ref="instance('messages')/message[key/text()='given-name']/value"/>
-	    <xf:input class="name" ref="*:Submitter/*:GivenName" />
-	  </xf:label>
-	  <xf:label class="lineitem">
-	    <xf:output ref="instance('messages')/message[key/text()='surname']/value"/> 
-	    <xf:input class="name" ref="*:Submitter/*:Surname"/>
-  	  </xf:label>
+
+
+	<category-header>
+	  <xf:output ref="instance('messages')/message[key/text()='submitter-information']/value" />
+	</category-header>
+
+
+	<div class="line">
+
+	  <field>
+	    <xf:label>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='given-name']/value" />
+	      </field-label>
+	      <field-control>
+		<xf:input class="name" ref="*:Submitter/*:GivenName" />
+	      </field-control>
+	    </xf:label>
+	  </field>
+
+	  <field>
+	    <xf:label>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='surname']/value" />
+	      </field-label>
+	      <field-control>
+		<xf:input class="name" ref="*:Submitter/*:Surname" />
+  	      </field-control>
+	    </xf:label>
+	  </field>
+
 	</div>
-	<div class="line" >
-	  <xf:label  class="lineitem firstitem">
-	    <xf:output ref="instance('messages')/message[key/text()='email-address']/value" />	  
-	    <xf:input class="email" ref="*:Submitter/*:EmailAddress" />
-	  </xf:label>
-	  <xf:label  class="lineitem">
-	    <xf:output ref="instance('messages')/message[key/text()='telephone-number']/value"/>
-	    <xf:input ref="*:Submitter/*:PhoneNumber" />
-	  </xf:label>
+	
+	<div class="line">
+
+	  <field>
+	    <xf:label>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='email-address']/value" />
+	      </field-label>
+	      <field-control>
+		<xf:input class="email" ref="*:Submitter/*:EmailAddress" />
+	      </field-control>
+	    </xf:label>
+	  </field>
+
+	  <field>
+	    <xf:label>
+	      <field-label>
+		<xf:output ref="instance('messages')/message[key/text()='telephone-number']/value" />
+	      </field-label>
+	      <field-control>
+		<xf:input ref="*:Submitter/*:PhoneNumber" />
+	      </field-control>
+	    </xf:label>
+	  </field>
 	</div>
       </div>
     </main>

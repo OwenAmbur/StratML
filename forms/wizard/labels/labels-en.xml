@@ -4,6 +4,8 @@
 <message><key>acronym</key><value>Acronym</value></message>
 
 <message><key>actual-result</key><value>Actual Result</value></message>
+<message><key>actual-results</key><value>Actual Results</value></message>
+
 <message><key>back</key><value>Back</value></message>
 
 <message><key>browse-plan</key><value>Browse an existent plan</value></message>
@@ -17,12 +19,13 @@
 <message><key>goals-objectives</key><value>Goals and Objectives</value></message>
 
 <message><key>target-result</key><value>Target Result</value></message>
+<message><key>target-results</key><value>Target Results</value></message>
 
 <message><key>expected-result</key><value>Expected Result</value></message>
-<message><key>end-date</key><value>End Date</value></message>
+<message><key>end-date</key><value>End</value></message>
 
 
-<message><key>start-date</key><value>Start Date</value></message>
+<message><key>start-date</key><value>Start</value></message>
 
 <message><key>error-entry-submission</key><value>Entry Submission Error</value></message>
 
@@ -36,9 +39,9 @@
 <message><key>plan-information</key><value>Plan Information</value></message>
 <message><key>plan-name</key><value>Name</value></message>
 <message><key>plan-source</key><value>Source</value></message>
-<message><key>plan-start-date</key><value>Start Date</value></message>
-<message><key>plan-end-date</key><value>End Date</value></message>
-<message><key>plan-publication-date</key><value>Publication Date</value></message>
+<message><key>plan-start-date</key><value>Start</value></message>
+<message><key>plan-end-date</key><value>End</value></message>
+<message><key>plan-publication-date</key><value>Publication</value></message>
 <message><key>server-path</key><value>Server Path</value></message>
 
 <message><key>identifier</key><value>Identifier</value></message>
@@ -66,6 +69,7 @@
 <message><key>other-information</key><value>Other Information</value></message>
 
 <message><key>organization</key><value>Organization</value></message>
+<message><key>organizations</key><value>Organizations</value></message>
 <message><key>organization-information</key><value>Org. Information</value></message>
 <message><key>organization-name</key><value>Org. Name</value></message>
 <message><key>organization-description</key><value>Org. Description</value></message>
@@ -86,6 +90,7 @@
 <message><key>plain-xml</key><value>Plain XML</value></message>
 <message><key>performance</key><value>Performance</value></message>
 <message><key>performance-indicator</key><value>Performance Indicator</value></message>
+<message><key>performance-indicators</key><value>Performance Indicators</value></message>
 
 
 <message><key>referent</key><value>Referent</value></message>
@@ -96,6 +101,7 @@
 <message><key>relationship-identifier</key><value>Relationship Identifier</value></message>
 
 <message><key>reload</key><value>Reload</value></message>
+<message><key>review</key><value>Review</value></message>
 
 
 <message><key>role</key><value>Role</value></message>
@@ -118,11 +124,11 @@
 
 <message><key>stakeholder</key><value>Stakeholder</value></message>
 <message><key>stakeholders</key><value>Stakeholders</value></message>
-<message><key>stakeholder-name</key><value>Stakeholder Name</value></message>
+<message><key>stakeholder-name</key><value>Name</value></message>
 <message><key>stakeholder-information</key><value>Stakeholder Information</value></message>
 <message><key>stakeholder-description</key><value>Stakeholder Description</value></message>
 <message><key>stakeholder-of</key><value> of Stakeholder</value></message>
-<message><key>stakeholder-type</key><value>Stakeholder Type</value></message>
+<message><key>stakeholder-type</key><value>Type</value></message>
 
 <message><key>switch-performance</key><value>Switch to Performance</value></message>
 <message><key>switch-strategic</key><value>Switch to Strategy</value></message>
@@ -139,6 +145,7 @@
 <message><key>mission-description</key><value>Mission</value></message>
 
 <message><key>number-of-units</key><value>Units</value></message>
+<message><key>descriptor</key><value>Descriptor</value></message>
 <message><key>descriptor-value</key><value>Descriptor Value</value></message>
 
 

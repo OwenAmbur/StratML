@@ -1,0 +1,82 @@
+
+
+body {
+    color:#172e49;
+    font-family : verdana , sans-serif , arial;
+}
+
+main {
+    font-size:125%;
+}
+
+h2, h3, h4. h5 {
+    color : #172e49;
+    font-weight: normal ;
+}
+
+h1 {
+    background : #172e49;
+    color : white;
+}
+
+a {
+    text-decoration: none ;
+}
+
+
+/* ............... Subheader row ................... */
+
+#breadcrumb a, label.subheader,  #lang-selector select {
+    font-family:arial, verdana ; 
+    font-weight:400;    
+    font-size:9pt;
+    background-color:white;
+}
+
+#breadcrumb a {
+    text-decoration:none;
+    color:#172e49;
+} 
+
+label.subheader {
+    font-weight:400;
+}
+
+#lang-selector  {
+    font-weight:400;  
+}
+
+div.subcategoryheader {
+    clear:both;
+}
+
+
+
+/*............. */
+
+button {
+    background: linear-gradient(to bottom, #091c31 5%,  #172e49 20%, #3b5a7f 71%, #1e99cc 100%);
+}
+
+button *.opaque-button {
+    color: white;   
+}
+
+.navigation-buttons button {
+    background: linear-gradient(to bottom, #091c31 5%,  #172e49 20%, #3b5a7f 71%, #1e99cc 100%);
+    color: white;   
+}
+
+.back button {
+    background: linear-gradient(to bottom, #33121e 0%,#66331e 10%,#207cca 51%,#7db9e8 100%);
+    color: white;   
+}
+
+.green button {
+    background: linear-gradient(to bottom, #33121e   0%, #172e49 10%, #206655 80%,  #1e99cc 100%);
+    color: white;   
+}
+
+.alert button  {
+    background: linear-gradient(to bottom,  #33121e   0%, #172e49 10%  ,#660000 80%,  #1e99cc 100%);
+}

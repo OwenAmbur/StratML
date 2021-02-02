@@ -1,0 +1,26 @@
+/* --------- Debug Styles----------------  */
+
+/*
+.debug {
+        background-color:yellow;
+        border:1px solid black;
+}
+
+.debug > * {
+        background-color:teal;
+        border:1px dashed black;
+}
+
+.debug > * > * {
+        background-color:silver;
+        border:1px dashed black;
+}
+
+*:hover {
+        border:1px dashed black;
+        padding:10px solid orange;
+        margin:20px solid yellow;
+        background-color:rgb(256,256,200,0.3);
+}
+
+*/

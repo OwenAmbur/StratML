@@ -1,0 +1,55 @@
+
+/* .............Navigation Buttons .................. */
+
+.navigation-buttons {
+    float:right;
+    clear:both;
+    margin-right:100px;
+    margin-top:2.5em ;
+    border: 0;
+}
+
+.navigation-buttons button {
+    border:0px;
+    border-left:1px solid #091c31 ;
+    border-radius: 3px;
+    height:2.2em;
+}
+
+.button-icon {
+    max-height:60%;
+    display:inline;
+    padding:0;
+    padding-right:0.5em;
+    padding-left:0.5em;
+    padding-bottom:2px;
+    
+    margin:auto;
+    vertical-align:middle;
+}
+
+/*
+ * Iconos internos en botones  
+ */
+.in-button-icon {
+    display:inline;
+    padding:0;
+    padding-right:0.2em;
+}
+
+
+span.iconbutton {
+    margin-left:2px;
+    margin-right:2px;
+}
+
+.iconbutton label {
+    width:15px;
+}
+
+/*....... Icono de un tipo de datos (Goal, Objective) ....... */
+.type-icon {
+	display: inline ; 
+	width:30px; 
+	margin-right: 0.5em ; 
+}

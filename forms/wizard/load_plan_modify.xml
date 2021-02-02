@@ -139,10 +139,9 @@
 			<fieldset class="navigation-buttons">
 				<xf:trigger class="alert">
 					<xf:label>
-						<b>X</b>
-						<xf:output
-							ref="instance('messages')/message[key/text()='back']/value/text()" />
-					</xf:label>
+							<img src="img/prev-white-icon.svg" class="button-icon" />
+							<xf:output ref="instance('messages')/message[key/text()='back']/value/text()"/>
+	       	</xf:label>
 					<xf:action ev:event="DOMActivate">
 						<xf:load resource="javascript:ConfirmExit()" />
 					</xf:action>

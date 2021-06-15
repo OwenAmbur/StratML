@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="" lang="fa">
+
+<message><key>مخفف</key><value>مخفف</value></message>
+
+<message><key>نتيجه-واقعي</key><value>نتيجه واقعي</value></message>
+<message><key>نتايج-واقعي</key><value>نتايج واقعي</value></message>
+
+<message><key>عقب</key><value>عقب</value></message>
+
+<message><key>مرور-برنامه</key><value>مرور يك برنامه جاري</value></message>
+
+<message><key>لغو</key><value>لغو</value></message>
+
+<message><key>بستن</key><value>بستن</value></message>
+
+<message><key>عنوان-توصيف كننده</key><value>عنوان توصيف كننده</value></message>
+
+<message><key>اهداف كلان-اهداف خرد</key><value>اهداف كلان و اهداف خرد</value></message>
+
+<message><key>نتيجه-هدف</key><value>نتيجه هدف</value></message>
+<message><key>نتايج-هدف</key><value>نتايج هدف</value></message>
+
+<message><key>نتيجه-موردانتظار</key><value>نتيجه مورد انتظار</value></message>
+<message><key>تاريخ-پايان</key><value>پايان</value></message>
+
+
+<message><key>تاريخ-شروع</key><value>شروع</value></message>
+
+<message><key>ثبت-خطا</key><value>ثبت خطا</value></message>
+
+<message><key>عنوان-فايل</key><value>عنوان فايل</value></message>
+
+<message><key>اطلاعات-عملكرد</key><value>اطلاعات عملكرد</value></message>
+
+<message><key>نوع-گزارش-برنامه</key><value>نوع</value></message>
+
+<message><key>توصيف-طرح</key><value>توصيف</value></message>
+<message><key>اطلاعات-طرح</key><value>اطلاعات طرح</value></message>
+<message><key>عنوان-طرح</key><value>عنوان</value></message>
+<message><key>منبع-طرح</key><value>منبع</value></message>
+<message><key>تاريخ-شروع-طرح</key><value>شروع</value></message>
+<message><key>تاريخ-پايان-طرح</key><value>پايان</value></message>
+<message><key>تاريخ-انتشار-طرح</key><value>انتشار</value></message>
+<message><key>مسیر-خدمت-گذار</key><value>مسیر خدمت گذار</value></message>
+
+<message><key>شناسه</key><value>شناسه</value></message>
+<message><key>نوع-نشانگر</key><value>نوع نشانگر</value></message>
+
+<message><key>زبان</key><value>زبان</value></message>
+
+<message><key>پيوند</key><value>پيوند</value></message>
+
+
+
+<message><key>عنوان</key><value>عنوان</value></message>
+<message><key>توصيف</key><value>توصيف</value></message>
+
+
+<message><key>مديريت</key><value>مديريت</value></message>
+
+<message><key>نمونه-اندازه گيري</key><value>نمونه اندازه گيري</value></message>
+
+
+<message><key>واحد-اندازه گيري</key><value>واحد اندازه گيري</value></message>
+<message><key>ابعاد-اندازه گيري</key><value>ابعاد اندازه گيري</value></message>
+<message><key>بعدي</key><value>بعدي</value></message>
+
+<message><key>ساير-اطلاعات</key><value>ساير اطلاعات</value></message>
+
+<message><key>سازمان</key><value>سازمان</value></message>
+<message><key>سازمانها</key><value>سازمانها</value></message>
+<message><key>اطلاعات-سازمان</key><value>اطلاعات سازمان</value></message>
+<message><key>عنوان-سازمان</key><value>عنوان سازمان</value></message>
+<message><key>توصيف-سازمان</key><value>توصيف سازمان</value></message>
+<message><key>جزء-سازمان</key><value> جزء سازمان</value></message>
+
+
+<message><key>هدف خرد</key><value>هدف خرد</value></message>
+<message><key>اهداف-خرد</key><value>اهداف خرد</value></message>
+
+<message><key>اطلاعات-هدف-خرد</key><value>اطلاعات هدف خرد</value></message>
+<message><key>عنوان-هدف-خرد</key><value>عنوان هدف خرد</value></message>
+<message><key>توصيف-هدف-خرد</key><value>توصيف هدف خرد</value></message>
+<message><key>جزء-هدف-خرد</key><value> از اين هدف خرد</value></message>
+
+
+<message><key>ساير-اطلاعات</key><value>ساير اطلاعات</value></message>
+
+<message><key>خام-XML</key><value>خام XML</value></message>
+<message><key>عملكرد</key><value>عملكرد</value></message>
+<message><key>شاخص-عملكرد</key><value>شاخص عملكرد</value></message>
+<message><key>شاخصهای-عملکرد</key><value>شاخص های عملکرد</value></message>
+
+
+<message><key>مرجع</key><value>مرجع</value></message>
+<message><key>نشانه-مرجع</key><value>نشانه مرجع</value></message>
+
+
+<message><key>ارتباط</key><value>ارتباط</value></message>
+<message><key>شناسه-ارتباط</key><value>شناسه ارتباط</value></message>
+
+<message><key>بارگیری-مجدد</key><value>بارگیری مجدد</value></message>
+<message><key>بازبینی</key><value>بازبینی</value></message>
+
+
+<message><key>نقش</key><value>نقش</value></message>
+<message><key>نقشها</key><value>نقش ها</value></message>
+
+<message><key>اطلاعات-نقش</key><value>اطلاعات نقش</value></message>
+<message><key>عنوان-نقش</key><value>عنوان نقش</value></message>
+<message><key>توصیف-نقش</key><value>توصیف نقش</value></message>
+<message><key>نقش-از</key><value> نقش از</value></message>
+<message><key>نوع-نقش</key><value>نوع نقش</value></message>
+
+
+<message><key>بازیگر</key><value>بازیگر</value></message>
+<message><key>ذینفع</key><value>ذینفع</value></message>
+
+<message><key>حذف</key><value>حذف </value></message>
+<message><key>افزودن</key><value>افزودن</value></message>
+
+<message><key>ذخیره</key><value>ذخیره</value></message>
+
+<message><key>ذینفع</key><value>ذینفع</value></message>
+<message><key>ذینفعان</key><value>ذینفعان</value></message>
+<message><key>عنوان-ذینفع</key><value>عنوان</value></message>
+<message><key>اطلاعات-ذینفع</key><value>اطلاعات ذینفع</value></message>
+<message><key>توصیف-ذینفع</key><value>توصیف ذینفع</value></message>
+<message><key>ذینفع-از</key><value> ذینفع از</value></message>
+<message><key>نوع-ذینفع</key><value>نوع</value></message>
+
+<message><key>تغییر-عملکرد</key><value>تغییر به عملکرد</value></message>
+<message><key>تغییر-راهبرد</key><value>تغییر به راهبرد</value></message>
+
+<message><key>شاخص-توالی</key><value>شاخص-توالی</value></message>
+<message><key>شاخص-توالی</key><value>شاخص توالی</value></message>
+
+<message><key>چشم-انداز</key><value>چشم انداز</value></message>
+<message><key>شناسه-چشم-انداز</key><value>شناسه  چشم انداز</value></message>
+<message><key>توصیف-چشم-انداز</key><value>توصیف چشم انداز</value></message>
+
+<message><key>ماموریت</key><value>ماموریت</value></message>
+<message><key>شناسه-ماموریت</key><value>شناسه ماموریت</value></message>
+<message><key>توصیف-ماموریت</key><value>ماموریت</value></message>
+
+<message><key>تعداد-واحدها</key><value>واحدها</value></message>
+<message><key>توصیف-کننده</key><value>توصیف کننده</value></message>
+<message><key>ارزش-توصیف-کننده</key><value>ارزش توصیف کننده</value></message>
+
+
+<message><key>ارزش</key><value>ارزش</value></message>
+<message><key>ارزشها</key><value>ارزشها</value></message>
+<message><key>مرحله-زنجیره-ارزش</key><value>مرحله زنجیره ارزش</value>
+<hint>مرحله زنجیره ارزش</hint>
+
+</message>
+
+<message><key>هدف کلان</key><value>هدف کلان</value></message>
+<message><key>عنوان-هدف-کلان</key><value>عنوان هدف کلان</value></message>
+<message><key>اهداف-کلان</key><value>اهداف کلان</value></message>
+<message><key>اطلاعات-اهداف-کلان</key><value>اهداف کلان و خرد</value></message>
+
+<message><key>شناسه-هدف-کلان</key><value>شناسه هدف کلان</value></message>
+<message><key>هدف-کلان-از</key><value>هدف کلان از</value></message>
+
+
+<message><key>ابعاد-اندازه-گیری</key><value>ابعاد اندازه گیری</value></message>
+<message><key>واحد-اندازه-گیری</key><value>واحد اندازه گیری</value></message>
+
+<message><key>اندازه گیری</key><value>اندازه گیری</value></message>
+<message><key>ابعاد</key><value>ابعاد</value></message>
+<message><key>واحد</key><value>واحد</value></message>
+
+
+<message><key>نوع-شاخص-عملکرد</key><value>نوع</value></message>
+
+
+
+<message><key>ارتباط</key><value>ارتباط</value></message>
+
+<message><key>نوع-ارتباط</key><value>نوع ارتباط</value></message>
+<message><key>شناسه-مرجع</key><value>شناسه مرجع</value></message>
+<message><key>نمونه-اندازه-گیری</key><value>نمونه اندازه گیری</value></message>
+
+
+<message><key>ارسال-کننده-اطلاعات</key><value>ارسال کننده اطلاعات</value></message>
+<message><key>اطلاعات-ارسال</key><value>اطلاعات ارسال</value></message>
+<message><key>شروع</key><value>شروع</value></message>
+
+
+<message><key>نوع</key><value>نوع</value></message>
+
+<message><key>نام-کوچک</key><value>نام کوچک</value></message>
+<message><key>نام-خانوادگی</key><value>نام خانوادگی</value></message>
+<message><key>آدرس-ایمیل</key><value>ایمیل</value></message>
+<message><key>شماره-تلفن</key><value>تلفن</value></message>
+
+<message><key>همراه-سبک</key><value>همراهِ سبک</value></message>
+
+</messages>
+

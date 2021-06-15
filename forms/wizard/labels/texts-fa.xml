@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="" lang="fa">
+<!--
+  <message><key>actual-result</key><value>Actual Result</value></message>
+-->
+  <message><key>عنوان-StratML</key><value>StratML فرمهاي</value></message>
+
+  <!-- ........... Intro site ............... -->
+  <message><key>مقدمه</key><value>یکی از گزینه های موجود را انتخاب کنید</value></message>
+  <message><key>مرور-برنامه</key><value>مرور یک برنامه فعلی</value></message>  
+  <message><key>ایجاد-برنامه-راهبردی</key><value>
+  ایجاد یک برنامه راهبردی</value></message>
+  <message><key>ایجاد-برنامه-عملکرد</key><value>
+  ایجاد یک برنامه عملکرد</value></message> 
+  <message><key>اصلاح-برنامه</key><value>اصلاح یک برنامه فعلی</value></message>  
+  <message><key>اصلاح-گزینه های-برنامه</key><value>ساير گزينه هاي بارگزاري</value></message>  
+  <message><key>مرور-اسناد</key><value>بیشتر بیاموزید StratML در ارتباط با</value></message>  
+  <message><key>گامهای-راهبرد</key><value>از گامهای زیر برای ایجاد برنامه راهبردی پیروی کنید</value></message>  
+  <message><key>گامهای-عملکرد</key><value>از گامهای زیر برای ایجاد/اصلاح یک برنامه عملکرد پیروی کنید</value></message>  
+  <message><key>گامهای-بارگزاری</key><value>يكي از گزينه هاي ادامه را براي بارگزاري يك برنامه موجود انتخاب كنيد</value></message>  
+	            
+</messages>
+

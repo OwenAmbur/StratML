@@ -295,6 +295,11 @@
 	      </xf:label>
 	      <xf:value>es</xf:value>
 	    </xf:item>
+	    <xf:item>
+	      <xf:label>Farsi
+	      </xf:label>
+	      <xf:value>fa</xf:value>
+	    </xf:item>
 	    <xf:action ev:event="xforms-value-changed">
 	      <xf:send submission="change-texts" />
 	      <xf:send submission="change-language"/>

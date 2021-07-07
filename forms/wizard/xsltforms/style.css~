@@ -1,0 +1,71 @@
+
+ .xforms-label {
+     font-size:80% ; 
+     font-family:arial ; 
+     margin : 0.4em; 
+     color : #121233 ;
+}
+
+.xform-focus {
+    background:#121233; 
+    color:white; 
+}
+
+.calendar .title, .calendar .title input, .calendar .title select, .calendar tfoot {
+	font-weight			: bold;
+	padding				: 1px;
+	border				: 1px solid #000;
+	color				: #000;
+	text-align			: center;
+	background-color	: #f8f8f8;
+	background-image	: url(titleBackground.png);
+}
+
+  body {
+    color:yellow;
+    font-family : verdana , sans-serif , arial;  
+    background: #0ff;
+  }
+
+
+  input.xforms-value {
+    background:#f0f0ff;
+    border : 0px solid #fafafa ; 
+  }
+
+ .xforms-value {
+    background:#faf6ff;
+    border : 0px solid #fafafa ; 
+}
+
+ 
+
+  a.item-title {
+    text-decoration: none ;
+  }
+  
+
+  /*  Elementos genericos */
+
+  table {
+      padding:1em; 
+      
+}
+
+  th {
+      background : #f0f0f0 ;
+      font-weight:400 ; 
+      font-size:80%; 
+      font-family:arial; 
+  }
+
+   /* Elementon diferentes */
+
+  p.entitydescription {
+      font-size: 60%; 
+      font-family:verdana ;
+      margin:3em;
+      padding:1em;
+      border:1px solid #121233 ; 
+      background: #fafaff; 
+  }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PerformancePlanOrReport Type="Strategic_Plan">
+	<id />
+	<Name>Template</Name>
+	<Description />
+	<OtherInformation />
+
+	<StrategicPlanCore>
+
+		<Organization>
+			<Name />
+			<Acronym />
+			<Identifier />
+			<Description />
+		</Organization>
+		<Vision>
+			<Description />
+			<Identifier />
+		</Vision>
+		<Mission>
+			<Description />
+			<Identifier />
+		</Mission>
+		<Value>
+			<Name />
+			<Description />
+		</Value>
+		<Goal>
+			<Name>Template</Name>
+			<Description></Description>
+			<Identifier />
+			<SequenceIndicator>1</SequenceIndicator>
+			<!--  <OtherInformation /> -->
+			<Objective>
+				<Name></Name>
+				<Description />
+				<Identifier />
+				<SequenceIndicator>1</SequenceIndicator>
+				<OtherInformation />
+			</Objective>
+		</Goal>
+	</StrategicPlanCore>
+
+	<AdministrativeInformation>
+		<Identifier />
+		<StartDate />
+		<EndDate />
+		<PublicationDate />
+	</AdministrativeInformation>
+	<Submitter>
+		<Identifier />
+		<GivenName />
+		<Surname />
+		<PhoneNumber />
+		<EmailAddress />
+	</Submitter>
+</PerformancePlanOrReport>

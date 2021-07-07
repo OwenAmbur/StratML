@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?css-conversion no ?>
+<?xsltforms-options debug="no"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms"
+      xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <xf:model>
+      <xf:instance xmlns="" id="default" resource="data/stratml-template.xml"/>
+      <xf:instance xmlns="" id="template" resource="data/stratml-template.xml"/>
+      <xf:instance xmlns="" id="messages" src="labels/labels-en.xml"/>
+      <xf:instance xmlns="" id="config" resource="form-config.xml"/>
+      <xf:submission id="change-language" replace="instance" instance="messages" method="get" serialization="none">
+        <xf:resource value="instance('config')/file/text()"/>
+      </xf:submission>
+    </xf:model>
+  </head>
+  <body>
+    <main>
+      <div class="form-area" id="form_5">
+
+	<category-header>
+	  <xf:output ref="instance('messages')/message[key/text()='performance']/value" />
+	</category-header>
+
+	<element-list>
+	  <!-- .................... Goals ......................... -->
+	  <xf:repeat ref="/*:PerformancePlanOrReport/*:StrategicPlanCore/*:Goal">
+	    <xf:switch >
+	      <xf:case id="goalshow" selected="false" >
+		<plan-element>
+		  <element-title>
+ 		    <xf:trigger class="iconbutton" ref=".[count(*:Objective) > 0]" >
+		      <xf:label>
+			<img src="img/less-triangle.svg" />
+		      </xf:label>
+		      <xf:toggle case="goalhide" ev:event="DOMActivate" />
+		    </xf:trigger>
+		    
+		    <!--  ........... Trik para mantener la alineacion  -->
+ 		    <xf:trigger class="iconbutton" ref=".[count(*:Objective) = 0]" >
+		      <xf:label>
+			<img src="img/add-white-icon.svg" />
+		      </xf:label>
+		    </xf:trigger>
+		    
+		    <img src="img/goal-blue-icon.svg" class="type-icon"  /> 
+		    <xf:output ref="instance('messages')/message[key/text()='goal']/value" class="nopaddingtext"  />
+		    <xf:output ref="*:Name" class="nopaddingtext" />
+		  </element-title>
+
+		  <element-content>
+		    
+		    <element-list>
+		      
+		      <xf:repeat id="objectiverepeat" ref="*:Objective" appearance="compact">
+			<xf:switch >
+			  <xf:case id="objectiveshow" >
+
+			    <plan-element>
+			      <element-controls>
+				<xf:trigger class="iconbutton" >
+				  <xf:label>
+				    <img src="img/less-triangle.svg" />
+				    </xf:label><xf:toggle case="objectivehide" ev:event="DOMActivate" />
+				</xf:trigger>
+			      </element-controls>
+			      <element-title>
+				<!-- ......... Objectives Line  ................ -->
+				<img src="img/target_blue_icon_3.svg" class="type-icon"  /> 
+				<xf:output ref="*:sequenceindicator"/>
+				<xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
+				<xf:output ref="*:Name"/>
+			      </element-title>
+			      <element-content>
+
+				
+				<element-list>
+				  <!-- ........... Performance Indicator ............ -->
+				  
+				  <xf:repeat ref="*:PerformanceIndicator" appearance="compact">
+				    <!-- ......... Switch ......... -->
+				    <plan-element>
+
+				      <xf:switch >
+					<xf:case id="performanceshow"  >
+					  
+					  
+					  <element-controls>
+					    <xf:trigger class="iconbutton" >
+					      <xf:label>
+						<img src="img/less-triangle.svg" />
+					      </xf:label>
+					      <xf:toggle case="performancehide" ev:event="DOMActivate" />
+					    </xf:trigger>
+					    
+					    <xf:trigger  class="linebutton iconbutton">
+					      <xf:label>
+						<img src="img/cross.svg" alt="Delete Performance Indicator" />
+					      </xf:label>
+					      <xf:delete ref="."  ev:event="DOMActivate" />
+					    </xf:trigger>
+					  </element-controls>
+
+					  <element-title>
+					    <!-- ....... // Switch ........ -->
+					    <img src="img/performance-blue-icon.svg" class="type-icon"  /> 			
+					    Performance Indicator
+					  </element-title>
+					  <element-content>
+					    <line>
+					      <field>
+						<xf:label>
+						  <field-label>
+						    <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
+						  </field-label>
+						  <field-control>
+						    <xf:input ref="*:Identifier"/>
+						  </field-control>
+						</xf:label>
+					      </field>
+					      <field>
+						<xf:label>
+						  <field-label>
+						    <xf:output ref="instance('messages')/message[key/text()='seq-indicator']/value"/>
+						  </field-label>
+						  <field-control>
+						    <xf:input ref="*:SequenceIndicator" />
+						  </field-control>
+						</xf:label>
+					      </field>
+					      
+					    </line>
+					    <line>
+					      <field>
+						<xf:label>
+						  <field-label>
+						    <xf:output ref="instance('messages')/message[key/text()='dimension']/value"/>
+						  </field-label>
+						  <field-control>
+						    <xf:input ref="*:MeasurementDimension"/>
+						  </field-control>
+						</xf:label>
+					      </field>
+					      <field>
+						<xf:label>
+						  <field-label>
+						    <xf:output ref="instance('messages')/message[key/text()='unit']/value"/>
+						  </field-label>
+						  <field-control>
+						    <xf:input ref="*:UnitOfMeasurement"/>
+						  </field-control>
+						</xf:label>
+					      </field>
+					    </line>
+					    <line>
+					      <field>
+						<xf:label>
+						  <field-label>
+						    <xf:output ref="instance('messages')/message[key/text()='value-chain-stage']/value"/>
+						  </field-label>
+						  <field-control>
+						    <xf:select1 ref="@ValueChainStage">
+                     				      <xf:item>
+							<xf:label>Outcome</xf:label>
+							<xf:value>Outcome</xf:value>
+						      </xf:item>
+						      <xf:item>
+							<xf:label>Output Processing</xf:label>
+							<xf:value>Output_Processing</xf:value>
+						      </xf:item>
+						      <xf:item>
+							<xf:label>Output</xf:label>
+							<xf:value>Output</xf:value>
+						      </xf:item>
+						      <xf:item>
+							<xf:label>Input Processing</xf:label>
+							<xf:value>Input_Processing</xf:value>
+						      </xf:item>
+						      <xf:item>
+							<xf:label>Input</xf:label>
+							<xf:value>Input</xf:value>
+						      </xf:item>
+						    </xf:select1>
+						  </field-control>
+						</xf:label>
+					      </field>
+					      <field>
+						<xf:label>
+						  <field-label>
+						    <xf:output ref="instance('messages')/message[key/text()='performance-indicator-type']/value"/>
+						  </field-label>
+						  <field-control>
+						    <xf:select1 ref="@PerformanceIndicatorType">
+						      <xf:item>
+							<xf:label>Quantitative</xf:label>
+							<xf:value>Quantitative</xf:value>
+						      </xf:item>
+						      <xf:item>
+							<xf:label>Qualitative</xf:label>
+							<xf:value>Qualitative</xf:value>
+						      </xf:item>
+						    </xf:select1>
+						  </field-control>
+						</xf:label>
+					      </field>
+					    </line>
+					    <element-list>
+					      <xf:repeat ref="*:MeasurementInstance">
+						<plan-element>
+						  <element-controls>
+						    <xf:trigger  class="linebutton iconbutton">
+						      <xf:label>
+							<img src="img/cross.svg" alt="delete Measurement Instance" />
+						      </xf:label>
+						      <xf:delete ref="."  ev:event="DOMActivate" />
+						    </xf:trigger>
+						  </element-controls>
+						  <element-title>
+						    <xf:output ref="instance('messages')/message[key/text()='measurement-instance']/value" />
+						  </element-title>
+						  <element-content>
+						    <element-list>
+						      <xf:repeat ref="TargetResult|ActualResult" >
+							<plan-element>
+							  <element-controls>
+							    <xf:trigger  class="linebutton iconbutton">
+							      <xf:label>
+								<img src="img/cross.svg" alt="delete" />
+							      </xf:label>
+							      <xf:delete ref="."  ev:event="DOMActivate" />
+							    </xf:trigger>
+							  </element-controls>
+							  <element-title>
+							    <xf:group ref=".[local-name()='TargetResult']"  >
+							      <xf:output ref="instance('messages')/message[key/text()='target-result']/value" />								      
+							    </xf:group>
+							    <xf:group ref=".[local-name()='ActualResult']"  >
+							      <xf:output ref="instance('messages')/message[key/text()='actual-result']/value" />								      
+							    </xf:group>							    
+							  </element-title>
+							  <element-content>
+							    <line>
+							      <!--
+								  <xf:group ref=".[local-name()='TargetResult']" class="lineitem" >
+							      -->
+							      <line>
+								<field>
+								  <xf:label>
+								    <field-label>
+								      <xf:output ref="instance('messages')/message[key/text()='number-of-units']/value" />
+								    </field-label>
+								    <field-control>
+								      <xf:input ref="*:NumberOfUnits"  />
+								    </field-control>
+								  </xf:label>
+								</field>
+								<field>
+								  <xf:trigger class="linebutton iconbutton" ref=".[count(Descriptor) =0 ]" >
+								    <xf:label>
+								      <img src="img/add-blue-icon.svg" class="in-button-icon" />
+								      <xf:output ref="instance('messages')/message[key/text()='descriptor']/value/text()"/>
+								    </xf:label>
+								    <xf:action ev:event="DOMActivate">
+								      <xf:insert  origin="instance('template')//TargetResult/Descriptor[1]" context="."
+										  ref="Descriptor" at="last()" position="after"/>
+								    </xf:action>
+								  </xf:trigger>
+								</field>
+							      </line>
+							    </line>
+							    <line>
+							      <field>
+								<xf:label>
+								  <field-label>
+								    <xf:output ref="instance('messages')/message[key/text()='start-date']/value"/>
+								  </field-label>
+								  <field-control>
+								    <xf:input ref="*:StartDate"/>
+								  </field-control>
+								</xf:label>
+							      </field>
+							      <field>
+								<xf:label>
+								  <field-label>
+								    <xf:output ref="instance('messages')/message[key/text()='end-date']/value"/>
+								  </field-label>
+								  <field-control>
+								    <xf:input ref="*:EndDate" />
+								  </field-control>
+								</xf:label>
+							      </field>
+							    </line>
+							    <xf:repeat ref="./*:Descriptor" >
+							      <line>
+								<field>
+								  <xf:label>
+								    <field-label>
+								      <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
+								    </field-label>
+								    <field-control>
+								      <xf:input ref="DescriptorName" />
+								    </field-control>
+								  </xf:label>
+								</field>
+								<field>
+								  <xf:label>
+								    <field-label>
+								      <xf:output ref="instance('messages')/message[key/text()='value']/value"/>
+								    </field-label>
+								    <field-control>
+								      <xf:input ref="DescriptorValue" />
+								    </field-control>
+								  </xf:label>
+								</field>
+								
+								<xf:trigger  class="linebutton iconbutton" >
+								  <xf:label>
+								    <img src="img/cross.svg" alt="delete" />
+								  </xf:label>
+								  <xf:delete ref="."  ev:event="DOMActivate" />
+								</xf:trigger>
+
+							      </line>
+							    </xf:repeat>
+
+							    <line>
+							      <field>
+								<xf:label>
+								  <field-label>
+								    <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+								  </field-label>
+								  <field-control>
+								    <xf:textarea ref="*:Description"  >
+								    </xf:textarea>
+								  </field-control>
+								</xf:label>
+							      </field>
+							    </line>
+
+							  </element-content>
+
+							</plan-element>
+
+							
+						      </xf:repeat>
+
+
+						      <list-controls>
+							<xf:trigger class="linebutton iconbutton">
+							  <xf:label>
+							    <img src="img/add-blue-icon.svg" class="in-button-icon" />
+							    <xf:output ref="instance('messages')/message[key/text()='target-result']/value/text()"/>
+							  </xf:label>
+							  <xf:action ev:event="DOMActivate">
+							    <xf:insert  origin="instance('template')//TargetResult[1]" context="."
+									ref="TargetResult" at="last()" position="after"/>
+							  </xf:action>
+							</xf:trigger>
+							<xf:trigger class="linebutton iconbutton">
+							  <xf:label>
+							    <img src="img/add-blue-icon.svg" class="in-button-icon" />
+							    <xf:output ref="instance('messages')/message[key/text()='actual-result']/value/text()"/>
+							  </xf:label>
+							  <xf:action ev:event="DOMActivate">
+							    <xf:insert  origin="instance('template')//ActualResult[1]" context="."
+									ref="ActualResult" at="last()" position="after"/>
+							  </xf:action>
+							</xf:trigger>
+						      </list-controls>
+						      <!-- ........... // Results End ............ -->
+						      
+
+
+						    </element-list>
+						  </element-content>
+						</plan-element>
+
+					
+					      </xf:repeat>
+					      <list-controls>
+						  
+						  <xf:trigger class="add-button iconbutton">
+						    <xf:label>
+						      <img src="img/add-blue-icon.svg" class="in-button-icon" />
+						      <xf:output ref="instance('messages')/message[key/text()='measurement-instance']/value/text()"/>
+						    </xf:label>
+						    <xf:action ev:event="DOMActivate">
+						      <xf:insert  origin="instance('template')//MeasurementInstance[1]" context="."
+								  ref="*:MeasurementInstance" at="last()" position="after"/>
+						    </xf:action>
+						  </xf:trigger>
+						</list-controls>
+					      
+					    </element-list>
+					    
+					    <element-list>
+
+					      <xf:repeat ref="*:Relationship">
+						<plan-element>
+						  <element-controls>
+						    <xf:trigger  class="linebutton iconbutton">
+						      <xf:label>
+							<img src="img/cross.svg" alt="delete Relationship" />
+						      </xf:label>
+						      <xf:delete ref="."  ev:event="DOMActivate" />
+						    </xf:trigger>
+						  </element-controls>
+						  <element-title>
+						    <xf:output ref="instance('messages')/message[key/text()='relationship']/value"/>
+						  </element-title>
+						  <element-content>
+						    <line>
+						      <field>
+				 			<xf:label>
+							  <field-label>
+							    <xf:output ref="instance('messages')/message[key/text()='identifier']/value"/>
+							  </field-label>
+							  <field-control>
+							    <xf:input ref="*:Identifier"/>
+							  </field-control>
+							</xf:label>
+						      </field>
+						      
+						      <field>
+							<xf:label>
+							  <field-label>
+							    <xf:output ref="instance('messages')/message[key/text()='name']/value"/>
+							  </field-label>
+							  <field-control>
+							    <xf:input ref="*:Name"/>
+							  </field-control>
+							</xf:label>
+						      </field>
+						    </line>
+						    <line>
+						      <field>
+							<xf:label>
+							  <field-label>
+							    <xf:output ref="instance('messages')/message[key/text()='type']/value"/>
+							  </field-label>
+							  <field-control>
+							    <xf:select1 ref="@RelationshipType">
+							      <xf:item>
+								<xf:label>Broader than</xf:label>
+								<xf:value>Broader_Than</xf:value>
+							      </xf:item>
+							      <xf:item>
+								<xf:label>Peer To</xf:label>
+								<xf:value>Peer_To</xf:value>
+							      </xf:item>
+							      <xf:item>
+								<xf:label>Narrower than</xf:label>
+								<xf:value>Narrower_Than</xf:value>
+							      </xf:item>
+							    </xf:select1>
+							  </field-control>
+							</xf:label>
+						      </field>
+						      <field>
+							<xf:label>
+							  <field-label>
+							    <xf:output ref="instance('messages')/message[key/text()='reference-identifier']/value"/>
+							  </field-label>
+							  <field-control>
+							    <xf:input ref="*:ReferentIdentifier" />
+							  </field-control>
+							</xf:label>
+						      </field>
+						    </line>
+						    <line>
+						      <field>
+							<xf:label>
+							  <field-label>
+							    <xf:output ref="instance('messages')/message[key/text()='description']/value"/>
+							  </field-label>
+							  <field-control>
+							    <xf:textarea ref="*:Description"/>
+							  </field-control>
+							</xf:label>
+						      </field>
+						    </line>
+						  </element-content>
+						</plan-element>
+					      </xf:repeat>
+
+					    <!-- ..........// Relationship list .......... -->
+					    <list-controls>
+					      <!--
+					      <xf:trigger class="add-button org-add-button">
+						<xf:label>
+						  <img src="img/add-blue-icon.svg" class="in-button-icon" />
+						  <xf:output ref="instance('messages')/message[key/text()='measurement-instance']/value/text()"/>
+						</xf:label>
+						<xf:action ev:event="DOMActivate">
+						  <xf:insert  origin="instance('template')//MeasurementInstance[1]" context="."
+							      ref="*:MeasurementInstance" at="last()" position="after"/>
+						</xf:action>
+					      </xf:trigger>
+					      -->
+					      <xf:trigger class="add-button iconbutton">
+						<xf:label>
+		      				  <img src="img/add-blue-icon.svg" class="in-button-icon" />
+						  <xf:output ref="instance('messages')/message[key/text()='relationship']/value/text()"/>
+						</xf:label>
+						<xf:action ev:event="DOMActivate">
+						  <xf:insert  origin="instance('template')//Relationship" context="."
+							      ref="*:Relationship" at="last()" position="after"/>
+						</xf:action>
+					      </xf:trigger>
+
+					    </list-controls>
+					    </element-list>
+					    
+					  </element-content>
+					  <!-- ......... Switch ......... -->
+					</xf:case>
+					<xf:case id="performancehide" selected="true" >
+
+					  <element-controls>
+					    <xf:trigger class="iconbutton" >
+					      <xf:label>
+						<img src="img/more-triangle.svg" />
+					      </xf:label>
+					      <xf:toggle case="performanceshow" ev:event="DOMActivate" />
+					    </xf:trigger>
+					  </element-controls>
+					  <element-title>
+					    <img src="img/performance-blue-icon.svg" class="type-icon"  /> 			
+					    <xf:output ref="*:SequenceIndicator" />
+					    <xf:output ref="*:Identifier"/>
+					  </element-title>
+
+					  <!-- ....... // Switch ........ -->
+					</xf:case>
+				      </xf:switch >
+
+
+				    </plan-element>
+				  </xf:repeat>
+
+				</element-list>
+				
+			      </element-content>
+			    </plan-element>
+			    <list-controls>
+			      <xf:trigger class="add-button">
+				<xf:label>
+				  <img src="img/add-blue-icon.svg" class="in-button-icon" />
+				  <!-- concat(instance('messages')/message[key/text()='add']/value/text(), ' ' ,   -->
+				  <xf:output ref="instance('messages')/message[key/text()='performance-indicator']/value/text()"/>
+				</xf:label>
+				<xf:action ev:event="DOMActivate">
+				  <xf:insert origin="instance('template')//PerformanceIndicator"  context="." ref="*:PerformanceIndicator"  at="last()" position="after"/>
+				  <xf:delete ref="*:PerformanceIndicator[last()]/*:Relationship" />
+				  <xf:delete ref="*:PerformanceIndicator[last()]/*:MeasurementInstance" />
+		 		</xf:action>
+  			      </xf:trigger>
+			    </list-controls>
+
+			  </xf:case>
+
+			  <!-- .......... Objective Hide ............... -->
+			  <xf:case id="objectivehide" selected="true" >
+			    <plan-element>
+			      <element-title>
+				<!-- ......... Objective Resume ................ -->
+				<xf:trigger class="iconbutton" >
+				  <xf:label>
+				    <img src="img/more-triangle.svg" />
+				  </xf:label>
+				  <xf:toggle case="objectiveshow" ev:event="DOMActivate" />
+				</xf:trigger>
+				<img src="img/target_blue_icon_3.svg" class="type-icon"  /> 
+				<xf:output ref="*:sequenceindicator"/>
+				<xf:output ref="instance('messages')/message[key/text()='objective']/value"/>
+				<xf:output ref="*:Name"/>
+			      </element-title>
+			    </plan-element>
+			  </xf:case>
+			</xf:switch>
+			
+		      </xf:repeat>
+		      
+		    </element-list>
+		  </element-content>
+		</plan-element>
+		<!-- ........................ // Objetives ........................... -->
+	      </xf:case>
+	      <!-- ........................ // Goals End ........................... -->
+	      
+	      
+	      <xf:case id="goalhide">
+		<plan-element>
+		  <element-title>
+		    <xf:trigger class="iconbutton">
+		      <xf:label>
+			<img src="img/more-triangle.svg" />
+		      </xf:label>
+		      <xf:toggle case="goalshow" ev:event="DOMActivate" />
+		    </xf:trigger>
+		    <img src="img/goal-blue-icon.svg" class="type-icon"  /> 
+		    <!--<xf:output class="SequenceIndicator nopaddingtext" ref="SequenceIndicator" />-->
+		    <xf:output ref="instance('messages')/message[key/text()='goal']/value" class="nopaddingtext"  />
+		    <xf:output ref="*:Name" class="nopaddingtext" />
+		  </element-title>
+		</plan-element>
+	      </xf:case>
+	    </xf:switch>
+	  </xf:repeat>
+	</element-list>
+	<!-- ........................ // Goals  ........................... -->
+      </div>
+      
+    </main>
+  </body>
+</html>

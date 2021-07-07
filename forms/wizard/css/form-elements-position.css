@@ -1,0 +1,215 @@
+
+
+
+
+category-header {
+    font-size:100%;
+    display:block;
+    margin-left:0;
+}
+
+
+
+
+/* ------------------- Lists of elements *******************/
+
+category-header {
+    font-size:100%;
+    display:block;
+    margin-left:0;
+    font-size:120%;
+    font-weight:500;
+    font-family:Helvetica, Arial;
+    padding-top:1.25em;
+    padding-bottom:0.5em;
+}
+
+element-list {
+    display:block;
+}
+
+element-list-header {
+    font-size:100%;
+    display:block;
+    margin-left:0;
+    margin-top:0.6em;
+    margin-bottom:0.4em;
+}
+
+list-controls {
+    display:inline-block;
+    margin-top:0.4em;
+    margin-bottom:0.4em;
+}
+
+list-controls .xforms-value {
+    font-size:90%;
+    font-family:arial;
+    font-weight:400;   
+}
+
+element-title {
+    margin-top:2em;
+    margin-bottom:0.4em;
+}
+
+
+plan-element {
+    margin-bottom:0.4em;
+    margin-top:0.6em;
+}
+
+element-controls {
+    margin-top:0.4em;
+    display : block ;
+    float :left;
+    min-height:5em;
+}
+
+element-controls * {
+    display : block ;
+    margin-bottom: 1em; 
+}
+
+
+
+element-content, element-title {
+    display:block;
+    padding-left:2em;
+    margin-bottom:0.4em;
+    
+}
+
+
+/* ------------------- Lines of fields and fields  *******************/
+
+line, div.line {
+    display:block;
+    width :100%;
+    margin-left:0;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    line-height:110%;
+}
+
+line * , div.line *  {
+    margin-left:0;
+}
+
+field {
+    display:inline-block;
+    min-width : 15em;
+    margin-right:1em;
+} 
+
+field-label {
+    display:inline-block;
+    min-width:7em;
+    vertical-align:top;
+}
+
+field-control input {
+    min-width:10em;
+}
+
+field-label *  {
+    display:inline;
+}
+
+
+textarea {
+    display : block ; 
+    min-width : 45em;
+    min-height: 6em ;
+    margin-top : 0.5em ; 
+    overflow:visible;
+}
+
+.xforms-label {
+    font-size:13pt ; 
+    font-family:arial, verdana ; 
+    font-weight:500;
+}
+
+
+ input[type="text"],textarea , select  { 
+    border : 1px solid #b1c1d7 ; 
+    border-radius: 3px;
+    font-size:105%;
+
+ }
+
+ .calendar .title, .calendar .title input, .calendar .title select, .calendar tfoot {
+    font-weight			: bold;
+    color				: #172e49;
+    text-align			: center;
+    background-color	: #f8f8f8;
+    background-image	: url(../img/titleBackground.png);
+}
+
+
+.hiddeninput input, input.hiddeninput, input[type='text'].borderless, input[type='text'].hiddeninput  {
+    border:0;
+    font-family:Helvetica, arial;
+    font-size:100%;
+}
+
+
+.longinput input {
+    min-width:30em;
+}
+
+.midinput input {
+    min-width:18em;
+}
+
+.smallinput input {
+    width:3em;
+    display:inline;
+}
+
+
+/* .............. Buttons ......................*/
+
+.add-button button {
+	color : #172e49 ; 
+	background: transparent;	
+	border: 0;
+}
+
+/*
+.add-button label {
+	color : #172e49 ; 
+}
+
+
+.add-button button .xforms-label {
+    color : #172e49 ; 
+}
+*/
+
+/* 
+ * Boton con icono (sin texto)
+ */
+.iconbutton button, #lang-selector button {
+    background:transparent;     
+    color : #172e49 ; 
+    border:0;
+}
+
+.iconbutton button .xforms-label {
+    color : #172e49 ; 
+}
+
+
+
+/* ............... Inputs without border ................ */
+ input.hiddeninput, .hiddeninput input.xforms-value {
+     border:0;
+ }
+input.hiddenseqind, .hiddenseqind input.xforms-value {
+    width: 1.5em;
+    overflow:visible;
+    text-align:center;
+    vertical-align:middle;
+ }

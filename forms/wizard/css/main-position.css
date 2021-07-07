@@ -1,0 +1,152 @@
+@namespace xf url("http://www.w3.org/2002/xforms");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+
+/* ------------------ Variables ---------------*/ 
+:root {
+    --margenbaselateral: 50px;
+    --margenbaseelemento: 0.4em;
+    --mainmargin : 1.5em;
+    --subelementmargin : 2em;
+    --elementmargin: 1em;
+}
+
+/* ------------------ Main Structure ---------------*/ 
+
+body {
+    margin-left :40px;
+    margin-right:40px;
+}
+
+main {
+    display:block;
+    margin-left:1em ;
+    margin-right:1em ;
+    margin-top:4em;
+    float : none;
+    clear : both; 
+    padding-left:8% ;
+}
+
+header {
+    display:block;
+}
+
+header h1 {
+    position : relative;
+}
+
+h1 {
+    width:92% ;
+    padding-right: 4%;
+    padding-left: 4%;
+    padding-top :0.4em;
+    padding-bottom:0.4em;
+    text-align : left;
+}
+
+/* -------------------- MAin List ---------------------------*/
+
+ol.mainform-list , .mainol, .performancepage li {
+    list-style-type:none;
+}
+
+mainform-list a {
+    color:#172e49;
+}
+
+
+
+ol.mainform-list {
+line-height:2.5em;
+list-style-type:none;
+}
+
+ol.mainform-list  img {
+    padding-right: 0.5em ;
+}
+
+ol.mainol, ol.mainperformace, main.goalspage, main.performancepage  {
+    margin-left : 1em ;
+    padding-left: 1em;
+}
+
+
+
+/* ----------- Marco general del formulario ------------------- */
+
+#marco {
+    display:block;
+    max-width:70em;
+    box-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    
+}
+
+.title-logo {
+    width:40px;
+    display:inline-block;     
+    margin-right:0.5em ;
+}
+
+.stratml-logo {
+    position:absolute;
+    top:0px;
+    right:2em;
+    margin-top:0;
+    border-top:0;
+    height:100%;
+    display:block; 
+}
+
+
+/* ............... Subheader row ................... */
+
+div.subheader {
+    display:block;
+    positon:relative;
+    clear:all;
+}
+
+#breadcrumb {
+    float:left;
+    padding-left:var(--margenbaselateral);
+    padding-top:0px;
+} 
+
+#confifurationoptions {
+    float: right;
+    padding-right: var(--margenbaselateral);
+
+}
+
+#confifurationoptions > *  {
+    display: inline;
+    padding-left:1.5em ;
+    padding-right:0;
+}
+
+#confifurationoptions *  {
+      padding-right:0;
+}
+
+
+#confifurationoptions #lang-selector  {
+    padding-left:0;
+}
+
+#page-counter {
+    float:right;
+    padding-right:var(--margenbaselateral);
+}
+
+div.subheader #page-counter {
+    float : right ; 
+    clear:both;
+    margin-top:2em; 
+}
+
+.forceinline * {
+	display:inline;
+}  

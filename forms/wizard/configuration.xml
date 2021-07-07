@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="no"?>
+<?css-conversion no ?>
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
+  <head>
+    <xf:model>
+      <xf:instance xmlns="" id="default" resource="data/stratml-template.xml" />      
+      <xf:instance xmlns="" id="template" resource="data/stratml-template.xml" />       
+      <xf:instance xmlns="" id="messages" src="labels/labels-en.xml" />      
+      <xf:instance xmlns="" id="config" resource="form-config.xml" />
+    </xf:model>
+    <link rel="stylesheet" type="text/css"  href="css/position-style.css" />
+    <link rel="stylesheet" type="text/css"  href="css/format-style.css" />
+  </head>
+  
+  <body>
+    <main>	
+      <h3>Configuration: Data Path</h3>
+      <div class="subsection" >
+	<p>Indicate the server path and the document file name.
+	This parameters will be used for storing the document.
+	A document loaded from a document file, or even from a server path
+	can be stored with other name or even other path. This operation
+	can be performed with or without document modification.
+	</p>
+
+	<div class="line" >
+	  <xf:input ref="instance('config')/path" >
+	    <xf:label>
+	      <xf:output ref="instance('messages')/message[key/text()='server-path']/value" />
+	    </xf:label>
+	  </xf:input>
+
+	  <xf:input ref="instance('config')/filename" >
+	    <xf:label>
+	      <xf:output ref="instance('messages')/message[key/text()='filename']/value" /></xf:label>
+	  </xf:input>
+
+
+
+<xf:submit submission="reload-plan" class="green">
+	      <xf:label>
+	      	<xf:output ref="instance('messages')/message[key/text()='reload']/value/text()"/>
+	      </xf:label>
+	    </xf:submit>
+	    
+	</div>
+
+	<div class="line" />
+      </div>
+      <br/><br/>
+
+    </main>
+  </body>
+</html>

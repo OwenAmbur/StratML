@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <file>en</file>
+  <subform>dos</subform>
+  <identifier></identifier>
+  <source></source>
+  <path></path>
+  <sourcedocument>../rest/data/template.xml</sourcedocument>
+  <filename>../rest/data/testfile.xml</filename>
+  <page>0</page>
+  <plan-load-path>loadplan.htm</plan-load-path>
+  <local-plan-path>localplan.htm</local-plan-path>
+  <browse-path>browse.htm</browse-path>
+</data>

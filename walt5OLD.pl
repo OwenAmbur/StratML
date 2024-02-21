@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+use cPanelUserConfig;
+#print "Content-Type: text/html\n\n";
+
 # XMLFullMerge.
 # Read the instance "against" the XML empty tree template.
 # The purpose of this script is to build an instance for XForms.
@@ -9,17 +12,15 @@
 
 # Variable naming.  $t variables are instance based and $t variables are template based.
 # For example, $troot is the root element of the template file.
-use cPanelUserConfig;
-use CGI::Carp qw(fatalsToBrowser);
-use CGI qw(:standard);
+
 use XML::DOM;
-use LWP::Simple;
-
 my $parser = new XML::DOM::Parser;
-my $cgi = new CGI;
 
-#use HTTP::Lite;
-#$http = new HTTP::Lite;
+use HTTP::Lite;
+$http = new HTTP::Lite;
+
+use Data::UUID;
+$ug = new Data::UUID; 
 
 # goto Start;
 
@@ -30,31 +31,88 @@ $OK_CHARS='-a-zA-Z0-9_.:\\/@';	# A restrictive list, which
 
 
 
+
+if ($content_length = $ENV{'CONTENT_LENGTH'})
+	{
+	
+	read (STDIN, $posted_information, $content_length);
+
+
+	#gather Variables from STDIN
+	#Decoding the Data
+
+	$posted_information =~ s/\+/" "/eg;
+	$posted_information =~ s/\%20/" "/eg;
+
+	$posted_information =~ s/\%3A/":"/eg;
+	$posted_information =~ s/\%2F/"\/"/eg;
+
+
+	#Splitting into Variables
+	(@fields) = split (/&/, $posted_information);
+	for (my $m=0;$m<$#fields;$m++)
+		{
+		($variable, $varx) = split (/=/, $fields[$m]);
+		if ($variable=~m|^url$|)
+			{
+			$instanceurl=$varx;
+			}
+		}
+
+	}
+else
+	{
+			
+	$posted_information=$ENV{QUERY_STRING};
+	$posted_information =~ s/\%3A/":"/eg;
+	$posted_information =~ s/\%2F/"\/"/eg;
+	(@fields) = split (/&/, $posted_information);
+	
+
+	for (my $m=0;$m<=$#fields;$m++)
+		{
+		($variable, $varx) = split (/=/, $fields[$m]);
+		if ($variable=~m|^url$|)
+			{
+			$instanceurl=$varx;
+			}
+		}
+	
+	
+	}
+	
+# $instanceurl="http://xml.gov/stratml/USITCIRMStratPlan.xml";
+
+$posted_information=~s|\n| |g;
+$posted_information=~s|<.xml-stylesheet [^>]*?>||;
+if ($posted_information=~m|\?\s*>\s*(.*)|)
+	{
+	$fcontents=$1;
+	$fcontents=~m|^<([^\?][^ >]*?)[ >]|;
+	my $r=$1;
+	$fcontents=~s|</($r)\s*>.*|</\1>|;
+	
+	}
+
 Start:
 
-my $xmldoc;
-my $url =  $cgi->param('url') ;
-#print "Checking $url "."\n";
-if($cgi->param('xml')){
-
-	$xmldoc = $cgi->param('xml');
-	$xmldoc =~ s/&lt;/</sg;
-	$xmldoc =~ s/&gt;/>/sg;
-	$xmldoc =~ s/&quot;/"/sg;
-	$xmldoc =~ s/&amp;/&/sg;
-}elsif ($cgi->param('f')) {
-	my $buffer;
-	my $io_handle = $cgi->upload('f')->handle;
-	while ( my $bytesread = $io_handle->read($buffer,1024) ) {
-  	  $xmldoc.=$buffer;
-  	}
-}elsif ($url) {	
-  $xmldoc=GetFileFromURL($url);
-} else {
-	die "No input";
-}
 
 
+# $instanceurl="http://xml.gov/stratml/drybridge/Rg.xml";
+
+# $xformdoc="../XF2/stratmlxform5.xml";
+# $xroot="StrategicPlan";
+
+# http://xml.gov/stratml/FEARMP.xml
+
+if (!$fcontents)
+	{
+	$xmldoc=GetFileFromURL($instanceurl);
+	}
+else
+	{
+	$xmldoc=$fcontents;
+	}
 $xmldoc=~s|stratml:||g;
 $xmldoc=~s|<.xml-stylesheet type="text/xsl" href="stratml.xsl".>||;
 
@@ -69,7 +127,6 @@ if ($xmldoc=~m|<StrategicPlan |)
 #Type="Strategic_Plan">|;
 
 # $xmldoc=~s| xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stratml="urn:ISO:std:iso:17469:tech:xsd:stratml_core||;
-
 
 
 # 2015/10/7
@@ -238,9 +295,11 @@ UpdateNode($troot,$iroot);
 
 
 
+
 binmode STDOUT, ":utf8";
+
 open(IN, "<:utf8", $xformdoc);
-open(OUT, ">:utf8", "out.xml") or die "Can't create out.xml: $!\n";
+open(OUT, ">:utf8", "StratML/out.xml");
 
 $docp=$iroot->toString;
 # $docp=~s| xmlns="[^"]*?"||;
@@ -256,15 +315,15 @@ $docp=~s|<Goal>\s*<Description></Description>|<Goal><Description>[To be describe
 $docp=~s|<Goal>\s*<Description/>|<Goal><Description>[To be described]</Description>|g;
 
 
-#$docp=~s|<TargetResult>\s*<Description></Description>|<TargetResult><Description>[To be described]</Description>|g;
-#$docp=~s|<TargetResult>\s*<Description/>|<TargetResult><Description>[To be described]</Description>|g;
+$docp=~s|<TargetResult>\s*<Description></Description>|<TargetResult><Description>[To be described]</Description>|g;
+$docp=~s|<TargetResult>\s*<Description/>|<TargetResult><Description>[To be described]</Description>|g;
 
 $docp=~s|<ActualResult>\s*<Description></Description>|<ActualResult><Description>[To be determined]</Description>|g;
 $docp=~s|<ActualResult>\s*<Description/>|<ActualResult><Description>[To be determined]</Description>|g;
 
 
-#$docp=~s|<Role>\s*<Name></Name>|<Role><Name>[To be named]</Name>|g;
-#$docp=~s|<Role>\s*<Name/>|<Role><Name>[To be named]</Name>|g;
+$docp=~s|<Role>\s*<Name></Name>|<Role><Name>[To be named]</Name>|g;
+$docp=~s|<Role>\s*<Name/>|<Role><Name>[To be named]</Name>|g;
 
 $docp=~s|<Goal>\s*<Name>\s*([^<]*?)</Name><Description></Description>|<Goal><Name>\1</Name><Description>[To be described]</Description>|g;
 $docp=~s|<Goal>\s*<Name>\s*([^<]*?)</Name><Description/>|<Goal><Name>\1</Name><Description>[To be described]</Description>|g;
@@ -274,8 +333,8 @@ $docp=~s|<Goal>\s*<Name></Name><Description/>|<Goal><Name>[To be named]</Name><D
 $docp=~s|<Goal>\s*<Name/><Description/>|<Goal><Name>[To be named]</Name><Description>[To be described]</Description>|g;
 $docp=~s|<Goal>\s*<Name/>|<Goal><Name>[To be named]</Name>|g;
 
-#$docp=~s|<Stakeholder([^>]*?)>\s*<Name></Name>|<Stakeholder\1><Name>[To be named]</Name>|g;
-#$docp=~s|<Stakeholder([^>]*?)>\s*<Name/>|<Stakeholder\1><Name>[To be named]</Name>|g;
+$docp=~s|<Stakeholder([^>]*?)>\s*<Name></Name>|<Stakeholder\1><Name>[To be named]</Name>|g;
+$docp=~s|<Stakeholder([^>]*?)>\s*<Name/>|<Stakeholder\1><Name>[To be named]</Name>|g;
 
 # $docp=~s|<Name></Name>|<Name>[To be named]</Name>|g;
 # $docp=~s|<Name/>|<Name>[To be named]</Name>|g;
@@ -290,11 +349,20 @@ $docp=~s|<PerformanceIndicator>|<PerformanceIndicator ValueChainStage="" Perform
 
 
 
-$docp=~s|>PLACEHOLDER_\d+<|>[To_be_identified]<|g;
-$docp=~s|<Relationship>(\s*)<Identifier></Identifier>|<Relationship RelationshipType="">\1<Identifier>[To_be_identified]</Identifier>|g;
-$docp=~s|<Relationship RelationshipType="">(\s*)<Identifier></Identifier>|<Relationship RelationshipType="">\1<Identifier>[To_be_identified]</Identifier>|g;
-$docp=~s|<Relationship>(\s*)<Identifier/>|<Relationship RelationshipType="">\1<Identifier>[To_be_identified]</Identifier>|g;
-$docp=~s|<Relationship RelationshipType="">(\s*)<Identifier/>|<Relationship>\1<Identifier>[To_be_identified]</Identifier>|g;
+$ug->create();
+$uuid1= lc($ug->create_str());
+
+
+$docp=~s|>PLACEHOLDER_\d+<|>_$uuid1<|g;
+
+$docp=~s|<Relationship>(\s*)<Identifier></Identifier>|<Relationship RelationshipType="">\1<Identifier>_$uuid1</Identifier>|g;
+$docp=~s|<Relationship>|<Relationship RelationshipType="">|g;
+$docp=~s|<Relationship RelationshipType="">(\s*)<Identifier></Identifier>|<Relationship RelationshipType="">\1<Identifier>_$uuid1</Identifier>|g;
+
+$docp=~s|<Relationship>(\s*)<Identifier/>|<Relationship RelationshipType="">\1<Identifier>_$uuid1</Identifier>|g;
+
+$docp=~s|<Relationship RelationshipType="">(\s*)<Identifier/>|<Relationship>\1<Identifier>_$uuid1</Identifier>|g;
+
 $docp=~s|<Stakeholder>|<Stakeholder StakeholderTypeType="">|g;
 
 # $docp=~s|[\x93\x94]|"|g;
@@ -346,14 +414,13 @@ while (<IN>)
 		}
 	}
 close(IN);
-
 close(OUT);
 
 print "Content-type: text/html\n\n";
 print "<html>";
-print "<meta HTTP-EQUIV=\"REFRESH\" content=\"0; url=out.xml\"/>\n";
+print "<meta HTTP-EQUIV=\"REFRESH\" content=\"0; url=StratML/out.xml\"/>\n";
 
-print "<body><p><a href=\"out.xml\">Link</a></p></body>\n";
+print "<body><p><a href=\"StratML/out.xml\">Link</a></p></body>\n";
 
 exit;
 
@@ -365,29 +432,25 @@ exit;
 sub GetFileFromURL {
 my $website=$_[0];
 my $errorstr=$_[1];
-if (!($req = get($website)))
+if (!($req = $http->request($website))) 
 	{
-	print $cgi->header;
 	print "<html><title>".$website." not available</title>\n";
 	print "<body>\n";	
-	print "<h2>".$website." is unavailable at this time.(1)</h2>\n";
-	print "<pre>".$_."\n".$http->status_message()."</pre>";
+	print "<h2>".$website." is unavailable at this time.</h2>\n";
 	print "<p>Here's a link to the government's URL you requested. <a href=\"".$website."\">".$website."</a>";
 	print "</body></html>";
 	exit;
 	}
 	
-my $body=$req;
-#$body = $http->body();
+my $body="";
+$body = $http->body();
 
 # Text for availability
 if ($errorstr && $body=~m|$errorstr|)
 	{
-	print $cgi->header;
 	print "<html><title>".$website." not available</title>\n";
 	print "<body>\n";	
-	print "<h2>".$website." is unavailable at this time.(2)</h2>\n";
-	print "<pre>".$_."\n".$http->status_message()."</pre>";
+	print "<h2>".$website." is unavailable at this time.</h2>\n";
 	print "<p>Here's a link to the government's URL you requested. <a href=\"".$website."\">".$website."</a>";
 	print "</body></html>";
 	exit;

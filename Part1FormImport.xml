@@ -61,78 +61,15 @@ td {vertical-align: top;}
 
 <xf:model>
 	<xf:instance xmlns="">
-	<StrategicPlan>
-	<id></id>
-	<Name>Plan Name Goes Here</Name>
-	<Description></Description>
-	<OtherInformation></OtherInformation>
-
-	<StrategicPlanCore>
-		
-	<Organization>
-		<Name></Name> 
-		<Acronym></Acronym> 
-		<Identifier></Identifier>
-		<Description></Description>
-		<Stakeholder StakeholderTypeType="">
-			<Name></Name>
-			<Description></Description>
-		</Stakeholder>
-	</Organization>
-	<Vision>
-		<Description></Description>
-		<Identifier></Identifier>					
-	</Vision>
-	<Mission>
-		<Description></Description>
-		<Identifier></Identifier>
-	</Mission>
- 	<Value>
-		<Name></Name>
-		  <Description></Description> 
-	</Value>
-				
-	 <Goal>
-		<Name></Name>
-		<Description></Description>
-		<Identifier></Identifier>
-		<SequenceIndicator></SequenceIndicator> 
-		 <Stakeholder StakeholderTypeType="">
-			<Name></Name> 
-			<Description></Description> 
-		 </Stakeholder>
-		<OtherInformation></OtherInformation>
-		<Objective>
-			<Name></Name> 
-			<Description></Description> 
-			<Identifier></Identifier>				
-			<SequenceIndicator></SequenceIndicator> 
-			<Stakeholder StakeholderTypeType="">
-				<Name></Name> 
-				<Description></Description> 
-			</Stakeholder>
-			<OtherInformation></OtherInformation>
-		</Objective>
-	</Goal>
-
-	</StrategicPlanCore>
-				
-	<AdministrativeInformation>
-		<StartDate></StartDate>
-		<EndDate></EndDate>
-		<PublicationDate></PublicationDate>
-		<Source></Source>
-		<Submitter>
-	 		<GivenName></GivenName>
-			<Surname></Surname>
-			<PhoneNumber></PhoneNumber>
-			<EmailAddress></EmailAddress>
-		</Submitter>
-	</AdministrativeInformation>
-				
-</StrategicPlan>
-
-</xf:instance>
+<StrategicPlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stratml="urn:ISO:std:iso:17469:tech:xsd:stratml_core"><id/><Name>About NCSES</Name><Description>As one of 13 principal federal statistical agencies, NCSES designs, supports, and directs periodic national surveys and performs a variety of other data collections and research. </Description><OtherInformation>NCSES is responsible for statistical data on the following broad areas of interest:
+^^
+* Research and development
+^
+* The science and engineering workforce
+^
+* U.S. competitiveness in science, engineering, technology, and R&amp;D
+^
+* The condition and progress of STEM education in the United States</OtherInformation><StrategicPlanCore><Organization><Name>National Center for Science and Engineering Statistics</Name><Acronym>NCSES</Acronym><Identifier>_338c157c-b59f-11ee-8177-bc321c83ea00</Identifier><Description>The National Center for Science and Engineering Statistics (NCSES) is a principal statistical agency located within the National Science Foundation (NSF). NCSES was re-authorized from the original mandate in the National Science Foundation Act of 1950 by Section 505 of the America COMPETES Reauthorization Act of 2010.</Description><Stakeholder StakeholderTypeType="Organization"><Name>National Science Foundation</Name><Description/></Stakeholder><Stakeholder StakeholderTypeType="Generic_Group"><Name>Federal Statistical System</Name><Description>NCSES is part of the Federal Statistical System (FSS), which is committed to advancing the methods for collection and accessibility of objective statistical information in the United States. These efforts include increased collaboration within the FSS network, adopting a common framework for protecting statistical data, and disseminating statistical data securely and equitably, in accordance with the Confidential Information Protection and Statistical Efficiency Act of 2018 (CIPSEA) and other provisions within the Foundations for Evidence-Based Policymaking Act of 2018 (Evidence Act). This work is foundational to informing decisions across the public and private sectors.</Description></Stakeholder><Stakeholder StakeholderTypeType="Generic_Group"><Name>NCSES Staff</Name><Description/></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Emilda B. Rivers</Name><Description>Division Director</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Christina Freyman</Name><Description>Deputy Divison Director</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>John M. Finamore</Name><Description>Chief Statistician</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Lisa Beth Mirel</Name><Description>Statistical Advisor</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Jason L. Johnson</Name><Description>Staff Associate for Operations</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Adrian V Mcqueen</Name><Description>IT Specialist</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Kabirat Nasiru</Name><Description>ORISE Fellow</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Brianna J. Stanard</Name><Description>Operations Specialist</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Elizabeth M. Grieco</Name><Description>Supervisory Program Director, Science, Technology and Innovation - Public Information (STI-PI)</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Feng Lan</Name><Description>Survey Statistician</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Kelly S. Phou</Name><Description>Survey Statistician</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Christine J Hamel</Name><Description>Technical Writer-Editor</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Julia Milton</Name><Description>Communications Specialist</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Alexis Doreste-rodriguez</Name><Description>ORISE Fellow</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Muluken Muche</Name><Description>ORISE Fellow</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Kensuke Shirakawa</Name><Description>Supervisory Program Director, Infrastructure and Tools (IFT)</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Tiffany Ann Julian</Name><Description>Data Scientist</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Rajinder S. Raut</Name><Description>Web Manager (IT Specialist/Internet)</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Kaitlin Scoffone</Name><Description>ORISE Fellow</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Steven C Deitz</Name><Description>Interdisciplinary Science Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Derek L. Hill</Name><Description>Science Resources Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Carol A. Robbins</Name><Description>Science Resource Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Jaquelina C Falkenheim</Name><Description>Senior Science Resources Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Francisco Moris-Orengo</Name><Description>Senior Science Resource Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Lulu Kam</Name><Description>Interdisciplinary Science Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Alexander Rhodes</Name><Description>Interdisciplinary Science Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Marie Rush</Name><Description>Interdisciplinary Science Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Elizabeth Mannshardt</Name><Description>Supervisory Program Director, Statistics, Methods, and Innovation (SMI)</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Jennifer Lee Beck</Name><Description>Survey Statistician/Evaluation</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Wan-Ying Chang</Name><Description>Mathematical Statistician</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Shelley Feuer</Name><Description>Survey Statistician</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Amber Levanon Seligson</Name><Description>Supervisory Program Director, Science, Technology, and Innovation Survey Management (STI-SM)</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Kelly H. Kang</Name><Description>Senior Science Resource Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Michael I Yamaner</Name><Description>Senior Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Lynn M. Milan</Name><Description>Survey Statistician</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Michael Thomas Gibbons</Name><Description>Survey Statistician</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Christopher Vito Pece</Name><Description>Senior Science Resource Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Ronda K. Britt</Name><Description>Survey Statistician</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Audrey E. Kindlon</Name><Description>Survey Statistician</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Timothy Wojan</Name><Description>ORISE Fellow</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Jorge Cisneros Paz</Name><Description>ORISE Fellow</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Gigi Jones</Name><Description>Survey Statistician</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Arthur Hughes</Name><Description>Survey Manager</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Heather Madray</Name><Description>Supervisory Program Director, Data Access, Confidentiality and Quality Assessment (DACQA)</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>David Folkerts</Name><Description>Program Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Shaun Genter</Name><Description>Interdisciplinary Science Analyst</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Elizabeth Walter</Name><Description>Contractor Support</Description></Stakeholder><Stakeholder StakeholderTypeType="Person"><Name>Suresh Kaja</Name><Description>Contractor Support</Description></Stakeholder></Organization><Vision><Description>Informed decisions across the public and private sectors</Description><Identifier>_338c166c-b59f-11ee-8177-bc321c83ea00</Identifier></Vision><Mission><Description>To advance the methods for collection and accessibility of objective statistical information in the United States</Description><Identifier>_338c172a-b59f-11ee-8177-bc321c83ea00</Identifier></Mission><Value><Name>Information</Name><Description>NCSES is committed to providing information that is objective and transparent, adhering to all directives and standards set forth by the Office of Management and Budget (OMB).</Description></Value><Value><Name>Transparency</Name><Description/></Value><Value><Name>Accuracy</Name><Description>As one of the 13 principal federal statistical agencies, NCSES also follows guiding principles and practices that ensure it provides accurate, timely, relevant, and objective information for public and policy use.</Description></Value><Value><Name>Timeliness</Name><Description/></Value><Value><Name>Relevancy</Name><Description/></Value><Value><Name>Objectivity</Name><Description/></Value><Goal><Name>Statistics</Name><Description>Collect, acquire, analyze, report, and disseminate statistical data related to the United States and other nations</Description><Identifier>_338c181a-b59f-11ee-8177-bc321c83ea00</Identifier><SequenceIndicator>1</SequenceIndicator><Stakeholder StakeholderTypeType=""><Name/><Description/></Stakeholder><OtherInformation/><Objective><Name/><Description/><Identifier>_338c18c4-b59f-11ee-8177-bc321c83ea00</Identifier><SequenceIndicator/><Stakeholder StakeholderTypeType=""><Name/><Description/></Stakeholder><OtherInformation/></Objective></Goal><Goal><Name>Research Support</Name><Description>Support research that uses NCSES data</Description><Identifier>_338c196e-b59f-11ee-8177-bc321c83ea00</Identifier><SequenceIndicator>2</SequenceIndicator><Stakeholder StakeholderTypeType=""><Name/><Description/></Stakeholder><OtherInformation>How We Support Research ~ NCSES supports research to improve insights and discoveries in support of its mission, the federal statistical system, and research communities.</OtherInformation><Objective><Name>Data</Name><Description>Promotes research on the collection, analysis, and reporting of data.</Description><Identifier>_338c1a22-b59f-11ee-8177-bc321c83ea00</Identifier><SequenceIndicator>2.1</SequenceIndicator><Stakeholder StakeholderTypeType=""><Name/><Description/></Stakeholder><OtherInformation/></Objective><Objective><Name>Funding</Name><Description/><Identifier>_338c1acc-b59f-11ee-8177-bc321c83ea00</Identifier><SequenceIndicator>2.2</SequenceIndicator><Stakeholder StakeholderTypeType=""><Name/><Description/></Stakeholder><OtherInformation>Funding Opportunities ~ Learn about the various research funding mechanisms NCSES offers and their associated deadlines.</OtherInformation></Objective><Objective><Name>Microdata</Name><Description>Control access to NCSES's restricted use microdata</Description><Identifier>_338c1b76-b59f-11ee-8177-bc321c83ea00</Identifier><SequenceIndicator>2.3</SequenceIndicator><Stakeholder StakeholderTypeType=""><Name/><Description/></Stakeholder><OtherInformation>NCSES Restricted Use Data Licensing ~ Apply to gain access to NCSES's restricted use microdata.</OtherInformation></Objective></Goal><Goal><Name>Methodological Research</Name><Description>Conduct methodological research in areas related to our work</Description><Identifier>_338c1c2a-b59f-11ee-8177-bc321c83ea00</Identifier><SequenceIndicator>3</SequenceIndicator><Stakeholder StakeholderTypeType=""><Name/><Description/></Stakeholder><OtherInformation/><Objective><Name/><Description/><Identifier>_338c1cde-b59f-11ee-8177-bc321c83ea00</Identifier><SequenceIndicator/><Stakeholder StakeholderTypeType=""><Name/><Description/></Stakeholder><OtherInformation/></Objective></Goal><Goal><Name>Education &amp; Training</Name><Description>Educate and train of researchers in the use of large-scale nationally representative data sets</Description><Identifier>_338c1d88-b59f-11ee-8177-bc321c83ea00</Identifier><SequenceIndicator>4</SequenceIndicator><Stakeholder StakeholderTypeType="Generic_Group"><Name>Researchers</Name><Description/></Stakeholder><OtherInformation/><Objective><Name/><Description/><Identifier>_338c1e46-b59f-11ee-8177-bc321c83ea00</Identifier><SequenceIndicator/><Stakeholder StakeholderTypeType=""><Name/><Description/></Stakeholder><OtherInformation/></Objective></Goal></StrategicPlanCore><AdministrativeInformation><StartDate/><EndDate/><PublicationDate>2024-01-18</PublicationDate><Source>https://ncses.nsf.gov/about</Source><Submitter><GivenName>Owen</GivenName><Surname>Ambur</Surname><PhoneNumber/><EmailAddress>Owen.Ambur@verizon.net</EmailAddress></Submitter></AdministrativeInformation></StrategicPlan></xf:instance>
 
 
 <xf:bind nodeset="AdministrativeInformation/StartDate" type="xf:date"/>

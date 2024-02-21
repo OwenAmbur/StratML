@@ -1,0 +1,3002 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/forms/xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="no"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms"
+	xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/plain; charset=us-ascii" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="-1" />
+
+		<title>StratML Part 1 to Part 2 XForm</title>
+
+		<meta name="DC.title" content="StratML Part 1 to Part 2 Conversion XForm" />
+		<meta name="title" content="Strategic Plan (StratML Part 2) XForm" />
+		<meta name="DC.subject" scheme="DCTERMS.LCSH"
+			content="Strategic Plans, StratML Part 2, StratML, XForms, XSLTForms, Performance Plans, Performance Reports" />
+		<meta name="DC.contributor" content="Joe Carmel" />
+		<meta name="DC.contributor" content="Owen Ambur" />
+		<meta name="DC.contributor" content="Andre Cusson (hyperbase.com)" />
+		<meta name="DC.contributor" content="Alain Couthures (agencexml.com)" />
+		<meta name="DC.contributor" content="Gannon J. Dick (rustprivacy.org)" />
+		<meta name="DC.contributor" content="Colin Mackenzie (mackenziesolutions.co.uk)" />
+		<meta name="DC.rights" content="Public domain" />
+		<meta name="DC.rights.accessRights" content="public" />
+		<meta name="DC.format.medium" scheme="DCTERMS.IMT" content="text/xml" />
+		<meta name="medium" content="XForm" />
+		<meta name="DC.identifier" scheme="DCTERMS.URI"
+			content="http://www.legisworks.org/StratML/" />
+		<meta name="DC.language" scheme="DCTERMS.RFC3066" content="en-US" />
+		<meta http-equiv="Content-Language" content="en-US" />
+		<meta name="keywords"
+			content="Strategic Plans, StratML, XForms, XSTForms, Performance Plans, Performance Reports" />
+		<meta name="DC.date" content="2018-08-19" />
+
+		<style type="text/css">
+			hr {height: 5px; width: 22%; color: red; background-color: red; }
+			hr.goal {height: 10px; width: 80%; color: blue; background-color:
+			blue; }
+			h1 {color:orange; }
+			span.noread {color:orange;}
+			div.logo {font-family: Garamond; font-size:300%; font-weight: bold;}
+			span.definition {font-family: Helvetica; font-size:40%;}
+			span.button {font-family: Helvetica; font-size:100%; width:15ex;}
+			div.intro {font-family: Arial; font-size:95%; text-align:left;}
+			div.LEFT {font-family: Helvetica; font-size:100%; text-align:left;
+			margin:15px;}
+			@namespace xf url("http://www.w3.org/2002/xforms");
+			label, legend {font-weight: normal;}
+
+			/* The default field width for all inputs */
+			.xforms-value {width: 125px; font-size: 150%}
+
+			/* custom field width overrides relative to current font size */
+			/* ex is the size of the current lowercase 'x' in pixels */
+			/* em is the size of the current "M" character in pixels */
+			.Source .xforms-value {width:40ex}
+			.Acronym .xforms-value {width:40ex}
+			.SequenceIndicator .xforms-value {width:35ex}
+			.SequenceIndicator1 .xforms-value {width:35ex}
+			.name .xforms-value {width:35ex}
+
+			.email .xforms-value {width:35ex; font-size: 150%}
+			.textarea .xforms-value {width:60ex; font-family: Helvetica;sans-serif;
+			font-size: 150%}
+			.textarea1 .xforms-value {width:55ex; font-family: Helvetica;sans-serif;
+			font-size: 150%}
+			.textareabig .xforms-value {width:90ex; font-family: Helvetica;sans-serif;
+			font-size: 125%}
+
+			.StakeholderTypeType .xforms-value {width:30ex}
+
+
+			td {vertical-align: top;}
+			.collapsible {
+			  background-color: #777;
+			  color: white;
+			  cursor: pointer;
+			  padding: 18px;
+			  width: 100%;
+			  border: none;
+			  text-align: left;
+			  outline: none;
+			  font-size: 15px;
+			}
+			
+			.active, .collapsible:hover {
+			  background-color: #555;
+			}
+			
+			.collapsible:after {
+			  content: '\002B';
+			  color: white;
+			  font-weight: bold;
+			  float: right;
+			  margin-left: 5px;
+			}
+			
+			.active:after {
+			  content: "\2212";
+			}
+			
+			.content {
+			  padding: 0 18px;
+			  max-height: 0;
+			  overflow: hidden;
+			  transition: max-height 0.2s ease-out;
+			  background-color: #f1f1f1; }
+
+			
+		</style>
+		<script lang="JavaScript">
+		function MyJavaScript()
+		{
+			if (arguments.length == 0)
+			{
+				var contentsElements = document.getElementsByClassName("content")
+				var contentsElementsLength = contentsElements.length
+				while( --contentsElementsLength )
+				{
+					contentsElements[contentsElementsLength].style.maxHeight = contentsElements[contentsElementsLength].scrollHeight + "px";
+				}
+				
+				return;
+			}
+			
+			var content = document.getElementById(arguments[0]);
+			
+			if (content.style.maxHeight){
+			      content.style.maxHeight = null;
+			    } else {
+			      content.style.maxHeight = content.scrollHeight + "px";
+    			} 
+		}
+		</script>
+		<xf:model>
+			<xf:instance xmlns="">
+				<PerformancePlanOrReport Type="Performance_Plan">
+					<id></id>
+					<Name>Plan Name Goes Here</Name>
+					<Description></Description>
+					<OtherInformation></OtherInformation>
+
+					<StrategicPlanCore>
+
+						<Organization>
+							<Name></Name>
+							<Acronym></Acronym>
+							<Identifier></Identifier>
+							<Description></Description>
+							<Stakeholder StakeholderTypeType="">
+								<Name>[To be named]</Name>
+								<Description></Description>
+								<Role>
+									<Name>[To be named]</Name>
+									<Description></Description>
+									<RoleType></RoleType>
+								</Role>
+							</Stakeholder>
+						</Organization>
+						<Vision>
+							<Description></Description>
+							<Identifier></Identifier>
+						</Vision>
+						<Mission>
+							<Description></Description>
+							<Identifier></Identifier>
+						</Mission>
+						<Value>
+							<Name></Name>
+							<Description></Description>
+						</Value>
+
+						<Goal>
+							<Name>[To be named]</Name>
+							<Description>[To be described]</Description>
+							<Identifier></Identifier>
+							<SequenceIndicator>1</SequenceIndicator>
+							<Stakeholder StakeholderTypeType="">
+								<Name>[To be named]</Name>
+								<Description></Description>
+								<Role>
+									<Name>[To be named]</Name>
+									<Description></Description>
+									<RoleType></RoleType>
+								</Role>
+							</Stakeholder>
+							<OtherInformation></OtherInformation>
+							<Objective>
+								<Name></Name>
+								<Description></Description>
+								<Identifier></Identifier>
+								<SequenceIndicator></SequenceIndicator>
+								<Stakeholder StakeholderTypeType="">
+									<Name>[To be named]</Name>
+									<Description></Description>
+									<Role>
+										<Name>[To be named]</Name>
+										<Description></Description>
+										<RoleType></RoleType>
+									</Role>
+
+								</Stakeholder>
+								<OtherInformation></OtherInformation>
+								<PerformanceIndicator ValueChainStage=""
+									PerformanceIndicatorType="">
+									<SequenceIndicator></SequenceIndicator>
+									<MeasurementDimension></MeasurementDimension>
+									<UnitOfMeasurement></UnitOfMeasurement>
+									<Identifier></Identifier>
+									<Relationship RelationshipType="">
+										<Identifier></Identifier>
+										<ReferentIdentifier>[To_be_inserted_by_user]
+										</ReferentIdentifier>
+										<Name></Name>
+										<Description></Description>
+									</Relationship>
+									<MeasurementInstance>
+										<TargetResult>
+											<Description>[To be described]</Description>
+											<Descriptor>
+												<DescriptorName>
+												</DescriptorName>
+												<DescriptorValue>
+												</DescriptorValue>
+											</Descriptor>
+											<NumberOfUnits></NumberOfUnits>
+											<StartDate />
+											<EndDate />
+										</TargetResult>
+										<ActualResult>
+											<Description>[To be determined]</Description>
+											<Descriptor>
+												<DescriptorName>
+												</DescriptorName>
+												<DescriptorValue>
+												</DescriptorValue>
+											</Descriptor>
+											<NumberOfUnits></NumberOfUnits>
+											<StartDate />
+											<EndDate />
+										</ActualResult>
+									</MeasurementInstance>
+									<OtherInformation></OtherInformation>
+								</PerformanceIndicator>
+
+							</Objective>
+						</Goal>
+
+					</StrategicPlanCore>
+
+					<AdministrativeInformation>
+						<Identifier></Identifier>
+						<StartDate></StartDate>
+						<EndDate></EndDate>
+						<PublicationDate></PublicationDate>
+						<Source></Source>
+					</AdministrativeInformation>
+					<Submitter>
+						<Identifier></Identifier>
+						<GivenName></GivenName>
+						<Surname></Surname>
+						<PhoneNumber></PhoneNumber>
+						<EmailAddress></EmailAddress>
+					</Submitter>
+
+
+				</PerformancePlanOrReport>
+
+			</xf:instance>
+
+
+			<xf:bind nodeset="AdministrativeInformation/StartDate" type="xf:date" />
+			<xf:bind nodeset="AdministrativeInformation/EndDate" type="xf:date" />
+			<xf:bind nodeset="AdministrativeInformation/PublicationDate"
+				type="xf:date" />
+			<xf:bind nodeset="/PerformancePlanOrReport/Name" required="true()"
+				type="xsd:string" />
+
+			<!-- xf:bind nodeset="Submitter/EmailAddress" type="xf:email"/ -->
+
+			<!-- xf:bind nodeset="TargetResult/NumberOfUnits" calculate="sum(TargetResult/NumberOfUnits)" 
+				type="xsd:decimal"/> <xf:bind nodeset="ActualResult/NumberOfUnits" calculate="sum(ActualResult/NumberOfUnits)" 
+				type="xsd:decimal"/ -->
+
+			<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Name"
+				required="true()" type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name"
+				required="true()" type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Name"
+				required="true()" type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Goal/Stakeholder/Role/Name"
+				required="true()" type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Name"
+				required="true()" type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Stakeholder/Role/Name"
+				required="true()" type="xsd:string" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship[@RelationshipType]"
+				type="xsd:string" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier"
+				type="xsd:string" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/Identifier"
+				readonly="true()" type="xsd:string" />
+
+			<xf:bind nodeset="StrategicPlanCore/Organization/Identifier"
+				readonly="true()" type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Vision/Identifier"
+				readonly="true()" type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Mission/Identifier"
+				readonly="true()" type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Goal/Identifier"
+				readonly="true()" type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Goal/Objective/Identifier"
+				readonly="true()" type="xsd:string" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/Identifier"
+				readonly="true()" type="xsd:string" />
+
+			<xf:bind nodeset="StrategicPlanCore/Organization/Stakeholder/Role/Name"
+				required="true()" type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Goal/Name" required="true()"
+				type="xsd:string" />
+			<xf:bind nodeset="StrategicPlanCore/Goal/Description"
+				required="true()" type="xsd:string" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Description"
+				required="true()" type="xf:string" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorName"
+				type="xf:string" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/Descriptor/DescriptorValue"
+				type="xf:string" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorName"
+				type="xf:string" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/Descriptor/DescriptorValue"
+				type="xf:string" />
+
+
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/NumberOfUnits"
+				type="xf:decimal" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/NumberOfUnits"
+				type="xf:decimal" />
+
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/StartDate"
+				type="xf:date" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/TargetResult/EndDate"
+				type="xf:date" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/StartDate"
+				type="xf:date" />
+			<xf:bind
+				nodeset="StrategicPlanCore/Goal/Objective/PerformanceIndicator/MeasurementInstance/ActualResult/EndDate"
+				type="xf:date" />
+
+
+
+			<xf:submission id="s01" method="post" show="new"
+				replace="all" action="/forms/txs.php?exec=beautify.txs">
+				<xf:message level="modeless" ev:event="xforms-submit-error">Submit error.
+				</xf:message>
+			</xf:submission>
+
+
+
+			<xf:submission id="s02" show="new" method="post"
+				action="http://stratml.us/forms/showpart2xml.pl">
+
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message level="modeless">
+						Entry Submission Error - Count reflects all paths to same element.
+						There are less errors to fix than those shown.
+						<br />
+						Count =
+						<xf:output value="count(//node()[not(is-valid(.))])" />
+						<br />
+						<xf:repeat id="errrepeat" nodeset="//node()[not(is-valid(.))]"
+							appearance="compact">
+							*
+							<xf:output value="." />
+							<br />
+						</xf:repeat>
+					</xf:message>
+					<xf:setfocus>
+						<xf:control value="invalid-id()" />
+					</xf:setfocus>
+				</xf:action>
+
+
+
+			</xf:submission>
+
+
+
+			<xf:submission id="s03" show="new" method="post"
+				action="http://stratml.us/forms/showpart2post1.pl">
+				<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission
+					Error - please check the form for red Xs.</xf:message>
+
+			</xf:submission>
+
+
+			<xf:submission id="gannon" show="new" method="post"
+				action="../cgi-bin/gannon.pl">
+				<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission
+					Error - please check the form for red Xs.</xf:message>
+			</xf:submission>
+
+			<xf:submission id="colin" show="new" method="post"
+				action="../cgi-bin/colin.pl">
+				<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission
+					Error - please check the form for red Xs.</xf:message>
+			</xf:submission>
+
+
+			<xf:submission id="s_html" show="new" method="post"
+				action="../cgi-bin/showiso2post2.pl">
+				<xf:message level="modeless" ev:event="xforms-submit-error">Entry Submission
+					Error - please check the form for red Xs.</xf:message>
+			</xf:submission>
+
+			<xf:submission id="htmtiki" show="new" method="post"
+				action="../cgi-bin/htmtiki2.pl" />
+
+			<xf:submission id="catalog-entry" show="new" method="post"
+				action="../cgi-bin/cat1.pl" />
+			<xf:submission id="catalog-xform" show="new" method="post"
+				action="../cgi-bin/catxform.pl" />
+			<xf:submission id="s04" method="xml-urlencoded-post"
+				replace="none"
+				action="xsltforms/txs.php?exec=returnasattachment.txs&amp;file=mycontact.xml">
+				<xf:message level="modeless" ev:event="xforms-submit-error">Submit error.
+				</xf:message>
+			</xf:submission>
+		</xf:model>
+
+	</head>
+
+
+	<!-- =================================== -->
+	<!-- =================================== -->
+	<body>
+
+
+		<!-- =================================== -->
+		<!-- Background table -->
+		<center>
+			<table
+				style="width:100%;margin-top:0px;margin-bottom:0px;background-color:blue;"
+				border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td align="center">
+						<a name="top"></a>
+						<p></p>
+
+
+
+						<!-- =================================== -->
+						<!-- Main area -->
+						<table width="890" border="0" cellpadding="0" cellspacing="0"
+							style="margin-top:1px; background-color:#ffffff; border-bottom:1px solid black">
+							<tr>
+								<td>
+									<!-- StratML banner -->
+									<table border="0">
+										<tr valign="top">
+											<td valign="top" align="left">
+												<img width="120px" src="http://stratml.us/forms/Plan_H.jpg"
+													alt="StratML logo" />
+											</td>
+											<td valign="top" align="left">
+												<div class="logo">
+													Performance Plan/Report Form
+													<font size="1">
+														<br />
+													</font>
+													<span class="definition">
+														<b>Sharing organizational goals, objectives, and
+															performance indicators</b>
+													</span>
+												</div>
+
+												<table width="100%">
+													<tr align="center">
+														<!-- <td><span class="button"><b><a href="http://www.aiim.org/documents/StratML_Schemas/PerformancePlanOrReport.xsd">Part 
+															2.1 Schema</a> </b></span></td> -->
+
+														<!-- <td> <span class="button"><b><a href="http://legisworks.org/StratML/catalog.html" 
+															target="_blank">Catalog </a> </b></span></td> -->
+
+														<!-- <td><span class="button"><b>URLS to try: <a href="http://stratml.us/StratMLSiteMap.xml" 
+															target="_blank">Part 1</a> or <a href="http://legisworks.org/StratML/XML">Part 
+															2</a> </b></span></td> -->
+
+														<!-- td><span class="button"><b><a href="http://xml.fido.gov/stratml/drybridge/urls.xml" 
+															target="_blank">URLs to try</a> </b></span></td> <td><span class="button"><b><a 
+															href="http://stratml.us/StratMLSiteMap.xml" target="_blank">URLs to try</a> 
+															</b></span></td -->
+
+														<!-- <td><span class="button"><b><a href="http://legisworks.org/StratML/Part1Form.xml" 
+															target="_blank">Part 1 Form </a> </b></span></td> -->
+
+
+														<!-- <td><span class="button"><b><a href="http://stratml.us" 
+															target="_blank">StratML.us </a> </b></span></td> -->
+														<!-- <td><span class="button"><b><a href="http://www.agencexml.com" 
+															target="_blank">XSLTForms</a> </b></span></td> -->
+														<!-- <td><span class="button"><b><a href="http://www.w3.org/TR/xforms/" 
+															target="_blank">XForms Spec</a> </b></span></td> -->
+														<!-- <td><span class="button"><b><a href="aboutstratxform.html" 
+															target="_blank">About</a> </b></span></td> -->
+													</tr>
+												</table>
+
+												<p>
+													<div class="intro">
+														This form provides an easy way to convert strategic plans
+														into performance plans and reports by documenting
+														stakeholder roles and performance indicators for each
+														objective. Click the XML button at the bottom of the form
+														and then save the file on your hard drive in plain XML
+														format. Click the XML+XSL button to save it in a more
+														attractive presentation format but you will also need to
+														download and place the
+														<a href="../forms/part2stratml.xsl">stylesheet</a>
+														in the same directory. When you have saved the file, you
+														can either reimport it into this form for further editing
+														or use any other
+														<a
+															href="https://en.wikipedia.org/wiki/Comparison_of_XML_editors">XML editor</a>
+														. When you're ready to share it with others, post it on
+														the Web. If you'd like to have it indexed in the
+														<a href="../drybridge/index.htm">StratML collection</a>
+														, send the URL to
+														<a href="mailto:Owen.Ambur@verizon.net">Owen Ambur</a>
+														.
+														<br />
+														<!-- Part 2 files (which will be available at <a href="http://legisworks.org/StratML/XML">legisworks.org/StratML/XML</a> 
+															can be re-imported into this form.<br/> -->
+
+														<!-- The XML and XML+XSL buttons will also store the latest 
+															version of the StratML file at <a href="http://legisworks.org/StratML/XML">legisworks.org/StratML/XML</a> 
+															using <br/>the Plan's Name and Organization/Identifier in the file.<br/> -->
+														<!-- Part 2 files stored locally or stored outside of legisworks.org 
+															cannot be imported at this time. -->
+														<br />
+													</div>
+												</p>
+
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+
+
+									<!-- =================================== -->
+									<!-- Submit URL or file -->
+									<center>
+										<table width="60%" border="1">
+											<tr>
+												<td>
+													<form style='border: 0px solid gray; padding: 5px'
+														action='/forms/walt5.pl'>
+														StratML
+														<b>URL</b>
+														:
+														<input name='url' size='30' />
+														<input style='font-size: 80%' type='submit'
+															value='Import StratML From URL' />
+													</form>
+
+												</td>
+												<td>
+													<!-- form style='border: 0px white; padding: 5px' action='/forms/walt5.pl' 
+														method='post' enctype='multipart/form-data' accept='image/*'> Local StratML 
+														<b>File</b>: <input type='file' name='f' accept='image/*'/ -->
+
+													<form style='border: 0px white; padding: 5px' action='/forms/walt5.pl'
+														method='post' enctype='multipart/form-data'>
+														Local StratML
+														<b>File</b>
+														:
+														<input type='file' name='f' accept='.xml' />
+														<b>
+														</b>
+														<input style='font-size: 80%' type='submit'
+															value='Import StratML From File' />
+													</form>
+												</td>
+											</tr>
+										</table>
+									</center>
+
+
+
+									<!-- Display URL -->
+
+
+									<!-- =================================== -->
+									<!-- Plan Information -->
+									<div class="LEFT">
+										<h2>
+											<hr align="left" />
+											Plan Information
+										</h2>
+										<ul>
+											<table>
+												<tr>
+													<td style="font-weight:bold;">
+														Plan or Report Type:
+													</td>
+													<td>
+														<xf:select1 class="Source" ref="@Type"
+															appearance="minimal">
+															<xf:label />
+															<xf:item>
+																<xf:label>Strategic_Plan</xf:label>
+																<xf:value>Strategic_Plan</xf:value>
+															</xf:item>
+															<xf:item>
+																<xf:label>Performance_Plan</xf:label>
+																<xf:value>Performance_Plan</xf:value>
+															</xf:item>
+															<xf:item>
+																<xf:label>Performance_Report</xf:label>
+																<xf:value>Performance_Report</xf:value>
+															</xf:item>
+														</xf:select1>
+													</td>
+												</tr>
+
+												<tr>
+													<td width="200px">
+														<b>Name of Plan: </b>
+													</td>
+													<td>
+														<xf:input class="Source" ref="Name">
+															<xf:label></xf:label>
+														</xf:input>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<b>Source of Plan</b>
+														(e.g., URL):
+													</td>
+													<td>
+														<xf:input class="Source"
+															ref="AdministrativeInformation/Source">
+															<xf:label></xf:label>
+														</xf:input>
+
+														<xf:trigger>
+															<xf:label>Link</xf:label>
+															<xf:action ev:event="DOMActivate">
+																<xf:load ref="AdministrativeInformation/Source"
+																	show="new" />
+															</xf:action>
+														</xf:trigger>
+
+													</td>
+												</tr>
+
+												<tr valign="top">
+													<td>
+														<b>Description of Plan: </b>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="2">
+														<xf:textarea rows="6" class="textareabig" ref="Description">
+															<xf:label></xf:label>
+														</xf:textarea>
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+														<b>Start Date of Plan: </b>
+													</td>
+													<td>
+														<xf:input ref="AdministrativeInformation/StartDate">
+															<xf:label></xf:label>
+														</xf:input>
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+														<b>End Date of Plan: </b>
+													</td>
+													<td>
+														<xf:input ref="AdministrativeInformation/EndDate">
+															<xf:label></xf:label>
+														</xf:input>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<b>Publication Date: </b>
+													</td>
+													<td>
+														<xf:input ref="AdministrativeInformation/PublicationDate">
+															<xf:label></xf:label>
+														</xf:input>
+													</td>
+												</tr>
+
+												<tr valign="top">
+													<td>
+														<b>Other Information: </b>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="2">
+														<xf:textarea rows="6" class="textareabig" ref="OtherInformation">
+															<xf:label></xf:label>
+														</xf:textarea>
+													</td>
+												</tr>
+											</table>
+										</ul>
+
+
+
+										<!-- =================================== -->
+										<!-- Organization Information -->
+										<h2>
+											<hr align="left" />
+											<xf:trigger>
+											<xf:label class="collapsible">Organization Information</xf:label>
+												<xf:action ev:event="DOMActivate">
+													<xf:load resource="javascript:MyJavaScript('ORGInfo')" />
+												</xf:action>
+											</xf:trigger>
+										</h2>
+										
+										<ul>
+										 <div id="ORGInfo" class="content">
+											<xf:group>
+											
+												<xf:repeat id="orgrepeat" nodeset="StrategicPlanCore/Organization"
+													appearance="compact">
+
+
+													<table>
+														<tr>
+															<td colspan="2">
+																<h3>
+																	Organization
+																	<xf:output value="position()" />
+																	:
+																</h3>
+															</td>
+														</tr>
+														<tr>
+															<td colspan="2">
+																<b>Organization Name: </b>
+																<xf:input class="Source" ref="Name">
+																	<xf:label></xf:label>
+																</xf:input>
+															</td>
+														</tr>
+
+														<tr>
+															<td>
+																<b>Acronym: </b>
+																<xf:input class="Acronym" ref="Acronym">
+																	<xf:label></xf:label>
+																</xf:input>
+															</td>
+														</tr>
+
+														<tr>
+															<td>
+																<b>
+																	<span class="noread">Identifier: </span>
+																</b>
+																<xf:input class="Source" ref="Identifier">
+																	<xf:label></xf:label>
+																</xf:input>
+															</td>
+														</tr>
+
+
+														<tr valign="top">
+															<td>
+																<b>Organization Description:</b>
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<xf:textarea rows="6" class="textarea" ref="Description">
+																	<xf:label></xf:label>
+																</xf:textarea>
+															</td>
+														</tr>
+
+
+														<!-- Organization Stakeholder section -->
+														<tr>
+															<td>
+																<ul>
+																	<xf:group>
+																		<xf:repeat id="orgstakerepeat" nodeset="Stakeholder"
+																			appearance="compact">
+																			<table>
+																				<tr>
+																					<td colspan="2">
+																						<h3>
+																							Stakeholder
+																							<xf:output value="position()" />
+																							 of Organization:
+																						</h3>
+																					</td>
+																				</tr>
+
+																				<tr valign="top">
+																					<td>
+																						<b>Stakeholder Type: </b>
+																					</td>
+																					<td>
+																						<xf:select1 class="StakeholderTypeType"
+																							ref="@StakeholderTypeType" appearance="minimal"
+																							incremental="true">
+																							<xf:item>
+																								<xf:label>Organization</xf:label>
+																								<xf:value>Organization</xf:value>
+																							</xf:item>
+																							<xf:item>
+																								<xf:label>Person</xf:label>
+																								<xf:value>Person</xf:value>
+																							</xf:item>
+																							<xf:item>
+																								<xf:label>Group</xf:label>
+																								<xf:value>Generic_Group</xf:value>
+																							</xf:item>
+																						</xf:select1>
+																					</td>
+																				</tr>
+
+																				<tr valign="top">
+																					<td>
+																						<b>Stakeholder Name: </b>
+																					</td>
+																					<td>
+																						<xf:input class="Source" ref="Name">
+																							<xf:label></xf:label>
+																						</xf:input>
+																					</td>
+																				</tr>
+
+																				<tr>
+																					<td>
+																						<b>Description: </b>
+																					</td>
+																					<td>
+																						<xf:textarea rows="6" class="textarea"
+																							ref="Description">
+																							<xf:label></xf:label>
+																						</xf:textarea>
+																					</td>
+																				</tr>
+
+
+																				<tr>
+																					<td colspan="3">
+																						<ul>
+
+																							<xf:group>
+																								<xf:repeat id="orgrolerepeat" nodeset="Role"
+																									appearance="compact">
+
+																									<table>
+																										<tr>
+																											<td colspan="2">
+																												<h3>
+																													Role
+																													<xf:output value="position()" />
+																													 of Stakeholder:
+																												</h3>
+																											</td>
+																										</tr>
+
+																										<tr valign="top">
+																											<td>
+																												<b>Role Name: </b>
+																											</td>
+																											<td>
+																												<xf:input class="Source" ref="Name">
+																													<xf:label></xf:label>
+																												</xf:input>
+																											</td>
+																										</tr>
+
+																										<tr>
+																											<td>
+																												<b>Role Description: </b>
+																											</td>
+																											<td>
+																												<xf:textarea rows="6" class="textarea"
+																													ref="Description">
+																													<xf:label></xf:label>
+																												</xf:textarea>
+																											</td>
+																										</tr>
+
+																										<tr>
+																											<td colspan="3">
+																												<ul>
+																													<xf:group>
+																														<xf:repeat id="orgroletyperepeat"
+																															nodeset="RoleType" appearance="compact">
+
+																															<table>
+																																<tr valign="top">
+																																	<td>
+																																		<b>
+																																			Role Type
+																																			<xf:output value="position()" />
+																																			:
+																																		</b>
+																																	</td>
+																																	<td>
+																																		<xf:select1 class="Source"
+																																			ref="." appearance="minimal">
+																																			<xf:label />
+																																			<xf:item>
+																																				<xf:label>Performer</xf:label>
+																																				<xf:value>Performer</xf:value>
+																																			</xf:item>
+																																			<xf:item>
+																																				<xf:label>Beneficiary</xf:label>
+																																				<xf:value>Beneficiary</xf:value>
+																																			</xf:item>
+																																		</xf:select1>
+																																	</td>
+																																</tr>
+
+																																<tr>
+																																	<td>
+																																	</td>
+																																	<td>
+																																		<xf:trigger>
+																																			<xf:label>Remove Role Type</xf:label>
+																																			<xf:delete nodeset="." at="1"
+																																				if="count(//StrategicPlanCore/Organization/Stakeholder/Role/RoleType) > 1"
+																																				ev:event="DOMActivate" />
+																																				<xf:load resource="javascript:MyJavaScript()" />
+																																		</xf:trigger>
+																																	</td>
+																																</tr>
+																															</table>
+
+																															<xf:trigger>
+																																<xf:label>Add Role Type</xf:label>
+																																<xf:action ev:event="DOMActivate">
+																																	<xf:load resource="javascript:MyJavaScript()" />
+																																	<xf:insert nodeset="." at="1"
+																																		position="after" />
+																																	<xf:setvalue ref="."></xf:setvalue>
+																																</xf:action>
+																															</xf:trigger>
+
+																														</xf:repeat>
+																													</xf:group>
+																												</ul>
+																											</td>
+																										</tr>
+
+
+
+																										<!-- </xf:repeat></xf:group> -->
+																										<tr>
+																											<td>
+																											</td>
+																										</tr>
+																										<tr>
+																											<td>
+																											</td>
+																											<td colspan="1">
+																												<xf:trigger>
+																													<xf:label>Remove Role</xf:label>
+																													
+																													<xf:delete nodeset="." at="1"
+																														if="count(//StrategicPlanCore/Organization/Stakeholder/Role) > 1"
+																														ev:event="DOMActivate" />
+																														<xf:load resource="javascript:MyJavaScript()" />
+																												</xf:trigger>
+																											</td>
+																										</tr>
+
+																									</table>
+
+																									<xf:trigger>
+																										<xf:label>Add Role</xf:label>
+																										<xf:action ev:event="DOMActivate">
+																											<xf:insert nodeset="." at="1"
+																												position="before" />
+																											<xf:setvalue ref=".[current()]/Name">[To be named]
+																											</xf:setvalue>
+																											<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+																											<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
+
+																											<!-- <xf:insert nodeset="Stakeholder" at="index('rolerepeat')" 
+																												position="after"/> <xf:setvalue ref="//StrategicPlanCore/Organization/Stakeholder/Role[last()]/Name"></xf:setvalue> 
+																												<xf:setvalue ref="//StrategicPlanCore/Organization/Stakeholder/Role[last()]/Description"></xf:setvalue> 
+																												<xf:setvalue ref="//StrategicPlanCore/Organization/Stakeholder/Role[last()]/RoleType"></xf:setvalue> -->
+																										</xf:action>
+																									</xf:trigger>
+
+
+																								</xf:repeat>
+																							</xf:group>
+																						</ul>
+																					</td>
+																				</tr>
+
+
+																				<tr>
+																					<td>
+																					</td>
+																					<td colspan="1">
+																						<xf:trigger>
+																							<xf:label>Remove Stakeholder</xf:label>
+																							<xf:delete nodeset="." at="1"
+																								if="count(//StrategicPlanCore/Organization/Stakeholder) > 1"
+																								ev:event="DOMActivate" />
+																								<xf:load resource="javascript:MyJavaScript()" />
+																						</xf:trigger>
+																					</td>
+																				</tr>
+
+																			</table>
+
+																			<xf:trigger>
+																				<xf:label>Add Stakeholder</xf:label>
+																				<xf:action ev:event="DOMActivate">
+																					<xf:insert nodeset="." at="1" position="before" />
+																					<xf:setvalue ref=".[current()]/Name">[To be named]
+																					</xf:setvalue>
+																					<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+
+																					<!-- <xf:insert nodeset="Stakeholder" at="index('orgstakerepeat')" 
+																						position="after"/> <xf:setvalue ref="//StrategicPlanCore/Organization/Stakeholder[last()]/Name"></xf:setvalue> 
+																						<xf:setvalue ref="//StrategicPlanCore/Organization/Stakeholder[last()]/Description"></xf:setvalue> -->
+																					<xf:load resource="javascript:MyJavaScript()" />	
+																				</xf:action>
+																				
+																			</xf:trigger>
+
+																		</xf:repeat>
+																	</xf:group>
+
+																</ul>
+															</td>
+														</tr>
+
+														<tr>
+															<td colspan="2">
+																<xf:trigger>
+																	<xf:label>Remove Organization</xf:label>
+																	<xf:delete nodeset="." at="1"
+																		if="count(//StrategicPlanCore/Organization) > 1"
+																		ev:event="DOMActivate" />
+																		<xf:load resource="javascript:MyJavaScript()" />
+																</xf:trigger>
+															</td>
+														</tr>
+
+													</table>
+
+													<xf:trigger>
+														<xf:label>Add Organization</xf:label>
+														<xf:action ev:event="DOMActivate">
+															<xf:insert nodeset="." at="1" position="before" />
+															<xf:delete nodeset="./Stakeholder" at="1"
+																while="count(./Stakeholder) > 1" ev:event="DOMActivate" />
+															<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
+															<xf:setvalue ref=".[current()]/Acronym"></xf:setvalue>
+															<xf:setvalue ref=".[current()]/Identifier"></xf:setvalue>
+															<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+															<xf:setvalue ref=".[current()]/Stakeholder/Name">[To be named]</xf:setvalue>
+															<xf:setvalue ref=".[current()]/Stakeholder/Description"></xf:setvalue>
+															<xf:load resource="javascript:MyJavaScript()" />
+														</xf:action>
+														
+													</xf:trigger>
+
+												</xf:repeat>
+												
+											</xf:group>
+										</div>
+										</ul>
+
+
+
+
+										<!-- =================================== -->
+										<!-- Vision -->
+										<h2>
+											<hr align="left" />
+											Vision
+										</h2>
+										<ul>
+											<table border="0">
+												<tr valign="top">
+													<td>
+														<b>
+															<span class="noread">Vision Identifier: </span>
+														</b>
+													</td>
+													<td>
+														<xf:input id="Vision" class="Source"
+															ref="StrategicPlanCore/Vision/Identifier">
+															<xf:label></xf:label>
+														</xf:input>
+													</td>
+												</tr>
+
+												<tr valign="top">
+													<td>
+														<b>Vision Description: </b>
+													</td>
+													<td>
+
+
+														<xf:textarea rows="6" class="textareabig"
+															ref="StrategicPlanCore/Vision/Description">
+															<xf:label></xf:label>
+														</xf:textarea>
+													</td>
+												</tr>
+											</table>
+										
+										</ul>
+
+
+
+										<!-- =================================== -->
+										<!-- Mission -->
+										<h2>
+											<hr align="left" />
+											Mission												
+										</h2>
+										<ul>
+											
+											<table border="0">
+												<tr valign="top">
+													<td>
+														<b>
+															<span class="noread">Mission Identifier: </span>
+														</b>
+													</td>
+													<td>
+														<xf:input class="Source"
+															ref="StrategicPlanCore/Mission/Identifier">
+															<xf:label></xf:label>
+														</xf:input>
+													</td>
+												</tr>
+
+												<tr valign="top">
+													<td>
+														<b>Mission Description: </b>
+													</td>
+													<td>
+
+
+														<xf:textarea rows="6" class="textareabig"
+															ref="StrategicPlanCore/Mission/Description">
+															<xf:label></xf:label>
+														</xf:textarea>
+													</td>
+												</tr>
+											</table>
+											
+										</ul>
+
+
+
+										<!-- =================================== -->
+										<!-- Values -->
+										<h2>
+											<hr align="left" />
+											
+												<xf:trigger>
+													<xf:label class="collapsible">Values (<xf:output value="count(//Value)" />)
+													</xf:label>
+													<xf:action ev:event="DOMActivate">
+														<xf:load resource="javascript:MyJavaScript('ValuesDiv')" />
+													</xf:action>
+											</xf:trigger>
+											
+										</h2>
+										<ul>
+											<div id="ValuesDiv" class="content">
+											<xf:group>
+
+												<xf:repeat id="valuerepeat" nodeset="StrategicPlanCore/Value"
+													appearance="compact">
+
+													<table border="0">
+														<tr>
+															<td>
+																<h3>
+																	Value
+																	<xf:output value="position()" />
+																	:
+																</h3>
+															</td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>
+																<b>Name:</b>
+															</td>
+															<td>
+																<xf:input class="Source" ref="Name">
+																	<xf:label></xf:label>
+																</xf:input>
+
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<b>Description: </b>
+															</td>
+															<td>
+																<xf:textarea rows="6" class="textarea" ref="Description">
+																	<xf:label></xf:label>
+																</xf:textarea>
+															</td>
+														</tr>
+														<tr>
+															<td></td>
+															<td>
+																<xf:trigger>
+																	<xf:label>Remove Value</xf:label>
+																	<xf:delete nodeset="." at="1"
+																		if="count(//Value) > 1" ev:event="DOMActivate" />
+																		<xf:load resource="javascript:MyJavaScript()" />
+																</xf:trigger>
+															</td>
+														</tr>
+
+
+													</table>
+
+													<xf:trigger>
+														<xf:label>Add Value </xf:label>
+														<xf:action ev:event="DOMActivate">
+															<xf:insert nodeset="." at="1" position="before" />
+															<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
+															<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+															<xf:load resource="javascript:MyJavaScript()" />
+														</xf:action>
+													</xf:trigger>
+
+												</xf:repeat>
+
+											</xf:group>
+											</div>
+
+										</ul>
+
+
+
+										<!-- =================================== -->
+										<!-- Goals -->
+
+										<h2>
+											<hr align="left" />
+											<xf:trigger>
+													<xf:label class="collapsible">Goals (
+											<xf:output value="count(//Goal)" />
+											)
+													</xf:label>
+													<xf:action ev:event="DOMActivate">
+														<xf:load resource="javascript:MyJavaScript('GoalsDiv')" />
+													</xf:action>
+											</xf:trigger>
+											
+											
+											
+										</h2>
+										<ul>
+											<div id= "GoalsDiv" class="content">
+											<xf:group>
+												<xf:repeat id="goalrepeat" nodeset="StrategicPlanCore/Goal"
+													appearance="compact">
+
+													<hr align="left" class="goal" />
+													<table>
+														<tr>
+															<td>
+
+
+																<h3>
+																	Goal
+																	<xf:output value="position()" />
+																	:
+																</h3>
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<b>Goal Name:  </b>
+															</td>
+															<td>
+																<xf:input class="Source" ref="Name">
+																	<xf:label></xf:label>
+																</xf:input>
+															</td>
+														</tr>
+
+														<tr>
+															<td>
+																<b>Description: </b>
+															</td>
+															<td>
+																<xf:textarea rows="6" class="textarea" ref="Description">
+																	<xf:label></xf:label>
+																</xf:textarea>
+															</td>
+														</tr>
+
+														<tr>
+															<td>
+																<b>
+																	<span class="noread">Goal Identifier:  </span>
+																</b>
+															</td>
+															<td>
+																<xf:input class="Source" ref="Identifier">
+																	<xf:label></xf:label>
+																</xf:input>
+															</td>
+														</tr>
+
+
+														<tr>
+															<td>
+																<b>Sequence Indicator: </b>
+															</td>
+															<td>
+																<xf:input class="SequenceIndicator" ref="SequenceIndicator">
+																	<xf:label></xf:label>
+																</xf:input>
+															</td>
+														</tr>
+
+														<tr valign="top">
+															<td>
+																<b>Other Information: </b>
+															</td>
+															<td>
+																<xf:textarea rows="6" class="textarea"
+																	ref="OtherInformation">
+																	<xf:label></xf:label>
+																</xf:textarea>
+															</td>
+														</tr>
+
+
+														<!-- Stakeholder section -->
+														<tr>
+															<td></td>
+															<td>
+																<xf:group>
+																	<xf:repeat id="goalstakerepeat" nodeset="Stakeholder"
+																		appearance="compact">
+																		<table>
+
+																			<tr>
+																				<td colspan="2">
+																					<h3>
+																						Stakeholder
+																						<xf:output value="position()" />
+																						 of Goal
+																						<xf:output
+																							value="count(parent::*/preceding-sibling::Goal) + 1" />
+																						:
+																					</h3>
+																				</td>
+																			</tr>
+																			<tr valign="top">
+																				<td>
+																					<b>Stakeholder Type: </b>
+																				</td>
+																				<td>
+																					<xf:select1 class="StakeholderTypeType"
+																						ref="@StakeholderTypeType" appearance="minimal"
+																						incremental="true">
+																						<xf:item>
+																							<xf:label>Organization</xf:label>
+																							<xf:value>Organization</xf:value>
+																						</xf:item>
+																						<xf:item>
+																							<xf:label>Person</xf:label>
+																							<xf:value>Person</xf:value>
+																						</xf:item>
+																						<xf:item>
+																							<xf:label>Group</xf:label>
+																							<xf:value>Generic_Group</xf:value>
+																						</xf:item>
+																					</xf:select1>
+																				</td>
+																			</tr>
+
+
+																			<tr>
+																				<td>
+																					<b>Stakeholder Name: </b>
+																				</td>
+																				<td>
+																					<xf:input class="Source" ref="Name">
+																						<xf:label></xf:label>
+																					</xf:input>
+																				</td>
+																			</tr>
+
+																			<tr>
+																				<td>
+																					<b>Description: </b>
+																				</td>
+																				<td>
+																					<xf:textarea rows="6" class="textarea"
+																						ref="Description">
+																						<xf:label></xf:label>
+																					</xf:textarea>
+																				</td>
+																			</tr>
+
+
+
+																			<!-- HERE -->
+
+																			<tr>
+																				<td colspan="3">
+																					<ul>
+
+																						<xf:group>
+																							<xf:repeat id="goalrolerepeat" nodeset="Role"
+																								appearance="compact">
+
+																								<table>
+																									<tr>
+																										<td colspan="2">
+																											<h3>
+																												Role
+																												<xf:output value="position()" />
+																												 of Stakeholder:
+																											</h3>
+																										</td>
+																									</tr>
+
+																									<tr valign="top">
+																										<td>
+																											<b>Role Name: </b>
+																										</td>
+																										<td>
+																											<xf:input class="Source" ref="Name">
+																												<xf:label></xf:label>
+																											</xf:input>
+																										</td>
+																									</tr>
+
+																									<tr>
+																										<td>
+																											<b>Role Description: </b>
+																										</td>
+																										<td>
+																											<xf:textarea rows="6" class="textarea"
+																												ref="Description">
+																												<xf:label></xf:label>
+																											</xf:textarea>
+																										</td>
+																									</tr>
+
+																									<tr>
+																										<td colspan="3">
+																											<ul>
+																												<xf:group>
+																													<xf:repeat id="goalroletyperepeat"
+																														nodeset="RoleType" appearance="compact">
+
+																														<table>
+																															<tr valign="top">
+																																<td>
+																																	<b>
+																																		Role Type
+																																		<xf:output value="position()" />
+																																		:
+																																	</b>
+																																</td>
+																																<td>
+																																	<xf:select1 class="Source"
+																																		ref="." appearance="minimal">
+																																		<xf:label />
+																																		<xf:item>
+																																			<xf:label>Performer</xf:label>
+																																			<xf:value>Performer</xf:value>
+																																		</xf:item>
+																																		<xf:item>
+																																			<xf:label>Beneficiary</xf:label>
+																																			<xf:value>Beneficiary</xf:value>
+																																		</xf:item>
+																																	</xf:select1>
+																																</td>
+																															</tr>
+
+																															<tr>
+																																<td>
+																																</td>
+																																<td>
+																																	<xf:trigger>
+																																		<xf:label>Remove Role Type</xf:label>
+																																		<xf:delete nodeset="." at="1"
+																																			if="count(//StrategicPlanCore/Goal/Stakeholder/Role/RoleType) > 1"
+																																			ev:event="DOMActivate" />
+																																			<xf:load resource="javascript:MyJavaScript()" />
+																																	</xf:trigger>
+																																</td>
+																															</tr>
+																														</table>
+
+																														<xf:trigger>
+																															<xf:label>Add Role Type</xf:label>
+																															<xf:action ev:event="DOMActivate">
+																																<xf:insert nodeset="." at="1"
+																																	position="before" />
+																																<xf:setvalue ref="."></xf:setvalue>
+																															</xf:action>
+																														</xf:trigger>
+
+																													</xf:repeat>
+																												</xf:group>
+																											</ul>
+																										</td>
+																									</tr>
+
+
+
+																									<!-- </xf:repeat></xf:group> -->
+																									<tr>
+																										<td>
+																										</td>
+																									</tr>
+																									<tr>
+																										<td>
+																										</td>
+																										<td colspan="1">
+																											<xf:trigger>
+																												<xf:label>Remove Role</xf:label>
+																												<xf:delete nodeset="." at="1"
+																													if="count(//StrategicPlanCore/Goal/Stakeholder/Role) > 1"
+																													ev:event="DOMActivate" />
+																													<xf:load resource="javascript:MyJavaScript()" />
+																											</xf:trigger>
+																										</td>
+																									</tr>
+
+																								</table>
+
+																								<xf:trigger>
+																									<xf:label>Add Role</xf:label>
+																									<xf:action ev:event="DOMActivate">
+																										<xf:insert nodeset="." at="1"
+																											position="before" />
+																										<xf:setvalue ref=".[current()]/Name">[To be named]
+																										</xf:setvalue>
+																										<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+																										<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
+																										<xf:load resource="javascript:MyJavaScript()" />
+																										<!-- <xf:insert nodeset="Stakeholder" at="index('rolerepeat')" 
+																											position="after"/> <xf:setvalue ref="//StrategicPlanCore/Goal/Stakeholder/Role[last()]/Name"></xf:setvalue> 
+																											<xf:setvalue ref="//StrategicPlanCore/Goal/Stakeholder/Role[last()]/Description"></xf:setvalue> 
+																											<xf:setvalue ref="//StrategicPlanCore/Goal/Stakeholder/Role[last()]/RoleType"></xf:setvalue> -->
+																									</xf:action>
+																								</xf:trigger>
+
+
+																							</xf:repeat>
+																						</xf:group>
+																					</ul>
+																				</td>
+																			</tr>
+
+
+
+
+
+																			<!-- HERE -->
+
+
+
+
+
+
+
+
+
+																			<tr>
+																				<td>
+																				</td>
+																				<td>
+																					<xf:trigger>
+																						<xf:label>Remove Stakeholder</xf:label>
+																						<xf:delete nodeset="." at="1"
+																							if="count(//Goal/Stakeholder) > 1" ev:event="DOMActivate" />
+																							<xf:load resource="javascript:MyJavaScript()" />
+																					</xf:trigger>
+
+																				</td>
+																			</tr>
+
+																		</table>
+
+																		<xf:trigger>
+																			<xf:label>Add Stakeholder</xf:label>
+																			<xf:action ev:event="DOMActivate">
+																				<xf:insert nodeset="." at="1" position="before" />
+																				<xf:setvalue ref=".[current()]/Name">[To be named]
+																				</xf:setvalue>
+																				<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+																				<xf:load resource="javascript:MyJavaScript()" />
+																				<!-- <xf:insert nodeset="Stakeholder" at="index('goalstakerepeat')" 
+																					position="after"/> <xf:setvalue ref="Stakeholder[last()]/Name"></xf:setvalue> 
+																					<xf:setvalue ref="Stakeholder[last()]/Description"></xf:setvalue> -->
+																			</xf:action>
+
+																		</xf:trigger>
+																	</xf:repeat>
+																</xf:group>
+
+															</td>
+														</tr>
+														<!-- End of Stakeholder section -->
+
+
+
+
+
+														<!-- =================================== -->
+														<!-- Objectives -->
+
+
+														<tr>
+															<td></td>
+															<td>
+
+																<xf:group>
+																	<xf:repeat id="objectiverepeat" nodeset="Objective"
+																		appearance="compact">
+																		<table>
+																			<tr>
+																				<td colspan="2">
+																					<h3>
+																						Objective
+																						<xf:output value="position()" />
+																						 of Goal
+																						<xf:output
+																							value="count(parent::*/preceding-sibling::Goal) + 1" />
+																						:
+																					</h3>
+																				</td>
+																			</tr>
+
+																			<tr>
+																				<td>
+																					<b>Objective Name: </b>
+																				</td>
+																				<td>
+																					<xf:input class="Source" ref="Name">
+																						<xf:label></xf:label>
+																					</xf:input>
+																				</td>
+																			</tr>
+
+																			<tr>
+																				<td>
+																					<b>Description: </b>
+																				</td>
+																				<td>
+																					<xf:textarea rows="6" class="textarea"
+																						ref="Description">
+																						<xf:label></xf:label>
+																					</xf:textarea>
+																				</td>
+																			</tr>
+
+																			<tr>
+																				<td>
+																					<b>
+																						<span class="noread">Identifier: </span>
+																					</b>
+																				</td>
+																				<td>
+																					<xf:input class="Source" ref="Identifier">
+																						<xf:label></xf:label>
+																					</xf:input>
+																				</td>
+																			</tr>
+
+
+																			<tr>
+																				<td>
+																					<b>Sequence Indicator: </b>
+																				</td>
+																				<td>
+																					<xf:input class="SequenceIndicator1" ref="SequenceIndicator">
+																						<xf:label></xf:label>
+																					</xf:input>
+																				</td>
+																			</tr>
+
+
+																			<tr>
+																				<td></td>
+																				<td>
+
+																					<!-- Objective Stakeholder section -->
+																					<tr>
+																						<td></td>
+																						<td>
+																							<xf:group>
+																								<xf:repeat id="objstakerepeat"
+																									nodeset="Stakeholder" appearance="compact">
+																									<table>
+																										<tr>
+																											<td colspan="2">
+																												<h3>
+																													Stakeholder
+																													<xf:output value="position()" />
+																													 of this Objective:
+																												</h3>
+																											</td>
+																										</tr>
+
+																										<tr valign="top">
+																											<td>
+																												<b>Stakeholder Type: </b>
+																											</td>
+																											<td>
+																												<xf:select1 class="StakeholderTypeType"
+																													ref="@StakeholderTypeType" appearance="minimal"
+																													incremental="true">
+																													<xf:item>
+																														<xf:label>Organization</xf:label>
+																														<xf:value>Organization</xf:value>
+																													</xf:item>
+																													<xf:item>
+																														<xf:label>Person</xf:label>
+																														<xf:value>Person</xf:value>
+																													</xf:item>
+																													<xf:item>
+																														<xf:label>Group</xf:label>
+																														<xf:value>Generic_Group</xf:value>
+																													</xf:item>
+																												</xf:select1>
+																											</td>
+																										</tr>
+
+
+																										<tr valign="top">
+																											<td>
+																												<b>Stakeholder Name: </b>
+																											</td>
+																											<td>
+																												<xf:input class="Source" ref="Name">
+																													<xf:label></xf:label>
+																												</xf:input>
+																											</td>
+																										</tr>
+
+																										<tr>
+																											<td>
+																												<b>Description: </b>
+																											</td>
+																											<td>
+																												<xf:textarea rows="6" class="textarea"
+																													ref="Description">
+																													<xf:label></xf:label>
+																												</xf:textarea>
+																											</td>
+																										</tr>
+
+
+
+
+
+																										<!-- HERE -->
+
+																										<tr>
+																											<td colspan="3">
+																												<ul>
+
+																													<xf:group>
+																														<xf:repeat id="objrolerepeat"
+																															nodeset="Role" appearance="compact">
+
+																															<table>
+																																<tr>
+																																	<td colspan="2">
+																																		<h3>
+																																			Role
+																																			<xf:output value="position()" />
+																																			 of Stakeholder:
+																																		</h3>
+																																	</td>
+																																</tr>
+
+																																<tr valign="top">
+																																	<td>
+																																		<b>Role Name: </b>
+																																	</td>
+																																	<td>
+																																		<xf:input class="Source" ref="Name">
+																																			<xf:label></xf:label>
+																																		</xf:input>
+																																	</td>
+																																</tr>
+
+																																<tr>
+																																	<td>
+																																		<b>Role Description: </b>
+																																	</td>
+																																	<td>
+																																		<xf:textarea rows="6"
+																																			class="textarea" ref="Description">
+																																			<xf:label></xf:label>
+																																		</xf:textarea>
+																																	</td>
+																																</tr>
+
+																																<tr>
+																																	<td colspan="3">
+																																		<ul>
+																																			<xf:group>
+																																				<xf:repeat id="objroletyperepeat"
+																																					nodeset="RoleType" appearance="compact">
+
+																																					<table>
+																																						<tr valign="top">
+																																							<td>
+																																								<b>
+																																									Role Type
+																																									<xf:output value="position()" />
+																																									:
+																																								</b>
+																																							</td>
+																																							<td>
+																																								<xf:select1 class="Source"
+																																									ref="." appearance="minimal">
+																																									<xf:label />
+																																									<xf:item>
+																																										<xf:label>Performer</xf:label>
+																																										<xf:value>Performer</xf:value>
+																																									</xf:item>
+																																									<xf:item>
+																																										<xf:label>Beneficiary
+																																										</xf:label>
+																																										<xf:value>Beneficiary
+																																										</xf:value>
+																																									</xf:item>
+																																								</xf:select1>
+																																							</td>
+																																						</tr>
+
+																																						<tr>
+																																							<td>
+																																							</td>
+																																							<td>
+																																								<xf:trigger>
+																																									<xf:label>Remove Role Type
+																																									</xf:label>
+																																									<xf:delete nodeset="."
+																																										at="1"
+																																										if="count(//StrategicPlanCore/Objective/Stakeholder/Role/RoleType) > 1"
+																																										ev:event="DOMActivate" />
+																																										<xf:load resource="javascript:MyJavaScript()" />
+																																								</xf:trigger>
+																																							</td>
+																																						</tr>
+																																					</table>
+
+																																					<xf:trigger>
+																																						<xf:label>Add Role Type</xf:label>
+																																						<xf:action ev:event="DOMActivate">
+																																							<xf:insert nodeset="."
+																																								at="1" position="before" />
+																																							<xf:setvalue ref="."></xf:setvalue>
+																																							<xf:load resource="javascript:MyJavaScript()" />
+																																						</xf:action>
+																																					</xf:trigger>
+
+																																				</xf:repeat>
+																																			</xf:group>
+																																		</ul>
+																																	</td>
+																																</tr>
+
+
+
+																																<!-- </xf:repeat></xf:group> -->
+																																<tr>
+																																	<td>
+																																	</td>
+																																</tr>
+																																<tr>
+																																	<td>
+																																	</td>
+																																	<td colspan="1">
+																																		<xf:trigger>
+																																			<xf:label>Remove Role</xf:label>
+																																			<xf:delete nodeset="." at="1"
+																																				if="count(//StrategicPlanCore/Objective/Stakeholder/Role) > 1"
+																																				ev:event="DOMActivate" />
+																																				<xf:load resource="javascript:MyJavaScript()" />
+																																		</xf:trigger>
+																																	</td>
+																																</tr>
+
+																															</table>
+
+																															<xf:trigger>
+																																<xf:label>Add Role</xf:label>
+																																<xf:action ev:event="DOMActivate">
+																																	<xf:insert nodeset="." at="1"
+																																		position="before" />
+																																	<xf:setvalue ref=".[current()]/Name">[To be
+																																		named]</xf:setvalue>
+																																	<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+																																	<xf:setvalue ref=".[current()]/RoleType"></xf:setvalue>
+																																	<xf:load resource="javascript:MyJavaScript()" />																																	<!-- <xf:insert nodeset="Stakeholder" at="index('rolerepeat')" 
+																																		position="after"/> <xf:setvalue ref="//StrategicPlanCore/Goal/Stakeholder/Role[last()]/Name"></xf:setvalue> 
+																																		<xf:setvalue ref="//StrategicPlanCore/Goal/Stakeholder/Role[last()]/Description"></xf:setvalue> 
+																																		<xf:setvalue ref="//StrategicPlanCore/Goal/Stakeholder/Role[last()]/RoleType"></xf:setvalue> -->
+																																</xf:action>
+																															</xf:trigger>
+
+
+																														</xf:repeat>
+																													</xf:group>
+																												</ul>
+																											</td>
+																										</tr>
+
+
+
+
+
+																										<!-- HERE -->
+
+
+
+
+
+																										<tr>
+																											<td>
+																											</td>
+																											<td colspan="1">
+
+																												<xf:trigger>
+																													<xf:label>Remove Stakeholder</xf:label>
+																													<xf:delete nodeset="." at="1"
+																														if="count(nodeindex('objectiverepeat')/Stakeholder) > 1"
+																														ev:event="DOMActivate" />
+																													<xf:action
+																														if="count(nodeindex('objectiverepeat')/Stakeholder) = 1"
+																														ev:event="DOMActivate">
+																														<xf:setvalue
+																															ref="nodeindex('objectiverepeat')/Stakeholder/Name" />
+																														<xf:setvalue
+																															ref="nodeindex('objectiverepeat')/Stakeholder/Description" />
+																														<xf:setvalue
+																															ref="nodeindex('objectiverepeat')/Stakeholder/Role" />
+																															<xf:load resource="javascript:MyJavaScript()" />
+																													</xf:action>
+																												</xf:trigger>
+
+																											</td>
+																										</tr>
+																									</table>
+
+
+
+
+
+																									<xf:trigger>
+																										<xf:label>Add Stakeholder</xf:label>
+																										<xf:action ev:event="DOMActivate">
+																											<xf:insert nodeset="." at="1"
+																												position="before" />
+																											<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
+																											<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+																											<xf:load resource="javascript:MyJavaScript()" />		
+																										</xf:action>
+																									</xf:trigger>
+																								</xf:repeat>
+																							</xf:group>
+
+																						</td>
+																					</tr>
+																					<!-- End of Stakeholder section -->
+
+
+
+																					<tr>
+																						<td>
+																							<b>Other Information: </b>
+																						</td>
+																						<td>
+																							<xf:textarea rows="6" class="textarea"
+																								ref="OtherInformation">
+																								<xf:label></xf:label>
+																							</xf:textarea>
+
+																						</td>
+																					</tr>
+
+
+																					<!-- Performance Indicator section -->
+																					<tr id="perfind">
+																						<td />
+																						<td>
+																							<xf:group>
+																								<xf:repeat id="perfindrepeat" nodeset="PerformanceIndicator"
+																									appearance="compact">
+
+																									<table>
+																										<tr>
+																											<td colspan="2">
+																												<h3>
+																													Performance Indicator
+																													<xf:output value="position()" />
+																													:
+																												</h3>
+																											</td>
+																										</tr>
+
+																										<tr valign="top">
+																											<td style="font-weight:bold;">Indicator Type: </td>
+																											<td>
+																												<xf:select1 class="Source"
+																													ref="@PerformanceIndicatorType" appearance="minimal">
+																													<xf:label />
+																													<xf:item>
+																														<xf:label>Quantitative</xf:label>
+																														<xf:value>Quantitative</xf:value>
+																													</xf:item>
+																													<xf:item>
+																														<xf:label>Qualitative</xf:label>
+																														<xf:value>Qualitative</xf:value>
+																													</xf:item>
+																												</xf:select1>
+																											</td>
+																										</tr>
+																										<tr valign="top">
+																											<td style="font-weight:bold;">Value Chain Stage:</td>
+																											<td>
+																												<xf:select1 class="Source"
+																													ref="@ValueChainStage" appearance="minimal">
+																													<xf:label />
+																													<xf:item>
+																														<xf:label>Outcome</xf:label>
+																														<xf:value>Outcome</xf:value>
+																													</xf:item>
+																													<xf:item>
+																														<xf:label>Output_Processing</xf:label>
+																														<xf:value>Output_Processing</xf:value>
+																													</xf:item>
+																													<xf:item>
+																														<xf:label>Output</xf:label>
+																														<xf:value>Output</xf:value>
+																													</xf:item>
+																													<xf:item>
+																														<xf:label>Input_Processing</xf:label>
+																														<xf:value>Input_Processing</xf:value>
+																													</xf:item>
+																													<xf:item>
+																														<xf:label>Input</xf:label>
+																														<xf:value>Input</xf:value>
+																													</xf:item>
+																												</xf:select1>
+																											</td>
+																										</tr>
+
+																										<tr>
+																											<td style="font-weight:bold;">
+																												<span class="noread">Identifier:</span>
+																											</td>
+																											<td>
+																												<xf:input class="Source" ref="Identifier">
+																													<xf:label />
+																												</xf:input>
+																											</td>
+																										</tr>
+
+																										<tr valign="top">
+																											<td style="font-weight:bold;">Measurement Dimension:</td>
+																											<td>
+																												<xf:input class="Source"
+																													ref="MeasurementDimension">
+																													<xf:label />
+																												</xf:input>
+																											</td>
+																										</tr>
+
+																										<tr valign="top">
+																											<td style="font-weight:bold;">
+																												Unit Of Measurement:
+																											</td>
+																											<td>
+																												<xf:input class="Source" ref="UnitOfMeasurement">
+																													<xf:label />
+																												</xf:input>
+																											</td>
+																										</tr>
+
+																										<tr>
+																											<td style="font-weight:bold;">Descriptor Name</td>
+																											<td>
+																												<xf:input class="Source"
+																													ref="MeasurementInstance/TargetResult/Descriptor/DescriptorName">
+																													<xf:label />
+																												</xf:input>
+																											</td>
+																										</tr>
+
+
+																										<tr>
+																											<td style="font-weight:bold;">Other Information:</td>
+																											<td>
+																												<xf:textarea rows="6" class="textarea"
+																													ref="OtherInformation">
+																													<xf:label />
+																												</xf:textarea>
+																											</td>
+																										</tr>
+
+
+																										<!-- <tr> <td/> <td> -->
+
+
+
+																										<!-- PerformanceIndicator Relationship section -->
+
+
+																										<tr>
+																											<td />
+
+																											<td>
+																												<xf:group>
+																													<xf:repeat id="relationrepeat"
+																														nodeset="Relationship" appearance="compact">
+
+																														<table>
+																															<tr>
+																																<td colspan="2">
+																																	<h3>
+																																		Relationship
+																																		<xf:output value="position()" />
+																																		:
+																																	</h3>
+																																</td>
+																															</tr>
+																															<tr valign="top">
+																																<td style="font-weight:bold;">Type:</td>
+																																<td>
+																																	<xf:select1 class="Source"
+																																		ref="@RelationshipType" appearance="minimal">
+																																		<xf:label />
+																																		<xf:item>
+																																			<xf:label>Broader_Than</xf:label>
+																																			<xf:value>Broader_Than</xf:value>
+																																		</xf:item>
+																																		<xf:item>
+																																			<xf:label>Peer_To</xf:label>
+																																			<xf:value>Peer_To</xf:value>
+																																		</xf:item>
+																																		<xf:item>
+																																			<xf:label>Narrower_Than</xf:label>
+																																			<xf:value>Narrower_Than</xf:value>
+																																		</xf:item>
+																																	</xf:select1>
+																																</td>
+																															</tr>
+
+																															<tr>
+																																<td>
+																																	<b>
+																																		<span class="noread">Relationship
+																																			Identifier: </span>
+																																	</b>
+																																</td>
+																																<td>
+																																	<xf:input class="Source" ref="Identifier">
+																																		<xf:label>
+																																		</xf:label>
+																																	</xf:input>
+																																</td>
+																															</tr>
+
+																															<tr>
+																																<td colspan="2">
+																																	<xf:group>
+																																		<xf:repeat id="referentrepeat"
+																																			nodeset="ReferentIdentifier"
+																																			appearance="compact">
+
+																																			<table>
+																																				<tr ColSpan="2" valign="top">
+																																					<td>
+																																						<b>
+																																							Referent Identifier
+																																							<xf:output value="position()" />
+																																							:
+																																						</b>
+																																					</td>
+																																					<td>
+																																						<xf:input class="Source"
+																																							ref=".">
+																																							<xf:label />
+																																						</xf:input>
+																																					</td>
+																																				</tr>
+
+																																				<tr ColSpan="2">
+
+																																					<td>
+																																						<xf:trigger>
+																																							<xf:label>Remove Referent
+																																							</xf:label>
+																																							<xf:delete nodeset="."
+																																								at="1"
+																																								if="count(//StrategicPlanCore/Goal/Objective/PerformanceIndicator/Relationship/ReferentIdentifier) > 1"
+																																								ev:event="DOMActivate" />
+																																								<xf:load resource="javascript:MyJavaScript()" />
+																																						</xf:trigger>
+																																					</td>
+
+																																					<td>
+																																						<xf:trigger>
+																																							<xf:label>Add Referent </xf:label>
+																																							<xf:action ev:event="DOMActivate">
+																																								<xf:insert nodeset="."
+																																									at="1" position="before" />
+																																								<xf:setvalue ref=".">[To_be_inserted_by_user]
+																																								</xf:setvalue>
+																																								<xf:load resource="javascript:MyJavaScript()" />
+																																							</xf:action>
+																																						</xf:trigger>
+																																					</td>
+																																				</tr>
+																																			</table>
+																																		</xf:repeat>
+																																	</xf:group>
+																																</td>
+																															</tr>
+
+																															<tr valign="top">
+																																<td style="font-weight:bold;">Name:</td>
+																																<td>
+																																	<xf:input class="Source" ref="Name">
+																																		<xf:label />
+																																	</xf:input>
+																																</td>
+																															</tr>
+
+																															<tr valign="top">
+																																<td style="font-weight:bold;">Description:</td>
+																																<td>
+																																	<xf:textarea rows="6"
+																																		class="textarea" ref="Description">
+																																		<xf:label />
+																																	</xf:textarea>
+																																</td>
+																															</tr>
+
+																															<tr>
+																																<td colspan="2">
+																																	<xf:trigger>
+																																		<xf:label>Remove Relationship
+																																		</xf:label>
+																																		<xf:delete nodeset="." at="1"
+																																			if="count(nodeindex('perfindrepeat')/Relationship) &gt; 1"
+																																			ev:event="DOMActivate" />
+																																		<xf:action
+																																			if="count(nodeindex('perfindrepeat')/Relationship) = 1"
+																																			ev:event="DOMActivate">
+																																			<xf:setvalue
+																																				ref="nodeindex('perfindrepeat')/Relationship/Name" />
+																																			<xf:setvalue
+																																				ref="nodeindex('perfindrepeat')/Relationship/Description" />
+																																			<xf:setvalue
+																																				ref="nodeindex('perfindrepeat')/Relationship/Identifier" />
+																																			<xf:setvalue
+																																				ref="nodeindex('perfindrepeat')/Relationship/ReferentIdentifier" />
+																																			<xf:setvalue
+																																				ref="nodeindex('perfindrepeat')/Relationship/@RelationshipType" />
+																																			<xf:load resource="javascript:MyJavaScript()" />
+																																		</xf:action>
+																																	</xf:trigger>
+																																</td>
+																															</tr>
+
+																														</table>
+
+
+																														<xf:trigger>
+																															<xf:label>Add Relationship</xf:label>
+																															<xf:action ev:event="DOMActivate">
+																																<xf:insert nodeset="." at="1"
+																																	position="before" />
+																																<xf:setvalue
+																																	ref=".[current()]/@RelationshipType" />
+																																<xf:setvalue ref=".[current()]/Name" />
+																																<xf:setvalue ref=".[current()]/Description" />
+																																<xf:setvalue ref=".[current()]/Identifier"></xf:setvalue>
+																																<xf:load resource="javascript:MyJavaScript()" />
+																															</xf:action>
+																														</xf:trigger>
+
+
+																													</xf:repeat>
+																												</xf:group>
+
+																											</td>
+																										</tr>
+
+
+
+																										<!-- PerformanceIndicator MeasurementInstance section -->
+
+																										<tr>
+																											<td />
+
+																											<td>
+																												<xf:group>
+																													<xf:repeat id="measurepeat"
+																														nodeset="MeasurementInstance" appearance="compact">
+																														<table>
+																															<tr>
+																																<td colspan="2">
+																																	<h3>
+																																		Measurement Instance
+																																		<xf:output value="position()" />
+																																		:
+																																	</h3>
+
+																																</td>
+																															</tr>
+
+
+																															<!-- TargeResult section -->
+
+																															<tr>
+																																<td />
+
+																																<td>
+
+																																	<xf:group>
+																																		<xf:repeat id="targetrepeat"
+																																			nodeset="TargetResult" appearance="compact">
+																																			<table>
+																																				<tr>
+																																					<td colspan="2">
+																																						<h3>
+																																							Target Result
+																																							<xf:output value="position()" />
+																																							:
+																																						</h3>
+																																					</td>
+																																				</tr>
+																																				<tr>
+																																					<td style="font-weight:bold;">Description:</td>
+																																					<td>
+																																						<xf:textarea rows="6"
+																																							class="textarea1" ref="Description">
+																																							<xf:label />
+																																						</xf:textarea>
+																																					</td>
+																																				</tr>
+																																				<tr valign="top">
+																																					<td style="font-weight:bold;">Number Of Units:</td>
+																																					<td>
+																																						<xf:input class="Source"
+																																							ref="NumberOfUnits" incremental="true">
+																																							<xf:label />
+																																						</xf:input>
+																																					</td>
+																																				</tr>
+
+
+
+																																				<tr>
+																																					<td style="font-weight:bold;">Descriptor Value </td>
+																																					<td>
+																																						<xf:input class="Source"
+																																							ref="Descriptor/DescriptorValue">
+																																							<xf:label />
+																																						</xf:input>
+																																					</td>
+																																				</tr>
+
+
+																																				<tr>
+																																					<td style="font-weight:bold;">Start Date:</td>
+																																					<td>
+																																						<xf:input class="Source"
+																																							ref="StartDate">
+																																							<xf:label />
+																																						</xf:input>
+																																					</td>
+																																				</tr>
+																																				<tr>
+																																					<td style="font-weight:bold;">End Date:
+																																					</td>
+																																					<td>
+																																						<xf:input class="Source"
+																																							ref="EndDate">
+																																							<xf:label />
+																																						</xf:input>
+																																					</td>
+																																				</tr>
+																																				<tr>
+																																					<td colspan="2">
+																																						<ul>
+																																							<xf:trigger>
+																																								<xf:label>Remove Target Result
+																																								</xf:label>
+																																								<xf:delete nodeset="."
+																																									at="1"
+																																									if="count(nodeindex('measurepeat')/TargetResult) &gt; 1"
+																																									ev:event="DOMActivate" />
+																																								<xf:action
+																																									if="count(nodeindex('measurepeat')/TargetResult) = 1"
+																																									ev:event="DOMActivate">
+																																									<xf:setvalue
+																																										ref="nodeindex('measurepeat')/TargetResult/NumberOfUnits"></xf:setvalue>
+																																									<xf:setvalue
+																																										ref="nodeindex('measurepeat')/TargetResult/Description">[To be described]
+																																									</xf:setvalue>
+																																									<xf:setvalue
+																																										ref="nodeindex('measurepeat')/TargetResult/Descriptor/DescriptorValue" />
+																																									<xf:setvalue
+																																										ref="nodeindex('measurepeat')/TargetResult/StartDate" />
+																																									<xf:setvalue
+																																										ref="nodeindex('measurepeat')/TargetResult/EndDate" />
+																																										<xf:load resource="javascript:MyJavaScript()" />
+																																								</xf:action>
+																																							</xf:trigger>
+																																						</ul>
+																																					</td>
+																																				</tr>
+
+
+
+																																				<!-- End of TR zzz -->
+																																			</table>
+
+																																			<xf:trigger>
+																																				<xf:label>Add Target Result
+																																				</xf:label>
+																																				<xf:action ev:event="DOMActivate">
+																																					<xf:insert nodeset="."
+																																						at="1" position="before" />
+																																					<xf:setvalue
+																																						ref=".[current()]/NumberOfUnits"></xf:setvalue>
+																																					<xf:setvalue
+																																						ref=".[current()]/Description">[To be described]
+																																					</xf:setvalue>
+																																					<xf:setvalue
+																																						ref=".[current()]/StartDate" />
+																																					<xf:setvalue ref=".[current()]/EndDate" />
+																																					<xf:setvalue
+																																						ref=".[current()]/Descriptor/DescriptorValue" />
+																																						<xf:load resource="javascript:MyJavaScript()" />
+																																				</xf:action>
+																																			</xf:trigger>
+
+
+																																		</xf:repeat>
+																																	</xf:group>
+																																</td>
+																															</tr>
+
+
+																															<!-- ActualResult section -->
+
+																															<tr>
+																																<td />
+
+																																<td>
+
+																																	<xf:group>
+																																		<xf:repeat id="actualrepeat"
+																																			nodeset="ActualResult" appearance="compact">
+																																			<table>
+																																				<tr>
+																																					<td colspan="2">
+																																						<h3>
+																																							Actual Result
+																																							<xf:output value="position()" />
+																																							:
+																																						</h3>
+																																					</td>
+																																				</tr>
+																																				<tr>
+																																					<td style="font-weight:bold;">Description:</td>
+																																					<td>
+																																						<xf:textarea rows="6"
+																																							class="textarea1" ref="Description">
+																																							<xf:label />
+																																						</xf:textarea>
+																																					</td>
+																																				</tr>
+
+																																				<tr valign="top">
+																																					<td style="font-weight:bold;">Number Of Units:</td>
+																																					<td>
+																																						<xf:input class="Source"
+																																							ref="NumberOfUnits" incremental="true">
+																																							<xf:label />
+																																						</xf:input>
+																																					</td>
+																																				</tr>
+																																				<tr>
+																																					<td style="font-weight:bold;">Descriptor Value </td>
+																																					<td>
+																																						<xf:input class="Source"
+																																							ref="Descriptor/DescriptorValue">
+																																							<xf:label />
+																																						</xf:input>
+																																					</td>
+																																				</tr>
+
+																																				<tr>
+																																					<td style="font-weight:bold;">Start Date:</td>
+																																					<td>
+																																						<xf:input class="Source"
+																																							ref="StartDate">
+																																							<xf:label />
+																																						</xf:input>
+																																					</td>
+																																				</tr>
+																																				<tr>
+																																					<td style="font-weight:bold;">End Date:
+																																					</td>
+																																					<td>
+																																						<xf:input class="Source"
+																																							ref="EndDate">
+																																							<xf:label />
+																																						</xf:input>
+																																					</td>
+																																				</tr>
+																																				<tr>
+																																					<td colspan="2">
+																																						<ul>
+																																							<xf:trigger>
+																																								<xf:label>Remove Actual Result
+																																								</xf:label>
+																																								<xf:delete nodeset="."
+																																									at="1"
+																																									if="count(nodeindex('measurepeat')/ActualResult) &gt; 1"
+																																									ev:event="DOMActivate" />
+																																								<xf:action
+																																									if="count(nodeindex('measurepeat')/ActualResult) = 1"
+																																									ev:event="DOMActivate">
+																																									<xf:setvalue
+																																										ref="nodeindex('measurepeat')/ActualResult/NumberOfUnits"></xf:setvalue>
+																																									<xf:setvalue
+																																										ref="nodeindex('measurepeat')/ActualResult/Description">[To be determined]
+																																									</xf:setvalue>
+																																									<xf:setvalue
+																																										ref="nodeindex('measurepeat')/ActualResult/StartDate" />
+																																									<xf:setvalue
+																																										ref="nodeindex('measurepeat')/ActualResult/EndDate" />
+																																									<xf:setvalue
+																																										ref="nodeindex('measurepeat')/ActualResult/Descriptor/DescriptorValue" />
+
+
+																																								</xf:action>
+																																							</xf:trigger>
+																																						</ul>
+																																					</td>
+																																				</tr>
+
+
+
+																																				<!-- End of ActualResult zzz -->
+																																			</table>
+
+																																			<xf:trigger>
+																																				<xf:label>Add Actual Result
+																																				</xf:label>
+																																				<xf:action ev:event="DOMActivate">
+																																					<xf:insert nodeset="."
+																																						at="1" position="before" />
+																																					<xf:setvalue
+																																						ref=".[current()]/NumberOfUnits"></xf:setvalue>
+																																					<xf:setvalue
+																																						ref=".[current()]/Description">[To be determined]
+																																					</xf:setvalue>
+																																					<xf:setvalue
+																																						ref=".[current()]/StartDate" />
+																																					<xf:setvalue ref=".[current()]/EndDate" />
+																																					<xf:setvalue
+																																						ref=".[current()]/Descriptor/DescriptorValue" />
+																																						<xf:load resource="javascript:MyJavaScript()" />
+																																				</xf:action>
+																																			</xf:trigger>
+
+
+																																		</xf:repeat>
+																																	</xf:group>
+																																</td>
+																															</tr>
+
+
+
+
+
+
+
+
+
+																															<!-- End of MI -->
+
+																															<tr>
+																																<td colspan="2">
+																																	<xf:trigger>
+																																		<xf:label>Remove Measurement Instance
+																																		</xf:label>
+																																		<xf:delete nodeset="." at="1"
+																																			if="count(nodeindex('perfindrepeat')/MeasurementInstance) &gt; 1"
+																																			ev:event="DOMActivate" />
+																																		<xf:action
+																																			if="count(nodeindex('perfindrepeat')/MeasurementInstance) = 1"
+																																			ev:event="DOMActivate">
+																																			<xf:setvalue
+																																				ref="nodeindex('perfindrepeat')/MeasurementInstance/Identifier" />
+																																			<xf:setvalue
+																																				ref="nodeindex('perfindrepeat')/MeasurementInstance/@RelationshipType" />
+																																				<xf:load resource="javascript:MyJavaScript()" />
+																																		</xf:action>
+																																	</xf:trigger>
+																																</td>
+																															</tr>
+
+
+
+
+																														</table>
+
+																														<xf:trigger>
+																															<xf:label>Add Measurement Instance
+																															</xf:label>
+																															<xf:action ev:event="DOMActivate">
+																																<xf:insert nodeset="." at="1"
+																																	position="before" />
+																																<xf:setvalue
+																																	ref=".[current()]/@RelationshipType" />
+																																<xf:setvalue ref=".[current()]/Identifier" />
+																																<xf:setvalue
+																																	ref=".[current()]/ActualResult/NumberOfUnits"></xf:setvalue>
+																																<xf:setvalue
+																																	ref=".[current()]/TargetResult/NumberOfUnits"></xf:setvalue>
+																																<xf:setvalue
+																																	ref=".[current()]/ActualResult/Description">[To be determined]</xf:setvalue>
+																																<xf:setvalue
+																																	ref=".[current()]/TargetResult/Description">[To be described]</xf:setvalue>
+																																	<xf:load resource="javascript:MyJavaScript()" />
+																															</xf:action>
+																														</xf:trigger>
+
+
+
+																													</xf:repeat>
+																												</xf:group>
+																											</td>
+																										</tr>
+
+
+
+
+
+																										<!-- PerformanceIndicator Relationship section 
+																											end </td> </tr> -->
+
+
+
+
+																										<tr>
+																											<td colspan="2">
+																												<xf:trigger>
+																													<xf:label>Remove Performance Indicator
+																													</xf:label>
+																													<xf:delete nodeset="." at="1"
+																														if="count(nodeindex('objectiverepeat')/PerformanceIndicator) &gt; 1"
+																														ev:event="DOMActivate" />
+																													<xf:action
+																														if="count(nodeindex('objectiverepeat')/PerformanceIndicator) = 1"
+																														ev:event="DOMActivate">
+																														<xf:setvalue
+																															ref="nodeindex('objectiverepeat')/PerformanceIndicator/Identifier" />
+																														<xf:setvalue
+																															ref="nodeindex('objectiverepeat')/PerformanceIndicator/MeasurementDimension" />
+																														<xf:setvalue
+																															ref="nodeindex('objectiverepeat')/PerformanceIndicator/UnitOfMeasurement" />
+																														<xf:setvalue
+																															ref="nodeindex('objectiverepeat')/PerformanceIndicator/OtherInformation" />
+																															<xf:load resource="javascript:MyJavaScript()" />
+																													</xf:action>
+																												</xf:trigger>
+																											</td>
+																										</tr>
+
+
+
+																									</table>
+
+																									<xf:trigger>
+																										<xf:label>Add Performance Indicator</xf:label>
+																										<xf:action ev:event="DOMActivate">
+																											<xf:insert nodeset="." at="1"
+																												position="before" />
+																											<xf:setvalue ref=".[current()]/Identifier" />
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementDimension" />
+																											<xf:setvalue ref=".[current()]/UnitOfMeasurement" />
+																											<xf:setvalue ref=".[current()]/OtherInformation" />
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/TargetResult/NumberOfUnits"></xf:setvalue>
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/TargetResult/Description">[To be described]</xf:setvalue>
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/TargetResult/Descriptor/DescriptorName" />
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/TargetResult/Descriptor/DescriptorValue" />
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/TargetResult/StartDate" />
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/TargetResult/EndDate" />
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/ActualResult/NumberOfUnits"></xf:setvalue>
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/ActualResult/Description">[To be determined]</xf:setvalue>
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/ActualResult/Descriptor/DescriptorName" />
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/ActualResult/Descriptor/DescriptorValue" />
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/ActualResult/StartDate" />
+																											<xf:setvalue
+																												ref=".[current()]/MeasurementInstance/ActualResult/EndDate" />
+																												<xf:load resource="javascript:MyJavaScript()" />
+																										</xf:action>
+																									</xf:trigger>
+
+
+																								</xf:repeat>
+																							</xf:group>
+																						</td>
+																					</tr>
+
+
+
+
+
+
+																				</td>
+																			</tr>
+
+
+
+
+
+																			<tr>
+																				<td>
+																				</td>
+																				<td colspan="1">
+
+
+																					<xf:trigger>
+																						<xf:label>
+																							Remove Objective
+																							<xf:output value="position()" />
+																						</xf:label>
+																						<xf:delete nodeset="." at="1"
+																							if="count(//Goal/Objective) > 1" ev:event="DOMActivate" />
+																							<xf:load resource="javascript:MyJavaScript()" />
+																					</xf:trigger>
+
+																				</td>
+																				<td></td>
+																			</tr>
+
+																		</table>
+
+																		<xf:trigger>
+																			<xf:label>Add Objective</xf:label>
+																			<xf:action ev:event="DOMActivate">
+																				<xf:insert nodeset="." at="1" position="before" />
+																				<xf:delete nodeset="./Stakeholder" at="1"
+																					while="count(./Stakeholder) > 1" ev:event="DOMActivate" />
+																				<xf:setvalue ref=".[current()]/Name"></xf:setvalue>
+																				<xf:setvalue ref=".[current()]/Description"></xf:setvalue>
+																				<xf:setvalue ref=".[current()]/Identifier"></xf:setvalue>
+																				<xf:setvalue ref=".[current()]/SequenceIndicator"></xf:setvalue>
+																				<xf:setvalue ref=".[current()]/OtherInformation"></xf:setvalue>
+																				<xf:setvalue ref=".[current()]/Stakeholder/Name">[To be named]
+																				</xf:setvalue>
+																				<xf:setvalue ref=".[current()]/Stakeholder/Description"></xf:setvalue>
+																				<xf:load resource="javascript:MyJavaScript()" />
+																			</xf:action>
+																		</xf:trigger>
+
+																	</xf:repeat>
+																</xf:group>
+
+															</td>
+														</tr>
+														<!-- End of Objective section -->
+
+
+														<tr>
+															<td colspan="2">
+																<br />
+
+																<xf:trigger>
+																	<xf:label>
+																		Remove Goal
+																		<xf:output value="position()" />
+																	</xf:label>
+																	<xf:delete nodeset="." at="1"
+																		if="count(//StrategicPlanCore/Goal ) > 1" ev:event="DOMActivate" />
+																		<xf:load resource="javascript:MyJavaScript()" />
+																</xf:trigger>
+															</td>
+														</tr>
+
+													</table>
+
+													<xf:trigger>
+														<xf:label>Add Goal</xf:label>
+														<xf:action ev:event="DOMActivate">
+															<xf:insert nodeset="." at="1" position="before" />
+															<xf:delete nodeset="./Objective" at="1"
+																while="count(./Objective ) > 1" ev:event="DOMActivate" />
+															<xf:delete nodeset="./Stakeholder" at="1"
+																while="count(./Stakeholder) > 1" ev:event="DOMActivate" />
+
+															<xf:setvalue ref=".[current()]/Name">[To be named]</xf:setvalue>
+															<xf:setvalue ref=".[current()]/Description">[To be described]
+															</xf:setvalue>
+															<xf:setvalue ref=".[current()]/Identifier"></xf:setvalue>
+															<xf:setvalue ref=".[current()]/SequenceIndicator"></xf:setvalue>
+															<xf:setvalue ref=".[current()]/OtherInformation"></xf:setvalue>
+															<xf:setvalue ref=".[current()]/Stakeholder/Name">[To be named]</xf:setvalue>
+															<xf:setvalue ref=".[current()]/Stakeholder/Description"></xf:setvalue>
+															<xf:setvalue ref=".[current()]/Objective/Name"></xf:setvalue>
+															<xf:setvalue ref=".[current()]/Objective/Description" />
+															<xf:setvalue ref=".[current()]/Objective/Identifier" />
+															<xf:setvalue ref=".[current()]/Objective/SequenceIndicator"
+																value="1" />
+															<xf:setvalue ref=".[current()]/Objective/OtherInformation" />
+															<xf:setvalue ref=".[current()]/Objective/Stakeholder/Name">[To be named]</xf:setvalue>
+															<xf:setvalue
+																ref=".[current()]/Objective/Stakeholder/Description" />
+																<xf:load resource="javascript:MyJavaScript()" />
+																
+														</xf:action>
+													</xf:trigger>
+
+												</xf:repeat>
+
+											</xf:group>
+											</div>
+										</ul>
+
+
+
+
+
+										<!-- =================================== -->
+										<!-- Submitter Information -->
+										<h2>
+											<hr align="left" />
+											Submitter Information
+										</h2>
+										<ul>
+											<table>
+												<tr>
+													<td>
+														<xf:input class="name" ref="Submitter/GivenName">
+															<xf:label>
+																<b> Given Name: </b>
+															</xf:label>
+														</xf:input>
+
+													</td>
+													<td>
+														<xf:input class="name" ref="Submitter/Surname">
+															<xf:label>
+																<b> Surname: </b>
+															</xf:label>
+														</xf:input>
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+														<xf:input class="email" ref="Submitter/EmailAddress">
+															<xf:label>
+																<b> Email Address: </b>
+															</xf:label>
+														</xf:input>
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+														<xf:input ref="Submitter/PhoneNumber">
+															<xf:label>
+																<b>Telephone Number: </b>
+															</xf:label>
+														</xf:input>
+													</td>
+												</tr>
+
+											</table>
+										</ul>
+
+									</div>
+
+
+									<!-- =================================== -->
+									<!-- Submission buttons -->
+									<center>
+
+										<!-- <xf:submit submission="s04"> <xf:label>Save As</xf:label> 
+											</xf:submit> <xf:submit submission="s01"> <xf:label>View</xf:label> </xf:submit> -->
+
+										<xf:submit submission="s02">
+											<xf:label>XML</xf:label>
+										</xf:submit>
+										<xf:submit submission="s03">
+											<xf:label>XML+XSL</xf:label>
+										</xf:submit>
+
+										<!-- <xf:submit submission="gannon"> <xf:label>Summary</xf:label> 
+											</xf:submit> <xf:submit submission="colin"> <xf:label>XML+XSL-new</xf:label> 
+											</xf:submit> -->
+
+										<!-- <xf:submit submission="s_html"> <xf:label>HTML</xf:label> 
+											</xf:submit> -->
+
+										<!-- <xf:submit submission="htmtiki"> <xf:label>HTMTiki</xf:label> 
+											</xf:submit> <br/> <xf:submit submission="catalog-entry"> <xf:label>CatEntry</xf:label> 
+											</xf:submit> <xf:submit submission="catalog-xform"> <xf:label>Catalog</xf:label> 
+											</xf:submit> -->
+
+										<xf:trigger>
+											<xf:label>Reset</xf:label>
+											<xf:reset ev:event="DOMActivate" />
+										</xf:trigger>
+									</center>
+									<p></p>
+								</td>
+							</tr>
+							<!-- End of main area -->
+						</table>
+
+
+						<p></p>
+					</td>
+				</tr>
+
+				<!-- End of full page backgroup table -->
+			</table>
+
+			<font face="Arial" size="-1">Form last updated: Oct. 28, 2015</font>
+		</center>
+	</body>
+</html>

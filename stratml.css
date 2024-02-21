@@ -1,0 +1,80 @@
+/* Global */
+body { color: black; background-color: #fff; color: #000; text-align: left; }
+table.formpage { text-align:center; width:100%; margin-top:0px; margin-bottom:0px; }
+table.stratpane {  margin-top:1px; border-bottom:1px solid black; width:960px; }
+p { text-align:justify; }
+pre, samp { font-family:Times-Roman; font-size:80%; }
+/* Heading information */
+.doc { font-family:Times-Roman; font-size:14pt; text-align:left; }
+.docheading { font-size:20pt; text-align:center; font-weight:bold; }
+.docsubheading { font-size:15pt; text-align:center; color:green; }
+.sourceheading {}
+.herald { font-family:sans-serif; font-size:12pt; font-weight:bold; text-align:left; }
+.subtitle { text-align:left; font-size:14pt; color:black; font-weight:bold; }
+.orgstaketitle { text-align:left; font-size:14pt; color:black; font-weight:bold; }
+.orgstakeholder { text-align:left; font-size:12pt; color:black; }
+.orgrole, .goalrole, .objrole { font-size:10pt; }
+/* TOC */
+.toctitle { text-align:center; font-size:16pt; color:green; font-weight:bold; }
+.tocsubtitle { text-align:left; font-size:14pt; color:black; font-weight:bold; }
+.tocentry { list-style-type: none; margin-top:0pt; margin-bottom:0pt; text-align:left; }
+.tocsubentry { list-style-type: none; margin-top:0pt; margin-bottom:0pt; text-align:left; }
+/* Body */
+.parajust { list-style-type: none; margin-top:0pt; margin-bottom:0pt; text-align:justify; }
+.orgdesc { text-align: justify; font-size: 12pt; }
+.vmvhead { font-size:15pt; font-weight:bold; text-align: left; }
+.vmvdesc { margin-left:.25in; text-align: left; }
+.goalsep { margin-top:16pt; margin-bottom:0pt; }
+.goalhead { text-align:center; font-size:16pt; color:green; font-weight:bold; margin-top:8pt; }
+.goaldesc { text-align:center; margin-left:10%; margin-right:10%; text-align:justify; }
+.goalstaketitle { text-align:left; font-size:14pt; color:black; font-weight:bold; }
+.goalstakeholder { text-align:left; margin-left:5%; margin-right:5%; }
+.objhead { font-size:14pt; text-align:center; font-weight:bold; }
+.objstaketitle { text-align:left; font-size:12pt; color:black; font-weight:bold; }
+.objstakeholder { text-align:left; }
+.infotitle { margin-top:0pt; margin-bottom:0pt; font-weight:bold; text-align:left; }
+.para { margin-left:.25in; margin-right:.25in; text-align:justify; }
+/* Performance Indicator */
+.perfhead { margin-left:.25in; margin-right:.25in; text-align: center; font-size:12pt; font-weight:bold; }
+.para-c { margin-left:.25in; margin-right:.25in; text-align: center; font-size:12pt; }
+/* Meta */
+.meta { font-size:8pt; text-align:right; margin-top:0pt; margin-bottom:0pt; }
+
+.stratstats-l { font-size:10pt; text-align:left; font-weight:bold; padding-left: 3px; }
+.stratstats-r { font-size:10pt; text-align:right; font-weight:bold; padding-right: 3px; }
+.stratstats-c { font-size:12pt; text-align:center; font-weight:bold; }
+.stratstats-c10 { font-size:10pt; text-align:center; font-weight:bold; }
+table.automenu td.menubox { text-align:left; }
+table.automenu { background-image: url(""); background-color: #EEE; }
+a:link { text-decoration:none; color: #06D; }
+a:visited { color: #048; }
+a:hover { color: black; }
+
+.cat-desc { font-size:10pt; }
+.cat-entry { font-size:10pt; font-weight: bold; }
+
+hr.form { height: 5px; width: 22%; color: gold; background-color: gold; }
+h1 { color:orange; }
+div.logo { font-family: Garamond; font-size:300%; font-weight: bold; }                     
+.definition { font-family: Helvetica; font-size:12pt; text-align: center; line-height: 12pt; }
+div.intro { font-family: Arial; font-size:95%; text-align:center; }                 
+span.button { font-family: Helvetica; font-size:100%; }
+div.left { font-family: Helvetica; font-size:100%; text-align:left; margin:15px; }
+label, legend { font-weight: normal; }
+ 
+/* The default field width for all inputs */
+.xforms-value { width: 100px; }
+ 
+/* custom field width overrides relative to current font size */
+/* ex is the size of the current lowercase 'x' in pixels */
+/* em is the size of the current "M" character in pixels */
+.Source .xforms-value { width:60ex; }
+.name .xforms-value { width:30ex; }
+ 
+.email .xforms-value { width:30ex; }
+.textarea .xforms-value { width:70ex; font-family: Helvetica, sans-serif; }
+.textareabig .xforms-value { width:100ex; font-family: Helvetica, sans-serif; }
+ 
+td { vertical-align: top; font-size: 10pt; }
+table.stratguid td.stratstats-l, table.stratguid td.stratstats-r { font-size: 8pt; }
+

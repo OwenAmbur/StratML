@@ -142,7 +142,7 @@ if ($d==0) {
 		print "<html><head>";
 		print "  <meta http-equiv=\"Refresh\" content=\"0; url=temp.xml\">\n";
 		print "</head><body>";
-		print "  <p>Please follow <a href=\"temp.xml\">link</a>!</p>\n";
+		print "  <p>Please follow <a href=\"temp/temp.xml\">link</a>!</p>\n";
 		print "</body></html>\n";
 		exit; }
 

@@ -49,14 +49,23 @@ Start:
 
 # http://xml.gov/stratml/FEARMP.xml
 my $xmldoc;
-if ($cgi->param('url')) {	
-  $xmldoc=GetFileFromURL($cgi->param('url'));
-} elsif ($cgi->param('f')) {
+my $url =  $cgi->param('url') ;
+#print "Checking $url "."\n";
+if($cgi->param('xml')){
+
+	$xmldoc = $cgi->param('xml');
+	$xmldoc =~ s/&lt;/</sg;
+	$xmldoc =~ s/&gt;/>/sg;
+	$xmldoc =~ s/&quot;/"/sg;
+	$xmldoc =~ s/&amp;/&/sg;
+}elsif ($cgi->param('f')) {
 	my $buffer;
 	my $io_handle = $cgi->upload('f')->handle;
 	while ( my $bytesread = $io_handle->read($buffer,1024) ) {
   	  $xmldoc.=$buffer;
   	}
+}elsif ($url) {	
+  $xmldoc=GetFileFromURL($url);
 } else {
 	die "No input";
 }

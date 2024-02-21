@@ -1,7 +1,5 @@
 #!/usr/bin/perl
 use cPanelUserConfig;
-use CGI::Carp qw(fatalsToBrowser);
-use CGI qw(:standard);
 use Data::UUID;
 $ug = new Data::UUID; 
 
@@ -11,8 +9,8 @@ $ug = new Data::UUID;
 # open(OUT,">../temp/temp.xml");
 # print OUT "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
-
-open(OUT,">temp.xml") or die "Can't create file: $!\n";
+my $myfile = "temp-stratml/temp.xml";
+open(OUT,"> $myfile ");
 print OUT "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 # print OUT "<?xml-stylesheet type=\"text/xsl\" href=\"Crane-StratML2HTML.xsl\"?>\n";
 print OUT "<?xml-stylesheet type=\"text/xsl\" href=\"part2stratml.xsl\"?>\n";
@@ -131,9 +129,9 @@ if ($posted_information=~m@<Organization>\s*(<Name>[^<]*?</Name>|<Name/>)\s*(<Ac
 
 		print "Content-type: text/html\n\n";	
 		print "<html><head>";
-		print "  <meta http-equiv=\"Refresh\" content=\"0; url=temp.xml\">\n";
+		print "  <meta http-equiv=\"Refresh\" content=\"0; url= temp-stratml/temp.xml\">\n";
 		print "</head><body>";
-		print "  <p>Please follow <a href=\"temp.xml\">link</a>!</p>\n";
+		print "  <p>Please follow <a href=\"temp-stratml/temp.xml\">link</a>!</p>\n";
 		print "</body></html>\n";
 		exit;
 
